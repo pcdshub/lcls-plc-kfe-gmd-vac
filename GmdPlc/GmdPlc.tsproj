@@ -481,7 +481,7 @@
 					</TaskPouOids>
 				</Instance>
 			</Project>
-			<Project GUID="{DC13CF13-96D9-4602-AE14-580A603776E8}" Name="GmdSim" PrjFilePath="GmdSim\GmdSim.plcproj" TmcFilePath="GmdSim\GmdSim.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e">
+			<Project Disabled="true" GUID="{DC13CF13-96D9-4602-AE14-580A603776E8}" Name="GmdSim" PrjFilePath="GmdSim\GmdSim.plcproj" TmcFilePath="GmdSim\GmdSim.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e">
 				<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="GmdSim\GmdSim.tmc">
 					<Name>GmdSim Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
@@ -494,257 +494,12 @@
 							</Comment>
 							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
 						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_10.i_xSol</Name>
-							<Comment>
-								<![CDATA[Solenoid to control the valve( either closed or open)]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_20.i_xSol</Name>
-							<Comment>
-								<![CDATA[Solenoid to control the valve( either closed or open)]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_30.i_xSol</Name>
-							<Comment>
-								<![CDATA[Solenoid to control the valve( either closed or open)]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_50.i_xSol</Name>
-							<Comment>
-								<![CDATA[Solenoid to control the valve( either closed or open)]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_60.i_xSol</Name>
-							<Comment>
-								<![CDATA[Solenoid to control the valve( either closed or open)]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_70.i_xSol</Name>
-							<Comment>
-								<![CDATA[Solenoid to control the valve( either closed or open)]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_10.i_xHvOn</Name>
-							<Comment>
-								<![CDATA[High voltage On to turn on ion gauges]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_20.i_xHvOn</Name>
-							<Comment>
-								<![CDATA[High voltage On to turn on ion gauges]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_30.i_xHvOn</Name>
-							<Comment>
-								<![CDATA[High voltage On to turn on ion gauges]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_40.i_xHvOn</Name>
-							<Comment>
-								<![CDATA[High voltage On to turn on ion gauges]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_50.i_xHvOn</Name>
-							<Comment>
-								<![CDATA[High voltage On to turn on ion gauges]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_60.i_xHvOn</Name>
-							<Comment>
-								<![CDATA[High voltage On to turn on ion gauges]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_70.i_xHvOn</Name>
-							<Comment>
-								<![CDATA[High voltage On to turn on ion gauges]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>SimTask Outputs</Name>
 						<Var>
 							<Name>PRG_DIAGNOSTIC.heartbeat</Name>
 							<Type>UINT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GPI_10.q_iRawPress</Name>
-							<Comment>
-								<![CDATA[ The transformed integer from real pressure to an integer encoded signal to be passed to the PLC ]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GPI_40.q_iRawPress</Name>
-							<Comment>
-								<![CDATA[ The transformed integer from real pressure to an integer encoded signal to be passed to the PLC ]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GPI_70.q_iRawPress</Name>
-							<Comment>
-								<![CDATA[ The transformed integer from real pressure to an integer encoded signal to be passed to the PLC ]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_10.q_xOpnLS</Name>
-							<Comment>
-								<![CDATA[readback whether open]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_10.q_xClsLS</Name>
-							<Comment>
-								<![CDATA[readback whether closed]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_20.q_xOpnLS</Name>
-							<Comment>
-								<![CDATA[readback whether open]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_20.q_xClsLS</Name>
-							<Comment>
-								<![CDATA[readback whether closed]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_30.q_xOpnLS</Name>
-							<Comment>
-								<![CDATA[readback whether open]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_30.q_xClsLS</Name>
-							<Comment>
-								<![CDATA[readback whether closed]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_50.q_xOpnLS</Name>
-							<Comment>
-								<![CDATA[readback whether open]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_50.q_xClsLS</Name>
-							<Comment>
-								<![CDATA[readback whether closed]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_60.q_xOpnLS</Name>
-							<Comment>
-								<![CDATA[readback whether open]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_60.q_xClsLS</Name>
-							<Comment>
-								<![CDATA[readback whether closed]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_70.q_xOpnLS</Name>
-							<Comment>
-								<![CDATA[readback whether open]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_VRC_70.q_xClsLS</Name>
-							<Comment>
-								<![CDATA[readback whether closed]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_10.q_iRawPress</Name>
-							<Comment>
-								<![CDATA[ The transformed integer from real pressure to an integer encoded signal to be passed to the PLC ]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_20.q_iRawPress</Name>
-							<Comment>
-								<![CDATA[ The transformed integer from real pressure to an integer encoded signal to be passed to the PLC ]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_30.q_iRawPress</Name>
-							<Comment>
-								<![CDATA[ The transformed integer from real pressure to an integer encoded signal to be passed to the PLC ]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_40.q_iRawPress</Name>
-							<Comment>
-								<![CDATA[ The transformed integer from real pressure to an integer encoded signal to be passed to the PLC ]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_50.q_iRawPress</Name>
-							<Comment>
-								<![CDATA[ The transformed integer from real pressure to an integer encoded signal to be passed to the PLC ]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_60.q_iRawPress</Name>
-							<Comment>
-								<![CDATA[ The transformed integer from real pressure to an integer encoded signal to be passed to the PLC ]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.st_EM1K0_GMD_GCC_70.q_iRawPress</Name>
-							<Comment>
-								<![CDATA[ The transformed integer from real pressure to an integer encoded signal to be passed to the PLC ]]>
-							</Comment>
-							<Type>INT</Type>
 						</Var>
 					</Vars>
 					<TaskPouOids>
@@ -799,6 +554,7 @@
 							<Fmmu>0000000000000000801100010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010f400f410f400</BootStrapData>
+							<SuName>Group 0: CX, Spares </SuName>
 							<Pdo Name="AI Standard Channel 1" Index="#x1a00" Flags="#x0010" SyncMan="3">
 								<ExcludePdo>#x1a01</ExcludePdo>
 								<Entry Name="Status__Underrange" Index="#x6000" Sub="#x01">
@@ -1059,6 +815,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x03f03052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1008 8Ch. Dig. Input 24V, 3ms" Desc="EL1008" PortABoxInfo="#x01000002">
 							<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
+							<SuName>Group 0: CX, Spares </SuName>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Input" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -1107,6 +864,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x07d83052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2008 8Ch. Dig. Output 24V, 0.5A" Desc="EL2008" PortABoxInfo="#x01000003">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 0: CX, Spares </SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -1155,6 +913,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x0aea3052" RevisionNo="#x00100000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2794 4Ch. Dig. Output 24V AC/DC, 2A, short-circuit-proof" Desc="EL2794" PortABoxInfo="#x01000004">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 0: CX, Spares </SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -1193,6 +952,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x0aea3052" RevisionNo="#x00100000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2794 4Ch. Dig. Output 24V AC/DC, 2A, short-circuit-proof" Desc="EL2794" PortABoxInfo="#x01000007">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 1: MKS937Bs</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -1226,6 +986,7 @@ Bit1: Value bigger/equal Limit2]]>
 							<Fmmu>0000000000000000801100010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010f400f410f400</BootStrapData>
+							<SuName>Group 1: MKS937Bs</SuName>
 							<Pdo Name="AI Standard Channel 1" Index="#x1a00" Flags="#x0010" SyncMan="3">
 								<ExcludePdo>#x1a01</ExcludePdo>
 								<Entry Name="Status__Underrange" Index="#x6000" Sub="#x01">
@@ -1743,6 +1504,7 @@ Bit1: Value bigger/equal Limit2]]>
 							<Fmmu>0000000000000000801100010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010f400f410f400</BootStrapData>
+							<SuName>Group 1: MKS937Bs</SuName>
 							<Pdo Name="AI Standard Channel 1" Index="#x1a00" Flags="#x0010" SyncMan="3">
 								<ExcludePdo>#x1a01</ExcludePdo>
 								<Entry Name="Status__Underrange" Index="#x6000" Sub="#x01">
@@ -2255,6 +2017,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x0aea3052" RevisionNo="#x00100000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2794 4Ch. Dig. Output 24V AC/DC, 2A, short-circuit-proof" Desc="EL2794" PortABoxInfo="#x0100000a">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 1: MKS937Bs</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -2283,6 +2046,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x0aea3052" RevisionNo="#x00100000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2794 4Ch. Dig. Output 24V AC/DC, 2A, short-circuit-proof" Desc="EL2794" PortABoxInfo="#x0100000b">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 1: MKS937Bs</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -2316,6 +2080,7 @@ Bit1: Value bigger/equal Limit2]]>
 							<Fmmu>0000000000000000801100010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010f400f410f400</BootStrapData>
+							<SuName>Group 1: MKS937Bs</SuName>
 							<Pdo Name="AI Standard Channel 1" Index="#x1a00" Flags="#x0010" SyncMan="3">
 								<ExcludePdo>#x1a01</ExcludePdo>
 								<Entry Name="Status__Underrange" Index="#x6000" Sub="#x01">
@@ -2833,6 +2598,7 @@ Bit1: Value bigger/equal Limit2]]>
 							<Fmmu>0000000000000000801100010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010f400f410f400</BootStrapData>
+							<SuName>Group 1: MKS937Bs</SuName>
 							<Pdo Name="AI Standard Channel 1" Index="#x1a00" Flags="#x0010" SyncMan="3">
 								<ExcludePdo>#x1a01</ExcludePdo>
 								<Entry Name="Status__Underrange" Index="#x6000" Sub="#x01">
@@ -3345,6 +3111,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x0aea3052" RevisionNo="#x00100000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2794 4Ch. Dig. Output 24V AC/DC, 2A, short-circuit-proof" Desc="EL2794" PortABoxInfo="#x0100000e">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 1: MKS937Bs</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3383,6 +3150,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x03ec3052" RevisionNo="#x00130000" RepeatSupport="true" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1004 4Ch. Dig. Input 24V, 3ms" Desc="EL1004" PortABoxInfo="#x01000011">
 							<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Input" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3411,6 +3179,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x07d43052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2004 4Ch. Dig. Output 24V, 0.5A" Desc="EL2004" PortABoxInfo="#x01000012">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3439,6 +3208,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x03ec3052" RevisionNo="#x00130000" RepeatSupport="true" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1004 4Ch. Dig. Input 24V, 3ms" Desc="EL1004" PortABoxInfo="#x01000013">
 							<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Input" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3467,6 +3237,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x03ec3052" RevisionNo="#x00130000" RepeatSupport="true" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1004 4Ch. Dig. Input 24V, 3ms" Desc="EL1004" PortABoxInfo="#x01000014">
 							<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Input" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3495,6 +3266,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x07d43052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2004 4Ch. Dig. Output 24V, 0.5A" Desc="EL2004" PortABoxInfo="#x01000015">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3523,6 +3295,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x03ec3052" RevisionNo="#x00130000" RepeatSupport="true" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1004 4Ch. Dig. Input 24V, 3ms" Desc="EL1004" PortABoxInfo="#x01000016">
 							<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Input" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3551,6 +3324,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x24c23052" RevisionNo="#x00100000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL9410 E-Bus Power Supplier  (Diagnostics)" Desc="EL9410" PortABoxInfo="#x01000017">
 							<SyncMan>001001000000010004000000000000000000001000000000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Status Us" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Undervoltage" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3569,6 +3343,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04403052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1088 8Ch. Dig. Input 24V, 3ms, negative" Desc="EL1088" PortABoxInfo="#x01000018">
 							<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Input" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3617,6 +3392,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x08283052" RevisionNo="#x00110000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2088 8Ch. Dig. Output 24V, 0.5A, switching to negative" Desc="EL2088" PortABoxInfo="#x01000019">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3665,6 +3441,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04403052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1088 8Ch. Dig. Input 24V, 3ms, negative" Desc="EL1088" PortABoxInfo="#x0100001a">
 							<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Input" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3713,6 +3490,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04403052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1088 8Ch. Dig. Input 24V, 3ms, negative" Desc="EL1088" PortABoxInfo="#x0100001b">
 							<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Input" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3761,6 +3539,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x08283052" RevisionNo="#x00110000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2088 8Ch. Dig. Output 24V, 0.5A, switching to negative" Desc="EL2088" PortABoxInfo="#x0100001c">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3809,6 +3588,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04403052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1088 8Ch. Dig. Input 24V, 3ms, negative" Desc="EL1088" PortABoxInfo="#x0100001d">
 							<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
+							<SuName>Group 2: Valves and Turbos</SuName>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Input" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3867,6 +3647,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x0aea3052" RevisionNo="#x00100000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2794 4Ch. Dig. Output 24V AC/DC, 2A, short-circuit-proof" Desc="EL2794" PortABoxInfo="#x01000020">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 3: NE Wall</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -3900,6 +3681,7 @@ Bit1: Value bigger/equal Limit2]]>
 							<Fmmu>0000000000000000801100010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010f400f410f400</BootStrapData>
+							<SuName>Group 3: NE Wall</SuName>
 							<Pdo Name="AI Standard Channel 1" Index="#x1a00" Flags="#x0010" SyncMan="3">
 								<ExcludePdo>#x1a01</ExcludePdo>
 								<Entry Name="Status__Underrange" Index="#x6000" Sub="#x01">
@@ -4417,6 +4199,7 @@ Bit1: Value bigger/equal Limit2]]>
 							<Fmmu>0000000000000000801100010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010f400f410f400</BootStrapData>
+							<SuName>Group 3: NE Wall</SuName>
 							<Pdo Name="AI Standard Channel 1" Index="#x1a00" Flags="#x0010" SyncMan="3">
 								<ExcludePdo>#x1a01</ExcludePdo>
 								<Entry Name="Status__Underrange" Index="#x6000" Sub="#x01">
@@ -4929,6 +4712,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x0aea3052" RevisionNo="#x00100000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2794 4Ch. Dig. Output 24V AC/DC, 2A, short-circuit-proof" Desc="EL2794" PortABoxInfo="#x01000023">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 3: NE Wall</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -4957,6 +4741,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x0aea3052" RevisionNo="#x00100000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2794 4Ch. Dig. Output 24V AC/DC, 2A, short-circuit-proof" Desc="EL2794" PortABoxInfo="#x01000024">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+							<SuName>Group 3: NE Wall</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -4985,6 +4770,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x03ec3052" RevisionNo="#x00130000" RepeatSupport="true" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1004 4Ch. Dig. Input 24V, 3ms" Desc="EL1004" PortABoxInfo="#x01000025">
 							<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
+							<SuName>Group 3: NE Wall</SuName>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Input" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -5013,7 +4799,12 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x23333050" InfoDataState="false" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL9011 End Terminal" Desc="EL9011" PortABoxInfo="#x01000026"/>
 					</Box>
 				</Box>
-				<EtherCAT/>
+				<EtherCAT>
+					<SyncUnit Name="Group 0: CX, Spares " NoDeleteIfUnused="true"/>
+					<SyncUnit Name="Group 1: MKS937Bs" NoDeleteIfUnused="true"/>
+					<SyncUnit Name="Group 2: Valves and Turbos" NoDeleteIfUnused="true"/>
+					<SyncUnit Name="Group 3: NE Wall" NoDeleteIfUnused="true"/>
+				</EtherCAT>
 			</Device>
 		</Io>
 	</Project>
