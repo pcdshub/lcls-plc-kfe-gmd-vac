@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.6">
   <POU Name="PRG_GMD" Id="{febc07a9-f1e9-4dc5-b21e-96967800d0f7}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_GMD
 VAR
+	f_: INT;
+	fb_EM1K0_GMD_PTM_10i_xExtILKOk: BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -15,7 +17,12 @@ fb_EM1K0_GMD_GPI_70(PG=>);
 
 // FB_PTM_TwisTorr
 
-fb_EM1K0_GMD_PTM_10(i_xExtILKOk := TRUE);
+fb_EM1K0_GMD_PTM_10(i_xExtILKOk := F_TurboExtILKLogic(
+	Turbo:= fb_EM1K0_GMD_PTM_10.iq_stPtm, 
+	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_10.IG, 
+	VentValve:= fake_always_closed_vent_valve, 
+	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
 fb_EM1K0_GMD_PTM_20(i_xExtILKOk := TRUE);
 fb_EM1K0_GMD_PTM_30(i_xExtILKOk := TRUE);
 fb_EM1K0_GMD_PTM_40(i_xExtILKOk := TRUE);
@@ -25,7 +32,8 @@ fb_EM1K0_GMD_PTM_70(i_xExtILKOk := TRUE);
 
 // FB_VRC
 
-fb_EM1K0_GMD_VRC_10(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode);
+fb_EM1K0_GMD_VRC_10.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_10.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_10.IG);
+fb_EM1K0_GMD_VRC_10( i_xOverrideMode := xSystemOverrideMode);
 fb_EM1K0_GMD_VRC_20(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode);
 fb_EM1K0_GMD_VRC_30(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode);
 fb_EM1K0_GMD_VRC_50(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode);
@@ -48,7 +56,11 @@ fb_EM1K0_GMD_PRT_40(i_xExtIlkOK := TRUE);
 ]]></ST>
     </Implementation>
     <LineIds Name="PRG_GMD">
-      <LineId Id="6" Count="38" />
+      <LineId Id="6" Count="8" />
+      <LineId Id="51" Count="4" />
+      <LineId Id="15" Count="8" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="24" Count="20" />
       <LineId Id="5" Count="0" />
     </LineIds>
   </POU>
