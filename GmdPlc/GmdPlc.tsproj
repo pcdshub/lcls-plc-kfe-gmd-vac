@@ -554,7 +554,7 @@
 							<Fmmu>0000000000000000801100010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010f400f410f400</BootStrapData>
-							<SuName>Group 0: CX, Spares </SuName>
+							<SuName>Group 0: CX, Spares</SuName>
 							<Pdo Name="AI Standard Channel 1" Index="#x1a00" Flags="#x0010" SyncMan="3">
 								<ExcludePdo>#x1a01</ExcludePdo>
 								<Entry Name="Status__Underrange" Index="#x6000" Sub="#x01">
@@ -815,7 +815,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x03f03052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1008 8Ch. Dig. Input 24V, 3ms" Desc="EL1008" PortABoxInfo="#x01000002">
 							<SyncMan>001001000000010004000000000000000100001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
-							<SuName>Group 0: CX, Spares </SuName>
+							<SuName>Group 0: CX, Spares</SuName>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
 								<Entry Name="Input" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
@@ -864,7 +864,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x07d83052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2008 8Ch. Dig. Output 24V, 0.5A" Desc="EL2008" PortABoxInfo="#x01000003">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
-							<SuName>Group 0: CX, Spares </SuName>
+							<SuName>Group 0: CX, Spares</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -913,7 +913,7 @@ Bit1: Value bigger/equal Limit2]]>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x0aea3052" RevisionNo="#x00100000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2794 4Ch. Dig. Output 24V AC/DC, 2A, short-circuit-proof" Desc="EL2794" PortABoxInfo="#x01000004">
 							<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
-							<SuName>Group 0: CX, Spares </SuName>
+							<SuName>Group 0: CX, Spares</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
 								<Entry Name="Output" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -4800,7 +4800,7 @@ Bit1: Value bigger/equal Limit2]]>
 					</Box>
 				</Box>
 				<EtherCAT>
-					<SyncUnit Name="Group 0: CX, Spares " NoDeleteIfUnused="true"/>
+					<SyncUnit Name="Group 0: CX, Spares" NoDeleteIfUnused="true"/>
 					<SyncUnit Name="Group 1: MKS937Bs" NoDeleteIfUnused="true"/>
 					<SyncUnit Name="Group 2: Valves and Turbos" NoDeleteIfUnused="true"/>
 					<SyncUnit Name="Group 3: NE Wall" NoDeleteIfUnused="true"/>

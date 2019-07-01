@@ -23,22 +23,57 @@ fb_EM1K0_GMD_PTM_10(i_xExtILKOk := F_TurboExtILKLogic(
 	InletGauge:= fb_EM1K0_GMD_GCC_10.IG, 
 	VentValve:= fake_always_closed_vent_valve, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
-fb_EM1K0_GMD_PTM_20(i_xExtILKOk := TRUE);
-fb_EM1K0_GMD_PTM_30(i_xExtILKOk := TRUE);
-fb_EM1K0_GMD_PTM_40(i_xExtILKOk := TRUE);
-fb_EM1K0_GMD_PTM_50(i_xExtILKOk := TRUE);
-fb_EM1K0_GMD_PTM_60(i_xExtILKOk := TRUE);
-fb_EM1K0_GMD_PTM_70(i_xExtILKOk := TRUE);
+fb_EM1K0_GMD_PTM_20(i_xExtILKOk :=  F_TurboExtILKLogic(
+	Turbo:= fb_EM1K0_GMD_PTM_20.iq_stPtm, 
+	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_20.IG, 
+	VentValve:= fake_always_closed_vent_valve, 
+	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
+fb_EM1K0_GMD_PTM_30(i_xExtILKOk :=  F_TurboExtILKLogic(
+	Turbo:= fb_EM1K0_GMD_PTM_30.iq_stPtm, 
+	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_30.IG, 
+	VentValve:= fake_always_closed_vent_valve, 
+	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
+fb_EM1K0_GMD_PTM_40(i_xExtILKOk :=  F_TurboExtILKLogic(
+	Turbo:= fb_EM1K0_GMD_PTM_40.iq_stPtm, 
+	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_40.IG, 
+	VentValve:= fake_always_closed_vent_valve, 
+	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
+fb_EM1K0_GMD_PTM_50(i_xExtILKOk :=  F_TurboExtILKLogic(
+	Turbo:= fb_EM1K0_GMD_PTM_50.iq_stPtm, 
+	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_50.IG, 
+	VentValve:= fake_always_closed_vent_valve, 
+	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
+fb_EM1K0_GMD_PTM_60(i_xExtILKOk :=  F_TurboExtILKLogic(
+	Turbo:= fb_EM1K0_GMD_PTM_60.iq_stPtm, 
+	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_60.IG, 
+	VentValve:= fake_always_closed_vent_valve, 
+	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
+fb_EM1K0_GMD_PTM_70(i_xExtILKOk :=  F_TurboExtILKLogic(
+	Turbo:= fb_EM1K0_GMD_PTM_70.iq_stPtm, 
+	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_70.IG, 
+	VentValve:= fake_always_closed_vent_valve, 
+	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
 
 // FB_VRC
 
 fb_EM1K0_GMD_VRC_10.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_10.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_10.IG);
 fb_EM1K0_GMD_VRC_10( i_xOverrideMode := xSystemOverrideMode);
-fb_EM1K0_GMD_VRC_20(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode);
-fb_EM1K0_GMD_VRC_30(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode);
-fb_EM1K0_GMD_VRC_50(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode);
-fb_EM1K0_GMD_VRC_60(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode);
-fb_EM1K0_GMD_VRC_70(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode);
+fb_EM1K0_GMD_VRC_20.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_20.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_20.IG);
+fb_EM1K0_GMD_VRC_20( i_xOverrideMode := xSystemOverrideMode);
+fb_EM1K0_GMD_VRC_30.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_30.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_30.IG);
+fb_EM1K0_GMD_VRC_30( i_xOverrideMode := xSystemOverrideMode);
+fb_EM1K0_GMD_VRC_50.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_50.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_50.IG);
+fb_EM1K0_GMD_VRC_50( i_xOverrideMode := xSystemOverrideMode);
+fb_EM1K0_GMD_VRC_60.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_60.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_60.IG);
+fb_EM1K0_GMD_VRC_60( i_xOverrideMode := xSystemOverrideMode);
+fb_EM1K0_GMD_VRC_70.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_70.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_70.IG);
+fb_EM1K0_GMD_VRC_70( i_xOverrideMode := xSystemOverrideMode);
 
 // FB_MKS422
 
@@ -58,9 +93,31 @@ fb_EM1K0_GMD_PRT_40(i_xExtIlkOK := TRUE);
     <LineIds Name="PRG_GMD">
       <LineId Id="6" Count="8" />
       <LineId Id="51" Count="4" />
-      <LineId Id="15" Count="8" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="67" Count="4" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="72" Count="4" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="77" Count="4" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="82" Count="4" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="87" Count="4" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="92" Count="4" />
+      <LineId Id="21" Count="2" />
       <LineId Id="48" Count="0" />
-      <LineId Id="24" Count="20" />
+      <LineId Id="24" Count="1" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="98" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="30" Count="14" />
       <LineId Id="5" Count="0" />
     </LineIds>
   </POU>
