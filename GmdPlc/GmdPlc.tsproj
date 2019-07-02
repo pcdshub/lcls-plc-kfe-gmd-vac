@@ -37,6 +37,45 @@
 				<Elements>6</Elements>
 			</ArrayInfo>
 		</DataType>
+		<DataType>
+			<Name GUID="{F27C2E36-F71A-4739-B9BA-8A892874FECC}" PersistentType="true">VacEventClass</Name>
+			<DisplayName TxtId="">
+				<![CDATA[NewEventClass_DisplayText]]>
+			</DisplayName>
+			<EventId>
+				<Name Id="1">Error</Name>
+				<DisplayName TxtId="">
+					<![CDATA[General Error: {0}]]>
+				</DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="2">ErrorTO</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Timeout Error: {0}]]>
+				</DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="3">Setpoint</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Setpoint out of range: {0}]]>
+				</DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="4">Inlk_Active</Name>
+				<DisplayName TxtId="">
+					<![CDATA[Interlock Active: {0}]]>
+				</DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{248742CD-FD74-4594-BC44-C9FED2255621}"/>
+				<Hide GUID="{CCDD7DF5-CC19-4B0A-BD3D-E19496C0B581}"/>
+				<Hide GUID="{E397242B-EF99-4F1A-BB18-362C2DB089BD}"/>
+			</Hides>
+		</DataType>
 	</DataTypes>
 	<ImageDatas>
 		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ff808080808080808080808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
@@ -52,6 +91,7 @@
 			<Licenses>
 				<Target>
 					<ManualSelect>{D59230D3-7C55-4138-859C-234C1C6CFDA8}</ManualSelect>
+					<ManualSelect>{3DDCAB25-BF0E-412C-A721-DC77C1B8099C}</ManualSelect>
 				</Target>
 			</Licenses>
 			<Tasks>
@@ -470,6 +510,13 @@
 						</Var>
 						<Var>
 							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRemote</Name>
+							<Comment>
+								<![CDATA[ Remote/Local Control]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xResetAlarm</Name>
 							<Comment>
 								<![CDATA[ Remote/Local Control]]>
 							</Comment>
