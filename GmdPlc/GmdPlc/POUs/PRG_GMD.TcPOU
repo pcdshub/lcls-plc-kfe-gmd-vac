@@ -17,11 +17,10 @@ fb_EM1K0_GMD_GPI_70(PG=>);
 
 // FB_PTM_TwisTorr
 
-fb_EM1K0_GMD_PTM_10(i_xExtILKOk := F_TurboExtILKLogic(
+fb_EM1K0_GMD_PTM_10(i_xExtILKOk := F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_10.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
 	InletGauge:= fb_EM1K0_GMD_GCC_10.IG, 
-	VentValve:= fake_always_closed_vent_valve, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
 fb_EM1K0_GMD_PTM_20(i_xExtILKOk :=  F_TurboExtILKLogic(
 	Turbo:= fb_EM1K0_GMD_PTM_20.iq_stPtm, 
@@ -77,13 +76,13 @@ fb_EM1K0_GMD_VRC_70( i_xOverrideMode := xSystemOverrideMode);
 
 // FB_MKS422
 
-fb_EM1K0_GMD_GCC_10(PG := fb_EM1K0_GMD_GPI_10.PG);
-fb_EM1K0_GMD_GCC_20(PG := fb_EM1K0_GMD_GPI_10.PG);
-fb_EM1K0_GMD_GCC_30(PG := fb_EM1K0_GMD_GPI_10.PG);
+fb_EM1K0_GMD_GCC_10(PG := fb_EM1K0_GMD_GPI_40.PG);
+fb_EM1K0_GMD_GCC_20(PG := fb_EM1K0_GMD_GPI_40.PG);
+fb_EM1K0_GMD_GCC_30(PG := fb_EM1K0_GMD_GPI_40.PG);
 fb_EM1K0_GMD_GCC_40(PG := fb_EM1K0_GMD_GPI_40.PG);
-fb_EM1K0_GMD_GCC_50(PG := fb_EM1K0_GMD_GPI_70.PG);
-fb_EM1K0_GMD_GCC_60(PG := fb_EM1K0_GMD_GPI_70.PG);
-fb_EM1K0_GMD_GCC_70(PG := fb_EM1K0_GMD_GPI_70.PG);
+fb_EM1K0_GMD_GCC_50(PG := fb_EM1K0_GMD_GPI_40.PG);
+fb_EM1K0_GMD_GCC_60(PG := fb_EM1K0_GMD_GPI_40.PG);
+fb_EM1K0_GMD_GCC_70(PG := fb_EM1K0_GMD_GPI_40.PG);
 
 // FB_EbaraEVA
 
@@ -92,7 +91,7 @@ fb_EM1K0_GMD_PRT_40(i_xExtIlkOK := TRUE);
     </Implementation>
     <LineIds Name="PRG_GMD">
       <LineId Id="6" Count="8" />
-      <LineId Id="51" Count="4" />
+      <LineId Id="51" Count="3" />
       <LineId Id="15" Count="0" />
       <LineId Id="67" Count="4" />
       <LineId Id="16" Count="0" />
