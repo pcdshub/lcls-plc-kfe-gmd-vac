@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{26233849-d73b-4d19-97f7-4e2f23309781}</ProjectGuid>
     <SubObjectsSortedByName>True</SubObjectsSortedByName>
-    <Name>GmdPlc</Name>
+    <Name>plc_kfe_gmd_vac</Name>
     <ProgramVersion>3.1.4022.3</ProgramVersion>
     <Application>{d08de05f-e885-4602-b6de-6700fc71450e}</Application>
     <TypeSystem>{c75057ea-9dc7-49db-b49e-4edfa7248ee5}</TypeSystem>
@@ -69,7 +69,7 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GmdPlc.tmc">
+    <None Include="plc_kfe_gmd_vac.tmc">
       <SubType>Content</SubType>
     </None>
   </ItemGroup>
