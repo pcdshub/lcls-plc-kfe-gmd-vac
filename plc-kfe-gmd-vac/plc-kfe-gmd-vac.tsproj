@@ -105,7 +105,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{26233849-D73B-4D19-97F7-4E2F23309781}" Name="plc_kfe_gmd_vac" PrjFilePath="plc_kfe_gmd_vac\plc_kfe_gmd_vac.plcproj" TmcFilePath="plc_kfe_gmd_vac\plc_kfe_gmd_vac.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="GmdPlc\GmdPlc.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="plc_kfe_gmd_vac\plc_kfe_gmd_vac.tmc">
 					<Name>plc_kfe_gmd_vac Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -528,9 +528,9 @@
 					</TaskPouOids>
 				</Instance>
 			</Project>
-			<Project GUID="{DC13CF13-96D9-4602-AE14-580A603776E8}" Name="GmdSim" PrjFilePath="GmdSim\GmdSim.plcproj" TmcFilePath="GmdSim\GmdSim.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e">
+			<Project GUID="{DC13CF13-96D9-4602-AE14-580A603776E8}" Name="plc_kfe_gmd_vac_sim" PrjFilePath="plc_kfe_gmd_vac_sim\plc_kfe_gmd_vac_sim.plcproj" TmcFilePath="plc_kfe_gmd_vac_sim\plc_kfe_gmd_vac_sim.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e">
 				<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="GmdSim\GmdSim.tmc">
-					<Name>GmdSim Instance</Name>
+					<Name>plc_kfe_gmd_vac_sim Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>SimTask Inputs</Name>

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{dc13cf13-96d9-4602-ae14-580a603776e8}</ProjectGuid>
     <SubObjectsSortedByName>True</SubObjectsSortedByName>
-    <Name>GmdSim</Name>
+    <Name>plc_kfe_gmd_vac_sim</Name>
     <ProgramVersion>3.1.4022.3</ProgramVersion>
     <Application>{81b519fa-e7a8-4bbd-8243-ef610b4a2e9b}</Application>
     <TypeSystem>{f99f56fc-bad2-47e0-b977-7db40070d717}</TypeSystem>
@@ -72,7 +72,7 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GmdSim.tmc">
+    <None Include="plc_kfe_gmd_vac_sim.tmc">
       <SubType>Content</SubType>
     </None>
   </ItemGroup>
