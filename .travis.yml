@@ -23,7 +23,9 @@ matrix:
 
 install:
   # Install, configure conda
-  - pip install git+https://github.com/slaclab/pytmc.git@v2.1.0 
+  - pip install Jinja2 lxml
+  - pip install git+https://github.com/slaclab/pytmc.git@v2.1.0
+  - pip install git+https://github.com/epicsdeb/pypdb.git
 
 script:
   - |
