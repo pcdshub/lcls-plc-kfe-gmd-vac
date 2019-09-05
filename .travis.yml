@@ -1,0 +1,33 @@
+
+language: python
+sudo: false
+
+services:
+    - xvfb
+
+addons:
+    apt:
+      packages:
+        - herbstluftwm
+        - libxkbcommon-x11-0
+
+env:
+  global:
+
+matrix:
+  include:
+    - python: 3.6
+      env: BUILD_DOCS=1
+    - python: 3.7
+      dist: xenial
+
+install:
+  # Install, configure conda
+  - pip install git+https://github.com/slaclab/pytmc.git@v2.1.0 
+
+script:
+  - |
+    find plc -name '*.tsproj' -print0 | 
+        while IFS= read -r -d '' tsproj; do 
+            pytmc pragmalint --verbose "$tsproj";
+        done
