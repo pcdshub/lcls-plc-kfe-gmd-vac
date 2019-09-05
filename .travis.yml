@@ -1,25 +1,10 @@
-
 language: python
-sudo: false
-
-services:
-    - xvfb
-
-addons:
-    apt:
-      packages:
-        - herbstluftwm
-        - libxkbcommon-x11-0
-
-env:
-  global:
 
 matrix:
   include:
-    - python: 3.6
-      env: BUILD_DOCS=1
     - python: 3.7
       dist: xenial
+      env: BUILD_DOCS=1
 
 install:
   # Install, configure conda
