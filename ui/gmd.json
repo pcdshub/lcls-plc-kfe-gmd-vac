@@ -1,0 +1,122 @@
+[
+    {
+        "LABEL": "EM1K0:GMD:VRC:10",
+        "FILE": "VRC.ui",
+        "PREFIX": "EM1K0:GMD:VRC:10"
+    },
+    {
+        "LABEL": "EM1K0:GMD:GPI:10",
+        "FILE": "GPI.ui",
+        "PREFIX": "EM1K0:GMD:GPI:10"
+    },
+    {
+        "LABEL": "EM1K0:GMD:GCC:10",
+        "FILE": "GCC.ui",
+        "PREFIX": "EM1K0:GMD:GCC:10"
+    },
+    {
+        "LABEL": "EM1K0:GMD:PTM:10",
+        "FILE": "PTM.ui",
+        "PREFIX": "EM1K0:GMD:PTM:10"
+    },
+    {
+        "LABEL": "EM1K0:GMD:VRC:20",
+        "FILE": "VRC.ui",
+        "PREFIX": "EM1K0:GMD:VRC:20"
+    },
+    {
+        "LABEL": "EM1K0:GMD:GCC:20",
+        "FILE": "GCC.ui",
+        "PREFIX": "EM1K0:GMD:GCC:20"
+    },
+    {
+        "LABEL": "EM1K0:GMD:PTM:20",
+        "FILE": "PTM.ui",
+        "PREFIX": "EM1K0:GMD:PTM:20"
+    },
+    {
+        "LABEL": "EM1K0:GMD:VRC:30",
+        "FILE": "VRC.ui",
+        "PREFIX": "EM1K0:GMD:VRC:30"
+    },
+    {
+        "LABEL": "EM1K0:GMD:GCC:30",
+        "FILE": "GCC.ui",
+        "PREFIX": "EM1K0:GMD:GCC:30"
+    },
+    {
+        "LABEL": "EM1K0:GMD:PTM:30",
+        "FILE": "PTM.ui",
+        "PREFIX": "EM1K0:GMD:PTM:30"
+    },
+    {
+        "LABEL": "EM1K0:GMD:GPI:40",
+        "FILE": "GPI.ui",
+        "PREFIX": "EM1K0:GMD:GPI:40"
+    },
+    {
+        "LABEL": "EM1K0:GMD:GCC:40",
+        "FILE": "GCC.ui",
+        "PREFIX": "EM1K0:GMD:GCC:40"
+    },
+    {
+        "LABEL": "EM1K0:GMD:PTM:40",
+        "FILE": "PTM.ui",
+        "PREFIX": "EM1K0:GMD:PTM:40"
+    },
+    {
+        "LABEL": "EM1K0:GMD:PRT:40",
+        "FILE": "PRT.ui",
+        "PREFIX": "EM1K0:GMD:PRT:40"
+    },
+    {
+        "LABEL": "EM1K0:GMD:VRC:50",
+        "FILE": "VRC.ui",
+        "PREFIX": "EM1K0:GMD:VRC:50"
+    },
+    {
+        "LABEL": "EM1K0:GMD:GCC:50",
+        "FILE": "GCC.ui",
+        "PREFIX": "EM1K0:GMD:GCC:50"
+    },
+    {
+        "LABEL": "EM1K0:GMD:PTM:50",
+        "FILE": "PTM.ui",
+        "PREFIX": "EM1K0:GMD:PTM:50"
+    },
+    {
+        "LABEL": "EM1K0:GMD:VRC:60",
+        "FILE": "VRC.ui",
+        "PREFIX": "EM1K0:GMD:VRC:60"
+    },
+    {
+        "LABEL": "EM1K0:GMD:GCC:60",
+        "FILE": "GCC.ui",
+        "PREFIX": "EM1K0:GMD:GCC:60"
+    },
+    {
+        "LABEL": "EM1K0:GMD:PTM:60",
+        "FILE": "PTM.ui",
+        "PREFIX": "EM1K0:GMD:PTM:60"
+    },
+    {
+        "LABEL": "EM1K0:GMD:VRC:70",
+        "FILE": "VRC.ui",
+        "PREFIX": "EM1K0:GMD:VRC:70"
+    },
+    {
+        "LABEL": "EM1K0:GMD:GPI:70",
+        "FILE": "GPI.ui",
+        "PREFIX": "EM1K0:GMD:GPI:70"
+    },
+    {
+        "LABEL": "EM1K0:GMD:GCC:70",
+        "FILE": "GCC.ui",
+        "PREFIX": "EM1K0:GMD:GCC:70"
+    },
+    {
+        "LABEL": "EM1K0:GMD:PTM:70",
+        "FILE": "PTM.ui",
+        "PREFIX": "EM1K0:GMD:PTM:70"
+    }
+]
