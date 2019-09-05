@@ -7,14 +7,22 @@ matrix:
       env: BUILD_DOCS=1
 
 install:
-  # Install, configure conda
+  # pytmc
   - pip install Jinja2 lxml
   - pip install git+https://github.com/slaclab/pytmc.git@v2.1.0
   - pip install git+https://github.com/epicsdeb/pypdb.git
+
+  # docs
+  - pip install sphinx recommonmark
 
 script:
   - |
     find plc -name '*.tsproj' -print0 | 
         while IFS= read -r -d '' tsproj; do 
             pytmc pragmalint --verbose "$tsproj";
+            pytmc summary --all --code "$tsproj" > docs/source/$(basename $tsproj).md;
         done
+
+  - pushd docs
+  - make html
+  - popd
