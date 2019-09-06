@@ -20,7 +20,7 @@ repo_slug = os.environ.get("TRAVIS_REPO_SLUG")
 if repo_slug is not None:
     project = repo_slug
 else:
-    project = os.environ.get("PROJECT_NAME", "Set 'PROEJECT_NAME'")
+    project = os.environ.get("PROJECT_NAME", os.path.split(os.path.abspath('../../'))[-1])
 
 copyright = '2019, SLAC National Accelerator Laboratory'
 author = 'SLAC National Accelerator Laboratory'
