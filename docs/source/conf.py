@@ -10,14 +10,18 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
+repo_slug = os.environ.get("TRAVIS_REPO_SLUG") 
+if repo_slug is not None:
+    project = repo_slug
+else:
+    project = os.environ.get("PROJECT_NAME", os.path.split(os.path.abspath('../../'))[-1])
 
-project = 'PLC_Project'
 copyright = '2019, SLAC National Accelerator Laboratory'
 author = 'SLAC National Accelerator Laboratory'
 
@@ -39,6 +43,10 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+
+rst_epilog = """
+.. |project_name| replace:: {project_name}
+""".format(project_name=project)
 
 # -- Options for HTML output -------------------------------------------------
 
