@@ -11,3 +11,6 @@ _CompileInfo
 
 # *nix dev items
 *.swp
+
+# sphinx-build docs
+docs/build
