@@ -45,8 +45,8 @@ exclude_patterns = []
 
 
 rst_epilog = """
-.. |my_conf_val| replace:: {project}
-""".format(project=project)
+.. |project_name| replace:: {project_name}
+""".format(project_name=project)
 
 # -- Options for HTML output -------------------------------------------------
 
