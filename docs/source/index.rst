@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PLC_Project's documentation!
-=======================================
+Welcome to |my_conf_val|'s documentation!
+=========================================
 
 .. toctree::
    :maxdepth: 2
