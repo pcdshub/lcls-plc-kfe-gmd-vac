@@ -66,4 +66,4 @@ script:
 
   # Deploy the latest version of the docs with doctr
   - pip install doctr
-  - doctr deploy . --built-docs docs/build/html --deploy-branch-name gh-pages --command "touch .nojekyll; git add .nojekyll"
+  - doctr deploy . --built-docs docs/build/html --deploy-branch-name gh-pages --command "touch .nojekyll; git add .nojekyll" --no-require-master
