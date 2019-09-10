@@ -1,0 +1,3553 @@
+plc_kfe_gmd_vac.tmc
+==================
+
+Errors
+------
+```
+ERROR:pytmc.bin.db:Duplicate records encountered:
+    fb_EM1K0_GMD_GCC_10:PRESS (2)
+    fb_EM1K0_GMD_GCC_20:PRESS (2)
+    fb_EM1K0_GMD_GCC_30:PRESS (2)
+    fb_EM1K0_GMD_GCC_40:PRESS (2)
+    fb_EM1K0_GMD_GCC_50:PRESS (2)
+    fb_EM1K0_GMD_GCC_60:PRESS (2)
+    fb_EM1K0_GMD_GCC_70:PRESS (2)
+    fb_EM1K0_GMD_GPI_10:PRESS (2)
+    fb_EM1K0_GMD_GPI_40:PRESS (2)
+    fb_EM1K0_GMD_GPI_70:PRESS (2)
+```
+
+Records
+-------
+```
+ "fb_EM1K0_GMD_GCC_10:AT_VAC_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_10:DISC_ACTIVE_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_10:HV_DIS_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_10:HV_ON_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_10:HV_SW" (bo)
+ "fb_EM1K0_GMD_GCC_10:HV_SW_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_10:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_10:PRESS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_10:PRESS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_10:PRESS_RBV" (longin)
+ "fb_EM1K0_GMD_GCC_10:PRO_SP" (ao)
+ "fb_EM1K0_GMD_GCC_10:PRO_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_10:SP_HYS" (ao)
+ "fb_EM1K0_GMD_GCC_10:SP_HYS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_10:VAC_SP" (ao)
+ "fb_EM1K0_GMD_GCC_10:VAC_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_20:AT_VAC_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_20:DISC_ACTIVE_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_20:HV_DIS_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_20:HV_ON_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_20:HV_SW" (bo)
+ "fb_EM1K0_GMD_GCC_20:HV_SW_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_20:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_20:PRESS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_20:PRESS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_20:PRESS_RBV" (longin)
+ "fb_EM1K0_GMD_GCC_20:PRO_SP" (ao)
+ "fb_EM1K0_GMD_GCC_20:PRO_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_20:SP_HYS" (ao)
+ "fb_EM1K0_GMD_GCC_20:SP_HYS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_20:VAC_SP" (ao)
+ "fb_EM1K0_GMD_GCC_20:VAC_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_30:AT_VAC_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_30:DISC_ACTIVE_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_30:HV_DIS_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_30:HV_ON_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_30:HV_SW" (bo)
+ "fb_EM1K0_GMD_GCC_30:HV_SW_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_30:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_30:PRESS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_30:PRESS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_30:PRESS_RBV" (longin)
+ "fb_EM1K0_GMD_GCC_30:PRO_SP" (ao)
+ "fb_EM1K0_GMD_GCC_30:PRO_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_30:SP_HYS" (ao)
+ "fb_EM1K0_GMD_GCC_30:SP_HYS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_30:VAC_SP" (ao)
+ "fb_EM1K0_GMD_GCC_30:VAC_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_40:AT_VAC_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_40:DISC_ACTIVE_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_40:HV_DIS_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_40:HV_ON_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_40:HV_SW" (bo)
+ "fb_EM1K0_GMD_GCC_40:HV_SW_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_40:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_40:PRESS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_40:PRESS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_40:PRESS_RBV" (longin)
+ "fb_EM1K0_GMD_GCC_40:PRO_SP" (ao)
+ "fb_EM1K0_GMD_GCC_40:PRO_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_40:SP_HYS" (ao)
+ "fb_EM1K0_GMD_GCC_40:SP_HYS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_40:VAC_SP" (ao)
+ "fb_EM1K0_GMD_GCC_40:VAC_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_50:AT_VAC_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_50:DISC_ACTIVE_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_50:HV_DIS_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_50:HV_ON_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_50:HV_SW" (bo)
+ "fb_EM1K0_GMD_GCC_50:HV_SW_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_50:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_50:PRESS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_50:PRESS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_50:PRESS_RBV" (longin)
+ "fb_EM1K0_GMD_GCC_50:PRO_SP" (ao)
+ "fb_EM1K0_GMD_GCC_50:PRO_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_50:SP_HYS" (ao)
+ "fb_EM1K0_GMD_GCC_50:SP_HYS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_50:VAC_SP" (ao)
+ "fb_EM1K0_GMD_GCC_50:VAC_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_60:AT_VAC_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_60:DISC_ACTIVE_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_60:HV_DIS_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_60:HV_ON_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_60:HV_SW" (bo)
+ "fb_EM1K0_GMD_GCC_60:HV_SW_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_60:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_60:PRESS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_60:PRESS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_60:PRESS_RBV" (longin)
+ "fb_EM1K0_GMD_GCC_60:PRO_SP" (ao)
+ "fb_EM1K0_GMD_GCC_60:PRO_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_60:SP_HYS" (ao)
+ "fb_EM1K0_GMD_GCC_60:SP_HYS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_60:VAC_SP" (ao)
+ "fb_EM1K0_GMD_GCC_60:VAC_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_70:AT_VAC_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_70:DISC_ACTIVE_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_70:HV_DIS_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_70:HV_ON_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_70:HV_SW" (bo)
+ "fb_EM1K0_GMD_GCC_70:HV_SW_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_70:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_70:PRESS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GCC_70:PRESS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_70:PRESS_RBV" (longin)
+ "fb_EM1K0_GMD_GCC_70:PRO_SP" (ao)
+ "fb_EM1K0_GMD_GCC_70:PRO_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_70:SP_HYS" (ao)
+ "fb_EM1K0_GMD_GCC_70:SP_HYS_RBV" (ai)
+ "fb_EM1K0_GMD_GCC_70:VAC_SP" (ao)
+ "fb_EM1K0_GMD_GCC_70:VAC_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_10:AT_VAC_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_10:DISC_ACTIVE_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_10:HV_DIS_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_10:HV_ON_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_10:HV_SW" (bo)
+ "fb_EM1K0_GMD_GPI_10:HV_SW_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_10:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_10:PRESS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_10:PRESS_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_10:PRESS_RBV" (longin)
+ "fb_EM1K0_GMD_GPI_10:PRO_SP" (ao)
+ "fb_EM1K0_GMD_GPI_10:PRO_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_10:SP_HYS" (ao)
+ "fb_EM1K0_GMD_GPI_10:SP_HYS_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_10:VAC_SP" (ao)
+ "fb_EM1K0_GMD_GPI_10:VAC_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_40:AT_VAC_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_40:DISC_ACTIVE_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_40:HV_DIS_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_40:HV_ON_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_40:HV_SW" (bo)
+ "fb_EM1K0_GMD_GPI_40:HV_SW_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_40:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_40:PRESS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_40:PRESS_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_40:PRESS_RBV" (longin)
+ "fb_EM1K0_GMD_GPI_40:PRO_SP" (ao)
+ "fb_EM1K0_GMD_GPI_40:PRO_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_40:SP_HYS" (ao)
+ "fb_EM1K0_GMD_GPI_40:SP_HYS_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_40:VAC_SP" (ao)
+ "fb_EM1K0_GMD_GPI_40:VAC_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_70:AT_VAC_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_70:DISC_ACTIVE_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_70:HV_DIS_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_70:HV_ON_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_70:HV_SW" (bo)
+ "fb_EM1K0_GMD_GPI_70:HV_SW_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_70:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_70:PRESS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_GPI_70:PRESS_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_70:PRESS_RBV" (longin)
+ "fb_EM1K0_GMD_GPI_70:PRO_SP" (ao)
+ "fb_EM1K0_GMD_GPI_70:PRO_SP_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_70:SP_HYS" (ao)
+ "fb_EM1K0_GMD_GPI_70:SP_HYS_RBV" (ai)
+ "fb_EM1K0_GMD_GPI_70:VAC_SP" (ao)
+ "fb_EM1K0_GMD_GPI_70:VAC_SP_RBV" (ai)
+ "fb_EM1K0_GMD_PRT_40:ALARM_OK_RBV" (bi)
+ "fb_EM1K0_GMD_PRT_40:AT_SPD_RBV" (bi)
+ "fb_EM1K0_GMD_PRT_40:ERROR_RBV" (bi)
+ "fb_EM1K0_GMD_PRT_40:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_PRT_40:Remote" (bo)
+ "fb_EM1K0_GMD_PRT_40:Remote_RBV" (bi)
+ "fb_EM1K0_GMD_PRT_40:RUN_DI_RBV" (bi)
+ "fb_EM1K0_GMD_PRT_40:RUN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_PRT_40:RUN_SW" (bo)
+ "fb_EM1K0_GMD_PRT_40:RUN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PRT_40:WARN_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_10:ACCEL_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_10:ALARM_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_10:AT_SPD_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_10:BackingPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_10:BackingPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_10:Current_MON_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_10:FAULT_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_10:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_10:InletPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_10:InletPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_10:RST_SW" (bo)
+ "fb_EM1K0_GMD_PTM_10:RST_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_10:RUN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_10:RUN_SW" (bo)
+ "fb_EM1K0_GMD_PTM_10:RUN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_10:SPEED_RDBK_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_10:WARN_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_20:ACCEL_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_20:ALARM_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_20:AT_SPD_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_20:BackingPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_20:BackingPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_20:Current_MON_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_20:FAULT_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_20:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_20:InletPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_20:InletPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_20:RST_SW" (bo)
+ "fb_EM1K0_GMD_PTM_20:RST_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_20:RUN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_20:RUN_SW" (bo)
+ "fb_EM1K0_GMD_PTM_20:RUN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_20:SPEED_RDBK_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_20:WARN_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_30:ACCEL_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_30:ALARM_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_30:AT_SPD_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_30:BackingPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_30:BackingPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_30:Current_MON_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_30:FAULT_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_30:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_30:InletPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_30:InletPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_30:RST_SW" (bo)
+ "fb_EM1K0_GMD_PTM_30:RST_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_30:RUN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_30:RUN_SW" (bo)
+ "fb_EM1K0_GMD_PTM_30:RUN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_30:SPEED_RDBK_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_30:WARN_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_40:ACCEL_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_40:ALARM_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_40:AT_SPD_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_40:BackingPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_40:BackingPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_40:Current_MON_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_40:FAULT_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_40:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_40:InletPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_40:InletPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_40:RST_SW" (bo)
+ "fb_EM1K0_GMD_PTM_40:RST_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_40:RUN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_40:RUN_SW" (bo)
+ "fb_EM1K0_GMD_PTM_40:RUN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_40:SPEED_RDBK_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_40:WARN_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_50:ACCEL_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_50:ALARM_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_50:AT_SPD_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_50:BackingPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_50:BackingPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_50:Current_MON_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_50:FAULT_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_50:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_50:InletPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_50:InletPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_50:RST_SW" (bo)
+ "fb_EM1K0_GMD_PTM_50:RST_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_50:RUN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_50:RUN_SW" (bo)
+ "fb_EM1K0_GMD_PTM_50:RUN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_50:SPEED_RDBK_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_50:WARN_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_60:ACCEL_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_60:ALARM_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_60:AT_SPD_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_60:BackingPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_60:BackingPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_60:Current_MON_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_60:FAULT_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_60:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_60:InletPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_60:InletPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_60:RST_SW" (bo)
+ "fb_EM1K0_GMD_PTM_60:RST_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_60:RUN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_60:RUN_SW" (bo)
+ "fb_EM1K0_GMD_PTM_60:RUN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_60:SPEED_RDBK_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_60:WARN_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_70:ACCEL_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_70:ALARM_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_70:AT_SPD_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_70:BackingPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_70:BackingPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_70:Current_MON_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_70:FAULT_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_70:ILK_OK_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_70:InletPressureSP" (ao)
+ "fb_EM1K0_GMD_PTM_70:InletPressureSP_RBV" (ai)
+ "fb_EM1K0_GMD_PTM_70:RST_SW" (bo)
+ "fb_EM1K0_GMD_PTM_70:RST_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_70:RUN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_70:RUN_SW" (bo)
+ "fb_EM1K0_GMD_PTM_70:RUN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_PTM_70:SPEED_RDBK_RBV" (longin)
+ "fb_EM1K0_GMD_PTM_70:WARN_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_10:CLS_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_10:CLS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_10:FORCE_OPN" (bo)
+ "fb_EM1K0_GMD_VRC_10:FORCE_OPN_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_10:OPN_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_10:OPN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_10:OPN_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_10:OPN_SW" (bo)
+ "fb_EM1K0_GMD_VRC_10:OPN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_10:OVRD_ON_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_20:CLS_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_20:CLS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_20:FORCE_OPN" (bo)
+ "fb_EM1K0_GMD_VRC_20:FORCE_OPN_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_20:OPN_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_20:OPN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_20:OPN_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_20:OPN_SW" (bo)
+ "fb_EM1K0_GMD_VRC_20:OPN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_20:OVRD_ON_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_30:CLS_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_30:CLS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_30:FORCE_OPN" (bo)
+ "fb_EM1K0_GMD_VRC_30:FORCE_OPN_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_30:OPN_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_30:OPN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_30:OPN_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_30:OPN_SW" (bo)
+ "fb_EM1K0_GMD_VRC_30:OPN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_30:OVRD_ON_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_50:CLS_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_50:CLS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_50:FORCE_OPN" (bo)
+ "fb_EM1K0_GMD_VRC_50:FORCE_OPN_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_50:OPN_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_50:OPN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_50:OPN_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_50:OPN_SW" (bo)
+ "fb_EM1K0_GMD_VRC_50:OPN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_50:OVRD_ON_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_60:CLS_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_60:CLS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_60:FORCE_OPN" (bo)
+ "fb_EM1K0_GMD_VRC_60:FORCE_OPN_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_60:OPN_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_60:OPN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_60:OPN_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_60:OPN_SW" (bo)
+ "fb_EM1K0_GMD_VRC_60:OPN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_60:OVRD_ON_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_70:CLS_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_70:CLS_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_70:FORCE_OPN" (bo)
+ "fb_EM1K0_GMD_VRC_70:FORCE_OPN_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_70:OPN_DI_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_70:OPN_DO_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_70:OPN_OK_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_70:OPN_SW" (bo)
+ "fb_EM1K0_GMD_VRC_70:OPN_SW_RBV" (bi)
+ "fb_EM1K0_GMD_VRC_70:OVRD_ON_RBV" (bi)
+ "plcHeartbeat" (longout)
+ "plcHeartbeat_RBV" (longin)
+ "plcInfo_RBV" (waveform)
+ "plcInfo" (waveform)
+ "plcLocalTime_RBV" (waveform)
+ "plcLocalTime" (waveform)
+ "simHeartbeat" (longout)
+ "simHeartbeat_RBV" (longin)
+```
+
+EPICS database
+--------------
+```
+record(longin, "simHeartbeat_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DIAGNOSTIC.simHeartbeat?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(longout, "simHeartbeat"){
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DIAGNOSTIC.simHeartbeat=")
+}
+
+record(longin, "plcHeartbeat_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DIAGNOSTIC.plcHeartbeat?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(longout, "plcHeartbeat"){
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DIAGNOSTIC.plcHeartbeat=")
+}
+
+record(waveform, "plcInfo_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(FTVL, "CHAR")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DIAGNOSTIC.plcInfo?")
+  field(DTYP, "asynInt8ArrayIn")
+  field(SCAN, "I/O Intr")
+  field(NELM, "40")
+}
+
+record(waveform, "plcInfo"){
+  field(FTVL, "CHAR")
+  field(DTYP, "asynInt8ArrayOut")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DIAGNOSTIC.plcInfo=")
+  field(NELM, "40")
+}
+
+record(waveform, "plcLocalTime_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(FTVL, "CHAR")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DIAGNOSTIC.plcLocalTime?")
+  field(DTYP, "asynInt8ArrayIn")
+  field(SCAN, "I/O Intr")
+  field(NELM, "25")
+}
+
+record(waveform, "plcLocalTime"){
+  field(FTVL, "CHAR")
+  field(DTYP, "asynInt8ArrayOut")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DIAGNOSTIC.plcLocalTime=")
+  field(NELM, "25")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_10:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rPRESS?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_10:AT_VAC_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xAT_VAC?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_10:PRESS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "PRESS NOT OK")
+  field(ONAM, "PRESS OK")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xPRESS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_10:HV_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xHV_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_GPI_10:HV_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xHV_SW=")
+}
+
+record(longin, "fb_EM1K0_GMD_GPI_10:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.i_iPRESS_R?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_10:HV_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.i_xHV_ON?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_10:DISC_ACTIVE_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Discharge not active")
+  field(ONAM, "Discharge Active")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.i_xDisc_Active?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_10:HV_DIS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.q_xHV_DIS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_10:VAC_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rVAC_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GPI_10:VAC_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rVAC_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_10:PRO_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rPRO_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GPI_10:PRO_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rPRO_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_10:SP_HYS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rHYS_PR?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GPI_10:SP_HYS"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rHYS_PR=")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_10:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xILKOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_40:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rPRESS?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_40:AT_VAC_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xAT_VAC?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_40:PRESS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "PRESS NOT OK")
+  field(ONAM, "PRESS OK")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xPRESS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_40:HV_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xHV_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_GPI_40:HV_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xHV_SW=")
+}
+
+record(longin, "fb_EM1K0_GMD_GPI_40:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.i_iPRESS_R?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_40:HV_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.i_xHV_ON?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_40:DISC_ACTIVE_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Discharge not active")
+  field(ONAM, "Discharge Active")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.i_xDisc_Active?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_40:HV_DIS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.q_xHV_DIS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_40:VAC_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rVAC_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GPI_40:VAC_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rVAC_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_40:PRO_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rPRO_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GPI_40:PRO_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rPRO_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_40:SP_HYS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rHYS_PR?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GPI_40:SP_HYS"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rHYS_PR=")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_40:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xILKOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_70:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rPRESS?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_70:AT_VAC_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xAT_VAC?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_70:PRESS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "PRESS NOT OK")
+  field(ONAM, "PRESS OK")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xPRESS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_70:HV_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xHV_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_GPI_70:HV_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xHV_SW=")
+}
+
+record(longin, "fb_EM1K0_GMD_GPI_70:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.i_iPRESS_R?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_70:HV_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.i_xHV_ON?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_70:DISC_ACTIVE_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Discharge not active")
+  field(ONAM, "Discharge Active")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.i_xDisc_Active?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_70:HV_DIS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.q_xHV_DIS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_70:VAC_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rVAC_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GPI_70:VAC_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rVAC_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_70:PRO_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rPRO_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GPI_70:PRO_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rPRO_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GPI_70:SP_HYS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rHYS_PR?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GPI_70:SP_HYS"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rHYS_PR=")
+}
+
+record(bi, "fb_EM1K0_GMD_GPI_70:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xILKOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_10:RUN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.xRunSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_10:RUN_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.xRunSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_10:RST_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.xResetSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_10:RST_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.xResetSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_10:RUN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.q_RunDO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_10:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.xExtRunOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_10:ACCEL_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.i_xAccel?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_10:AT_SPD_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.i_xAtSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_10:SPEED_RDBK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.i_diCurSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_10:FAULT_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.i_xFault?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_10:WARN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.i_xWarn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_10:ALARM_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.i_xALARM?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_10:BackingPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.rBackingPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_10:BackingPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.rBackingPressureSP=")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_10:InletPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.rInletPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_10:InletPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.rInletPressureSP=")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_10:Current_MON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.i_iCurrentMon?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_20:RUN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.xRunSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_20:RUN_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.xRunSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_20:RST_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.xResetSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_20:RST_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.xResetSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_20:RUN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.q_RunDO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_20:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.xExtRunOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_20:ACCEL_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.i_xAccel?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_20:AT_SPD_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.i_xAtSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_20:SPEED_RDBK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.i_diCurSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_20:FAULT_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.i_xFault?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_20:WARN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.i_xWarn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_20:ALARM_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.i_xALARM?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_20:BackingPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.rBackingPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_20:BackingPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.rBackingPressureSP=")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_20:InletPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.rInletPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_20:InletPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.rInletPressureSP=")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_20:Current_MON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.i_iCurrentMon?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_30:RUN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.xRunSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_30:RUN_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.xRunSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_30:RST_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.xResetSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_30:RST_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.xResetSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_30:RUN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.q_RunDO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_30:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.xExtRunOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_30:ACCEL_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.i_xAccel?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_30:AT_SPD_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.i_xAtSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_30:SPEED_RDBK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.i_diCurSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_30:FAULT_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.i_xFault?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_30:WARN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.i_xWarn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_30:ALARM_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.i_xALARM?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_30:BackingPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.rBackingPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_30:BackingPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.rBackingPressureSP=")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_30:InletPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.rInletPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_30:InletPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.rInletPressureSP=")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_30:Current_MON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.i_iCurrentMon?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_40:RUN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.xRunSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_40:RUN_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.xRunSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_40:RST_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.xResetSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_40:RST_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.xResetSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_40:RUN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.q_RunDO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_40:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.xExtRunOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_40:ACCEL_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.i_xAccel?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_40:AT_SPD_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.i_xAtSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_40:SPEED_RDBK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.i_diCurSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_40:FAULT_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.i_xFault?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_40:WARN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.i_xWarn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_40:ALARM_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.i_xALARM?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_40:BackingPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.rBackingPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_40:BackingPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.rBackingPressureSP=")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_40:InletPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.rInletPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_40:InletPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.rInletPressureSP=")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_40:Current_MON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.i_iCurrentMon?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_50:RUN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.xRunSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_50:RUN_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.xRunSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_50:RST_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.xResetSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_50:RST_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.xResetSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_50:RUN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.q_RunDO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_50:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.xExtRunOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_50:ACCEL_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.i_xAccel?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_50:AT_SPD_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.i_xAtSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_50:SPEED_RDBK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.i_diCurSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_50:FAULT_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.i_xFault?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_50:WARN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.i_xWarn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_50:ALARM_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.i_xALARM?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_50:BackingPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.rBackingPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_50:BackingPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.rBackingPressureSP=")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_50:InletPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.rInletPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_50:InletPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.rInletPressureSP=")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_50:Current_MON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.i_iCurrentMon?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_60:RUN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.xRunSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_60:RUN_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.xRunSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_60:RST_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.xResetSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_60:RST_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.xResetSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_60:RUN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.q_RunDO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_60:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.xExtRunOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_60:ACCEL_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.i_xAccel?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_60:AT_SPD_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.i_xAtSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_60:SPEED_RDBK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.i_diCurSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_60:FAULT_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.i_xFault?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_60:WARN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.i_xWarn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_60:ALARM_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.i_xALARM?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_60:BackingPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.rBackingPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_60:BackingPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.rBackingPressureSP=")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_60:InletPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.rInletPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_60:InletPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.rInletPressureSP=")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_60:Current_MON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.i_iCurrentMon?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_70:RUN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.xRunSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_70:RUN_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.xRunSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_70:RST_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.xResetSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PTM_70:RST_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.xResetSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_70:RUN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.q_RunDO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_70:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.xExtRunOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_70:ACCEL_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.i_xAccel?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_70:AT_SPD_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.i_xAtSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_70:SPEED_RDBK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.i_diCurSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_70:FAULT_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.i_xFault?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_70:WARN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.i_xWarn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PTM_70:ALARM_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.i_xALARM?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_70:BackingPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.rBackingPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_70:BackingPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.rBackingPressureSP=")
+}
+
+record(ai, "fb_EM1K0_GMD_PTM_70:InletPressureSP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.rInletPressureSP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_PTM_70:InletPressureSP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.rInletPressureSP=")
+}
+
+record(longin, "fb_EM1K0_GMD_PTM_70:Current_MON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.i_iCurrentMon?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_10:OPN_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.i_xOpnLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_10:CLS_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.i_xClsLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_10:OPN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.pv_xOPN_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_10:OPN_SW"){
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.pv_xOPN_SW=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_10:FORCE_OPN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.pv_xOvrdOpn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_10:FORCE_OPN"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.pv_xOvrdOpn=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_10:OVRD_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.xOverrideMode?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_10:OPN_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.xOPN_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_10:CLS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.xCLS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_10:OPN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.q_xOPN_DO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_20:OPN_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.i_xOpnLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_20:CLS_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.i_xClsLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_20:OPN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.pv_xOPN_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_20:OPN_SW"){
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.pv_xOPN_SW=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_20:FORCE_OPN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.pv_xOvrdOpn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_20:FORCE_OPN"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.pv_xOvrdOpn=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_20:OVRD_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.xOverrideMode?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_20:OPN_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.xOPN_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_20:CLS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.xCLS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_20:OPN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.q_xOPN_DO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_30:OPN_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.i_xOpnLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_30:CLS_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.i_xClsLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_30:OPN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.pv_xOPN_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_30:OPN_SW"){
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.pv_xOPN_SW=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_30:FORCE_OPN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.pv_xOvrdOpn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_30:FORCE_OPN"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.pv_xOvrdOpn=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_30:OVRD_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.xOverrideMode?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_30:OPN_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.xOPN_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_30:CLS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.xCLS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_30:OPN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.q_xOPN_DO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_50:OPN_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.i_xOpnLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_50:CLS_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.i_xClsLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_50:OPN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.pv_xOPN_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_50:OPN_SW"){
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.pv_xOPN_SW=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_50:FORCE_OPN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.pv_xOvrdOpn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_50:FORCE_OPN"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.pv_xOvrdOpn=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_50:OVRD_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.xOverrideMode?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_50:OPN_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.xOPN_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_50:CLS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.xCLS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_50:OPN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.q_xOPN_DO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_60:OPN_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.i_xOpnLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_60:CLS_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.i_xClsLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_60:OPN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.pv_xOPN_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_60:OPN_SW"){
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.pv_xOPN_SW=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_60:FORCE_OPN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.pv_xOvrdOpn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_60:FORCE_OPN"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.pv_xOvrdOpn=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_60:OVRD_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.xOverrideMode?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_60:OPN_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.xOPN_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_60:CLS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.xCLS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_60:OPN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.q_xOPN_DO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_70:OPN_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.i_xOpnLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_70:CLS_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.i_xClsLS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_70:OPN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.pv_xOPN_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_70:OPN_SW"){
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.pv_xOPN_SW=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_70:FORCE_OPN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.pv_xOvrdOpn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_VRC_70:FORCE_OPN"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.pv_xOvrdOpn=")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_70:OVRD_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.xOverrideMode?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_70:OPN_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.xOPN_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_70:CLS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.xCLS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_VRC_70:OPN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.q_xOPN_DO?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_10:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rPRESS?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_10:AT_VAC_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xAT_VAC?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_10:PRESS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "PRESS NOT OK")
+  field(ONAM, "PRESS OK")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xPRESS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_10:HV_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xHV_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_GCC_10:HV_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xHV_SW=")
+}
+
+record(longin, "fb_EM1K0_GMD_GCC_10:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.i_iPRESS_R?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_10:HV_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.i_xHV_ON?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_10:DISC_ACTIVE_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Discharge not active")
+  field(ONAM, "Discharge Active")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.i_xDisc_Active?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_10:HV_DIS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.q_xHV_DIS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_10:VAC_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rVAC_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_10:VAC_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rVAC_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_10:PRO_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rPRO_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_10:PRO_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rPRO_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_10:SP_HYS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rHYS_PR?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_10:SP_HYS"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rHYS_PR=")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_10:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xILKOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_20:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rPRESS?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_20:AT_VAC_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xAT_VAC?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_20:PRESS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "PRESS NOT OK")
+  field(ONAM, "PRESS OK")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xPRESS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_20:HV_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xHV_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_GCC_20:HV_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xHV_SW=")
+}
+
+record(longin, "fb_EM1K0_GMD_GCC_20:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.i_iPRESS_R?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_20:HV_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.i_xHV_ON?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_20:DISC_ACTIVE_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Discharge not active")
+  field(ONAM, "Discharge Active")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.i_xDisc_Active?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_20:HV_DIS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.q_xHV_DIS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_20:VAC_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rVAC_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_20:VAC_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rVAC_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_20:PRO_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rPRO_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_20:PRO_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rPRO_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_20:SP_HYS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rHYS_PR?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_20:SP_HYS"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rHYS_PR=")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_20:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xILKOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_30:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rPRESS?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_30:AT_VAC_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xAT_VAC?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_30:PRESS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "PRESS NOT OK")
+  field(ONAM, "PRESS OK")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xPRESS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_30:HV_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xHV_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_GCC_30:HV_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xHV_SW=")
+}
+
+record(longin, "fb_EM1K0_GMD_GCC_30:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.i_iPRESS_R?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_30:HV_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.i_xHV_ON?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_30:DISC_ACTIVE_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Discharge not active")
+  field(ONAM, "Discharge Active")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.i_xDisc_Active?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_30:HV_DIS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.q_xHV_DIS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_30:VAC_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rVAC_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_30:VAC_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rVAC_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_30:PRO_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rPRO_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_30:PRO_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rPRO_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_30:SP_HYS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rHYS_PR?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_30:SP_HYS"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rHYS_PR=")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_30:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xILKOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_40:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rPRESS?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_40:AT_VAC_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xAT_VAC?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_40:PRESS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "PRESS NOT OK")
+  field(ONAM, "PRESS OK")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xPRESS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_40:HV_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xHV_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_GCC_40:HV_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xHV_SW=")
+}
+
+record(longin, "fb_EM1K0_GMD_GCC_40:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.i_iPRESS_R?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_40:HV_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.i_xHV_ON?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_40:DISC_ACTIVE_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Discharge not active")
+  field(ONAM, "Discharge Active")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.i_xDisc_Active?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_40:HV_DIS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.q_xHV_DIS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_40:VAC_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rVAC_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_40:VAC_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rVAC_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_40:PRO_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rPRO_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_40:PRO_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rPRO_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_40:SP_HYS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rHYS_PR?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_40:SP_HYS"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rHYS_PR=")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_40:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xILKOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_50:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rPRESS?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_50:AT_VAC_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xAT_VAC?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_50:PRESS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "PRESS NOT OK")
+  field(ONAM, "PRESS OK")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xPRESS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_50:HV_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xHV_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_GCC_50:HV_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xHV_SW=")
+}
+
+record(longin, "fb_EM1K0_GMD_GCC_50:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.i_iPRESS_R?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_50:HV_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.i_xHV_ON?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_50:DISC_ACTIVE_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Discharge not active")
+  field(ONAM, "Discharge Active")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.i_xDisc_Active?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_50:HV_DIS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.q_xHV_DIS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_50:VAC_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rVAC_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_50:VAC_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rVAC_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_50:PRO_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rPRO_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_50:PRO_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rPRO_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_50:SP_HYS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rHYS_PR?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_50:SP_HYS"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rHYS_PR=")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_50:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xILKOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_60:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rPRESS?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_60:AT_VAC_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xAT_VAC?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_60:PRESS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "PRESS NOT OK")
+  field(ONAM, "PRESS OK")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xPRESS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_60:HV_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xHV_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_GCC_60:HV_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xHV_SW=")
+}
+
+record(longin, "fb_EM1K0_GMD_GCC_60:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.i_iPRESS_R?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_60:HV_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.i_xHV_ON?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_60:DISC_ACTIVE_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Discharge not active")
+  field(ONAM, "Discharge Active")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.i_xDisc_Active?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_60:HV_DIS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.q_xHV_DIS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_60:VAC_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rVAC_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_60:VAC_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rVAC_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_60:PRO_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rPRO_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_60:PRO_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rPRO_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_60:SP_HYS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rHYS_PR?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_60:SP_HYS"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rHYS_PR=")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_60:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xILKOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_70:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rPRESS?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_70:AT_VAC_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xAT_VAC?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_70:PRESS_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "PRESS NOT OK")
+  field(ONAM, "PRESS OK")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xPRESS_OK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_70:HV_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xHV_SW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_GCC_70:HV_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xHV_SW=")
+}
+
+record(longin, "fb_EM1K0_GMD_GCC_70:PRESS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.i_iPRESS_R?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_70:HV_ON_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.i_xHV_ON?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_70:DISC_ACTIVE_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Discharge not active")
+  field(ONAM, "Discharge Active")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.i_xDisc_Active?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_70:HV_DIS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.q_xHV_DIS?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_70:VAC_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rVAC_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_70:VAC_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rVAC_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_70:PRO_SP_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rPRO_SP?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_70:PRO_SP"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rPRO_SP=")
+}
+
+record(ai, "fb_EM1K0_GMD_GCC_70:SP_HYS_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(PREC, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rHYS_PR?")
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "fb_EM1K0_GMD_GCC_70:SP_HYS"){
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rHYS_PR=")
+}
+
+record(bi, "fb_EM1K0_GMD_GCC_70:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xILKOk?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PRT_40:RUN_SW_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.pv_xRunSW?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PRT_40:RUN_SW"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.pv_xRunSW=")
+}
+
+record(bi, "fb_EM1K0_GMD_PRT_40:RUN_DO_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.q_xRunDo?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PRT_40:ILK_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.xIlkOK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PRT_40:AT_SPD_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.xAtSpd?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PRT_40:WARN_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.xWrn?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PRT_40:ERROR_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.xErr?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PRT_40:Remote_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.q_xRemote?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bo, "fb_EM1K0_GMD_PRT_40:Remote"){
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.q_xRemote=")
+}
+
+record(bi, "fb_EM1K0_GMD_PRT_40:ALARM_OK_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.i_xAlarmOK?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+
+record(bi, "fb_EM1K0_GMD_PRT_40:RUN_DI_RBV"){
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.i_xIsRun?")
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+}
+```
