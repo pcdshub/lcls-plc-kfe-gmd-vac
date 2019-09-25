@@ -16,6 +16,9 @@ install:
   # docs
   - pip install sphinx recommonmark
 
+  # CI scripts 
+  - git clone --depth 1 https://github.com/pcdshub/pcds-ci-helpers.git
+
 script:
   - |
     find plc -name '*.tsproj' -print0 | 
