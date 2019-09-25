@@ -13,4 +13,4 @@ install:
 
 script:
 
-  - sh pcds-ci-helpers/travis/tc3_linter.sh
+  - source pcds-ci-helpers/travis/tc3_linter.sh
