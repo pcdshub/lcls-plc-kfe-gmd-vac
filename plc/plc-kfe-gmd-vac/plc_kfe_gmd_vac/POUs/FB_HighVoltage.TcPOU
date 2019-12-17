@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="FB_HighVoltage" Id="{18f48132-2f8b-4bad-b9a5-e87aec49b8a9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_HighVoltage
+VAR_INPUT
+	i_xExtIlkOK	:	BOOL; //External Interlock, SET to TRUE if not used
+END_VAR
+VAR_OUTPUT
+	{attribute 'pytmc' := '
+    pv:
+	'}
+	hv:ST_HV;
+END_VAR
+VAR
+	(*outputs*)
+	q_HV_DO AT %Q*: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+hv.xIlkOK := i_xExtIlkOK;
+
+q_HV_DO := hv.HV_sw AND hv.xIlkOK;
+
+(*soft io mapping*)
+hv.q_HV_DO := q_HV_DO;]]></ST>
+    </Implementation>
+    <LineIds Name="FB_HighVoltage">
+      <LineId Id="15" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="20" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

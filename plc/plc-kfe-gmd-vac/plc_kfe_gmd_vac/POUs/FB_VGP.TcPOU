@@ -1,0 +1,962 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="FB_VGP" Id="{7843698b-889d-4cb9-a659-0a84e4308c25}" SpecialFunc="None">
+    <Declaration><![CDATA[(* This function implements the Basic functions for the Vat Motorized valve*)
+FUNCTION_BLOCK FB_VGP
+VAR_INPUT
+	i_xExtIlkOK	:	BOOL; //External Interlock, SET to TRUE if not used
+	i_ReqPos	:	REAL; //Requested position
+	
+	arrTable	: ARRAY[1..14,1..2] OF FLOAT;
+END_VAR
+VAR_OUTPUT
+	{attribute 'pytmc' := '
+    pv:
+	'}
+	q_stVGP	:	ST_VGP; // valve structure
+END_VAR
+VAR_IN_OUT
+	
+END_VAR
+
+VAR CONSTANT
+	
+	rClosePosition : REAL:=0; // Encoder Min. Fully Closed
+	rMaxDiffPressure: REAL:= 22.5; //Torr
+END_VAR
+
+VAR
+	rOpenPosition: REAL:=1645; // Encoder MAX. Fully Open
+	rTargetPosition : REAL;
+	rTargetVelocity: REAL:=30;
+	rHomingVelocity: REAL:=10;
+	rHomingDistance: REAL:=20;//every 150 is 10% , 1%  is 14.975
+	rOldTargetPosition: REAL;
+		
+	// 
+	/// axis reference data structure 
+	Axis: AXIS_REF;
+	//
+	InfoData_State AT %I*: UINT ;
+	
+	// Axis MC functions
+
+	fbPowerAxis: MC_Power;
+	/// debug function block output data 
+	PowerAxisOut: ST_McOutputs;
+	fbMoveAxisABS: MC_MoveAbsolute;
+	/// debug function block output data 
+	MoveAbsoluteOut: ST_McOutputs;
+	fbMoveAxisABS2: MC_MoveAbsolute;
+	/// debug function block output data 
+	MoveAbsoluteOut2: ST_McOutputs;
+	
+	fbReset: MC_Reset;
+	/// debug function block output data 
+	ResetOut: ST_McOutputs;
+	MoveAxisREL: MC_MoveAbsolute;
+	MoveRelativeOut: ST_McOutputs;
+	
+	
+	nErrorID: UDINT;
+	bError : Bool;
+	sErrorMessage : STRING;
+	rOverride: LREAL := 100;
+	fbHalt: MC_Halt;
+	
+	
+	// Homing Functions
+	bGo:BOOL := FALSE; //to execute motion
+	bHome:BOOL :=FALSE; // should be set to true
+	bEnable:Bool; //to be removed
+	fbMoveRel: MC_MoveRelative;
+	fbSetPosition: MC_SetPosition;
+	fbWriteParameter: MC_WriteBoolParameter;
+	HomeState: E_HomeState;
+	
+	
+	// interpolation
+	bInit : BOOL := TRUE;
+	eMode           : E_CTRL_MODE;
+	iCounter:INT;
+	//CONTROL
+	stCTRL_LIN_INTERPOLATION_PARAMS		: ST_CTRL_LIN_INTERPOLATION_PARAMS;
+	fbCTRL_LIN_INTERPOLATION					: FB_CTRL_LIN_INTERPOLATION;
+	arrTable_ENC : ARRAY[1..14,1..2] OF FLOAT;
+	//Readdback
+	stCTRL_LIN_INTERPOLATION_PARAMS_ENC		: ST_CTRL_LIN_INTERPOLATION_PARAMS;
+	fbCTRL_LIN_INTERPOLATION_ENC					: FB_CTRL_LIN_INTERPOLATION;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[/// Interpolation  function initialization
+ACT_INIT();
+
+// Interlocking
+q_stVGP.xIlkOK := i_xExtIlkOK;
+(*Checking which Control mode is selected*)
+IF q_stVGP.xIlkOK AND NOT (q_stVGP.pv_xError) THEN
+	IF q_stVGP.eValveControl = OpenValve THEN
+		q_stVGP.rReqPosition := q_stVGP.rUpperLimit;
+	ELSIF q_stVGP.eValveControl = CloseValve THEN
+		q_stVGP.rReqPosition := 0;
+	ELSIF q_stVGP.eValveControl = ManualControl THEN
+		q_stVGP.rReqPosition := LIMIT(0, q_stVGP.rReqPosition, q_stVGP.rUpperLimit);
+	ELSIF q_stVGP.eValveControl = PressureControl THEN
+		 q_stVGP.rReqPosition := LIMIT(0, i_ReqPos, q_stVGP.rUpperLimit);
+	END_IF
+ELSE
+	q_stVGP.rReqPosition := 0;
+	q_stVGP.eValveControl := CloseValve;//CloseValve;
+	bGo:=FALSE;
+END_IF
+
+
+//Check the Drive State
+
+IF (*(InfoData_State<>16#8) OR*) (q_stVGP.state = MOVESTATE_ERROR) THEN
+	q_stVGP.pv_xError:=TRUE;
+ELSE
+	q_stVGP.pv_xError:=FALSE;
+	// Call function to execute move
+	// call motion function blocks???
+END_IF
+
+
+IF (q_stVGP.pv_xABORT_SW ) THEN
+	q_stVGP.pv_xABORT_SW := FALSE;
+	q_stVGP.state:= MOVESTATE_ABORT;
+END_IF
+
+
+ACT_LIN_INTERPOLATION();
+ACT_AXIS();
+//ACT_HOME();
+
+
+
+]]></ST>
+    </Implementation>
+    <Action Name="ACT_AXIS" Id="{f0964c2f-e830-4834-a42a-7a3a45bba581}">
+      <Implementation>
+        <ST><![CDATA[//update the axis status
+AXIS();
+q_stVGP.rEnoder_Position := LREAL_TO_REAL(Axis.NcToPlc.ActPos); // encoder position
+
+//Homing STATE is missing
+
+// state machine for axis motion
+	(* move axis using a state machine *)
+	CASE q_stVGP.state OF
+
+		MOVESTATE_INIT :	(* initialisation *)
+			(* initialize all function blocks *)
+			fbMoveAxisABS.Execute := FALSE;
+			fbMoveAxisABS2.Execute := FALSE;
+			fbReset.Execute := FALSE;
+			fbHALT.Execute :=FALSE;//
+			q_stVGP.state := MOVESTATE_ENABLE; // Check homing first
+
+		MOVESTATE_ENABLE :
+			fbPowerAxis.Enable :=  TRUE;
+			fbPowerAxis.Enable_Positive := TRUE;
+			fbPowerAxis.Enable_Negative := TRUE;
+			IF fbPowerAxis.Status THEN
+				q_stVGP.state := MOVESTATE_READY;
+			ELSIF fbPowerAxis.Error THEN
+				q_stVGP.state := MOVESTATE_ERROR;
+			END_IF
+		
+		MOVESTATE_READY: // waiting for move command
+			IF (HomeState = READY) AND (q_stVGP.pv_xHome_SW) THEN
+					HomeState:= INIT;
+					q_stVGP.pv_xHome_SW:=false;
+					bHome := false;
+					q_stVGP.state := MOVESTATE_HOME;
+					ELSE 
+					q_stVGP.state := MOVESTATE_READY;
+				END_IF
+			IF (q_stVGP.pv_xGo_SW) AND i_xExtIlkOK(* AND( rOldTargetPosition <> rTargetPosition) *) THEN
+				q_stVGP.pv_xGo_SW := false;
+				q_stVGP.state := MOVESTATE_NEWTARGETPOSITION;	
+			END_IF
+			IF NOT fbPowerAxis.Status THEN
+				q_stVGP.state := MOVESTATE_ENABLE;
+			ELSIF fbPowerAxis.Error THEN
+				q_stVGP.state := MOVESTATE_ERROR;
+			END_IF
+			
+		MOVESTATE_HOME:
+				if (HomeState = DONE) THEN
+					 q_stVGP.state := MOVESTATE_READY;
+					 q_stVGP.pv_xHomed := TRUE;
+				END_IF
+				
+				if (HomeState = ERROR) THEN
+					 q_stVGP.state := MOVESTATE_ERROR;
+					  q_stVGP.pv_xHomed := FALSE;
+				END_IF
+				
+		MOVESTATE_NEWTARGETPOSITION:
+			fbMoveAxisABS.Position := rTargetPosition;	
+			fbMoveAxisABS.Velocity := rTargetVelocity;		
+			//fbMoveAxisABS.BufferMode := MC_BlendingNext;
+			fbMoveAxisABS.Execute := TRUE;
+			IF fbMoveAxisABS.Active  THEN
+				(* axis is executing job but is not yet finished *)
+				fbMoveAxisABS.Execute := FALSE;
+				(* leave this state and buffer a second command *)
+				q_stVGP.state := MOVESTATE_MOVING; 
+			ElSIF fbMoveAxisABS.Done THEN
+				fbMoveAxisABS.Execute := FALSE;
+				q_stVGP.state := MOVESTATE_READY;
+			ELSIF fbMoveAxisABS.CommandAborted OR fbMoveAxisABS.Error THEN
+				q_stVGP.state := MOVESTATE_ERROR;
+			END_IF
+			
+				
+		MOVESTATE_MOVING://
+			IF fbMoveAxisABS.CommandAborted OR fbMoveAxisABS.Error THEN
+				q_stVGP.state := MOVESTATE_ERROR;
+			END_IF	
+			IF NOT ( Axis.Status.Moving) OR (fbMoveAxisABS.Done) THEN //(fbMoveAxisABS.Done) AND (fbMoveAxisABS2.Done) THEN
+				q_stVGP.state := MOVESTATE_READY;	
+			END_IF
+			
+		
+		MOVESTATE_HALT:
+			fbHALT.Execute :=TRUE;
+			IF Axis.Status.Error THEN
+				q_stVGP.state := MOVESTATE_RESET;	(* axis error requires reset *)
+			ELSE
+				q_stVGP.state := MOVESTATE_INIT;		(* function block errors don't need a reset *)
+			END_IF
+		
+		MOVESTATE_ERROR :
+			
+			IF Axis.Status.Error THEN
+				q_stVGP.state := MOVESTATE_RESET;	(* axis error requires reset *)
+			ELSE
+				q_stVGP.state := MOVESTATE_INIT;		(* function block errors don't need a reset *)
+			END_IF
+
+		MOVESTATE_RESET :
+			fbReset.Execute := TRUE;
+			IF fbReset.Done THEN
+				q_stVGP.state := MOVESTATE_INIT;
+			ELSIF fbReset.Error THEN
+				q_stVGP.state := MOVESTATE_ERROR; (* keep trying to reset*)
+			END_IF
+			
+		MOVESTATE_ABORT:
+			fbMoveAxisABS.Execute := FALSE;
+			fbMoveAxisABS2.Execute := FALSE;
+			fbReset.Execute := FALSE;
+			(* save target position*)
+			rOldTargetPosition := 	q_stVGP.i_iPosition;
+			fbHALT.Execute :=FALSE;
+			fbPowerAxis.Enable := FALSE;
+			fbPowerAxis.Enable_Positive := FALSE;
+			fbPowerAxis.Enable_Negative := FALSE;
+			q_stVGP.state := MOVESTATE_ENABLE; // Check homing first
+
+	END_CASE
+
+
+
+
+
+	
+/// Motion Function Blocks
+(* AXIS POWER*)
+fbPowerAxis(
+	Axis:= Axis, 
+	Enable:= , 
+	Enable_Positive:= , 
+	Enable_Negative:= , 
+	Override:= rOverride, 
+	BufferMode:= , 
+	Options:= , 
+	Status=>  , 
+	Busy=> PowerAxisOut.Busy , 
+	Active=> PowerAxisOut.Active , 
+	Error=> PowerAxisOut.Error, 
+	ErrorID=> PowerAxisOut.ErrorID);
+(* AXIS MOVE ABSOLUTE*)
+fbMoveAxisABS(
+	Axis:= Axis , 
+	Execute:= , 
+	Position:= , 
+	Velocity:= , 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= MC_BlendingNext , 
+	Options:= , 
+	Done=>MoveAbsoluteOut.Done, 
+	Busy=> MoveAbsoluteOut.Busy, 
+	Active=> MoveAbsoluteOut.Active, 
+	CommandAborted=> MoveAbsoluteOut.CommandAborted , 
+	Error=> MoveAbsoluteOut.Error, 
+	ErrorID=> MoveAbsoluteOut.ErrorID);
+	(* AXIS MOVE ABSOLUTE*)
+fbMoveAxisABS2(
+	Axis:= Axis , 
+	Execute:= , 
+	Position:= , 
+	Velocity:= , 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= MC_BlendingNext , 
+	Options:= , 
+	Done=>MoveAbsoluteOut2.Done, 
+	Busy=> MoveAbsoluteOut2.Busy, 
+	Active=> MoveAbsoluteOut2.Active, 
+	CommandAborted=> MoveAbsoluteOut2.CommandAborted , 
+	Error=> MoveAbsoluteOut2.Error, 
+	ErrorID=> MoveAbsoluteOut2.ErrorID);
+(*AXIS RESET*)
+fbReset(
+	Axis:= Axis, 
+	Execute:= , 
+	Done=>ResetOut.Done , 
+	Busy=>ResetOut.Busy , 
+	Error=> ResetOut.Error, 
+	ErrorID=> ResetOut.ErrorID);
+(*HALT*)
+fbHalt(
+	Axis:= Axis, 
+	Execute:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= MC_BlendingNext , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	
+
+/// ERROR
+IF Axis.Status.Error THEN
+	q_stVGP.state := MOVESTATE_ERROR;	
+END_IF;	
+	
+// Error Handling
+if( fbPowerAxis.Error and fbPowerAxis.Active ) then 
+	bError:= fbPowerAxis.Error;
+	nErrorID:= fbPowerAxis.ErrorID;
+END_IF
+if( fbMoveAxisABS.Error and fbMoveAxisABS.Active ) then 
+	bError:= fbMoveAxisABS.Error;
+	nErrorID:= fbMoveAxisABS.ErrorID;
+END_IF
+
+(*Convert nErrorID to string*)
+sErrorMessage:=WORD_TO_HEXSTR(in:=TO_WORD(nErrorID) , iPrecision:= 4, bLoCase:=0 );
+
+
+
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_HOME" Id="{7aa29c8d-1359-4aa9-9cbb-1c0e5473ba5a}">
+      <Implementation>
+        <ST><![CDATA[
+
+CASE HomeState OF
+	READY:
+		fbSetPosition.Execute := FALSE;
+		fbWriteParameter.Execute := FALSE;
+		fbMoveRel.Execute := FALSE;
+		
+	INIT:
+		// disable soft limits in order to be able to move the drive
+		fbWriteParameter.ParameterNumber := MC_AxisParameter.EnableLimitNeg;//EnableLimitPos;// .EnableLimitNeg;
+		fbWriteParameter.Value := FALSE;
+		fbWriteParameter.Execute := TRUE;
+		if (fbWriteParameter.Done) THEN
+			fbWriteParameter.Execute := FALSE;
+			HomeState:= MOVING; 
+		END_IF
+
+	MOVING:
+		IF fbMoveRel.Done THEN
+			fbMoveRel.Execute := TRUE;
+		END_IF;
+		IF fbMoveRel.Active  THEN
+			(* axis is executing job but is not yet finished *)
+			fbMoveRel.Execute := FALSE;
+			HomeState := MOVING2;
+		ElSIF fbMoveRel.Done THEN
+			fbMoveRel.Execute := FALSE;
+			HomeState := MOVING2;
+		ELSIF fbMoveRel.CommandAborted OR fbMoveRel.Error THEN
+			fbMoveRel.Execute := FALSE;
+			HomeState := ERROR;
+		END_IF
+	
+	MOVING2:
+		IF fbMoveRel.Done THEN
+			fbMoveRel.Execute := TRUE;
+		END_IF;
+		IF fbMoveRel.Active  THEN
+			(* axis is executing job but is not yet finished *)
+			fbMoveRel.Execute := FALSE;
+			HomeState := MOVING;
+		ElSIF fbMoveRel.Done THEN
+			fbMoveRel.Execute := FALSE;
+			HomeState := MOVING;
+		ELSIF fbMoveRel.CommandAborted OR fbMoveRel.Error THEN
+			fbMoveRel.Execute := FALSE;
+			HomeState := CHECK;
+		END_IF	
+
+	
+	CHECK:
+		//Check position lag monitoring error
+		if ( Axis.Status.ErrorID = 17245)THEN 
+			// Set Current Position
+			fbSetPosition.Position := 0; //rOpenPosition+rHomingDistance;
+			fbSetPosition.Execute := TRUE;
+			if ( fbSetPosition.Done ) THEN
+				fbSetPosition.Execute := FALSE;
+				HomeState:= WRITE;
+			END_IF
+		ELSE
+			HomeState := ERROR;
+		END_IF
+	
+	ERROR:
+	
+	
+	WRITE:
+	// Re Enable the Soft limits	
+		fbWriteParameter.ParameterNumber := MC_AxisParameter.AxisEnMinSoftPosLimit;//AxisEnMaxSoftPosLimit;// .AxisEnMinSoftPosLimit;
+		fbWriteParameter.Value := TRUE;
+		fbWriteParameter.Execute := TRUE;
+		if (fbWriteParameter.Done) THEN
+			fbWriteParameter.Execute := FALSE;
+			HomeState:= DONE; 
+		END_IF
+	
+	DONE:
+	// Homing DONE STATE 
+	// should go back to closed zero position???
+
+END_CASE
+
+// Move Forward
+fbMoveRel(
+	Axis:= Axis , 
+	Execute:= , 
+	Distance:= rHomingDistance , 
+	Velocity:= rHomingVelocity, 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= MC_BlendingNext, 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	
+// Set Encoder Position
+fbSetPosition(
+	Axis:= Axis , 
+	Execute:= , 
+	Position:= 0 , 
+	Mode:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> );
+	
+// Write Parameters
+fbWriteParameter(
+	Axis:= Axis , 
+	Execute:= , 
+	ParameterNumber:= , 
+	Value:= , 
+	Done=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> );]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_INIT" Id="{40c46368-4c5b-4c69-98b9-4f7d79c437f1}">
+      <Implementation>
+        <ST><![CDATA[IF bInit THEN
+	
+(*
+	(* init array with the interpolation points  *)
+	(* 	fIn					 |		fOut		*)
+	arrTable[1,1] := 0;			arrTable[1,2] := 0;
+	arrTable[2,1] := 5;		    arrTable[2,2] := 135;
+	arrTable[3,1] := 10;		arrTable[3,2] := 245;
+	arrTable[4,1] :=  20;	    arrTable[4,2] := 405;
+	arrTable[5,1] :=  30;	    arrTable[5,2] := 535;
+	arrTable[6,1] := 40;		arrTable[6,2] := 689;
+	arrTable[7,1] := 50;		arrTable[7,2] := 830;
+	arrTable[8,1] := 60;	    arrTable[8,2] := 960;
+	arrTable[9,1] := 70;	    arrTable[9,2] := 1095;
+	arrTable[10,1] := 80;		arrTable[10,2] := 1225;
+	arrTable[11,1] := 90;		arrTable[11,2] := 1415;
+	arrTable[12,1] := 95;		arrTable[12,2] := 1495;
+	arrTable[13,1] := 98;		arrTable[13,2] := 1559;
+	arrTable[14,1] := 100;		arrTable[14,2] := 1645;
+	*)
+	
+	(* init parameter struct *)
+	stCTRL_LIN_INTERPOLATION_PARAMS.tCtrlCycleTime					:= T#10ms;
+	stCTRL_LIN_INTERPOLATION_PARAMS.tTaskCycleTime					:= T#10ms;
+	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_NumberOfRows		:= INT_TO_UINT(14);
+
+	(* set the addresses *)
+	stCTRL_LIN_INTERPOLATION_PARAMS.pDataTable_ADR			:= ADR(arrTable);
+	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_SIZEOF		:= SIZEOF(arrTable);
+
+	(* set the mode to ACTIVE --> normal operation *)
+	eMode							:= eCTRL_MODE_ACTIVE;
+	
+	
+	(* init array with the interpolation points  *)
+	(* 	fIn					 |		fOut		*)
+	 FOR iCounter:=1 TO 14 BY 1 DO
+		arrTable_ENC[iCounter,1] := arrTable[iCounter,2];
+		arrTable_ENC[iCounter,2] := arrTable[iCounter,1];		
+	 END_FOR;
+	(*
+	arrTable_ENC[1,1] := 0;			arrTable_ENC[1,2] := 0;
+	arrTable_ENC[2,1] := 135;		    arrTable_ENC[2,2] := 5;
+	arrTable_ENC[3,1] := 245;		arrTable_ENC[3,2] := 10;
+	arrTable_ENC[4,1] :=  405;	    arrTable_ENC[4,2] := 20;
+	arrTable_ENC[5,1] :=  535;	    arrTable_ENC[5,2] := 30;
+	arrTable_ENC[6,1] := 689;		arrTable_ENC[6,2] := 40;
+	arrTable_ENC[7,1] := 830;		arrTable_ENC[7,2] := 50;
+	arrTable_ENC[8,1] := 960;	    arrTable_ENC[8,2] := 60;
+	arrTable_ENC[9,1] := 1095;	    arrTable_ENC[9,2] := 70;
+	arrTable_ENC[10,1] := 1225;		arrTable_ENC[10,2] := 80;
+	arrTable_ENC[11,1] := 1415;		arrTable_ENC[11,2] := 90;
+	arrTable_ENC[12,1] := 1495;		arrTable_ENC[12,2] := 95;
+	arrTable_ENC[13,1] := 1559;		arrTable_ENC[13,2] := 98;
+	arrTable_ENC[14,1] := 1645;		arrTable_ENC[14,2] := 100;*)
+	
+	
+	(* init parameter struct *)
+	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.tCtrlCycleTime					:= T#10ms;
+	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.tTaskCycleTime					:= T#10ms;
+	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.nDataTable_NumberOfRows		:= INT_TO_UINT(14);
+
+	(* set the addresses *)
+	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.pDataTable_ADR			:= ADR(arrTable_ENC);
+	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.nDataTable_SIZEOF		:= SIZEOF(arrTable_ENC);
+	
+	(* reset the init flag *)
+	bInit							:= FALSE;
+	
+END_IF;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_LIN_INTERPOLATION" Id="{e7858806-5112-4a56-b94a-17de81937dea}">
+      <Implementation>
+        <ST><![CDATA[
+fbCTRL_LIN_INTERPOLATION(
+	fIn:= q_stVGP.rReqPosition , 
+	fManValue:= 0, 
+	bExtrapolate:= , 
+	eMode:= eMode, 
+	fOut=> , 
+	bInIsGreaterThanMaxElement=> , 
+	bInIsLessThanMinElement=> , 
+	eState=> , 
+	eErrorId=> , 
+	bError=> , 
+	stParams:= stCTRL_LIN_INTERPOLATION_PARAMS );
+	
+// Target position Calculation
+rTargetPosition := LREAL_TO_REAL(fbCTRL_LIN_INTERPOLATION.fOut);
+//rTargetPosition := LIMIT(rClosePosition, rTargetPosition, rOpenPosition);	
+	
+fbCTRL_LIN_INTERPOLATION_ENC(
+	fIn:= Axis.NcToPlc.ActPos , 
+	fManValue:= 0, 
+	bExtrapolate:= , 
+	eMode:= eMode, 
+	fOut=>  , 
+	bInIsGreaterThanMaxElement=> , 
+	bInIsLessThanMinElement=> , 
+	eState=> , 
+	eErrorId=> , 
+	bError=> , 
+	stParams:= stCTRL_LIN_INTERPOLATION_PARAMS_ENC );
+q_stVGP.i_iPosition := LREAL_TO_REAL(fbCTRL_LIN_INTERPOLATION_ENC.fOut);	
+	]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="ConfigEncoder" Id="{a0127ca3-0984-4690-afad-2c3d152c6c9f}">
+      <Declaration><![CDATA[METHOD ConfigEncoder : BOOL
+VAR_INPUT
+	EncoderMax: REAl; // Maximum encoder reading from fully closed to fully open
+	invert: Bool; // Invert Encoder Counting Direction
+END_VAR
+VAR
+	fbWriteParameter1: MC_WriteBoolParameter;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[rOpenPosition := EncoderMax;
+
+// fEncScaleFactor  -  AxisEncoderScalingFactor
+ 
+// bEncIsInverse  -              
+if (invert) THEN
+	fbWriteParameter1.ParameterNumber :=  MC_AxisParameter.AxisEncoderDirectionInverse;
+	fbWriteParameter1.Value := True;
+END_IF
+
+// Write Parameters
+fbWriteParameter1(
+	Axis:= Axis , 
+	Execute:= , 
+	ParameterNumber:= , 
+	Value:= , 
+	Done=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> );
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_INIT" Id="{c3be5e37-dd4d-4591-8777-36b80934f389}">
+      <Declaration><![CDATA[METHOD M_INIT : BOOL
+VAR_INPUT
+	arrTable	: ARRAY[1..14,1..2] OF FLOAT;
+	arrTable_ENC : ARRAY[1..14,1..2] OF FLOAT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[(* init array with the interpolation points  *)
+	(* 	fIn					 |		fOut		*)
+	arrTable[1,1] := 0;			arrTable[1,2] := 0;
+	arrTable[2,1] := 5;		    arrTable[2,2] := 135;
+	arrTable[3,1] := 10;		arrTable[3,2] := 245;
+	arrTable[4,1] :=  20;	    arrTable[4,2] := 405;
+	arrTable[5,1] :=  30;	    arrTable[5,2] := 535;
+	arrTable[6,1] := 40;		arrTable[6,2] := 689;
+	arrTable[7,1] := 50;		arrTable[7,2] := 830;
+	arrTable[8,1] := 60;	    arrTable[8,2] := 960;
+	arrTable[9,1] := 70;	    arrTable[9,2] := 1095;
+	arrTable[10,1] := 80;		arrTable[10,2] := 1225;
+	arrTable[11,1] := 90;		arrTable[11,2] := 1415;
+	arrTable[12,1] := 95;		arrTable[12,2] := 1495;
+	arrTable[13,1] := 98;		arrTable[13,2] := 1559;
+	arrTable[14,1] := 100;		arrTable[14,2] := 1645;
+	
+	
+	(* init parameter struct *)
+	stCTRL_LIN_INTERPOLATION_PARAMS.tCtrlCycleTime					:= T#10ms;
+	stCTRL_LIN_INTERPOLATION_PARAMS.tTaskCycleTime					:= T#10ms;
+	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_NumberOfRows		:= INT_TO_UINT(14);
+
+	(* set the addresses *)
+	stCTRL_LIN_INTERPOLATION_PARAMS.pDataTable_ADR			:= ADR(arrTable);
+	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_SIZEOF		:= SIZEOF(arrTable);
+
+	(* set the mode to ACTIVE --> normal operation *)
+	eMode							:= eCTRL_MODE_ACTIVE;
+	
+	
+	(* init array with the interpolation points  *)
+	(* 	fIn					 |		fOut		*)
+	arrTable_ENC[1,1] := 0;			arrTable_ENC[1,2] := 0;
+	arrTable_ENC[2,1] := 135;		    arrTable_ENC[2,2] := 5;
+	arrTable_ENC[3,1] := 245;		arrTable_ENC[3,2] := 10;
+	arrTable_ENC[4,1] :=  405;	    arrTable_ENC[4,2] := 20;
+	arrTable_ENC[5,1] :=  535;	    arrTable_ENC[5,2] := 30;
+	arrTable_ENC[6,1] := 689;		arrTable_ENC[6,2] := 40;
+	arrTable_ENC[7,1] := 830;		arrTable_ENC[7,2] := 50;
+	arrTable_ENC[8,1] := 960;	    arrTable_ENC[8,2] := 60;
+	arrTable_ENC[9,1] := 1095;	    arrTable_ENC[9,2] := 70;
+	arrTable_ENC[10,1] := 1225;		arrTable_ENC[10,2] := 80;
+	arrTable_ENC[11,1] := 1415;		arrTable_ENC[11,2] := 90;
+	arrTable_ENC[12,1] := 1495;		arrTable_ENC[12,2] := 95;
+	arrTable_ENC[13,1] := 1559;		arrTable_ENC[13,2] := 98;
+	arrTable_ENC[14,1] := 1645;		arrTable_ENC[14,2] := 100;
+	
+	
+	(* init parameter struct *)
+	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.tCtrlCycleTime					:= T#10ms;
+	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.tTaskCycleTime					:= T#10ms;
+	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.nDataTable_NumberOfRows		:= INT_TO_UINT(14);
+
+	(* set the addresses *)
+	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.pDataTable_ADR			:= ADR(arrTable_ENC);
+	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.nDataTable_SIZEOF		:= SIZEOF(arrTable_ENC);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_ValveControl" Id="{d751bf76-146a-4941-88f4-7263885a64c0}">
+      <Declaration><![CDATA[METHOD M_ValveControl : BOOL
+VAR_INPUT
+	state:E_VCN; // Close, Open, Pressure, Manual
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[q_stVGP.eValveControl := state;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SetEncoderMax" Id="{61fb5926-5bff-4b7f-8268-e746a917813f}">
+      <Declaration><![CDATA[METHOD PUBLIC SetEncoderMax : BOOL
+VAR_INPUT
+	EncoderMax: REAl;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[rOpenPosition := EncoderMax;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_VGP">
+      <LineId Id="473" Count="0" />
+      <LineId Id="168" Count="7" />
+      <LineId Id="177" Count="1" />
+      <LineId Id="180" Count="1" />
+      <LineId Id="183" Count="2" />
+      <LineId Id="192" Count="0" />
+      <LineId Id="194" Count="1" />
+      <LineId Id="348" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="347" Count="0" />
+      <LineId Id="228" Count="0" />
+      <LineId Id="206" Count="0" />
+      <LineId Id="345" Count="0" />
+      <LineId Id="209" Count="3" />
+      <LineId Id="227" Count="0" />
+      <LineId Id="234" Count="0" />
+      <LineId Id="208" Count="0" />
+      <LineId Id="346" Count="0" />
+      <LineId Id="266" Count="2" />
+      <LineId Id="270" Count="0" />
+      <LineId Id="269" Count="0" />
+      <LineId Id="434" Count="0" />
+      <LineId Id="479" Count="0" />
+      <LineId Id="478" Count="0" />
+      <LineId Id="252" Count="0" />
+      <LineId Id="274" Count="0" />
+      <LineId Id="469" Count="3" />
+    </LineIds>
+    <LineIds Name="FB_VGP.ACT_AXIS">
+      <LineId Id="309" Count="0" />
+      <LineId Id="7" Count="1" />
+      <LineId Id="5" Count="1" />
+      <LineId Id="142" Count="0" />
+      <LineId Id="1" Count="0" />
+      <LineId Id="80" Count="5" />
+      <LineId Id="244" Count="0" />
+      <LineId Id="172" Count="0" />
+      <LineId Id="199" Count="0" />
+      <LineId Id="88" Count="6" />
+      <LineId Id="271" Count="0" />
+      <LineId Id="96" Count="2" />
+      <LineId Id="276" Count="0" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="285" Count="1" />
+      <LineId Id="307" Count="0" />
+      <LineId Id="323" Count="0" />
+      <LineId Id="287" Count="2" />
+      <LineId Id="159" Count="0" />
+      <LineId Id="284" Count="0" />
+      <LineId Id="295" Count="0" />
+      <LineId Id="283" Count="0" />
+      <LineId Id="163" Count="0" />
+      <LineId Id="311" Count="3" />
+      <LineId Id="310" Count="0" />
+      <LineId Id="294" Count="0" />
+      <LineId Id="290" Count="2" />
+      <LineId Id="321" Count="0" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="315" Count="0" />
+      <LineId Id="317" Count="1" />
+      <LineId Id="322" Count="0" />
+      <LineId Id="316" Count="0" />
+      <LineId Id="219" Count="0" />
+      <LineId Id="112" Count="9" />
+      <LineId Id="167" Count="0" />
+      <LineId Id="170" Count="0" />
+      <LineId Id="166" Count="0" />
+      <LineId Id="122" Count="2" />
+      <LineId Id="222" Count="0" />
+      <LineId Id="297" Count="0" />
+      <LineId Id="300" Count="0" />
+      <LineId Id="305" Count="1" />
+      <LineId Id="304" Count="0" />
+      <LineId Id="301" Count="1" />
+      <LineId Id="296" Count="0" />
+      <LineId Id="303" Count="0" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="176" Count="0" />
+      <LineId Id="193" Count="0" />
+      <LineId Id="278" Count="3" />
+      <LineId Id="195" Count="0" />
+      <LineId Id="126" Count="1" />
+      <LineId Id="320" Count="0" />
+      <LineId Id="128" Count="12" />
+      <LineId Id="256" Count="0" />
+      <LineId Id="258" Count="2" />
+      <LineId Id="262" Count="3" />
+      <LineId Id="267" Count="1" />
+      <LineId Id="266" Count="0" />
+      <LineId Id="247" Count="0" />
+      <LineId Id="141" Count="0" />
+      <LineId Id="10" Count="4" />
+      <LineId Id="34" Count="17" />
+      <LineId Id="143" Count="14" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="201" Count="15" />
+      <LineId Id="200" Count="0" />
+      <LineId Id="69" Count="5" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="177" Count="0" />
+      <LineId Id="180" Count="11" />
+      <LineId Id="179" Count="0" />
+      <LineId Id="178" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="75" Count="3" />
+      <LineId Id="17" Count="12" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VGP.ACT_HOME">
+      <LineId Id="56" Count="1" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="86" Count="1" />
+      <LineId Id="58" Count="1" />
+      <LineId Id="61" Count="1" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="104" Count="0" />
+      <LineId Id="65" Count="1" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="125" Count="1" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="70" Count="2" />
+      <LineId Id="118" Count="0" />
+      <LineId Id="75" Count="1" />
+      <LineId Id="119" Count="0" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="108" Count="1" />
+      <LineId Id="121" Count="1" />
+      <LineId Id="110" Count="2" />
+      <LineId Id="123" Count="0" />
+      <LineId Id="113" Count="1" />
+      <LineId Id="124" Count="0" />
+      <LineId Id="115" Count="2" />
+      <LineId Id="107" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="131" Count="0" />
+      <LineId Id="130" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="132" Count="0" />
+      <LineId Id="84" Count="0" />
+      <LineId Id="83" Count="0" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="93" Count="0" />
+      <LineId Id="92" Count="0" />
+      <LineId Id="133" Count="0" />
+      <LineId Id="135" Count="0" />
+      <LineId Id="134" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="136" Count="1" />
+      <LineId Id="94" Count="0" />
+      <LineId Id="88" Count="0" />
+      <LineId Id="95" Count="3" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="89" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="100" Count="1" />
+      <LineId Id="129" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="7" Count="17" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="28" Count="8" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="41" Count="7" />
+      <LineId Id="40" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VGP.ACT_INIT">
+      <LineId Id="2" Count="0" />
+      <LineId Id="65" Count="1" />
+      <LineId Id="6" Count="32" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="40" Count="21" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="62" Count="2" />
+      <LineId Id="1" Count="0" />
+      <LineId Id="4" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VGP.ACT_LIN_INTERPOLATION">
+      <LineId Id="14" Count="11" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="2" Count="10" />
+      <LineId Id="1" Count="0" />
+      <LineId Id="31" Count="1" />
+    </LineIds>
+    <LineIds Name="FB_VGP.ConfigEncoder">
+      <LineId Id="5" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="12" Count="1" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="21" Count="9" />
+      <LineId Id="19" Count="1" />
+      <LineId Id="11" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VGP.M_INIT">
+      <LineId Id="8" Count="55" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VGP.M_ValveControl">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VGP.SetEncoderMax">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

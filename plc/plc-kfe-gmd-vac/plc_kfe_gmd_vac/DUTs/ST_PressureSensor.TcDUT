@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <DUT Name="ST_PressureSensor" Id="{e2fd2869-5b3d-4f0f-9bdb-39ae63cd7b05}">
+    <Declaration><![CDATA[TYPE ST_PressureSensor :
+STRUCT
+	{attribute 'pytmc' := '
+    pv: PRESS;
+	io: i;
+    '}
+	rPRESS: REAL; //This is the human-readable pressure
+	{attribute 'pytmc' := '
+    pv: iPRESS;
+	io: i;
+    '}
+	iPRESS_R : INT ; //input pressure in machine form
+	{attribute 'pytmc' := '
+    pv: PRESS_SP;
+	io: io;
+    '}	
+	rPressSP: REAL ; // EPICS Pressure setpoint 
+	{attribute 'pytmc' := '
+    pv: MIN_SP;
+	io: io;
+    '}
+	rMinPressSP : REAL;  // Low limit of pressure setpoint 
+	{attribute 'pytmc' := '
+    pv: MAX_SP;
+	io: io;
+    '}
+	rMaxPressSP : REAL;	// High limit of pressure setpoint
+	{attribute 'pytmc' := '
+    pv: SCALE;
+	io: io;
+    '}
+	rFULL_SCALE: REAL; // Full scale 
+	{attribute 'pytmc' := '
+    pv: ALARM;
+	field: ZNAM Normal; 
+	field: ONAM Alarm;
+	io: i;
+    '}
+    xPstateAlarm : BOOL; // 0:Normal, 1:Alarm
+	
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
