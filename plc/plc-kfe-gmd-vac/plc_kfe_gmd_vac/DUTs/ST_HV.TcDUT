@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <DUT Name="ST_HV" Id="{595ba635-0869-4e35-ab9a-d45f350ae336}">
+    <Declaration><![CDATA[TYPE ST_HV :
+STRUCT
+	{attribute 'pytmc' := '
+    pv: HV_SW;
+	io: io;
+    '}
+	HV_sw: BOOL:=false;
+	{attribute 'pytmc' := '
+    pv: HV_DO;
+	io: i;
+    '}
+	q_HV_DO: BOOL;
+	{attribute 'pytmc' := '
+    pv: ILK_OK;
+	io: i;
+    '}
+	xIlkOK	:	BOOL := FALSE; // Interlock Bit
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

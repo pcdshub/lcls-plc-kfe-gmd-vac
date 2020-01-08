@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="FB_PressureTransducer" Id="{9872138d-1d57-4ec1-bb67-dc57d4aea08b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_PressureTransducer
+VAR_OUTPUT
+	{attribute 'pytmc' := 'pv:'}
+	Sensor : ST_PressureSensor;
+END_VAR
+
+VAR_INPUT
+	rDefaultSP : REAL; (* Must assign a default value at instantiation*)
+	i_rFULL_SCALE: REAL;
+END_VAR
+
+VAR
+	iCurrent : REAL;
+	AlarmTOF : TOF;
+
+	(*IOs to be linked*)
+	iError AT %I* : BOOL; // Link to terminal diagnostics
+	i_iPRESS_R AT %I* :INT; // input Pressure // Link to analog Input
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// for SETRA  4-20mA outout
+
+(* Real-value calculation *)
+Sensor.rFull_Scale:=i_rFULL_SCALE;
+iCurrent := 20*INT_TO_REAL(Sensor.iPRESS_R)/32767;
+
+  IF iError THEN; //reading less than 4mA
+  	 Sensor.rPRESS := -1;
+	 Sensor.xPStateAlarm:= TRUE;
+	 ELSE 
+		 Sensor.rPRESS := LREAL_TO_REAL(iCurrent*Sensor.rFull_Scale); //FULL scale in Psi for pressure transducer ???
+  END_IF
+  
+ (* Validate setpoint *)
+	IF (Sensor.rPressSP < Sensor.rMinPressSP OR Sensor.rPressSP > Sensor.rMaxPressSP) THEN;
+		Sensor.rPressSP := rDefaultSP;
+	END_IF
+
+ (* Set alarm bit when pressure lower and equal to setpoint, delay off for 60s*)
+  
+  AlarmTOF (IN := Sensor.rPRESS <= Sensor.rPressSP, PT := T#60S, Q => Sensor.xPstateAlarm);
+  
+	 
+	 
+  
+ (*Soft IO Mapping*)
+  ACT_IO();
+
+  
+  
+  ]]></ST>
+    </Implementation>
+    <Action Name="ACT_IO" Id="{7f5612ed-2f27-4642-962e-b93694071fcd}">
+      <Implementation>
+        <ST><![CDATA[Sensor.iPRESS_R := i_iPRESS_R;]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="FB_PressureTransducer">
+      <LineId Id="48" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="39" Count="2" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="59" Count="2" />
+      <LineId Id="64" Count="1" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="45" Count="1" />
+      <LineId Id="85" Count="1" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="23" Count="1" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_PressureTransducer.ACT_IO">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

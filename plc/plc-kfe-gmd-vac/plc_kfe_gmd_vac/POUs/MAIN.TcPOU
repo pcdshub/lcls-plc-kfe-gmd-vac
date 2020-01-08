@@ -9,11 +9,23 @@ END_VAR
     <Implementation>
       <ST><![CDATA[PRG_DIAGNOSTIC();
 PRG_GMD();
-]]></ST>
+
+
+(*INJ*)
+PRG_INJ();
+PRG_PressureControl();
+//PRG_Purge();
+//call orther PRG
+
+// instaniate the RTD and HV]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="13" Count="0" />
-      <LineId Id="7" Count="1" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="18" Count="1" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="21" Count="4" />
+      <LineId Id="20" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

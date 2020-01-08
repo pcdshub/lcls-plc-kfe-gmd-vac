@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="PRG_VGP" Id="{8930a62c-e5aa-41cb-8f40-588ee8e873ab}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_VGP
+VAR
+	arrTable											: ARRAY[1..14,1..2] OF FLOAT;
+	arrTable_ENC										: ARRAY[1..14,1..2] OF FLOAT;
+	
+	bInit: BOOL:=true;
+	
+	VGP_REQ_POS: LREAL;
+	VGP_OUT_POS:LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF bInit
+THEN
+	
+	
+	(* init array with the interpolation points  *)
+	(* 	fIn					 |		fOut		*)
+	arrTable[1,1] := 0;			arrTable[1,2] := 0;
+	arrTable[2,1] := 5;		    arrTable[2,2] := 135;
+	arrTable[3,1] := 10;		arrTable[3,2] := 245;
+	arrTable[4,1] :=  20;	    arrTable[4,2] := 405;
+	arrTable[5,1] :=  30;	    arrTable[5,2] := 535;
+	arrTable[6,1] := 40;		arrTable[6,2] := 689;
+	arrTable[7,1] := 50;		arrTable[7,2] := 830;
+	arrTable[8,1] := 60;	    arrTable[8,2] := 960;
+	arrTable[9,1] := 70;	    arrTable[9,2] := 1095;
+	arrTable[10,1] := 80;		arrTable[10,2] := 1225;
+	arrTable[11,1] := 90;		arrTable[11,2] := 1415;
+	arrTable[12,1] := 95;		arrTable[12,2] := 1495;
+	arrTable[13,1] := 98;		arrTable[13,2] := 1559;
+	arrTable[14,1] := 100;		arrTable[14,2] := 1645;
+	
+	
+	(* reset the init flag *)
+	bInit							:= FALSE;
+END_IF
+
+ 
+VGP_40(
+	i_xExtIlkOK:= true(*GPI_50.IG.xAT_VAC*), 
+	i_ReqPos:= , 
+	arrTable:= arrTable , 
+	(*arrTable_ENC:= arrTable_ENC , *)
+	q_stVGP=> ); ]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_VGP">
+      <LineId Id="5" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="24" Count="12" />
+      <LineId Id="56" Count="4" />
+      <LineId Id="106" Count="1" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="124" Count="0" />
+      <LineId Id="126" Count="4" />
+      <LineId Id="125" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

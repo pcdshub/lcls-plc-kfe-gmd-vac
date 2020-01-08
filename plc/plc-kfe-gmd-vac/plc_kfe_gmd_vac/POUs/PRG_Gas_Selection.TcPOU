@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="PRG_Gas_Selection" Id="{f65eb335-21e5-43a7-a5c6-4b463c324e82}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_Gas_Selection
+VAR
+	CurrentGas: E_GasType;
+	//pragma
+	SelectedGas: E_GasType;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Gas selection includes a purge and checks interlocks*)
+
+if ( VVC_83.iq_stValve.q_xOPN_DO) then
+	CurrentGas := E_GasType.Neon;
+	elsif ( VVC_84.iq_stValve.q_xOPN_DO) then
+		CurrentGas := E_GasType.Argon;
+		elsif ( VVC_85.iq_stValve.q_xOPN_DO) then
+		CurrentGas := E_GasType.Krypton;
+			elsif ( VVC_86.iq_stValve.q_xOPN_DO) then
+			CurrentGas := E_GasType.Xenon;
+END_IF
+
+
+If( CurrentGas <> SelectedGas) then
+	PRG_Purge.bStartPurge_sw := true;
+END_IF
+
+if NOT(PRG_Purge.bStartPurge_sw) AND(PRG_Purge.bPurgeDone) then
+	case SelectedGas of
+	E_GasType.none: // all valves closed
+		VVC_83.iq_stValve.pv_xOPN_SW:= false;
+		VVC_84.iq_stValve.pv_xOPN_SW := false;
+		VVC_85.iq_stValve.pv_xOPN_SW := false;
+		VVC_86.iq_stValve.pv_xOPN_SW := false;
+	E_GasType.Neon:
+		VVC_83.iq_stValve.pv_xOPN_SW:= TRUE;
+		VVC_84.iq_stValve.pv_xOPN_SW := false;
+		VVC_85.iq_stValve.pv_xOPN_SW := false;
+		VVC_86.iq_stValve.pv_xOPN_SW := false;
+	E_GasType.Argon: // all valves closed
+		VVC_83.iq_stValve.pv_xOPN_SW:= false;
+		VVC_84.iq_stValve.pv_xOPN_SW := TRUE;
+		VVC_85.iq_stValve.pv_xOPN_SW := false;
+		VVC_86.iq_stValve.pv_xOPN_SW := false;	 
+	E_GasType.Krypton: // all valves closed
+		VVC_83.iq_stValve.pv_xOPN_SW:= false;
+		VVC_84.iq_stValve.pv_xOPN_SW := false;
+		VVC_85.iq_stValve.pv_xOPN_SW := TRUE;
+		VVC_86.iq_stValve.pv_xOPN_SW := false;
+	E_GasType.Xenon: // all valves closed
+		VVC_83.iq_stValve.pv_xOPN_SW:= false;
+		VVC_84.iq_stValve.pv_xOPN_SW := false;
+		VVC_85.iq_stValve.pv_xOPN_SW := false;
+		VVC_86.iq_stValve.pv_xOPN_SW := TRUE;
+	END_CASE
+END_IF
+
+
+/// vcn and vgp on manual or auto??]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_Gas_Selection">
+      <LineId Id="5" Count="0" />
+      <LineId Id="22" Count="1" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="27" Count="5" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="19" Count="1" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="37" Count="6" />
+      <LineId Id="46" Count="2" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="49" Count="3" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="54" Count="3" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="59" Count="3" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="35" Count="1" />
+      <LineId Id="63" Count="1" />
+      <LineId Id="11" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="PRG_Purge" Id="{b3577731-6d92-475a-8fcb-3a6fc19b49ca}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_Purge
+VAR
+	step: INT:=0;
+
+//ADD PRAGMAS
+
+	AllGasVlvCls 		: BOOL; (* All Gas Manifold Valves are closed when True, not including VIC80, 81 or VGP40 *)
+	WatchdogTmr			: TON;  (* Purge Watchdog Timer*)
+
+	StartWatchdogTmr 	: BOOL;
+	WatchdogPeriod 		: TIME;
+
+	NeedleVlvPurgeTmr	: TON;	(* Declaration for the needle valve Purge timer *)
+	NeedlePurgeTime		: TIME:=T#30S;
+	BurpET				: TIME;
+	NeedlePurgeRun		: BOOL;
+	NeedlePurgeDone		: BOOL;
+	NeedlePurgeRepeat	: INT:= 2;
+	VCN_Timer	:TON;
+	//PRAGMA
+	NeedleBurpTime		: TIME;
+
+
+	//PRAGMA
+	GBA80Tmr			: TON;
+	GBA80Time			: TIME:=T#20S;
+	GBATimeDone			: BOOL;
+
+	CATCH : INT;
+	CATCH1 : INT;
+	
+	// Timers
+	VVC_81_Timer : TON;
+	VVC_82_Timer : TON;
+	
+	// cOMMANDS FROM epics
+	//pragma
+	bStartPurge_sw : BOOL :=false;
+	bPurgeActive : BOOL:=false;
+	bPurgeDone : BOOL :=false;
+	
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+(* 		PURGE CYCLE
+	The purge cycle cosists of the following steps;	
+	1. Close all gas valves 83-86
+	2. Close Needle valve 
+	3. Fully open VGP:40
+	4. PUMP DOWN MANIFOLD: Open VIC82 for a certain peroid of time or till cetrain pressure
+	5. Open VIC:81 and keep it open while the manifold pumps down to pressure set point
+	6. BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
+	7. Close needle valve
+	8. Close VIC:81 and VIC:82
+	9. Release VGP:40
+
+*)
+
+
+CASE step OF
+		0: // READY STATE
+		IF (bStartPurge_sw) Then
+			step:=10;
+			bPurgeActive := true;
+			bPurgeDone := false;
+		END_IF
+
+10: // start purge sequence by closing all gas valves
+	VVC_80.M_Set_OPN_SW(FALSE);
+	VVC_83.M_Set_OPN_SW(FALSE);
+	VVC_84.M_Set_OPN_SW(FALSE);
+	VVC_85.M_Set_OPN_SW(FALSE);
+	VVC_86.M_Set_OPN_SW(FALSE);
+	
+	if  (NOT VVC_83.iq_stValve.q_xOPN_DO) AND(NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO) then
+		step:= 20;
+	END_IF
+	
+20: //Close Needle valve 
+	VCN_40.M_ValveControl( E_VCN.CloseValve);
+	// wait for a period of time to ensure that the Valve is fully closed
+	IF (VCN_Timer.Q) THEN
+		step:=30;
+	END_IF
+	
+	
+30: //Fully open VGP:40
+	VGP_40.M_ValveControl(E_VCN.OpenValve);
+	IF NOT(VGP_40.q_stVGP.state = E_MoveState.MOVESTATE_READY ) THEN // wait until the VGP encoder reads Open
+		step:=31;
+	END_IF
+	if (VGP_40.q_stVGP.pv_xError )then
+		step:=900+step;
+	END_IF
+31: 
+	IF (VGP_40.q_stVGP.state = E_MoveState.MOVESTATE_READY ) THEN // wait until the VGP encoder reads Open //use motion ready
+		step:=40;
+	END_IF
+	if (VGP_40.q_stVGP.pv_xError )then
+		step:=900+step;
+	END_IF
+	
+40: // open vavle 80 to pump down all the way to the needle valve
+	VVC_80.M_Set_OPN_SW(TRUE);
+	if (VVC_80.iq_stValve.q_xOPN_DO ) THEN
+		step:=41;
+	END_IF
+	
+41: //PUMP DOWN MANIFOLD: Open VIC82 for a certain peroid of time or till cetrain pressure
+	VVC_82.iq_stValve.pv_xOPN_SW := TRUE;
+	if (VVC_82.iq_stValve.q_xOPN_DO ) AND (VVC_82_Timer.Q) THEN
+		step:=50;
+	END_IF
+
+50:// Open VIC:81 and keep it open while the manifold pumps down to pressure set point
+	VVC_81.M_Set_OPN_SW(TRUE);
+	IF (VVC_81.iq_stValve.q_xOPN_DO ) AND (VVC_81_Timer.Q) THEN // or a certain pressure reading and check timeouts
+		step:=51;
+	END_IF
+	
+51: //Close VIC:81 and VIC:82
+	VVC_80.M_Set_OPN_SW(false);
+	VVC_81.M_Set_OPN_SW(false);
+	VVC_82.M_Set_OPN_SW(false);
+	IF (NOT VVC_80.iq_stValve.q_xOPN_DO) AND(NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO) THEN
+		step:=60;
+	END_IF
+
+60: //BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
+	VCN_40.M_ValveControl(E_VCN.OpenValve);
+	// wait for a period of time to ensure that the Valve is fully closed
+	IF (VCN_Timer.Q) THEN
+		step:=70;
+	END_IF
+	
+70: //Close Needle valve 
+	VCN_40.M_ValveControl(E_VCN.CloseValve);
+	// wait for a period of time to ensure that the Valve is fully closed
+	IF (VCN_Timer.Q) THEN
+		step:=80;
+	END_IF
+
+80: // Repeat
+	IF (NeedlePurgeRepeat > 0) THEN
+		NeedlePurgeRepeat := NeedlePurgeRepeat-1;
+		step:= 60;
+	ELSE
+		NeedlePurgeRepeat := 2;
+		step:=90;				
+	END_IF
+	
+	
+
+
+
+90: //Release VGP:40
+	VGP_40.M_ValveControl( E_VCN.ManualControl);
+	VGP_40.q_stVGP.rReqPosition:= 50; //50% open
+	IF NOT(VGP_40.q_stVGP.state = E_MoveState.MOVESTATE_READY ) THEN // wait until the VGP encoder reads Open //use motion ready
+		step:=91;
+	END_IF
+	if (VGP_40.q_stVGP.pv_xError )then
+		step:=900+step;
+	END_IF
+	
+91: 
+	IF (VGP_40.q_stVGP.state = E_MoveState.MOVESTATE_READY ) THEN // wait until the VGP encoder reads Open //use motion ready
+		step:=100;
+	END_IF
+	if (VGP_40.q_stVGP.pv_xError )then
+		step:=900+step;
+	END_IF
+  
+100: // DONE
+	bStartPurge_sw := false;
+	bPurgeActive := false;
+	bPurgeDone := TRUE;
+	
+900: //Error
+	VVC_80.M_Set_OPN_SW(false);
+	VVC_81.M_Set_OPN_SW(false);
+	VVC_82.M_Set_OPN_SW(false);
+	VVC_83.M_Set_OPN_SW(false);
+	VVC_84.M_Set_OPN_SW(false);
+	VVC_85.M_Set_OPN_SW(false);
+	VVC_86.M_Set_OPN_SW(false);
+	VCN_40.M_ValveControl(E_VCN.CloseValve);
+	//VGP_40.M_ValveControl(E_VCN.CloseValve); // CLOSE or OPEN to pump down
+
+
+END_CASE
+
+
+//shouldn't be here
+(*
+if (bPurgeActive) then
+	VVC_83.i_xExtILK_OK := VVC_84.i_xExtILK_OK := VVC_85.i_xExtILK_OK := VVC_86.i_xExtILK_OK := false;
+END_IF
+*)
+
+//Errors
+if (step >900 ) Then
+	// show error and step
+END_IF
+
+
+//Timers
+VVC_81_Timer(IN:= (step = 50), PT:=t#60s);
+VVC_82_Timer(IN:= (step = 40), PT:=T#360S);
+VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
+
+
+/// vcn and vgp on manual or auto?? manual, until the Go or auto button is pressed??]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_Purge">
+      <LineId Id="6" Count="6" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="13" Count="4" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="47" Count="1" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="75" Count="1" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="52" Count="1" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="269" Count="0" />
+      <LineId Id="68" Count="2" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="83" Count="2" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="186" Count="2" />
+      <LineId Id="87" Count="6" />
+      <LineId Id="96" Count="2" />
+      <LineId Id="218" Count="5" />
+      <LineId Id="217" Count="0" />
+      <LineId Id="275" Count="0" />
+      <LineId Id="271" Count="3" />
+      <LineId Id="270" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="94" Count="0" />
+      <LineId Id="125" Count="1" />
+      <LineId Id="129" Count="1" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="95" Count="0" />
+      <LineId Id="132" Count="2" />
+      <LineId Id="131" Count="0" />
+      <LineId Id="308" Count="0" />
+      <LineId Id="310" Count="0" />
+      <LineId Id="315" Count="0" />
+      <LineId Id="311" Count="3" />
+      <LineId Id="309" Count="0" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="190" Count="3" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="200" Count="0" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="196" Count="3" />
+      <LineId Id="194" Count="0" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="291" Count="7" />
+      <LineId Id="300" Count="2" />
+      <LineId Id="104" Count="0" />
+      <LineId Id="114" Count="0" />
+      <LineId Id="113" Count="0" />
+      <LineId Id="203" Count="0" />
+      <LineId Id="209" Count="0" />
+      <LineId Id="204" Count="4" />
+      <LineId Id="202" Count="0" />
+      <LineId Id="201" Count="0" />
+      <LineId Id="211" Count="0" />
+      <LineId Id="216" Count="0" />
+      <LineId Id="212" Count="3" />
+      <LineId Id="210" Count="0" />
+      <LineId Id="116" Count="2" />
+      <LineId Id="115" Count="0" />
+      <LineId Id="119" Count="0" />
+      <LineId Id="276" Count="0" />
+      <LineId Id="278" Count="9" />
+      <LineId Id="277" Count="0" />
+      <LineId Id="120" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="78" Count="2" />
+      <LineId Id="142" Count="0" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="81" Count="1" />
+      <LineId Id="143" Count="0" />
+      <LineId Id="140" Count="0" />
+      <LineId Id="122" Count="0" />
+      <LineId Id="121" Count="0" />
+      <LineId Id="123" Count="1" />
+      <LineId Id="137" Count="1" />
+      <LineId Id="136" Count="0" />
+      <LineId Id="139" Count="0" />
+      <LineId Id="141" Count="0" />
+      <LineId Id="189" Count="0" />
+      <LineId Id="225" Count="1" />
+      <LineId Id="224" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
