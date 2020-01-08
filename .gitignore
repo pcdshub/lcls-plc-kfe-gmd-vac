@@ -1,3 +1,4 @@
+# TwinCAT3 items
 _Boot
 _Libraries
 _CompileInfo
@@ -7,3 +8,9 @@ _CompileInfo
 *.tpy
 *.bak
 *.~u
+
+# *nix dev items
+*.swp
+
+# sphinx-build docs
+docs/build

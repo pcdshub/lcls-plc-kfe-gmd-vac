@@ -1,0 +1,16 @@
+language: python
+dist: xenial
+python: 3.7
+
+env:
+  global:
+    # Doctr deploy key for pcdshub/lcls-plc-kfe-gmd-vac
+    - secure: "R/SYgFK1SBIk783FFvAGXgBxap0sJcDtnCIwAAdhQZt1IWCkBMaIPmszkl6XvL3V7SS6/yRsxgYStVlDJ6aOZ4pRMQVW7ckv0h0LVXKYzoT5epc8Ji8sNsukto2aXOfPXukWRLaPRhCZtLNCovq+Lp3YXmHgcZIA42zp11/XwPcLJ7rA/VA2lUn8cr5KbyRGYQ0afLhS2u8HdkqDSDynjcbqkyzpcrBWe2HvSmMOFarovQkmmAFJr3tIIpTIhq2CYeVbKLhT8Avuxw9BAwK86NlzT2ph9HoVcyqAfMoqTzuQNMcUISUPH+nIg9FlT4C4B8BjuAw5A4V0WQDtHNTKsRp++xmlWT7FAJW0yTGdArkoNNCTtfKMgFS8v9NlKjVe/rCEpmCU6/wCDsJQUQT0yd+imPL3jjn3O1KGZocYe0zpPohu+bhvg/d0dWRCdZZ+Y8duefHCx7xyvOzuf5ceRRKDNMqTf75T8HZJ6T+uKjOnqArH+HUGuzoqmgpwPyboDBCGpRtpJ5Hue9G/9iOEeCGQg2KHFcTU2GOopH93chEMIBKCpIZrlzvSr15ZWO72/Clike/PQiQQ+Kad43mDKlLk5uYNT72pGerALqhuR1A6BXmQgwQn9fDVO8b2SsHSlpQcBNO+n5EohypFFLxLSKSTffLdHo5+xZPVvJkyNLI="
+
+install:
+  # CI scripts 
+  - git clone --depth 1 https://github.com/pcdshub/pcds-ci-helpers.git
+
+script:
+
+  - bash pcds-ci-helpers/travis/tc3_linter.sh
