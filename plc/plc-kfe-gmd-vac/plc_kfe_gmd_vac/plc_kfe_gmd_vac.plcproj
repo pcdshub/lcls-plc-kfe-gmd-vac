@@ -54,6 +54,9 @@
     <Compile Include="POUs\FB_PressureTransducer.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\FB_RTD.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\FB_VGP.TcPOU">
       <SubType>Code</SubType>
     </Compile>
