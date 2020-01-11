@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.6">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <GVL Name="GVL_GMD" Id="{e07be9ee-1c30-4de2-9fbb-2a29f1e5894a}">
     <Declaration><![CDATA[VAR_GLOBAL
 
@@ -7,7 +7,7 @@
 // Includes 'fake' elements for satisfying interlocks. Delete these after creating better interlock functions 
 
 // Defaults to the closed position. No command required. 
-fake_always_closed_vent_valve : ST_VCC;
+fake_always_closed_vent_valve : ST_VVC;
 
 // FB_MKS317
 
