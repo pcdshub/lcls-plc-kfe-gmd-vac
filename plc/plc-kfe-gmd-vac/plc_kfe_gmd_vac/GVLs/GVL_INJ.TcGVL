@@ -49,6 +49,8 @@
 	hv1 : FB_HighVoltage;
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:HV:2 '}
 	hv2 : FB_HighVoltage;
+	{attribute 'pytmc' :=' pv: EM1K0:GEM:RTD:1 '}
+	RTD : FB_RTD;
 
 END_VAR]]></Declaration>
   </GVL>

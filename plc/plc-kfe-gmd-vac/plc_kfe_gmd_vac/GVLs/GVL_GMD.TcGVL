@@ -7,7 +7,7 @@
 // Includes 'fake' elements for satisfying interlocks. Delete these after creating better interlock functions 
 
 // Defaults to the closed position. No command required. 
-fake_always_closed_vent_valve : ST_VCC;
+fake_always_closed_vent_valve : ST_VVC;
 
 // FB_MKS317
 
