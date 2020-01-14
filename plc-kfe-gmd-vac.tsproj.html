@@ -331,50 +331,50 @@ END_TYPE
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>VAR_GLOBAL
 		
 //GVL_Devices
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:VCN:40 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VCN:40 &#39;}
 	VCN_40 : FB_VCN;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:VGP:40 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VGP:40 &#39;}
 	VGP_40 : FB_VGP;
 	
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:VVC:80 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:80 &#39;}
 	VVC_80:FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:VVC:81 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:81 &#39;}
 	VVC_81:FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:VVC:82 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:82 &#39;}
 	VVC_82:FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:VVC:83 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:83 &#39;}
 	VVC_83 : FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:VVC:84 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:84 &#39;}
 	VVC_84 : FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:VVC:85 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:85 &#39;}
 	VVC_85 : FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:VVC:86 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:86 &#39;}
 	VVC_86 : FB_VVC;
 	
 
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:GCM:80 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GCM:80 &#39;}
 	GCM_80: FB_GCM;
 	
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:INJ_Override &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:INJ_Override &#39;}
 	
 	xOverrideMode : BOOL:= false;
 		
 //GVL_Sensors
 
 (*Pressure Meter*)
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:GFM:86 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:86 &#39;}
 	GFM_86 :FB_PressureTransducer;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:GFM:85 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:85 &#39;}
 	GFM_85 :FB_PressureTransducer;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:GFM:84 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:84 &#39;}
 	GFM_84 :FB_PressureTransducer;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:GFM:83 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:83 &#39;}
 	GFM_83 :FB_PressureTransducer;	
 
 (*HV*)
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:HV:1 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:HV:1 &#39;}
 	hv1 : FB_HighVoltage;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:HV:2 &#39;}
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:HV:2 &#39;}
 	hv2 : FB_HighVoltage;
 	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:RTD:1 &#39;}
 	RTD : FB_RTD;
@@ -1533,57 +1533,94 @@ END_VAR
 	<span class="n">BackingGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span> 
 	<span class="n">InletGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_10</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span> 
 	<span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span><span class="p">));</span>
-<span class="n">fb_EM1K0_GMD_PTM_20</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic</span><span class="p">(</span>
+<span class="n">fb_EM1K0_GMD_PTM_20</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span>
 	<span class="n">Turbo</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_20</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span> 
 	<span class="n">BackingGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span> 
 	<span class="n">InletGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_20</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span> 
-	<span class="n">VentValve</span><span class="o">:=</span> <span class="n">fake_always_closed_vent_valve</span><span class="p">,</span> 
 	<span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span><span class="p">));</span>
-<span class="n">fb_EM1K0_GMD_PTM_30</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic</span><span class="p">(</span>
+<span class="n">fb_EM1K0_GMD_PTM_30</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span>
 	<span class="n">Turbo</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_30</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span> 
 	<span class="n">BackingGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span> 
 	<span class="n">InletGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_30</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span> 
-	<span class="n">VentValve</span><span class="o">:=</span> <span class="n">fake_always_closed_vent_valve</span><span class="p">,</span> 
 	<span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span><span class="p">));</span>
-<span class="n">fb_EM1K0_GMD_PTM_40</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic</span><span class="p">(</span>
+<span class="n">fb_EM1K0_GMD_PTM_40</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span>
 	<span class="n">Turbo</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_40</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span> 
 	<span class="n">BackingGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span> 
 	<span class="n">InletGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_40</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span> 
-	<span class="n">VentValve</span><span class="o">:=</span> <span class="n">fake_always_closed_vent_valve</span><span class="p">,</span> 
 	<span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span><span class="p">));</span>
-<span class="n">fb_EM1K0_GMD_PTM_50</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic</span><span class="p">(</span>
+<span class="n">fb_EM1K0_GMD_PTM_50</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span>
 	<span class="n">Turbo</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_50</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span> 
 	<span class="n">BackingGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span> 
 	<span class="n">InletGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_50</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span> 
-	<span class="n">VentValve</span><span class="o">:=</span> <span class="n">fake_always_closed_vent_valve</span><span class="p">,</span> 
 	<span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span><span class="p">));</span>
-<span class="n">fb_EM1K0_GMD_PTM_60</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic</span><span class="p">(</span>
+<span class="n">fb_EM1K0_GMD_PTM_60</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span>
 	<span class="n">Turbo</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_60</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span> 
 	<span class="n">BackingGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span> 
 	<span class="n">InletGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_60</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span> 
-	<span class="n">VentValve</span><span class="o">:=</span> <span class="n">fake_always_closed_vent_valve</span><span class="p">,</span> 
 	<span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span><span class="p">));</span>
-<span class="n">fb_EM1K0_GMD_PTM_70</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic</span><span class="p">(</span>
+<span class="n">fb_EM1K0_GMD_PTM_70</span><span class="p">(</span><span class="n">i_xExtILKOk</span> <span class="o">:=</span>  <span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span>
 	<span class="n">Turbo</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_70</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span> 
 	<span class="n">BackingGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span> 
 	<span class="n">InletGauge</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_70</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span> 
-	<span class="n">VentValve</span><span class="o">:=</span> <span class="n">fake_always_closed_vent_valve</span><span class="p">,</span> 
 	<span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span><span class="p">));</span>
 
 <span class="o">//</span> <span class="n">FB_VRC</span>
 
-<span class="n">fb_EM1K0_GMD_VRC_10</span><span class="p">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span><span class="n">F_TurboGateValve_ILK</span><span class="p">(</span><span class="n">i_Turbo</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_PTM_10</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span><span class="n">i_stUSG</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_GCC_10</span><span class="p">.</span><span class="n">IG</span><span class="p">);</span>
-<span class="n">fb_EM1K0_GMD_VRC_10</span><span class="p">(</span> <span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
-<span class="n">fb_EM1K0_GMD_VRC_20</span><span class="p">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span><span class="n">F_TurboGateValve_ILK</span><span class="p">(</span><span class="n">i_Turbo</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_PTM_20</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span><span class="n">i_stUSG</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_GCC_20</span><span class="p">.</span><span class="n">IG</span><span class="p">);</span>
-<span class="n">fb_EM1K0_GMD_VRC_20</span><span class="p">(</span> <span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
-<span class="n">fb_EM1K0_GMD_VRC_30</span><span class="p">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span><span class="n">F_TurboGateValve_ILK</span><span class="p">(</span><span class="n">i_Turbo</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_PTM_30</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span><span class="n">i_stUSG</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_GCC_30</span><span class="p">.</span><span class="n">IG</span><span class="p">);</span>
-<span class="n">fb_EM1K0_GMD_VRC_30</span><span class="p">(</span> <span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
-<span class="n">fb_EM1K0_GMD_VRC_50</span><span class="p">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span><span class="n">F_TurboGateValve_ILK</span><span class="p">(</span><span class="n">i_Turbo</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_PTM_50</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span><span class="n">i_stUSG</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_GCC_50</span><span class="p">.</span><span class="n">IG</span><span class="p">);</span>
-<span class="n">fb_EM1K0_GMD_VRC_50</span><span class="p">(</span> <span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
-<span class="n">fb_EM1K0_GMD_VRC_60</span><span class="p">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span><span class="n">F_TurboGateValve_ILK</span><span class="p">(</span><span class="n">i_Turbo</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_PTM_60</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span><span class="n">i_stUSG</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_GCC_60</span><span class="p">.</span><span class="n">IG</span><span class="p">);</span>
-<span class="n">fb_EM1K0_GMD_VRC_60</span><span class="p">(</span> <span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
-<span class="n">fb_EM1K0_GMD_VRC_70</span><span class="p">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span><span class="n">F_TurboGateValve_ILK</span><span class="p">(</span><span class="n">i_Turbo</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_PTM_70</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span><span class="n">i_stUSG</span><span class="o">:=</span><span class="n">fb_EM1K0_GMD_GCC_70</span><span class="p">.</span><span class="n">IG</span><span class="p">);</span>
-<span class="n">fb_EM1K0_GMD_VRC_70</span><span class="p">(</span> <span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
+<span class="n">fb_EM1K0_GMD_VRC_10</span><span class="p">(</span>
+	<span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span>
+		<span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_10</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span>
+		<span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_10</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span>
+		<span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span>
+		<span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span>
+	<span class="p">),</span>
+	<span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span>
+<span class="p">);</span>
+<span class="n">fb_EM1K0_GMD_VRC_20</span><span class="p">(</span>
+	<span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span>
+		<span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_20</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span>
+		<span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_20</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span>
+		<span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span>
+		<span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span>
+	<span class="p">),</span>
+	<span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span>
+<span class="p">);</span>
+<span class="n">fb_EM1K0_GMD_VRC_30</span><span class="p">(</span>
+	<span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span>
+		<span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_30</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span>
+		<span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_30</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span>
+		<span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span>
+		<span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span>
+	<span class="p">),</span>
+	<span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span>
+<span class="p">);</span>
+<span class="n">fb_EM1K0_GMD_VRC_50</span><span class="p">(</span>
+	<span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span>
+		<span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_50</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span>
+		<span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_50</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span>
+		<span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span>
+		<span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span>
+	<span class="p">),</span>
+	<span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span>
+<span class="p">);</span>
+<span class="n">fb_EM1K0_GMD_VRC_60</span><span class="p">(</span>
+	<span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span>
+		<span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_60</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span>
+		<span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_60</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span>
+		<span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span>
+		<span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span>
+	<span class="p">),</span>
+	<span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span>
+<span class="p">);</span>
+<span class="n">fb_EM1K0_GMD_VRC_10</span><span class="p">(</span>
+	<span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span>
+		<span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_70</span><span class="p">.</span><span class="n">iq_stPtm</span><span class="p">,</span>
+		<span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_70</span><span class="p">.</span><span class="n">IG</span><span class="p">,</span>
+		<span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">.</span><span class="n">PG</span><span class="p">,</span>
+		<span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">.</span><span class="n">stPump</span>
+	<span class="p">),</span>
+	<span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span>
+<span class="p">);</span>
+
 
 <span class="o">//</span> <span class="n">FB_MKS422</span>
 

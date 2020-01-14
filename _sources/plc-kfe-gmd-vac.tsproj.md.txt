@@ -305,50 +305,50 @@ GVLs/GVL_INJ.TcGVL (TcPlcObject)
 VAR_GLOBAL
 		
 //GVL_Devices
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:VCN:40 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:VCN:40 '}
 	VCN_40 : FB_VCN;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:VGP:40 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:VGP:40 '}
 	VGP_40 : FB_VGP;
 	
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:VVC:80 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:VVC:80 '}
 	VVC_80:FB_VVC;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:VVC:81 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:VVC:81 '}
 	VVC_81:FB_VVC;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:VVC:82 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:VVC:82 '}
 	VVC_82:FB_VVC;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:VVC:83 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:VVC:83 '}
 	VVC_83 : FB_VVC;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:VVC:84 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:VVC:84 '}
 	VVC_84 : FB_VVC;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:VVC:85 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:VVC:85 '}
 	VVC_85 : FB_VVC;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:VVC:86 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:VVC:86 '}
 	VVC_86 : FB_VVC;
 	
 
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:GCM:80 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:GCM:80 '}
 	GCM_80: FB_GCM;
 	
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:INJ_Override '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:INJ_Override '}
 	
 	xOverrideMode : BOOL:= false;
 		
 //GVL_Sensors
 
 (*Pressure Meter*)
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:GFM:86 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:GFM:86 '}
 	GFM_86 :FB_PressureTransducer;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:GFM:85 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:GFM:85 '}
 	GFM_85 :FB_PressureTransducer;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:GFM:84 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:GFM:84 '}
 	GFM_84 :FB_PressureTransducer;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:GFM:83 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:GFM:83 '}
 	GFM_83 :FB_PressureTransducer;	
 
 (*HV*)
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:HV:1 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:HV:1 '}
 	hv1 : FB_HighVoltage;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:HV:2 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:HV:2 '}
 	hv2 : FB_HighVoltage;
 	{attribute 'pytmc' :=' pv: EM1K0:GEM:RTD:1 '}
 	RTD : FB_RTD;
@@ -1518,57 +1518,94 @@ fb_EM1K0_GMD_PTM_10(i_xExtILKOk := F_TurboExtILKLogic_2(
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
 	InletGauge:= fb_EM1K0_GMD_GCC_10.IG, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
-fb_EM1K0_GMD_PTM_20(i_xExtILKOk :=  F_TurboExtILKLogic(
+fb_EM1K0_GMD_PTM_20(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_20.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
 	InletGauge:= fb_EM1K0_GMD_GCC_20.IG, 
-	VentValve:= fake_always_closed_vent_valve, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
-fb_EM1K0_GMD_PTM_30(i_xExtILKOk :=  F_TurboExtILKLogic(
+fb_EM1K0_GMD_PTM_30(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_30.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
 	InletGauge:= fb_EM1K0_GMD_GCC_30.IG, 
-	VentValve:= fake_always_closed_vent_valve, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
-fb_EM1K0_GMD_PTM_40(i_xExtILKOk :=  F_TurboExtILKLogic(
+fb_EM1K0_GMD_PTM_40(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_40.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
 	InletGauge:= fb_EM1K0_GMD_GCC_40.IG, 
-	VentValve:= fake_always_closed_vent_valve, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
-fb_EM1K0_GMD_PTM_50(i_xExtILKOk :=  F_TurboExtILKLogic(
+fb_EM1K0_GMD_PTM_50(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_50.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
 	InletGauge:= fb_EM1K0_GMD_GCC_50.IG, 
-	VentValve:= fake_always_closed_vent_valve, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
-fb_EM1K0_GMD_PTM_60(i_xExtILKOk :=  F_TurboExtILKLogic(
+fb_EM1K0_GMD_PTM_60(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_60.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
 	InletGauge:= fb_EM1K0_GMD_GCC_60.IG, 
-	VentValve:= fake_always_closed_vent_valve, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
-fb_EM1K0_GMD_PTM_70(i_xExtILKOk :=  F_TurboExtILKLogic(
+fb_EM1K0_GMD_PTM_70(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_70.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
 	InletGauge:= fb_EM1K0_GMD_GCC_70.IG, 
-	VentValve:= fake_always_closed_vent_valve, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
 
 // FB_VRC
 
-fb_EM1K0_GMD_VRC_10.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_10.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_10.IG);
-fb_EM1K0_GMD_VRC_10( i_xOverrideMode := xSystemOverrideMode);
-fb_EM1K0_GMD_VRC_20.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_20.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_20.IG);
-fb_EM1K0_GMD_VRC_20( i_xOverrideMode := xSystemOverrideMode);
-fb_EM1K0_GMD_VRC_30.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_30.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_30.IG);
-fb_EM1K0_GMD_VRC_30( i_xOverrideMode := xSystemOverrideMode);
-fb_EM1K0_GMD_VRC_50.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_50.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_50.IG);
-fb_EM1K0_GMD_VRC_50( i_xOverrideMode := xSystemOverrideMode);
-fb_EM1K0_GMD_VRC_60.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_60.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_60.IG);
-fb_EM1K0_GMD_VRC_60( i_xOverrideMode := xSystemOverrideMode);
-fb_EM1K0_GMD_VRC_70.i_xExtILK_OK :=F_TurboGateValve_ILK(i_Turbo:=fb_EM1K0_GMD_PTM_70.iq_stPtm,i_stUSG:=fb_EM1K0_GMD_GCC_70.IG);
-fb_EM1K0_GMD_VRC_70( i_xOverrideMode := xSystemOverrideMode);
+fb_EM1K0_GMD_VRC_10(
+	i_xExtILK_OK := F_TurboGateValve_Protection_ILK(
+		i_Turbo := fb_EM1K0_GMD_PTM_10.iq_stPtm,
+		i_stISG := fb_EM1K0_GMD_GCC_10.IG,
+		i_stBSG := fb_EM1K0_GMD_GPI_10.PG,
+		ScrollPump := fb_EM1K0_GMD_PRT_40.stPump
+	),
+	i_xOverrideMode := xSystemOverrideMode
+);
+fb_EM1K0_GMD_VRC_20(
+	i_xExtILK_OK := F_TurboGateValve_Protection_ILK(
+		i_Turbo := fb_EM1K0_GMD_PTM_20.iq_stPtm,
+		i_stISG := fb_EM1K0_GMD_GCC_20.IG,
+		i_stBSG := fb_EM1K0_GMD_GPI_10.PG,
+		ScrollPump := fb_EM1K0_GMD_PRT_40.stPump
+	),
+	i_xOverrideMode := xSystemOverrideMode
+);
+fb_EM1K0_GMD_VRC_30(
+	i_xExtILK_OK := F_TurboGateValve_Protection_ILK(
+		i_Turbo := fb_EM1K0_GMD_PTM_30.iq_stPtm,
+		i_stISG := fb_EM1K0_GMD_GCC_30.IG,
+		i_stBSG := fb_EM1K0_GMD_GPI_10.PG,
+		ScrollPump := fb_EM1K0_GMD_PRT_40.stPump
+	),
+	i_xOverrideMode := xSystemOverrideMode
+);
+fb_EM1K0_GMD_VRC_50(
+	i_xExtILK_OK := F_TurboGateValve_Protection_ILK(
+		i_Turbo := fb_EM1K0_GMD_PTM_50.iq_stPtm,
+		i_stISG := fb_EM1K0_GMD_GCC_50.IG,
+		i_stBSG := fb_EM1K0_GMD_GPI_10.PG,
+		ScrollPump := fb_EM1K0_GMD_PRT_40.stPump
+	),
+	i_xOverrideMode := xSystemOverrideMode
+);
+fb_EM1K0_GMD_VRC_60(
+	i_xExtILK_OK := F_TurboGateValve_Protection_ILK(
+		i_Turbo := fb_EM1K0_GMD_PTM_60.iq_stPtm,
+		i_stISG := fb_EM1K0_GMD_GCC_60.IG,
+		i_stBSG := fb_EM1K0_GMD_GPI_10.PG,
+		ScrollPump := fb_EM1K0_GMD_PRT_40.stPump
+	),
+	i_xOverrideMode := xSystemOverrideMode
+);
+fb_EM1K0_GMD_VRC_10(
+	i_xExtILK_OK := F_TurboGateValve_Protection_ILK(
+		i_Turbo := fb_EM1K0_GMD_PTM_70.iq_stPtm,
+		i_stISG := fb_EM1K0_GMD_GCC_70.IG,
+		i_stBSG := fb_EM1K0_GMD_GPI_10.PG,
+		ScrollPump := fb_EM1K0_GMD_PRT_40.stPump
+	),
+	i_xOverrideMode := xSystemOverrideMode
+);
+
 
 // FB_MKS422
 
