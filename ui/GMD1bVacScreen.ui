@@ -6,14 +6,221 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1854</width>
+    <height>1086</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay">
+   <property name="geometry">
+    <rect>
+     <x>208</x>
+     <y>130</y>
+     <width>151</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="filename" stdset="0">
+    <string>DiffPump.ui</string>
+   </property>
+  </widget>
+  <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_2">
+   <property name="geometry">
+    <rect>
+     <x>358</x>
+     <y>130</y>
+     <width>151</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="filename" stdset="0">
+    <string>DiffPump.ui</string>
+   </property>
+  </widget>
+  <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_3">
+   <property name="geometry">
+    <rect>
+     <x>508</x>
+     <y>130</y>
+     <width>151</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="filename" stdset="0">
+    <string>DiffPump.ui</string>
+   </property>
+  </widget>
+  <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_4">
+   <property name="geometry">
+    <rect>
+     <x>1158</x>
+     <y>130</y>
+     <width>151</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="filename" stdset="0">
+    <string>DiffPump.ui</string>
+   </property>
+  </widget>
+  <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_5">
+   <property name="geometry">
+    <rect>
+     <x>1308</x>
+     <y>130</y>
+     <width>151</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="filename" stdset="0">
+    <string>DiffPump.ui</string>
+   </property>
+  </widget>
+  <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_6">
+   <property name="geometry">
+    <rect>
+     <x>1458</x>
+     <y>130</y>
+     <width>151</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="filename" stdset="0">
+    <string>DiffPump.ui</string>
+   </property>
+  </widget>
+  <widget class="Line" name="RoughingManifold">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>533</y>
+     <width>1571</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>486</y>
+     <width>20</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>486</y>
+     <width>20</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_4">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>486</y>
+     <width>20</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_5">
+   <property name="geometry">
+    <rect>
+     <x>1270</x>
+     <y>486</y>
+     <width>20</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_6">
+   <property name="geometry">
+    <rect>
+     <x>1420</x>
+     <y>486</y>
+     <width>20</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_7">
+   <property name="geometry">
+    <rect>
+     <x>1570</x>
+     <y>486</y>
+     <width>20</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="BeamLine">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>268</y>
+     <width>1561</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PyDMEmbeddedDisplay</class>
+   <extends>QFrame</extends>
+   <header>pydm.widgets.embedded_display</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
