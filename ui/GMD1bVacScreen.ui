@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1854</width>
+    <width>1887</width>
     <height>1086</height>
    </rect>
   </property>
@@ -16,7 +16,7 @@
   <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay">
    <property name="geometry">
     <rect>
-     <x>208</x>
+     <x>398</x>
      <y>130</y>
      <width>151</width>
      <height>381</height>
@@ -24,6 +24,9 @@
    </property>
    <property name="toolTip">
     <string/>
+   </property>
+   <property name="macros" stdset="0">
+    <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:10&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:10&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:10&quot;}</string>
    </property>
    <property name="filename" stdset="0">
     <string>DiffPump.ui</string>
@@ -32,7 +35,7 @@
   <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_2">
    <property name="geometry">
     <rect>
-     <x>358</x>
+     <x>548</x>
      <y>130</y>
      <width>151</width>
      <height>381</height>
@@ -40,6 +43,9 @@
    </property>
    <property name="toolTip">
     <string/>
+   </property>
+   <property name="macros" stdset="0">
+    <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:20&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:20&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:20&quot;}</string>
    </property>
    <property name="filename" stdset="0">
     <string>DiffPump.ui</string>
@@ -48,7 +54,7 @@
   <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_3">
    <property name="geometry">
     <rect>
-     <x>508</x>
+     <x>698</x>
      <y>130</y>
      <width>151</width>
      <height>381</height>
@@ -56,6 +62,9 @@
    </property>
    <property name="toolTip">
     <string/>
+   </property>
+   <property name="macros" stdset="0">
+    <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:30&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:30&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:30&quot;}</string>
    </property>
    <property name="filename" stdset="0">
     <string>DiffPump.ui</string>
@@ -73,6 +82,9 @@
    <property name="toolTip">
     <string/>
    </property>
+   <property name="macros" stdset="0">
+    <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:50&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:50&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:50&quot;}</string>
+   </property>
    <property name="filename" stdset="0">
     <string>DiffPump.ui</string>
    </property>
@@ -88,6 +100,9 @@
    </property>
    <property name="toolTip">
     <string/>
+   </property>
+   <property name="macros" stdset="0">
+    <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:60&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:60&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:60&quot;}</string>
    </property>
    <property name="filename" stdset="0">
     <string>DiffPump.ui</string>
@@ -105,6 +120,9 @@
    <property name="toolTip">
     <string/>
    </property>
+   <property name="macros" stdset="0">
+    <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:70&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:70&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:70&quot;}</string>
+   </property>
    <property name="filename" stdset="0">
     <string>DiffPump.ui</string>
    </property>
@@ -112,9 +130,9 @@
   <widget class="Line" name="RoughingManifold">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>174</x>
      <y>533</y>
-     <width>1571</width>
+     <width>1591</width>
      <height>16</height>
     </rect>
    </property>
@@ -125,7 +143,7 @@
   <widget class="Line" name="line_2">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>510</x>
      <y>486</y>
      <width>20</width>
      <height>55</height>
@@ -138,7 +156,7 @@
   <widget class="Line" name="line_3">
    <property name="geometry">
     <rect>
-     <x>470</x>
+     <x>660</x>
      <y>486</y>
      <width>20</width>
      <height>55</height>
@@ -151,7 +169,7 @@
   <widget class="Line" name="line_4">
    <property name="geometry">
     <rect>
-     <x>620</x>
+     <x>810</x>
      <y>486</y>
      <width>20</width>
      <height>55</height>
@@ -203,22 +221,484 @@
   <widget class="Line" name="BeamLine">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>360</x>
      <y>268</y>
-     <width>1561</width>
+     <width>721</width>
      <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>500</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>ROUGHING MANIFOLD LINE</string>
+   </property>
+  </widget>
+  <widget class="RoughGauge" name="RoughGauge">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>520</y>
+     <width>70</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://EM1K0:GMD:GPI:10</string>
+   </property>
+  </widget>
+  <widget class="RoughGauge" name="RoughGauge_2">
+   <property name="geometry">
+    <rect>
+     <x>1740</x>
+     <y>520</y>
+     <width>70</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://EM1K0:GMD:GPI:70</string>
+   </property>
+  </widget>
+  <widget class="PyDMDrawingArc" name="PyDMDrawingArc">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>230</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="startAngle" stdset="0">
+    <double>110.000000000000000</double>
+   </property>
+   <property name="spanAngle" stdset="0">
+    <double>320.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>922</x>
+     <y>220</y>
+     <width>3</width>
+     <height>14</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>1</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_8">
+   <property name="geometry">
+    <rect>
+     <x>923</x>
+     <y>219</y>
+     <width>32</width>
+     <height>3</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_9">
+   <property name="geometry">
+    <rect>
+     <x>954</x>
+     <y>220</y>
+     <width>3</width>
+     <height>14</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>1</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="BeamLine_2">
+   <property name="geometry">
+    <rect>
+     <x>988</x>
+     <y>268</y>
+     <width>650</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="ScrollPump" name="ScrollPump">
+   <property name="geometry">
+    <rect>
+     <x>826</x>
+     <y>610</y>
+     <width>180</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="controlsLocation" stdset="0">
+    <enum>PCDSSymbolBase::Right</enum>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://EM1K0:GMD:PR:40</string>
+   </property>
+   <property name="controlButtonHorizontal" stdset="0">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>110</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>BEAM ----&gt;&gt;</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_10">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>540</y>
+     <width>3</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_11">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>600</y>
+     <width>200</width>
+     <height>3</height>
     </rect>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
+  <widget class="PyDMDrawingTriangle" name="PyDMDrawingTriangle">
+   <property name="geometry">
+    <rect>
+     <x>1250</x>
+     <y>590</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="brush" stdset="0">
+    <brush brushstyle="NoBrush">
+     <color alpha="255">
+      <red>0</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </brush>
+   </property>
+   <property name="penStyle" stdset="0">
+    <enum>Qt::SolidLine</enum>
+   </property>
+   <property name="rotation" stdset="0">
+    <double>225.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="Line" name="line_12">
+   <property name="geometry">
+    <rect>
+     <x>761</x>
+     <y>650</y>
+     <width>80</width>
+     <height>3</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_13">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>540</y>
+     <width>3</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="PyDMDrawingTriangle" name="PyDMDrawingTriangle_2">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>640</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="brush" stdset="0">
+    <brush brushstyle="NoBrush">
+     <color alpha="255">
+      <red>0</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </brush>
+   </property>
+   <property name="penStyle" stdset="0">
+    <enum>Qt::SolidLine</enum>
+   </property>
+   <property name="rotation" stdset="0">
+    <double>45.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_3">
+   <property name="geometry">
+    <rect>
+     <x>1080</x>
+     <y>580</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>TO GAS INJECTOR PANEL</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_4">
+   <property name="geometry">
+    <rect>
+     <x>1100</x>
+     <y>610</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>SD-375-402-89</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_5">
+   <property name="geometry">
+    <rect>
+     <x>903</x>
+     <y>240</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>GMD1B</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_6">
+   <property name="geometry">
+    <rect>
+     <x>905</x>
+     <y>265</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <strikeout>false</strikeout>
+     <kerning>true</kerning>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>DESY GAS MONITOR DETECTOR</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_7">
+   <property name="geometry">
+    <rect>
+     <x>907</x>
+     <y>278</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <strikeout>false</strikeout>
+     <kerning>true</kerning>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>MONITOR</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_8">
+   <property name="geometry">
+    <rect>
+     <x>904</x>
+     <y>291</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <strikeout>false</strikeout>
+     <kerning>true</kerning>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>DETECTOR</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMDrawingArc</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.drawing</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMDrawingTriangle</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.drawing</header>
+  </customwidget>
   <customwidget>
    <class>PyDMEmbeddedDisplay</class>
    <extends>QFrame</extends>
    <header>pydm.widgets.embedded_display</header>
+  </customwidget>
+  <customwidget>
+   <class>PCDSSymbolBase</class>
+   <extends>QWidget</extends>
+   <header>pcdswidgets.vacuum.base</header>
+  </customwidget>
+  <customwidget>
+   <class>ScrollPump</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.pumps</header>
+  </customwidget>
+  <customwidget>
+   <class>RoughGauge</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.gauges</header>
   </customwidget>
  </customwidgets>
  <resources/>
