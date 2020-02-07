@@ -16,7 +16,7 @@
   <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay">
    <property name="geometry">
     <rect>
-     <x>398</x>
+     <x>170</x>
      <y>130</y>
      <width>151</width>
      <height>381</height>
@@ -35,7 +35,7 @@
   <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_2">
    <property name="geometry">
     <rect>
-     <x>548</x>
+     <x>320</x>
      <y>130</y>
      <width>151</width>
      <height>381</height>
@@ -54,7 +54,7 @@
   <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_3">
    <property name="geometry">
     <rect>
-     <x>698</x>
+     <x>470</x>
      <y>130</y>
      <width>151</width>
      <height>381</height>
@@ -73,7 +73,7 @@
   <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_4">
    <property name="geometry">
     <rect>
-     <x>1158</x>
+     <x>1170</x>
      <y>130</y>
      <width>151</width>
      <height>381</height>
@@ -92,7 +92,7 @@
   <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_5">
    <property name="geometry">
     <rect>
-     <x>1308</x>
+     <x>1320</x>
      <y>130</y>
      <width>151</width>
      <height>381</height>
@@ -111,7 +111,7 @@
   <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_6">
    <property name="geometry">
     <rect>
-     <x>1458</x>
+     <x>1470</x>
      <y>130</y>
      <width>151</width>
      <height>381</height>
@@ -130,9 +130,9 @@
   <widget class="Line" name="RoughingManifold">
    <property name="geometry">
     <rect>
-     <x>174</x>
-     <y>533</y>
-     <width>1591</width>
+     <x>100</x>
+     <y>692</y>
+     <width>1570</width>
      <height>16</height>
     </rect>
    </property>
@@ -143,10 +143,10 @@
   <widget class="Line" name="line_2">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>280</x>
      <y>486</y>
      <width>20</width>
-     <height>55</height>
+     <height>214</height>
     </rect>
    </property>
    <property name="orientation">
@@ -156,10 +156,10 @@
   <widget class="Line" name="line_3">
    <property name="geometry">
     <rect>
-     <x>660</x>
+     <x>430</x>
      <y>486</y>
      <width>20</width>
-     <height>55</height>
+     <height>214</height>
     </rect>
    </property>
    <property name="orientation">
@@ -169,10 +169,10 @@
   <widget class="Line" name="line_4">
    <property name="geometry">
     <rect>
-     <x>810</x>
+     <x>580</x>
      <y>486</y>
      <width>20</width>
-     <height>55</height>
+     <height>214</height>
     </rect>
    </property>
    <property name="orientation">
@@ -182,10 +182,10 @@
   <widget class="Line" name="line_5">
    <property name="geometry">
     <rect>
-     <x>1270</x>
+     <x>1282</x>
      <y>486</y>
      <width>20</width>
-     <height>55</height>
+     <height>214</height>
     </rect>
    </property>
    <property name="orientation">
@@ -195,10 +195,10 @@
   <widget class="Line" name="line_6">
    <property name="geometry">
     <rect>
-     <x>1420</x>
+     <x>1432</x>
      <y>486</y>
      <width>20</width>
-     <height>55</height>
+     <height>214</height>
     </rect>
    </property>
    <property name="orientation">
@@ -208,10 +208,10 @@
   <widget class="Line" name="line_7">
    <property name="geometry">
     <rect>
-     <x>1570</x>
+     <x>1582</x>
      <y>486</y>
      <width>20</width>
-     <height>55</height>
+     <height>214</height>
     </rect>
    </property>
    <property name="orientation">
@@ -221,9 +221,9 @@
   <widget class="Line" name="BeamLine">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>268</y>
-     <width>721</width>
+     <x>96</x>
+     <y>270</y>
+     <width>896</width>
      <height>16</height>
     </rect>
    </property>
@@ -240,8 +240,8 @@
   <widget class="PyDMLabel" name="PyDMLabel">
    <property name="geometry">
     <rect>
-     <x>860</x>
-     <y>500</y>
+     <x>820</x>
+     <y>710</y>
      <width>181</width>
      <height>16</height>
     </rect>
@@ -256,8 +256,8 @@
   <widget class="RoughGauge" name="RoughGauge">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>520</y>
+     <x>60</x>
+     <y>680</y>
      <width>70</width>
      <height>60</height>
     </rect>
@@ -272,8 +272,8 @@
   <widget class="RoughGauge" name="RoughGauge_2">
    <property name="geometry">
     <rect>
-     <x>1740</x>
-     <y>520</y>
+     <x>1640</x>
+     <y>680</y>
      <width>70</width>
      <height>60</height>
     </rect>
@@ -288,7 +288,7 @@
   <widget class="PyDMDrawingArc" name="PyDMDrawingArc">
    <property name="geometry">
     <rect>
-     <x>890</x>
+     <x>991</x>
      <y>230</y>
      <width>100</width>
      <height>100</height>
@@ -307,7 +307,7 @@
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
-     <x>922</x>
+     <x>1023</x>
      <y>220</y>
      <width>3</width>
      <height>14</height>
@@ -326,7 +326,7 @@
   <widget class="Line" name="line_8">
    <property name="geometry">
     <rect>
-     <x>923</x>
+     <x>1025</x>
      <y>219</y>
      <width>32</width>
      <height>3</height>
@@ -342,7 +342,7 @@
   <widget class="Line" name="line_9">
    <property name="geometry">
     <rect>
-     <x>954</x>
+     <x>1056</x>
      <y>220</y>
      <width>3</width>
      <height>14</height>
@@ -361,9 +361,9 @@
   <widget class="Line" name="BeamLine_2">
    <property name="geometry">
     <rect>
-     <x>988</x>
+     <x>1090</x>
      <y>268</y>
-     <width>650</width>
+     <width>580</width>
      <height>16</height>
     </rect>
    </property>
@@ -380,8 +380,8 @@
   <widget class="ScrollPump" name="ScrollPump">
    <property name="geometry">
     <rect>
-     <x>826</x>
-     <y>610</y>
+     <x>1169</x>
+     <y>703</y>
      <width>180</width>
      <height>82</height>
     </rect>
@@ -405,8 +405,8 @@
   <widget class="PyDMLabel" name="PyDMLabel_2">
    <property name="geometry">
     <rect>
-     <x>890</x>
-     <y>110</y>
+     <x>710</x>
+     <y>250</y>
      <width>131</width>
      <height>16</height>
     </rect>
@@ -428,8 +428,8 @@
   <widget class="Line" name="line_10">
    <property name="geometry">
     <rect>
-     <x>1060</x>
-     <y>540</y>
+     <x>520</x>
+     <y>700</y>
      <width>3</width>
      <height>61</height>
     </rect>
@@ -441,8 +441,8 @@
   <widget class="Line" name="line_11">
    <property name="geometry">
     <rect>
-     <x>1060</x>
-     <y>600</y>
+     <x>320</x>
+     <y>760</y>
      <width>200</width>
      <height>3</height>
     </rect>
@@ -454,8 +454,8 @@
   <widget class="PyDMDrawingTriangle" name="PyDMDrawingTriangle">
    <property name="geometry">
     <rect>
-     <x>1250</x>
-     <y>590</y>
+     <x>1190</x>
+     <y>770</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -476,29 +476,16 @@
     <enum>Qt::SolidLine</enum>
    </property>
    <property name="rotation" stdset="0">
-    <double>225.000000000000000</double>
-   </property>
-  </widget>
-  <widget class="Line" name="line_12">
-   <property name="geometry">
-    <rect>
-     <x>761</x>
-     <y>650</y>
-     <width>80</width>
-     <height>3</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
+    <double>135.000000000000000</double>
    </property>
   </widget>
   <widget class="Line" name="line_13">
    <property name="geometry">
     <rect>
-     <x>860</x>
-     <y>540</y>
+     <x>1200</x>
+     <y>700</y>
      <width>3</width>
-     <height>30</height>
+     <height>28</height>
     </rect>
    </property>
    <property name="orientation">
@@ -508,8 +495,8 @@
   <widget class="PyDMDrawingTriangle" name="PyDMDrawingTriangle_2">
    <property name="geometry">
     <rect>
-     <x>750</x>
-     <y>640</y>
+     <x>310</x>
+     <y>750</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -536,8 +523,8 @@
   <widget class="PyDMLabel" name="PyDMLabel_3">
    <property name="geometry">
     <rect>
-     <x>1080</x>
-     <y>580</y>
+     <x>350</x>
+     <y>740</y>
      <width>181</width>
      <height>16</height>
     </rect>
@@ -552,8 +539,8 @@
   <widget class="PyDMLabel" name="PyDMLabel_4">
    <property name="geometry">
     <rect>
-     <x>1100</x>
-     <y>610</y>
+     <x>370</x>
+     <y>770</y>
      <width>121</width>
      <height>16</height>
     </rect>
@@ -568,7 +555,7 @@
   <widget class="PyDMLabel" name="PyDMLabel_5">
    <property name="geometry">
     <rect>
-     <x>903</x>
+     <x>1000</x>
      <y>240</y>
      <width>81</width>
      <height>21</height>
@@ -591,7 +578,7 @@
   <widget class="PyDMLabel" name="PyDMLabel_6">
    <property name="geometry">
     <rect>
-     <x>905</x>
+     <x>1006</x>
      <y>265</y>
      <width>71</width>
      <height>21</height>
@@ -616,7 +603,7 @@
   <widget class="PyDMLabel" name="PyDMLabel_7">
    <property name="geometry">
     <rect>
-     <x>907</x>
+     <x>1006</x>
      <y>278</y>
      <width>71</width>
      <height>21</height>
@@ -641,7 +628,7 @@
   <widget class="PyDMLabel" name="PyDMLabel_8">
    <property name="geometry">
     <rect>
-     <x>904</x>
+     <x>1006</x>
      <y>291</y>
      <width>71</width>
      <height>21</height>
@@ -663,8 +650,95 @@
     <enum>Qt::PlainText</enum>
    </property>
   </widget>
+  <widget class="Line" name="line_14">
+   <property name="geometry">
+    <rect>
+     <x>1200</x>
+     <y>760</y>
+     <width>3</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="PyDMEmbeddedDisplay" name="PyDMEmbeddedDisplay_7">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>340</y>
+     <width>551</width>
+     <height>321</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="macros" stdset="0">
+    <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:40&quot;, &quot;GPI&quot;: &quot;EM1K0:GMD:GPI:40&quot;, &quot;VCN&quot;: &quot;EM1K0:GMD:VCN:40&quot;, &quot;VGP&quot;: &quot;EM1K0:GMD:VGP:40&quot;, &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:40&quot;, &quot;NA&quot;: &quot;EM1K0:GMD:NA:40&quot;, &quot;GHC&quot;: &quot;EM1K0:GMD:GHC:40&quot;}</string>
+   </property>
+   <property name="filename" stdset="0">
+    <string>GasInjectorInterface.ui</string>
+   </property>
+  </widget>
+  <widget class="Line" name="BeamLine_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>270</y>
+     <width>40</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="PneumaticValve" name="PneumaticValve">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>259</y>
+     <width>180</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://EM1K0:GMD:VGC:1</string>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>PCDSSymbolBase</class>
+   <extends>QWidget</extends>
+   <header>pcdswidgets.vacuum.base</header>
+  </customwidget>
+  <customwidget>
+   <class>PneumaticValve</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.valves</header>
+  </customwidget>
+  <customwidget>
+   <class>ScrollPump</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.pumps</header>
+  </customwidget>
+  <customwidget>
+   <class>RoughGauge</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.gauges</header>
+  </customwidget>
   <customwidget>
    <class>PyDMLabel</class>
    <extends>QLabel</extends>
@@ -684,21 +758,6 @@
    <class>PyDMEmbeddedDisplay</class>
    <extends>QFrame</extends>
    <header>pydm.widgets.embedded_display</header>
-  </customwidget>
-  <customwidget>
-   <class>PCDSSymbolBase</class>
-   <extends>QWidget</extends>
-   <header>pcdswidgets.vacuum.base</header>
-  </customwidget>
-  <customwidget>
-   <class>ScrollPump</class>
-   <extends>PCDSSymbolBase</extends>
-   <header>pcdswidgets.vacuum.pumps</header>
-  </customwidget>
-  <customwidget>
-   <class>RoughGauge</class>
-   <extends>PCDSSymbolBase</extends>
-   <header>pcdswidgets.vacuum.gauges</header>
   </customwidget>
  </customwidgets>
  <resources/>
