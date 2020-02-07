@@ -223,7 +223,7 @@
     <rect>
      <x>96</x>
      <y>270</y>
-     <width>896</width>
+     <width>172</width>
      <height>16</height>
     </rect>
    </property>
@@ -363,7 +363,7 @@
     <rect>
      <x>1090</x>
      <y>268</y>
-     <width>580</width>
+     <width>177</width>
      <height>16</height>
     </rect>
    </property>
@@ -715,6 +715,127 @@
    </property>
    <property name="channelsPrefix" stdset="0">
     <string>ca://EM1K0:GMD:VGC:1</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_12">
+   <property name="geometry">
+    <rect>
+     <x>1041</x>
+     <y>634</y>
+     <width>3</width>
+     <height>66</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_15">
+   <property name="geometry">
+    <rect>
+     <x>1041</x>
+     <y>330</y>
+     <width>3</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="BeamLine_4">
+   <property name="geometry">
+    <rect>
+     <x>1318</x>
+     <y>268</y>
+     <width>100</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="BeamLine_5">
+   <property name="geometry">
+    <rect>
+     <x>1467</x>
+     <y>268</y>
+     <width>100</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="BeamLine_6">
+   <property name="geometry">
+    <rect>
+     <x>468</x>
+     <y>270</y>
+     <width>100</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="BeamLine_7">
+   <property name="geometry">
+    <rect>
+     <x>318</x>
+     <y>270</y>
+     <width>100</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="BeamLine_8">
+   <property name="geometry">
+    <rect>
+     <x>617</x>
+     <y>270</y>
+     <width>376</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
    </property>
   </widget>
  </widget>
