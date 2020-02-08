@@ -13,6 +13,360 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">RoughGauge[state=&quot;On&quot;] #icon{
+    qproperty-brush: red;
+    color: gray;
+}
+RoughGauge[state=&quot;Off&quot;] #icon{
+    qproperty-brush: #00FF00;
+    color: black;
+}
+
+RoughGauge #pressure{
+    color: blue;
+ border: 1px solid black;
+background-color : white
+}
+
+
+ColdCathodeGauge #pressure{
+    color: blue;
+ border: 1px solid black;
+background-color : white
+}
+
+
+ColdCathodeGauge[interlocked=&quot;true&quot;] #icon{
+    border: 2px solid black;
+		qproperty-brush: black;
+border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+ColdCathodeGauge[state=&quot;Off&quot;] #icon {
+    qproperty-penColor: black;
+	qproperty-brush: gray;
+}
+
+ColdCathodeGauge[state=&quot;GaugeDisconnected&quot;] #icon {
+    qproperty-penColor: red;
+	qproperty-brush: gray;
+}
+ColdCathodeGauge[state=&quot;PressInvalid&quot;] #icon {
+    qproperty-penColor: black;
+	qproperty-brush: gray;
+}
+
+ColdCathodeGauge[state=&quot;Starting&quot;] #icon {
+    qproperty-penColor: black;
+	qproperty-brush: yellow;
+}
+
+ColdCathodeGauge[state=&quot;Valid&quot;] #icon {
+    qproperty-penColor: black;
+	qproperty-brush: #00FF00;
+}
+
+
+
+
+ApertureValve #icon {
+    qproperty-penStyle: &quot;QT::SolidLine&quot;;
+	qproperty-penColor: black;
+ 
+ 
+}
+
+ApertureValve[interlocked=&quot;true&quot;] #icon{
+    border: 2px solid black;
+
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+ApertureValve[interlocked=&quot;false&quot;] #icon{
+    border: 0px;
+
+	qproperty-brush: yellow;
+}
+ApertureValve[interlocked=&quot;true&quot;] #icon {
+    qproperty-interlockBrush: black;
+}
+
+ApertureValve[interlocked=&quot;false&quot;] #icon{
+    qproperty-interlockBrush: #00FF00;
+}
+
+ApertureValve[state=&quot;OPEN&quot;] #icon {
+     qproperty-penStyle: &quot;QT::SolidLine&quot;;
+	qproperty-penColor: black;
+	qproperty-brush: #00FF00;
+}
+
+ApertureValve[state=&quot;MOVING&quot;] #icon {
+    qproperty-penStyle: &quot;QT::SolidLine&quot;;
+	qproperty-penColor: black;
+ 	qproperty-brush: yellow;
+}
+ApertureValve[state=&quot;CLOSED&quot;] #icon {
+	qproperty-penStyle: &quot;QT::SolidLine&quot;;
+    qproperty-penColor: gray;
+	qproperty-brush: black;
+}
+
+ApertureValve[state=&quot;INVALID&quot;] #icon {
+    qproperty-penStyle: &quot;QT::SolidLine&quot;;
+	qproperty-penColor: black;
+ 	qproperty-brush: red;
+}
+
+ApertureValve[error=&quot;VENTED&quot;] #icon {
+       qproperty-penStyle: &quot;QT::SolidLine&quot;;
+}
+
+ApertureValve[error=&quot;ERR_LOST_VAC&quot;] #icon {
+    qproperty-penStyle: &quot;Qt::DotLine&quot;;
+    qproperty-penColor: black;
+   qproperty-interlockBrush: red;
+
+}
+
+ApertureValve[error=&quot;Ext Fault&quot;] #icon {
+ 	qproperty-penStyle: &quot;QT::SolidLine&quot;;
+    qproperty-penColor: black;
+   qproperty-interlockBrush: black;
+
+}
+
+
+
+
+TurboPump[interlocked=&quot;true&quot;] #icon {
+    border: 2px solid black;
+    qproperty-penColor: black;
+}
+
+TurboPump[interlocked=&quot;false&quot;] #icon {
+    border: 0px;
+}
+
+TurboPump[state=&quot;RUNNING&quot;] #icon {
+	qproperty-penColor: black;
+    qproperty-centerBrush: #00FF00;
+    qproperty-brush: #00FF00;
+}
+
+TurboPump[state=&quot;STARTING&quot;] #icon {
+    qproperty-penColor: black;
+	qproperty-centerBrush: yellow;
+}
+
+TurboPump[state=&quot;STOPPED&quot;] #icon {
+	qproperty-penColor: black;
+    qproperty-centerBrush: gray;
+	qproperty-brush: gray;
+}
+
+TurboPump[state=&quot;FAULT&quot;] #icon {
+	qproperty-penColor: red;
+    qproperty-centerBrush: red;
+	qproperty-brush: gray;
+}
+
+TurboPump[error=&quot;true&quot;] #icon {
+     qproperty-penColor: red;
+	qproperty-centerBrush: red;
+}
+
+
+
+
+PneumaticValve #icon {
+    qproperty-penStyle: &quot;QT::SolidLine&quot;;
+	qproperty-penColor: black;
+    qproperty-penWidth: 2;
+ 
+}
+
+PneumaticValve[interlocked=&quot;true&quot;] #icon{
+    border: 2px solid black;
+    qproperty-penWidth: 2;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+PneumaticValve[interlocked=&quot;false&quot;] #icon{
+    border: 0px;
+    qproperty-penWidth: 2;
+	qproperty-brush: #00FF00;
+}
+PneumaticValve[interlocked=&quot;true&quot;] #icon {
+    qproperty-interlockBrush: black;
+}
+
+PneumaticValve[interlocked=&quot;false&quot;] #icon{
+    qproperty-interlockBrush: #00FF00;
+}
+
+PneumaticValve[state=&quot;OPEN&quot;] #icon {
+     qproperty-penStyle: &quot;QT::SolidLine&quot;;
+	qproperty-penColor: black;
+    qproperty-penWidth: 2;
+	qproperty-brush: #00FF00;
+}
+
+PneumaticValve[state=&quot;MOVING&quot;] #icon {
+    qproperty-penStyle: &quot;QT::SolidLine&quot;;
+	qproperty-penColor: black;
+    qproperty-penWidth: 2;
+ 	qproperty-brush: yellow;
+}
+PneumaticValve[state=&quot;CLOSED&quot;] #icon {
+	qproperty-penStyle: &quot;QT::SolidLine&quot;;
+    qproperty-penColor: gray;
+    qproperty-penWidth: 2;
+	qproperty-brush: black;
+}
+
+PneumaticValve[state=&quot;INVALID&quot;] #icon {
+    qproperty-penStyle: &quot;QT::SolidLine&quot;;
+	qproperty-penColor: black;
+    qproperty-penWidth: 2;
+ 	qproperty-brush: red;
+}
+
+PneumaticValve[error=&quot;VENTED&quot;] #icon {
+       qproperty-penStyle: &quot;QT::SolidLine&quot;;
+}
+
+PneumaticValve[error=&quot;ERR_LOST_VAC&quot;] #icon {
+    qproperty-penStyle: &quot;Qt::DotLine&quot;;
+    qproperty-penColor: black;
+    qproperty-penWidth: 2;
+   qproperty-interlockBrush: red;
+
+}
+
+PneumaticValve[error=&quot;Ext Fault&quot;] #icon {
+ 	qproperty-penStyle: &quot;QT::SolidLine&quot;;
+    qproperty-penColor: black;
+    qproperty-penWidth: 2;
+   qproperty-interlockBrush: red;
+
+}
+
+
+
+
+
+NeedleValve[interlocked=&quot;true&quot;] #icon{
+    border: 2px solid black;
+    qproperty-penWidth: 2;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+NeedleValve[interlocked=&quot;false&quot;] #icon{
+    border: 0px;
+    qproperty-penWidth: 2;
+	qproperty-brush: #00FF00;
+}
+NeedleValve[interlocked=&quot;true&quot;] #icon {
+    qproperty-interlockBrush: black;
+}
+
+NeedleValve[interlocked=&quot;false&quot;] #icon{
+    qproperty-interlockBrush: #00FF00;
+}
+NeedleValve[state=&quot;Close&quot;] #icon {
+   qproperty-penStyle: &quot;QT::SolidLine&quot;;
+    qproperty-penColor: gray;
+    qproperty-penWidth: 2;
+	qproperty-brush: black;
+}
+
+NeedleValve[state=&quot;Open&quot;] #icon {
+   qproperty-penStyle: &quot;QT::SolidLine&quot;;
+    qproperty-penColor: black;
+    qproperty-penWidth: 2;
+	qproperty-brush: #00FF00;
+}
+
+
+
+
+ScrollPump[state=&quot;RUNNING&quot;] #icon {
+    qproperty-penColor: black;
+	qproperty-centerBrush: #00FF00;
+    qproperty-brush: #00FF00;
+}
+ScrollPump[interlocked=&quot;true&quot;] #icon {
+    border: 2px solid black;
+}
+ScrollPump[interlocked=&quot;false&quot;] #icon {
+    border: 0px;
+}
+ScrollPump[state=&quot;Accelerating&quot;] #icon {
+    qproperty-brush: #00FF00;
+	qproperty-centerBrush: yellow;
+}
+ScrollPump[state=&quot;STOPPED&quot;] #icon {
+    qproperty-penColor: black;
+	qproperty-centerBrush: gray;
+    qproperty-brush: gray;
+}
+ScrollPump[state=&quot;FAULT&quot;] #icon {
+    qproperty-penColor: black;
+	qproperty-centerBrush: red;
+    qproperty-brush: gray;
+}
+ScrollPump[error=&quot;true&quot;] #icon {
+    qproperty-penWidth: 2;
+    qproperty-centerBrush: red;
+}
+
+
+
+
+
+ControlOnlyValveNC[interlocked=&quot;true&quot;] #icon {
+    border: 2px solid black;
+border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+ControlOnlyValveNC[interlocked=&quot;false&quot;] #icon {
+    border: 0px;
+}
+ControlOnlyValveNC[interlocked=&quot;true&quot;] #icon {
+    qproperty-interlockBrush: black;
+}
+ControlOnlyValveNC[interlocked=&quot;false&quot;] #icon {
+    qproperty-interlockBrush: #00FF00;
+}
+
+ControlOnlyValveNC[state=&quot;Open&quot;] #icon {
+    qproperty-penColor: black;
+	qproperty-brush:#00FF00;
+}
+ControlOnlyValveNC[state=&quot;Zero&quot;] #icon {
+    qproperty-penColor: Black;
+ qproperty-brush: black;
+}
+
+ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
+    qproperty-penColor: gray;
+  qproperty-brush: black;
+}
+</string>
+  </property>
   <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
@@ -876,105 +1230,6 @@
       <string>EM1K0:GMD Vacuum System</string>
      </property>
     </widget>
-    <zorder>line_16</zorder>
-    <zorder>PyDMDrawingArc</zorder>
-    <zorder>PyDMEmbeddedDisplay_3</zorder>
-    <zorder>line_5</zorder>
-    <zorder>PyDMDrawingTriangle</zorder>
-    <zorder>PyDMDrawingTriangle_3</zorder>
-    <zorder>PyDMLabel_5</zorder>
-    <zorder>BeamLine_6</zorder>
-    <zorder>PyDMLabel_8</zorder>
-    <zorder>ScrollPump</zorder>
-    <zorder>PyDMEmbeddedDisplay_2</zorder>
-    <zorder>line_10</zorder>
-    <zorder>line_3</zorder>
-    <zorder>line_12</zorder>
-    <zorder>line_13</zorder>
-    <zorder>BeamLine_2</zorder>
-    <zorder>PyDMLabel_9</zorder>
-    <zorder>BeamLine_3</zorder>
-    <zorder>RoughGauge_2</zorder>
-    <zorder>BeamLine_7</zorder>
-    <zorder>line_15</zorder>
-    <zorder>line_7</zorder>
-    <zorder>PyDMLabel</zorder>
-    <zorder>line_2</zorder>
-    <zorder>PyDMEmbeddedDisplay_5</zorder>
-    <zorder>PyDMEmbeddedDisplay_6</zorder>
-    <zorder>PyDMEmbeddedDisplay_4</zorder>
-    <zorder>PyDMLabel_4</zorder>
-    <zorder>PyDMLabel_2</zorder>
-    <zorder>line_6</zorder>
-    <zorder>RoughGauge</zorder>
-    <zorder>line_8</zorder>
-    <zorder>PyDMEmbeddedDisplay</zorder>
-    <zorder>line_9</zorder>
-    <zorder>BeamLine</zorder>
-    <zorder>PyDMEmbeddedDisplay_7</zorder>
-    <zorder>BeamLine_5</zorder>
-    <zorder>BeamLine_8</zorder>
-    <zorder>PyDMLabel_7</zorder>
-    <zorder>PneumaticValve</zorder>
-    <zorder>line_14</zorder>
-    <zorder>PyDMLabel_6</zorder>
-    <zorder>BeamLine_4</zorder>
-    <zorder>PyDMLabel_3</zorder>
-    <zorder>RoughingManifold</zorder>
-    <zorder>BeamLine_9</zorder>
-    <zorder>line_4</zorder>
-    <zorder>PyDMLabel_10</zorder>
-    <zorder>line</zorder>
-    <zorder>line_11</zorder>
-    <zorder>PyDMDrawingTriangle_2</zorder>
-    <zorder>PyDMDrawingArc</zorder>
-    <zorder>PyDMEmbeddedDisplay_3</zorder>
-    <zorder>line_5</zorder>
-    <zorder>PyDMDrawingTriangle</zorder>
-    <zorder>PyDMDrawingTriangle_3</zorder>
-    <zorder>BeamLine_6</zorder>
-    <zorder>ScrollPump</zorder>
-    <zorder>line_10</zorder>
-    <zorder>PyDMEmbeddedDisplay_2</zorder>
-    <zorder>line_3</zorder>
-    <zorder>line_12</zorder>
-    <zorder>line_13</zorder>
-    <zorder>BeamLine_2</zorder>
-    <zorder>PyDMLabel_9</zorder>
-    <zorder>BeamLine_3</zorder>
-    <zorder>RoughGauge_2</zorder>
-    <zorder>BeamLine_7</zorder>
-    <zorder>line_15</zorder>
-    <zorder>line_7</zorder>
-    <zorder>PyDMLabel</zorder>
-    <zorder>line_2</zorder>
-    <zorder>PyDMEmbeddedDisplay_5</zorder>
-    <zorder>PyDMEmbeddedDisplay_6</zorder>
-    <zorder>PyDMEmbeddedDisplay_4</zorder>
-    <zorder>PyDMLabel_4</zorder>
-    <zorder>PyDMLabel_2</zorder>
-    <zorder>line_16</zorder>
-    <zorder>line_6</zorder>
-    <zorder>RoughGauge</zorder>
-    <zorder>line_8</zorder>
-    <zorder>PyDMEmbeddedDisplay</zorder>
-    <zorder>line_9</zorder>
-    <zorder>BeamLine</zorder>
-    <zorder>PyDMEmbeddedDisplay_7</zorder>
-    <zorder>BeamLine_5</zorder>
-    <zorder>BeamLine_8</zorder>
-    <zorder>PneumaticValve</zorder>
-    <zorder>BeamLine_4</zorder>
-    <zorder>line_14</zorder>
-    <zorder>PyDMLabel_3</zorder>
-    <zorder>RoughingManifold</zorder>
-    <zorder>BeamLine_9</zorder>
-    <zorder>PyDMLabel_10</zorder>
-    <zorder>line_4</zorder>
-    <zorder>line</zorder>
-    <zorder>line_11</zorder>
-    <zorder>PyDMDrawingTriangle_2</zorder>
-    <zorder>PyDMLabel_5</zorder>
    </widget>
   </widget>
  </widget>
