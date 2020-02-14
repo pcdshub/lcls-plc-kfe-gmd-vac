@@ -1358,7 +1358,7 @@ External Setpoint Generation:
 			</Hides>
 		</DataType>
 	</DataTypes>
-	<Project ProjectGUID="{6B587B9D-5C33-45DF-B517-EF65C95BB278}" TargetNetId="5.59.121.68.1.1" ShowHideConfigurations="#x306">
+	<Project ProjectGUID="{6B587B9D-5C33-45DF-B517-EF65C95BB278}" TargetNetId="172.21.92.59.1.1" ShowHideConfigurations="#x306">
 		<System>
 			<Licenses>
 				<Target>
@@ -2047,7 +2047,7 @@ IO]]></Comment>
 			</Project>
 		</Plc>
 		<Io>
-			<Device Id="1" DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="5.59.121.68.2.1" RemoteName="Device 1 (EtherCAT)">
+			<Device Id="1" DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="172.21.92.59.2.1" RemoteName="Device 1 (EtherCAT)">
 				<Name>Device 1 (EtherCAT)</Name>
 				<AddressInfo>
 					<Ccat>
@@ -2077,9 +2077,6 @@ IO]]></Comment>
 				<Image Id="1" AddrType="9" ImageType="3">
 					<Name>Image</Name>
 				</Image>
-				<Image Id="4" AddrType="10" ImageType="3">
-					<Name>Image-2</Name>
-				</Image>
 				<Box File="EK1200_00_00.xti" Id="1">
 					<EtherCAT PortABoxInfo="#x00ffffff"/>
 				</Box>
@@ -2104,7 +2101,7 @@ IO]]></Comment>
 				<Box File="EP7041-0002_05_02.xti" Id="43">
 					<EtherCAT PortABoxInfo="#x0100002a"/>
 				</Box>
-				<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="3" MaxSwitchFrames="140">
+				<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="4" MaxSwitchFrames="160">
 					<SyncUnit Name="Group 0: CX, Spares" NoDeleteIfUnused="true"/>
 					<SyncUnit Name="Group 1: MKS937Bs" NoDeleteIfUnused="true"/>
 					<SyncUnit Name="Group 2: Valves and Turbos" NoDeleteIfUnused="true"/>

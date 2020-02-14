@@ -20,7 +20,7 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-00200000000C}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..11] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-00200000000C}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..11] OF BIT</Name>
 			<BitSize>12</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -29,12 +29,21 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-00200000000A}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..9] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-00200000000A}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..9] OF BIT</Name>
 			<BitSize>10</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
 				<LBound>0</LBound>
 				<Elements>10</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..2] OF BIT</Name>
+			<BitSize>3</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>3</Elements>
 			</ArrayInfo>
 		</DataType>
 	</DataTypes>
@@ -397,10 +406,34 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				</Pdo>
 			</EtherCAT>
 		</Box>
+		<Box Id="63" BoxType="9099">
+			<Name>EL2202_00_07</Name>
+			<ImageId>1003</ImageId>
+			<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x089a3052" RevisionNo="#x00130000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2202 2Ch. Dig. Output 24V, 0.5A" Desc="EL2202" PortABoxInfo="#x01000005">
+				<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
+				<Fmmu>0000000000000000000f00020100000001000000060000000000000000000000</Fmmu>
+				<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
+					<Entry Name="Output" Index="#x7000" Sub="#x01">
+						<Type>BIT</Type>
+					</Entry>
+					<Entry Name="TriState" Index="#x7000" Sub="#x02">
+						<Type>BIT</Type>
+					</Entry>
+				</Pdo>
+				<Pdo Name="Channel 2" Index="#x1601" InOut="1" Flags="#x0011" SyncMan="0">
+					<Entry Name="Output" Index="#x7010" Sub="#x01">
+						<Type>BIT</Type>
+					</Entry>
+					<Entry Name="TriState" Index="#x7010" Sub="#x02">
+						<Type>BIT</Type>
+					</Entry>
+				</Pdo>
+			</EtherCAT>
+		</Box>
 		<Box Id="60" BoxType="9099" BoxFlags="#x00000020">
 			<Name>EL6695_00_08</Name>
 			<ImageId>1004</ImageId>
-			<EtherCAT SlaveType="3" AdsServerAddress="053b7944023ded03" PdiType="#x0008" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" EoeType="1" FoeType="1" VendorId="#x00000002" ProductCode="#x1a273052" RevisionNo="#x00050000" InfoDataAddr="true" InfoDataNetId="true" TimeoutMailbox2="2000" GenerateOwnNetId="true" CheckRevisionNoType="3" PortPhys="51" DcTimeLoopControlOnly="true" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6695 EtherCAT Bridge terminal (Primary)" Desc="EL6695" PortABoxInfo="#x01000005">
+			<EtherCAT SlaveType="3" AdsServerAddress="053b7944023dee03" PdiType="#x0008" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" EoeType="1" FoeType="1" VendorId="#x00000002" ProductCode="#x1a273052" RevisionNo="#x00050000" InfoDataAddr="true" InfoDataNetId="true" TimeoutMailbox2="2000" GenerateOwnNetId="true" CheckRevisionNoType="3" PortPhys="51" DcTimeLoopControlOnly="true" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6695 EtherCAT Bridge terminal (Primary)" Desc="EL6695" PortABoxInfo="#x0100003f">
 				<SyncMan>0010000426000100010000008000da050004001026010000</SyncMan>
 				<SyncMan>0016000422000100020000008000da050004001622010000</SyncMan>
 				<SyncMan>001c00006400000003000000000000000000001c64010000</SyncMan>
@@ -526,38 +559,52 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<CoeProfile ProfileNo="5001"/>
 			</EtherCAT>
 		</Box>
-		<Box Id="59" BoxType="9099" BoxFlags="#x00000020">
-			<Name>EL6695_00_09</Name>
+		<Box Id="64" BoxType="9099" BoxFlags="#x00000020">
+			<Name>EL6692_00_09</Name>
 			<ImageId>1004</ImageId>
-			<EtherCAT SlaveType="3" AdsServerAddress="053b7944023cee03" PdiType="#x0008" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" EoeType="1" FoeType="1" VendorId="#x00000002" ProductCode="#x1a273052" RevisionNo="#x00050000" InfoDataAddr="true" InfoDataNetId="true" TimeoutMailbox2="2000" GenerateOwnNetId="true" CheckRevisionNoType="3" PortPhys="51" DcTimeLoopControlOnly="true" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6695 EtherCAT Bridge terminal (Primary)" Desc="EL6695" PortABoxInfo="#x0100003c">
-				<SyncMan>0010000426000100010000008000da050004001026010000</SyncMan>
-				<SyncMan>0016000422000100020000008000da050004001622010000</SyncMan>
-				<SyncMan>001c00006400000003000000000000000000001c64010000</SyncMan>
-				<SyncMan>008e02002000010004000000000000000200008e20010000</SyncMan>
+			<EtherCAT SlaveType="3" AdsServerAddress="ac155c3b0241ef03" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" EoeType="1" FoeType="1" VendorId="#x00000002" ProductCode="#x1a243052" RevisionNo="#x00120000" InfoDataAddr="true" InfoDataNetId="true" TimeoutMailbox2="2000" GenerateOwnNetId="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6692 EtherCAT Bridge terminal (Primary)" Desc="EL6692" PortABoxInfo="#x0100003c">
+				<SyncMan>001000012600010001000000800000040001001026010000</SyncMan>
+				<SyncMan>001400012200010002000000800000040001001422010000</SyncMan>
+				<SyncMan>001800002400000003000000000000000000001824010000</SyncMan>
+				<SyncMan>001e02002000010004000000000000000200001e20010000</SyncMan>
 				<Fmmu>0000000000000000000000020000000001000000000000000000000000000000</Fmmu>
-				<Fmmu>0000000000000000008e00010100000002000000000000000000000000000000</Fmmu>
+				<Fmmu>0000000000000000001e00010100000002000000000000000000000000000000</Fmmu>
 				<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 				<SwitchPortData>00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</SwitchPortData>
-				<BootStrapData>0010140200141402</BootStrapData>
-				<DcMode>4672656552756e0000000000000000004672656552756e00000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000</DcMode>
+				<BootStrapData>0010f400f410f400</BootStrapData>
+				<DcMode>4672656552756e0000000000000000004672656552756e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 				<DcMode>4443000000000000000000000000000044432d53796e6368726f6e000000000000000000000000000000000000000000000000000000000000000000000020030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 				<Pdo Name="SYNC Inputs" Index="#x1a01" Flags="#x0010" SyncMan="3">
 					<ExcludePdo>#x1a02</ExcludePdo>
 					<ExcludePdo>#x1a03</ExcludePdo>
-					<Entry>
-						<Type GUID="{18071995-0000-0000-0000-00200000000C}">ARRAY [0..11] OF BIT</Type>
+					<Entry Name="Sync Mode" Index="#x10f4" Sub="#x01">
+						<Type>BIT2</Type>
+						<Comment><![CDATA[0: no Syncronisation
+1: Secondary side is Sync Master
+2: Primary side is Sync Master]]></Comment>
 					</Entry>
-					<Entry Name="TxPDO toggle" Index="#x1801" Sub="#x09">
+					<Entry>
+						<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+					</Entry>
+					<Entry>
+						<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
+					</Entry>
+					<Entry Name="TxPDO toggle" Index="#x1800" Sub="#x09">
 						<Type>BIT</Type>
 						<Comment><![CDATA[Bit toggles when new data from other side received]]></Comment>
 					</Entry>
-					<Entry Name="TxPDO state" Index="#x1801" Sub="#x07">
+					<Entry Name="TxPDO state" Index="#x1800" Sub="#x07">
 						<Type>BIT</Type>
 						<Comment><![CDATA[0: Other side is in OP state
 >0: Error]]></Comment>
 					</Entry>
-					<Entry>
-						<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+					<Entry Name="Control value update toggle" Index="#x10f4" Sub="#x0e">
+						<Type>BIT</Type>
+						<Comment><![CDATA[Bit toggles when new DC control data available]]></Comment>
+					</Entry>
+					<Entry Name="Timestamp update toggle" Index="#x10f4" Sub="#x0f">
+						<Type>BIT</Type>
+						<Comment><![CDATA[Bit toggles when new timestamp data available]]></Comment>
 					</Entry>
 					<Entry Name="External device not connected" Index="#x10f4" Sub="#x10">
 						<Type>BIT</Type>
@@ -568,23 +615,30 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Pdo Name="SYNC Inputs" Index="#x1a02" Flags="#x0010">
 					<ExcludePdo>#x1a01</ExcludePdo>
 					<ExcludePdo>#x1a03</ExcludePdo>
-					<Entry Name="Sync Mode" Index="#x10f4" Sub="#x02">
+					<Entry Name="Sync Mode" Index="#x10f4" Sub="#x01">
 						<Type>BIT2</Type>
 						<Comment><![CDATA[0: no Syncronisation
 1: Secondary side is Sync Master
 2: Primary side is Sync Master]]></Comment>
 					</Entry>
 					<Entry>
-						<Type GUID="{18071995-0000-0000-0000-00200000000A}">ARRAY [0..9] OF BIT</Type>
+						<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
 					</Entry>
-					<Entry Name="TxPDO toggle" Index="#x1802" Sub="#x09">
+					<Entry>
+						<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
+					</Entry>
+					<Entry Name="TxPDO toggle" Index="#x1800" Sub="#x09">
 						<Type>BIT</Type>
 						<Comment><![CDATA[Bit toggles when new data from other side received]]></Comment>
 					</Entry>
-					<Entry Name="TxPDO state" Index="#x1802" Sub="#x07">
+					<Entry Name="TxPDO state" Index="#x1800" Sub="#x07">
 						<Type>BIT</Type>
 						<Comment><![CDATA[0: Other side is in OP state
 >0: Error]]></Comment>
+					</Entry>
+					<Entry Name="Control value update toggle" Index="#x10f4" Sub="#x0e">
+						<Type>BIT</Type>
+						<Comment><![CDATA[Bit toggles when new DC control data available]]></Comment>
 					</Entry>
 					<Entry Name="Timestamp update toggle" Index="#x10f4" Sub="#x0f">
 						<Type>BIT</Type>
@@ -601,30 +655,37 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 					<Entry Name="External time stamp" Index="#x10f4" Sub="#x12">
 						<Type>ULINT</Type>
 					</Entry>
-					<Entry>
+					<Entry Name="Control Value for DC Master Clock" Index="#x10f4" Sub="#x13">
 						<Type>UDINT</Type>
 					</Entry>
 				</Pdo>
 				<Pdo Name="SYNC Inputs" Index="#x1a03" Flags="#x0010">
 					<ExcludePdo>#x1a01</ExcludePdo>
 					<ExcludePdo>#x1a02</ExcludePdo>
-					<Entry Name="Sync Mode" Index="#x10f4" Sub="#x02">
+					<Entry Name="Sync Mode" Index="#x10f4" Sub="#x01">
 						<Type>BIT2</Type>
 						<Comment><![CDATA[0: no Syncronisation
 1: Secondary side is Sync Master
 2: Primary side is Sync Master]]></Comment>
 					</Entry>
 					<Entry>
-						<Type GUID="{18071995-0000-0000-0000-00200000000A}">ARRAY [0..9] OF BIT</Type>
+						<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
 					</Entry>
-					<Entry Name="TxPDO toggle" Index="#x1803" Sub="#x09">
+					<Entry>
+						<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
+					</Entry>
+					<Entry Name="TxPDO toggle" Index="#x1800" Sub="#x09">
 						<Type>BIT</Type>
 						<Comment><![CDATA[Bit toggles when new data from other side received]]></Comment>
 					</Entry>
-					<Entry Name="TxPDO state" Index="#x1803" Sub="#x07">
+					<Entry Name="TxPDO state" Index="#x1800" Sub="#x07">
 						<Type>BIT</Type>
 						<Comment><![CDATA[0: Other side is in OP state
 >0: Error]]></Comment>
+					</Entry>
+					<Entry Name="Control value update toggle" Index="#x10f4" Sub="#x0e">
+						<Type>BIT</Type>
+						<Comment><![CDATA[Bit toggles when new DC control data available]]></Comment>
 					</Entry>
 					<Entry Name="Timestamp update toggle" Index="#x10f4" Sub="#x0f">
 						<Type>BIT</Type>
@@ -641,24 +702,19 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 					<Entry Name="External time stamp" Index="#x10f4" Sub="#x12">
 						<Type>UDINT</Type>
 					</Entry>
-					<Entry>
+					<Entry Name="Control Value for DC Master Clock" Index="#x10f4" Sub="#x13">
 						<Type>UDINT</Type>
 					</Entry>
 				</Pdo>
-				<Pdo Name="FOE Info" Index="#x1a05" Flags="#x0020">
-					<Entry Name="Data Bytes Pending" Index="#xf650" Sub="#x01">
-						<Type>UINT</Type>
-					</Entry>
-				</Pdo>
-				<Pdo Name="IO Inputs" Index="#x1a08" Flags="#x0020" SyncMan="3"/>
-				<Pdo Name="IO Outputs" Index="#x1608" InOut="1" Flags="#x0020" SyncMan="2"/>
+				<Pdo Name="IO Inputs" Index="#x1a00" Flags="#x0021" SyncMan="3"/>
+				<Pdo Name="IO Outputs" Index="#x1600" InOut="1" Flags="#x0021" SyncMan="2"/>
 				<CoeProfile ProfileNo="5001"/>
 			</EtherCAT>
 		</Box>
 		<Box Id="6" BoxType="9099">
 			<Name>EK1110_00_10</Name>
 			<ImageId>1005</ImageId>
-			<EtherCAT SlaveType="1" PdiType="#x0100" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04562c52" RevisionNo="#x00110000" PortPhys="19" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1110 EtherCAT extension" Desc="EK1110" PortABoxInfo="#x0100003b"/>
+			<EtherCAT SlaveType="1" PdiType="#x0100" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04562c52" RevisionNo="#x00110000" PortPhys="19" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1110 EtherCAT extension" Desc="EK1110" PortABoxInfo="#x01000040"/>
 		</Box>
 	</Box>
 </TcSmItem>
