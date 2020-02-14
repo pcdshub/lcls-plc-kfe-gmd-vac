@@ -2931,7 +2931,7 @@ Bit1: Value is greater than or equal to limit 2]]></Comment>
 						<CoeProfile ProfileNo="46142345" DisplayName="Positioning interfa"/>
 					</EtherCAT>
 				</Box>
-				<EtherCAT>
+				<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="3" MaxSwitchFrames="140">
 					<SyncUnit Name="Group 0: CX, Spares" NoDeleteIfUnused="true"/>
 					<SyncUnit Name="Group 1: MKS937Bs" NoDeleteIfUnused="true"/>
 					<SyncUnit Name="Group 2: Valves and Turbos" NoDeleteIfUnused="true"/>
@@ -3058,11 +3058,19 @@ Bit1: Value is greater than or equal to limit 2]]></Comment>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_10.q_xOPN_DO" VarB="Channel 1^Output"/>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_20.q_xOPN_DO" VarB="Channel 3^Output"/>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_30.q_xOPN_DO" VarB="Channel 2^Output"/>
+				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_30.q_xOPN_DO" VarB="Channel 4^Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_05">
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_50.q_xOPN_DO" VarB="Channel 1^Output"/>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_60.q_xOPN_DO" VarB="Channel 3^Output"/>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_70.q_xOPN_DO" VarB="Channel 2^Output"/>
+				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_70.q_xOPN_DO" VarB="Channel 4^Output"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_16">
+				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_20.q_RunDO" VarB="Channel 3^Output"/>
+				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_10.q_xOPN_DO" VarB="Channel 1^Output"/>
+				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_50.q_xOPN_DO" VarB="Channel 2^Output"/>
+				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_60.q_xOPN_DO" VarB="Channel 4^Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_10">
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_10.q_RunDO" VarB="Channel 1^Output"/>

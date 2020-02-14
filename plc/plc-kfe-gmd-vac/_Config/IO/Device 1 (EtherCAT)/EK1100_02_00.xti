@@ -252,6 +252,11 @@
 				</Pdo>
 			</EtherCAT>
 		</Box>
+		<Box Id="61" BoxType="9099">
+			<Name>EL9187_02_09</Name>
+			<ImageId>1002</ImageId>
+			<EtherCAT CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x23e33050" InfoDataState="false" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL9187 Potential Connection, 8 x Ground" Desc="EL9187" PortABoxInfo="#x01000019"/>
+		</Box>
 		<Box Id="26" BoxType="9099">
 			<Name>EL2088_02_10</Name>
 			<ImageId>1001</ImageId>
@@ -497,10 +502,38 @@
 				</Pdo>
 			</EtherCAT>
 		</Box>
+		<Box Id="62" BoxType="9099">
+			<Name>EL2004_02_16</Name>
+			<ImageId>1001</ImageId>
+			<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x07d43052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2004 4Ch. Dig. Output 24V, 0.5A" Desc="EL2004" PortABoxInfo="#x0100001e">
+				<SyncMan>000f01004400010003000000000000000000000f44090000</SyncMan>
+				<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
+				<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
+					<Entry Name="Output" Index="#x7000" Sub="#x01">
+						<Type>BIT</Type>
+					</Entry>
+				</Pdo>
+				<Pdo Name="Channel 2" Index="#x1601" InOut="1" Flags="#x0011" SyncMan="0">
+					<Entry Name="Output" Index="#x7010" Sub="#x01">
+						<Type>BIT</Type>
+					</Entry>
+				</Pdo>
+				<Pdo Name="Channel 3" Index="#x1602" InOut="1" Flags="#x0011" SyncMan="0">
+					<Entry Name="Output" Index="#x7020" Sub="#x01">
+						<Type>BIT</Type>
+					</Entry>
+				</Pdo>
+				<Pdo Name="Channel 4" Index="#x1603" InOut="1" Flags="#x0011" SyncMan="0">
+					<Entry Name="Output" Index="#x7030" Sub="#x01">
+						<Type>BIT</Type>
+					</Entry>
+				</Pdo>
+			</EtherCAT>
+		</Box>
 		<Box Id="31" BoxType="9099">
-			<Name>EK1110_02_16</Name>
+			<Name>EK1110_02_17</Name>
 			<ImageId>1003</ImageId>
-			<EtherCAT SlaveType="1" PdiType="#x0100" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04562c52" RevisionNo="#x00110000" PortPhys="19" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1110 EtherCAT extension" Desc="EK1110" PortABoxInfo="#x0100001e"/>
+			<EtherCAT SlaveType="1" PdiType="#x0100" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04562c52" RevisionNo="#x00110000" PortPhys="19" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1110 EtherCAT extension" Desc="EK1110" PortABoxInfo="#x0100003e"/>
 		</Box>
 	</Box>
 </TcSmItem>
