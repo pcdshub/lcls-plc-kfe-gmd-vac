@@ -2090,7 +2090,7 @@ IO]]></Comment>
 					<EtherCAT PortABoxInfo="#x0100001f"/>
 				</Box>
 				<Box File="EK1100_04_00.xti" Id="40">
-					<EtherCAT PortABoxInfo="#x02000020"/>
+					<EtherCAT PortABoxInfo="#x02000011"/>
 				</Box>
 				<Box File="EP4374-0002_05_00.xti" Id="41">
 					<EtherCAT PortABoxInfo="#x02000028"/>
@@ -2111,8 +2111,7 @@ IO]]></Comment>
 		</Io>
 	</Project>
 	<Mappings>
-		<MappingInfo Identifier="{00000000-2001-0850-0020-500841000403}" Id="#x02030020"/>
-		<MappingInfo Identifier="{00000000-0010-0304-3000-040310000403}" Id="#x02030010"/>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
 		<OwnerA Name="TINC^NC-Task 1 SAF^Axes^VGP_40">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EP5101-0011_05_01">
 				<Link VarA="Enc^Inputs^In^nDataIn1[0]" VarB="ENC Status compact^Counter value"/>
