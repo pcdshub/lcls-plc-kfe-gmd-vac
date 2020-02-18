@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>558</width>
+    <height>321</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="NeedleValve" name="NeedleValve">
+   <property name="geometry">
+    <rect>
+     <x>277</x>
+     <y>-4</y>
+     <width>180</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="controlsLocation" stdset="0">
+    <enum>PCDSSymbolBase::Left</enum>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://${VGP}</string>
+   </property>
+   <property name="rotateIcon" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="controlButtonHorizontal" stdset="0">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="TurboPump" name="TurboPump">
+   <property name="geometry">
+    <rect>
+     <x>275</x>
+     <y>114</y>
+     <width>180</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="controlsLocation" stdset="0">
+    <enum>PCDSSymbolBase::Left</enum>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://${PTM}</string>
+   </property>
+   <property name="controlButtonHorizontal" stdset="0">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="ControlOnlyValveNC" name="ControlOnlyValveNC">
+   <property name="geometry">
+    <rect>
+     <x>278</x>
+     <y>217</y>
+     <width>180</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="controlsLocation" stdset="0">
+    <enum>PCDSSymbolBase::Left</enum>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://${NA}</string>
+   </property>
+   <property name="rotateIcon" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="controlButtonHorizontal" stdset="0">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="ColdCathodeGauge" name="ColdCathodeGauge">
+   <property name="geometry">
+    <rect>
+     <x>-46</x>
+     <y>44</y>
+     <width>180</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://${GCC}</string>
+   </property>
+   <property name="controlButtonHorizontal" stdset="0">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="RoughGauge" name="RoughGauge">
+   <property name="geometry">
+    <rect>
+     <x>105</x>
+     <y>110</y>
+     <width>70</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://${GPI}</string>
+   </property>
+  </widget>
+  <widget class="NeedleValve" name="NeedleValve_2">
+   <property name="geometry">
+    <rect>
+     <x>146</x>
+     <y>41</y>
+     <width>180</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://${VCN}</string>
+   </property>
+   <property name="rotateIcon" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="controlButtonHorizontal" stdset="0">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="HotCathodeGauge" name="HotCathodeGauge">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>40</y>
+     <width>180</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://${GHC}</string>
+   </property>
+   <property name="controlButtonHorizontal" stdset="0">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>10</y>
+     <width>3</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>9</y>
+     <width>3</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_4">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>10</y>
+     <width>3</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>60</y>
+     <width>161</width>
+     <height>3</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_5">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>10</y>
+     <width>370</width>
+     <height>3</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_7">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>190</y>
+     <width>3</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_8">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>72</y>
+     <width>3</width>
+     <height>87</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_6">
+   <property name="geometry">
+    <rect>
+     <x>251</x>
+     <y>60</y>
+     <width>39</width>
+     <height>3</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_9">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>60</y>
+     <width>3</width>
+     <height>190</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PCDSSymbolBase</class>
+   <extends>QWidget</extends>
+   <header>pcdswidgets.vacuum.base</header>
+  </customwidget>
+  <customwidget>
+   <class>NeedleValve</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.valves</header>
+  </customwidget>
+  <customwidget>
+   <class>ControlOnlyValveNC</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.valves</header>
+  </customwidget>
+  <customwidget>
+   <class>TurboPump</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.pumps</header>
+  </customwidget>
+  <customwidget>
+   <class>RoughGauge</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.gauges</header>
+  </customwidget>
+  <customwidget>
+   <class>HotCathodeGauge</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.gauges</header>
+  </customwidget>
+  <customwidget>
+   <class>ColdCathodeGauge</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.gauges</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
