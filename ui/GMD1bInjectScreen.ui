@@ -1000,8 +1000,8 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <rect>
          <x>1150</x>
          <y>10</y>
-         <width>271</width>
-         <height>16</height>
+         <width>301</width>
+         <height>21</height>
         </rect>
        </property>
        <property name="font">
@@ -1015,7 +1015,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="text">
-        <string>EM1K0:GMD Vacuum System</string>
+        <string>EM1K0:GMD Injection System</string>
        </property>
       </widget>
       <widget class="Line" name="line_6">
