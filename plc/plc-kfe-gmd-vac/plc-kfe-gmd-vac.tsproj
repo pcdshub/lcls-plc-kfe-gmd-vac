@@ -2600,6 +2600,9 @@ IO]]></Comment>
 				<Image Id="1" AddrType="9" ImageType="3">
 					<Name>Image</Name>
 				</Image>
+				<Image Id="4" AddrType="10" ImageType="3">
+					<Name>Image-2</Name>
+				</Image>
 				<Box File="EK1200_00_00.xti" Id="1">
 					<EtherCAT PortABoxInfo="#x00ffffff"/>
 				</Box>
@@ -2755,8 +2758,8 @@ IO]]></Comment>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_70.q_xOPN_DO" VarB="Channel 4^Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_16">
-				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_20.q_RunDO" VarB="Channel 3^Output"/>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_10.q_xOPN_DO" VarB="Channel 1^Output"/>
+				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_20.q_xOPN_DO" VarB="Channel 3^Output"/>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_50.q_xOPN_DO" VarB="Channel 2^Output"/>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_60.q_xOPN_DO" VarB="Channel 4^Output"/>
 			</OwnerB>
