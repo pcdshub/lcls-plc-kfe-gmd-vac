@@ -2,9 +2,9 @@
 <TcLicenseInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2011/11/TcLicenseInfo">
 	<LicenseInfo>
 		<SystemId>{4320A0D4-F88E-1828-B8F9-8DC8E1530CCD}</SystemId>
-		<IssueTime>2020-02-14T22:16:00</IssueTime>
-		<ExpireTime>2020-02-22T00:00:00</ExpireTime>
-		<LicenseKey>3b3e1a6772516cc3fd1a97a64228209cc8a16658b45363964543e216c34cce9597c4df1c0963ccfdd74de435617e1858566593f1f6b4f56a226d91c3613d36199588f247b96c1b446965c357aa42a7e301ca3b21798274c31298faa215e0b28da7b4694a0cfe244e72187d0b87769feacb0b52ddf4958dedab21766cb44ecf1829835d477dc0c648679247ed86354f4a108c057cc7b3e86ba2378a9f76781ef1a3aa7c1fcd73c1e0360a88a38390d2e226aae555d03fb216b0454200494cf2b960686e37350ef795007c5d3148337b4c0fa684934ad2b071f73fbb5c8759bbad4dff3f0c28f2277ae07fb074a5ef8ab80579a0d37ea6ed34417c8a0a7b86b7b1</LicenseKey>
+		<IssueTime>2020-02-22T03:35:00</IssueTime>
+		<ExpireTime>2020-03-01T00:00:00</ExpireTime>
+		<LicenseKey>7d946efc3419c7ca1f41cebbf98843050c72cbf6bb1e87cbafdf4abfdc5882ffe694e24c4aef4d5e4ef4deba6b5ef8f275996ca6bf0379846cbc8357ccb22376ca43ae9ee6a7e1b796a76c721e873b878679137130e92df8c4f5e8c02dc0c0d7c40016aeefd7aba1fb07b51212774b75da5091e605ff1c9a72fe08138dde6dae7f640ba4067c5b57965a5a934f4ab42e56f95723b72482c23e3c760dac00a219526574905c6ae4ed99e4897e0fea4e91f6bd71f3501f1433052a13e2afe82daeae06bd31c2e2a69b3ac0af62bfe4c578c2be3b8f9c6ced6790b61f0103f7ab3bdd5d23b7029b5e899479cd743c5a38223592db4cd9dca6bf1afa2bcd8afcbde8</LicenseKey>
 		<License>
 			<LicenseId>{4C256767-E6E6-4AF5-BD68-9F7ABAD0C200}</LicenseId>
 			<Name>TC3 ADS</Name>
@@ -36,14 +36,14 @@
 			<OrderNo>TF6340</OrderNo>
 		</License>
 		<License>
-			<LicenseId>{777F1598-583B-4503-99BB-7C02E0ABD97E}</LicenseId>
-			<Name>TC3 Controller Toolbox</Name>
-			<OrderNo>TF4100</OrderNo>
-		</License>
-		<License>
 			<LicenseId>{B27B051A-CA6A-42EA-833E-82CC92903D83}</LicenseId>
 			<Name>TC3 UML</Name>
 			<OrderNo>TF1910</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{777F1598-583B-4503-99BB-7C02E0ABD97E}</LicenseId>
+			<Name>TC3 Controller Toolbox</Name>
+			<OrderNo>TF4100</OrderNo>
 		</License>
 		<License>
 			<LicenseId>{D59230D3-7C55-4138-859C-234C1C6CFDA8}</LicenseId>
