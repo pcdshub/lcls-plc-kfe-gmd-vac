@@ -2593,11 +2593,11 @@ IO]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_VRC_20.q_xOPN_DO</Name>
+							<Name>GVL_GMD.fb_EM1K0_GMD_VRC_10.q_xOPN_DO</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_VRC_10.q_xOPN_DO</Name>
+							<Name>GVL_GMD.fb_EM1K0_GMD_VRC_20.q_xOPN_DO</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -8476,7 +8476,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Box Id="41" BoxType="9099" BoxFlags="#x00000020">
 					<Name>EP4374-0002_05_00</Name>
 					<ImageId>1009</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0605" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="7" FoeType="1" VendorId="#x00000002" ProductCode="#x11164052" RevisionNo="#x00120002" InfoDataAddr="true" TimeoutMailbox2="2000" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EP4374-0002 2Ch. Ana. Input +/-10V, 0-10V, 0/4-20mA configurable; 2Ch. Ana. Output +/-10V, 0-10V, 0/4-20mA configurable" Desc="EP4374-0002" PortABoxInfo="#x02000028">
+					<EtherCAT SlaveType="2" PdiType="#x0605" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="7" FoeType="1" VendorId="#x00000002" ProductCode="#x11164052" RevisionNo="#x00120002" InfoDataAddr="true" TimeoutMailbox2="2000" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EP4374-0002 2Ch. Ana. Input +/-10V, 0-10V, 0/4-20mA configurable; 2Ch. Ana. Output +/-10V, 0-10V, 0/4-20mA configurable" Desc="EP4374-0002" PortABoxInfo="#x01000038">
 						<SyncMan>001080002600010001000000800080008000001026010000</SyncMan>
 						<SyncMan>801080002200010002000000800080008000801022010000</SyncMan>
 						<SyncMan>001104002400010003000000000000000400001124010000</SyncMan>
