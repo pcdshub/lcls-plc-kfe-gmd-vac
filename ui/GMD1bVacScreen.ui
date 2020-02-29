@@ -411,7 +411,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="macros" stdset="0">
-        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:30&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:30&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:30&quot;}</string>
+        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:30&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:30&quot; , &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:30&quot;}</string>
        </property>
        <property name="filename" stdset="0">
         <string>DiffPump.ui</string>
@@ -556,7 +556,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="macros" stdset="0">
-        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:20&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:20&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:20&quot;}</string>
+        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:20&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:20&quot; , &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:20&quot;}</string>
        </property>
        <property name="filename" stdset="0">
         <string>DiffPump.ui</string>
@@ -758,7 +758,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="macros" stdset="0">
-        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:60&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:60&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:60&quot;}</string>
+        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:60&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:60&quot; , &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:60&quot;}</string>
        </property>
        <property name="filename" stdset="0">
         <string>DiffPump.ui</string>
@@ -777,7 +777,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="macros" stdset="0">
-        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:70&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:70&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:70&quot;}</string>
+        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:70&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:70&quot; , &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:70&quot;}</string>
        </property>
        <property name="filename" stdset="0">
         <string>DiffPump.ui</string>
@@ -796,7 +796,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="macros" stdset="0">
-        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:50&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:50&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:50&quot;}</string>
+        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:50&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:50&quot; , &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:50&quot;}</string>
        </property>
        <property name="filename" stdset="0">
         <string>DiffPump.ui</string>
@@ -912,7 +912,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="macros" stdset="0">
-        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:10&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:10&quot; , &quot;PTM&quot;: &quot;EMIK0:GMD:PTM:10&quot;}</string>
+        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:10&quot; , &quot;VRC&quot;:&quot;EM1K0:GMD:VRC:10&quot; , &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:10&quot;}</string>
        </property>
        <property name="filename" stdset="0">
         <string>DiffPump.ui</string>
@@ -969,7 +969,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="macros" stdset="0">
-        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:40&quot;, &quot;GPI&quot;: &quot;EM1K0:GMD:GPI:40&quot;, &quot;VCN&quot;: &quot;EM1K0:GMD:VCN:40&quot;, &quot;VGP&quot;: &quot;EM1K0:GMD:VGP:40&quot;, &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:40&quot;, &quot;NA&quot;: &quot;EM1K0:GMD:NA:40&quot;, &quot;GHC&quot;: &quot;EM1K0:GMD:GHC:40&quot;}</string>
+        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:40&quot;, &quot;GPI&quot;: &quot;EM1K0:GMD:GPI:40&quot;, &quot;VCN&quot;: &quot;EM1K0:GMD:VCN:40&quot;, &quot;VGP&quot;: &quot;EM1K0:GMD:VGP:40&quot;, &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:40&quot;, &quot;VVC&quot;: &quot;EM1K0:GMD:VVC:40&quot;, &quot;GHC&quot;: &quot;EM1K0:GMD:GHC:40&quot;}</string>
        </property>
        <property name="filename" stdset="0">
         <string>GasInjectorInterface.ui</string>

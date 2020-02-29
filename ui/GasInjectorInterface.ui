@@ -76,7 +76,7 @@
     <enum>PCDSSymbolBase::Left</enum>
    </property>
    <property name="channelsPrefix" stdset="0">
-    <string>ca://${NA}</string>
+    <string>ca://${VVC}</string>
    </property>
    <property name="rotateIcon" stdset="0">
     <bool>true</bool>
