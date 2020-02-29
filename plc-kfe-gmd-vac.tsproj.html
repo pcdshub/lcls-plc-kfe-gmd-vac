@@ -67,26 +67,29 @@
     <span class="mf">23.</span><span class="p">)</span> <span class="n">plc_kfe_gmd_vac</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">PRG_VGP</span><span class="o">.</span><span class="n">TcPOU</span>
 
 <span class="n">POUs</span><span class="p">:</span>
-    <span class="mf">1.</span><span class="p">)</span> <span class="n">MAIN</span>
-    <span class="mf">2.</span><span class="p">)</span> <span class="n">PRG_DIAGNOSTIC</span>
-    <span class="mf">3.</span><span class="p">)</span> <span class="n">PRG_Gas_Selection</span>
-    <span class="mf">4.</span><span class="p">)</span> <span class="n">PRG_GMD</span>
-    <span class="mf">5.</span><span class="p">)</span> <span class="n">PRG_HV_ILK</span>
-    <span class="mf">6.</span><span class="p">)</span> <span class="n">PRG_INJ</span>
-    <span class="mf">7.</span><span class="p">)</span> <span class="n">PRG_PressureControl</span>
-    <span class="mf">8.</span><span class="p">)</span> <span class="n">PRG_Purge</span>
-    <span class="mf">9.</span><span class="p">)</span> <span class="n">PRG_VGP</span>
+    <span class="mf">1.</span><span class="p">)</span> <span class="n">FB_HighVoltage</span>
+    <span class="mf">2.</span><span class="p">)</span> <span class="n">FB_PressureTransducer</span>
+    <span class="mf">3.</span><span class="p">)</span> <span class="n">FB_RTD</span>
+    <span class="mf">4.</span><span class="p">)</span> <span class="n">FB_VGP</span>
+    <span class="mf">5.</span><span class="p">)</span> <span class="n">MAIN</span>
+    <span class="mf">6.</span><span class="p">)</span> <span class="n">PRG_DIAGNOSTIC</span>
+    <span class="mf">7.</span><span class="p">)</span> <span class="n">PRG_GMD</span>
+    <span class="mf">8.</span><span class="p">)</span> <span class="n">PRG_Gas_Selection</span>
+    <span class="mf">9.</span><span class="p">)</span> <span class="n">PRG_HV_ILK</span>
+    <span class="mf">10.</span><span class="p">)</span> <span class="n">PRG_INJ</span>
+    <span class="mf">11.</span><span class="p">)</span> <span class="n">PRG_PressureControl</span>
+    <span class="mf">12.</span><span class="p">)</span> <span class="n">PRG_Purge</span>
+    <span class="mf">13.</span><span class="p">)</span> <span class="n">PRG_VGP</span>
 
 <span class="n">GVLs</span><span class="p">:</span>
-    <span class="mf">1.</span><span class="p">)</span> <span class="n">GVL_INJ</span>
-    <span class="mf">2.</span><span class="p">)</span> <span class="n">GVL_GMD</span>
+    <span class="mf">1.</span><span class="p">)</span> <span class="n">GVL_GMD</span>
+    <span class="mf">2.</span><span class="p">)</span> <span class="n">GVL_INJ</span>
     <span class="mf">3.</span><span class="p">)</span> <span class="n">GVL_VARIABLES</span>
 </pre></div>
 </div>
-<div class="section" id="duts-e-gastype-tcdut-tcplcobject">
-<h2>DUTs/E_GasType.TcDUT (TcPlcObject)<a class="headerlink" href="#duts-e-gastype-tcdut-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="e-gastype-declaration">
-<h3>E_GasType: Declaration<a class="headerlink" href="#e-gastype-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dut-e-gastype">
+<h2>DUT: E_GasType<a class="headerlink" href="#dut-e-gastype" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/DUTs/E_GasType.TcDUT</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">TYPE</span> <span class="n">E_GasType</span> <span class="o">:</span>
 <span class="p">(</span>
 	<span class="n">none</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span>
@@ -99,11 +102,9 @@
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="duts-e-homestate-tcdut-tcplcobject">
-<h2>DUTs/E_HomeState.TcDUT (TcPlcObject)<a class="headerlink" href="#duts-e-homestate-tcdut-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="e-homestate-declaration">
-<h3>E_HomeState: Declaration<a class="headerlink" href="#e-homestate-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dut-e-homestate">
+<h2>DUT: E_HomeState<a class="headerlink" href="#dut-e-homestate" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/DUTs/E_HomeState.TcDUT</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">TYPE</span> <span class="n">E_HomeState</span> <span class="o">:</span>
 <span class="p">(</span>
 	<span class="n">READY</span><span class="p">,</span>
@@ -120,11 +121,9 @@
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="duts-e-movestate-tcdut-tcplcobject">
-<h2>DUTs/E_MoveState.TcDUT (TcPlcObject)<a class="headerlink" href="#duts-e-movestate-tcdut-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="e-movestate-declaration">
-<h3>E_MoveState: Declaration<a class="headerlink" href="#e-movestate-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dut-e-movestate">
+<h2>DUT: E_MoveState<a class="headerlink" href="#dut-e-movestate" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/DUTs/E_MoveState.TcDUT</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">TYPE</span> <span class="n">E_MoveState</span> <span class="o">:</span>
 <span class="p">(</span>
 	<span class="n">MOVESTATE_ABORT</span><span class="p">,</span>
@@ -145,11 +144,9 @@
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="duts-st-hv-tcdut-tcplcobject">
-<h2>DUTs/ST_HV.TcDUT (TcPlcObject)<a class="headerlink" href="#duts-st-hv-tcdut-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="st-hv-declaration">
-<h3>ST_HV: Declaration<a class="headerlink" href="#st-hv-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dut-st-hv">
+<h2>DUT: ST_HV<a class="headerlink" href="#dut-st-hv" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/DUTs/ST_HV.TcDUT</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>TYPE ST_HV :
 STRUCT
 	{attribute &#39;pytmc&#39; := &#39;
@@ -172,11 +169,9 @@ END_TYPE
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="duts-st-pressuresensor-tcdut-tcplcobject">
-<h2>DUTs/ST_PressureSensor.TcDUT (TcPlcObject)<a class="headerlink" href="#duts-st-pressuresensor-tcdut-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="st-pressuresensor-declaration">
-<h3>ST_PressureSensor: Declaration<a class="headerlink" href="#st-pressuresensor-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dut-st-pressuresensor">
+<h2>DUT: ST_PressureSensor<a class="headerlink" href="#dut-st-pressuresensor" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/DUTs/ST_PressureSensor.TcDUT</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>TYPE ST_PressureSensor :
 STRUCT
 	{attribute &#39;pytmc&#39; := &#39;
@@ -223,11 +218,9 @@ END_TYPE
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="duts-st-vgp-tcdut-tcplcobject">
-<h2>DUTs/ST_VGP.TcDUT (TcPlcObject)<a class="headerlink" href="#duts-st-vgp-tcdut-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="st-vgp-declaration">
-<h3>ST_VGP: Declaration<a class="headerlink" href="#st-vgp-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dut-st-vgp">
+<h2>DUT: ST_VGP<a class="headerlink" href="#dut-st-vgp" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/DUTs/ST_VGP.TcDUT</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>TYPE ST_VGP :
 STRUCT
 
@@ -323,71 +316,9 @@ END_TYPE
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="gvls-gvl-inj-tcgvl-tcplcobject">
-<h2>GVLs/GVL_INJ.TcGVL (TcPlcObject)<a class="headerlink" href="#gvls-gvl-inj-tcgvl-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="gvl-inj-declaration">
-<h3>GVL_INJ: Declaration<a class="headerlink" href="#gvl-inj-declaration" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>VAR_GLOBAL
-		
-//GVL_Devices
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VCN:40 &#39;}
-	VCN_40 : FB_VCN;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VGP:40 &#39;}
-	VGP_40 : FB_VGP;
-	
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:80 &#39;}
-	VVC_80:FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:81 &#39;}
-	VVC_81:FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:82 &#39;}
-	VVC_82:FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:83 &#39;}
-	VVC_83 : FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:84 &#39;}
-	VVC_84 : FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:85 &#39;}
-	VVC_85 : FB_VVC;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:86 &#39;}
-	VVC_86 : FB_VVC;
-	
-
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GCM:80 &#39;}
-	GCM_80: FB_GCM;
-	
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:INJ_Override &#39;}
-	
-	xOverrideMode : BOOL:= false;
-		
-//GVL_Sensors
-
-(*Pressure Meter*)
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:86 &#39;}
-	GFM_86 :FB_PressureTransducer;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:85 &#39;}
-	GFM_85 :FB_PressureTransducer;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:84 &#39;}
-	GFM_84 :FB_PressureTransducer;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:83 &#39;}
-	GFM_83 :FB_PressureTransducer;	
-
-(*HV*)
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:HV:1 &#39;}
-	hv1 : FB_HighVoltage;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:HV:2 &#39;}
-	hv2 : FB_HighVoltage;
-	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:RTD:1 &#39;}
-	RTD : FB_RTD;
-
-END_VAR
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="gvls-gvl-gmd-tcgvl-tcplcobject">
-<h2>GVLs/GVL_GMD.TcGVL (TcPlcObject)<a class="headerlink" href="#gvls-gvl-gmd-tcgvl-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="gvl-gmd-declaration">
-<h3>GVL_GMD: Declaration<a class="headerlink" href="#gvl-gmd-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="gvl-gvl-gmd">
+<h2>GVL: GVL_GMD<a class="headerlink" href="#gvl-gvl-gmd" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/GVLs/GVL_GMD.TcGVL</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>VAR_GLOBAL
 
 // To Remove: 
@@ -463,25 +394,76 @@ END_VAR
 </pre></div>
 </div>
 </div>
+<div class="section" id="gvl-gvl-inj">
+<h2>GVL: GVL_INJ<a class="headerlink" href="#gvl-gvl-inj" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/GVLs/GVL_INJ.TcGVL</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>VAR_GLOBAL
+		
+//GVL_Devices
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VCN:40 &#39;}
+	VCN_40 : FB_VCN;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VGP:40 &#39;}
+	VGP_40 : FB_VGP;
+	
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:80 &#39;}
+	VVC_80:FB_VVC;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:81 &#39;}
+	VVC_81:FB_VVC;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:82 &#39;}
+	VVC_82:FB_VVC;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:83 &#39;}
+	VVC_83 : FB_VVC;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:84 &#39;}
+	VVC_84 : FB_VVC;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:85 &#39;}
+	VVC_85 : FB_VVC;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:VVC:86 &#39;}
+	VVC_86 : FB_VVC;
+	
+
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GCM:80 &#39;}
+	GCM_80: FB_GCM;
+	
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:INJ_Override &#39;}
+	
+	xOverrideMode : BOOL:= false;
+		
+//GVL_Sensors
+
+(*Pressure Meter*)
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:86 &#39;}
+	GFM_86 :FB_PressureTransducer;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:85 &#39;}
+	GFM_85 :FB_PressureTransducer;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:84 &#39;}
+	GFM_84 :FB_PressureTransducer;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:GFM:83 &#39;}
+	GFM_83 :FB_PressureTransducer;	
+
+(*HV*)
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:HV:1 &#39;}
+	hv1 : FB_HighVoltage;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GMD:HV:2 &#39;}
+	hv2 : FB_HighVoltage;
+	{attribute &#39;pytmc&#39; :=&#39; pv: EM1K0:GEM:RTD:1 &#39;}
+	RTD : FB_RTD;
+
+END_VAR
+</pre></div>
 </div>
-<div class="section" id="gvls-gvl-variables-tcgvl-tcplcobject">
-<h2>GVLs/GVL_VARIABLES.TcGVL (TcPlcObject)<a class="headerlink" href="#gvls-gvl-variables-tcgvl-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="gvl-variables-declaration">
-<h3>GVL_VARIABLES: Declaration<a class="headerlink" href="#gvl-variables-declaration" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="gvl-gvl-variables">
+<h2>GVL: GVL_VARIABLES<a class="headerlink" href="#gvl-gvl-variables" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/GVLs/GVL_VARIABLES.TcGVL</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">VAR_GLOBAL</span>
 	<span class="n">xSystemOverrideMode</span> <span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span> <span class="p">(</span><span class="o">*</span> <span class="n">Global</span> <span class="n">system</span> <span class="n">override</span> <span class="k">for</span> <span class="n">the</span> <span class="n">prototype</span> <span class="n">section</span><span class="o">*</span><span class="p">)</span>
 <span class="n">END_VAR</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="plctask-tctto-tcplcobject">
-<h2>PlcTask.TcTTO (TcPlcObject)<a class="headerlink" href="#plctask-tctto-tcplcobject" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="pous-fb-highvoltage-tcpou-tcplcobject">
-<h2>POUs/FB_HighVoltage.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-fb-highvoltage-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="fb-highvoltage-declaration">
-<h3>FB_HighVoltage: Declaration<a class="headerlink" href="#fb-highvoltage-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pou-fb-highvoltage">
+<h2>POU: FB_HighVoltage<a class="headerlink" href="#pou-fb-highvoltage" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/FB_HighVoltage.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>FUNCTION_BLOCK FB_HighVoltage
 VAR_INPUT
 	i_xExtIlkOK	:	BOOL; //External Interlock, SET to TRUE if not used
@@ -496,25 +478,20 @@ VAR
 	(*outputs*)
 	q_HV_DO AT %Q*: BOOL;
 END_VAR
+hv.xIlkOK := i_xExtIlkOK;
+
+q_HV_DO := hv.HV_sw AND hv.xIlkOK;
+
+(*soft io mapping*)
+hv.q_HV_DO := q_HV_DO;
+
+END_FUNCTION_BLOCK
 </pre></div>
 </div>
 </div>
-<div class="section" id="fb-highvoltage-st">
-<h3>FB_HighVoltage: ST<a class="headerlink" href="#fb-highvoltage-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">hv</span><span class="p">.</span><span class="n">xIlkOK</span> <span class="o">:=</span> <span class="n">i_xExtIlkOK</span><span class="p">;</span>
-
-<span class="n">q_HV_DO</span> <span class="o">:=</span> <span class="n">hv</span><span class="p">.</span><span class="n">HV_sw</span> <span class="k">AND</span> <span class="n">hv</span><span class="p">.</span><span class="n">xIlkOK</span><span class="p">;</span>
-
-<span class="p">(</span><span class="o">*</span><span class="n">soft</span> <span class="n">io</span> <span class="n">mapping</span><span class="o">*</span><span class="p">)</span>
-<span class="n">hv</span><span class="p">.</span><span class="n">q_HV_DO</span> <span class="o">:=</span> <span class="n">q_HV_DO</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="pous-fb-pressuretransducer-tcpou-tcplcobject">
-<h2>POUs/FB_PressureTransducer.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-fb-pressuretransducer-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="fb-pressuretransducer-declaration">
-<h3>FB_PressureTransducer: Declaration<a class="headerlink" href="#fb-pressuretransducer-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pou-fb-pressuretransducer">
+<h2>POU: FB_PressureTransducer<a class="headerlink" href="#pou-fb-pressuretransducer" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/FB_PressureTransducer.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>FUNCTION_BLOCK FB_PressureTransducer
 VAR_OUTPUT
 	{attribute &#39;pytmc&#39; := &#39;pv:&#39;}
@@ -534,12 +511,7 @@ VAR
 	iError AT %I* : BOOL; // Link to terminal diagnostics
 	i_iPRESS_R AT %I* :INT; // input Pressure // Link to analog Input
 END_VAR
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-pressuretransducer-st">
-<h3>FB_PressureTransducer: ST<a class="headerlink" href="#fb-pressuretransducer-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>// for SETRA  4-20mA outout
+// for SETRA  4-20mA outout
 
 (* Real-value calculation *)
 Sensor.rFull_Scale:=i_rFULL_SCALE;
@@ -566,20 +538,17 @@ iCurrent := 20*INT_TO_REAL(Sensor.iPRESS_R)/32767;
   
  (*Soft IO Mapping*)
   ACT_IO();
+
+END_FUNCTION_BLOCK
+ACTION ACT_IO:
+Sensor.iPRESS_R := i_iPRESS_R;
+END_ACTION
 </pre></div>
 </div>
 </div>
-<div class="section" id="fb-pressuretransducer-act-io-st">
-<h3>FB_PressureTransducer.ACT_IO: ST<a class="headerlink" href="#fb-pressuretransducer-act-io-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">Sensor</span><span class="p">.</span><span class="n">iPRESS_R</span> <span class="o">:=</span> <span class="n">i_iPRESS_R</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="pous-fb-rtd-tcpou-tcplcobject">
-<h2>POUs/FB_RTD.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-fb-rtd-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="fb-rtd-declaration">
-<h3>FB_RTD: Declaration<a class="headerlink" href="#fb-rtd-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pou-fb-rtd">
+<h2>POU: FB_RTD<a class="headerlink" href="#pou-fb-rtd" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/FB_RTD.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>FUNCTION_BLOCK FB_RTD
 VAR_INPUT
 	iScale: INT := 10;
@@ -611,21 +580,16 @@ END_VAR
 VAR
 	iRaw AT %I*: INT;
 END_VAR
+bConnected := NOT (bOverrange AND bError);
+fTemp := iRaw / iScale;
+
+END_FUNCTION_BLOCK
 </pre></div>
 </div>
 </div>
-<div class="section" id="fb-rtd-st">
-<h3>FB_RTD: ST<a class="headerlink" href="#fb-rtd-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">bConnected</span> <span class="o">:=</span> <span class="k">NOT</span> <span class="p">(</span><span class="n">bOverrange</span> <span class="k">AND</span> <span class="n">bError</span><span class="p">);</span>
-<span class="n">fTemp</span> <span class="o">:=</span> <span class="n">iRaw</span> <span class="o">/</span> <span class="n">iScale</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="pous-fb-vgp-tcpou-tcplcobject">
-<h2>POUs/FB_VGP.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-fb-vgp-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="fb-vgp-declaration">
-<h3>FB_VGP: Declaration<a class="headerlink" href="#fb-vgp-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pou-fb-vgp">
+<h2>POU: FB_VGP<a class="headerlink" href="#pou-fb-vgp" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/FB_VGP.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>(* This function implements the Basic functions for the Vat Motorized valve*)
 FUNCTION_BLOCK FB_VGP
 VAR_INPUT
@@ -713,410 +677,397 @@ VAR
 	fbCTRL_LIN_INTERPOLATION_ENC					: FB_CTRL_LIN_INTERPOLATION;
 
 END_VAR
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-st">
-<h3>FB_VGP: ST<a class="headerlink" href="#fb-vgp-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">///</span> <span class="n">Interpolation</span>  <span class="k">function</span> <span class="n">initialization</span>
-<span class="n">ACT_INIT</span><span class="p">();</span>
+/// Interpolation  function initialization
+ACT_INIT();
 
-<span class="o">//</span> <span class="n">Interlocking</span>
-<span class="n">q_stVGP</span><span class="p">.</span><span class="n">xIlkOK</span> <span class="o">:=</span> <span class="n">i_xExtIlkOK</span><span class="p">;</span>
-<span class="p">(</span><span class="o">*</span><span class="n">Checking</span> <span class="n">which</span> <span class="n">Control</span> <span class="n">mode</span> <span class="k">is</span> <span class="n">selected</span><span class="o">*</span><span class="p">)</span>
-<span class="k">IF</span> <span class="n">q_stVGP</span><span class="p">.</span><span class="n">xIlkOK</span> <span class="k">AND</span> <span class="k">NOT</span> <span class="p">(</span><span class="n">q_stVGP</span><span class="p">.</span><span class="n">pv_xError</span><span class="p">)</span> <span class="k">THEN</span>
-	<span class="k">IF</span> <span class="n">q_stVGP</span><span class="p">.</span><span class="n">eValveControl</span> <span class="o">=</span> <span class="n">OpenValve</span> <span class="k">THEN</span>
-		<span class="n">q_stVGP</span><span class="p">.</span><span class="n">rReqPosition</span> <span class="o">:=</span> <span class="n">q_stVGP</span><span class="p">.</span><span class="n">rUpperLimit</span><span class="p">;</span>
-	<span class="k">ELSIF</span> <span class="n">q_stVGP</span><span class="p">.</span><span class="n">eValveControl</span> <span class="o">=</span> <span class="n">CloseValve</span> <span class="k">THEN</span>
-		<span class="n">q_stVGP</span><span class="p">.</span><span class="n">rReqPosition</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="k">ELSIF</span> <span class="n">q_stVGP</span><span class="p">.</span><span class="n">eValveControl</span> <span class="o">=</span> <span class="n">ManualControl</span> <span class="k">THEN</span>
-		<span class="n">q_stVGP</span><span class="p">.</span><span class="n">rReqPosition</span> <span class="o">:=</span> <span class="n">LIMIT</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">q_stVGP</span><span class="p">.</span><span class="n">rReqPosition</span><span class="p">,</span> <span class="n">q_stVGP</span><span class="p">.</span><span class="n">rUpperLimit</span><span class="p">);</span>
-	<span class="k">ELSIF</span> <span class="n">q_stVGP</span><span class="p">.</span><span class="n">eValveControl</span> <span class="o">=</span> <span class="n">PressureControl</span> <span class="k">THEN</span>
-		 <span class="n">q_stVGP</span><span class="p">.</span><span class="n">rReqPosition</span> <span class="o">:=</span> <span class="n">LIMIT</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i_ReqPos</span><span class="p">,</span> <span class="n">q_stVGP</span><span class="p">.</span><span class="n">rUpperLimit</span><span class="p">);</span>
-	<span class="n">END_IF</span>
-<span class="k">ELSE</span>
-	<span class="n">q_stVGP</span><span class="p">.</span><span class="n">rReqPosition</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">q_stVGP</span><span class="p">.</span><span class="n">eValveControl</span> <span class="o">:=</span> <span class="n">CloseValve</span><span class="p">;</span><span class="o">//</span><span class="n">CloseValve</span><span class="p">;</span>
-	<span class="n">bGo</span><span class="o">:=</span><span class="n">FALSE</span><span class="p">;</span>
-<span class="n">END_IF</span>
+// Interlocking
+q_stVGP.xIlkOK := i_xExtIlkOK;
+(*Checking which Control mode is selected*)
+IF q_stVGP.xIlkOK AND NOT (q_stVGP.pv_xError) THEN
+	IF q_stVGP.eValveControl = OpenValve THEN
+		q_stVGP.rReqPosition := q_stVGP.rUpperLimit;
+	ELSIF q_stVGP.eValveControl = CloseValve THEN
+		q_stVGP.rReqPosition := 0;
+	ELSIF q_stVGP.eValveControl = ManualControl THEN
+		q_stVGP.rReqPosition := LIMIT(0, q_stVGP.rReqPosition, q_stVGP.rUpperLimit);
+	ELSIF q_stVGP.eValveControl = PressureControl THEN
+		 q_stVGP.rReqPosition := LIMIT(0, i_ReqPos, q_stVGP.rUpperLimit);
+	END_IF
+ELSE
+	q_stVGP.rReqPosition := 0;
+	q_stVGP.eValveControl := CloseValve;//CloseValve;
+	bGo:=FALSE;
+END_IF
 
 
-<span class="o">//</span><span class="n">Check</span> <span class="n">the</span> <span class="n">Drive</span> <span class="n">State</span>
+//Check the Drive State
 
-<span class="k">IF</span> <span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">InfoData_State</span><span class="o">&lt;&gt;</span><span class="mi">16#8</span><span class="p">)</span> <span class="k">OR</span><span class="o">*</span><span class="p">)</span> <span class="p">(</span><span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">MOVESTATE_ERROR</span><span class="p">)</span> <span class="k">THEN</span>
-	<span class="n">q_stVGP</span><span class="p">.</span><span class="n">pv_xError</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
-<span class="k">ELSE</span>
-	<span class="n">q_stVGP</span><span class="p">.</span><span class="n">pv_xError</span><span class="o">:=</span><span class="n">FALSE</span><span class="p">;</span>
-	<span class="o">//</span> <span class="n">Call</span> <span class="k">function</span> <span class="k">to</span> <span class="n">execute</span> <span class="n">move</span>
-	<span class="o">//</span> <span class="n">call</span> <span class="n">motion</span> <span class="k">function</span> <span class="n">blocks</span><span class="o">???</span>
-<span class="n">END_IF</span>
-
-
-<span class="k">IF</span> <span class="p">(</span><span class="n">q_stVGP</span><span class="p">.</span><span class="n">pv_xABORT_SW</span> <span class="p">)</span> <span class="k">THEN</span>
-	<span class="n">q_stVGP</span><span class="p">.</span><span class="n">pv_xABORT_SW</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-	<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span><span class="o">:=</span> <span class="n">MOVESTATE_ABORT</span><span class="p">;</span>
-<span class="n">END_IF</span>
+IF (*(InfoData_State&lt;&gt;16#8) OR*) (q_stVGP.state = MOVESTATE_ERROR) THEN
+	q_stVGP.pv_xError:=TRUE;
+ELSE
+	q_stVGP.pv_xError:=FALSE;
+	// Call function to execute move
+	// call motion function blocks???
+END_IF
 
 
-<span class="n">ACT_LIN_INTERPOLATION</span><span class="p">();</span>
-<span class="n">ACT_AXIS</span><span class="p">();</span>
-<span class="o">//</span><span class="n">ACT_HOME</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-act-axis-st">
-<h3>FB_VGP.ACT_AXIS: ST<a class="headerlink" href="#fb-vgp-act-axis-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">update</span> <span class="n">the</span> <span class="n">axis</span> <span class="n">status</span>
-<span class="n">AXIS</span><span class="p">();</span>
-<span class="n">q_stVGP</span><span class="p">.</span><span class="n">rEnoder_Position</span> <span class="o">:=</span> <span class="n">LREAL_TO_REAL</span><span class="p">(</span><span class="n">Axis</span><span class="p">.</span><span class="n">NcToPlc</span><span class="p">.</span><span class="n">ActPos</span><span class="p">);</span> <span class="o">//</span> <span class="n">encoder</span> <span class="n">position</span>
+IF (q_stVGP.pv_xABORT_SW ) THEN
+	q_stVGP.pv_xABORT_SW := FALSE;
+	q_stVGP.state:= MOVESTATE_ABORT;
+END_IF
 
-<span class="o">//</span><span class="n">Homing</span> <span class="n">STATE</span> <span class="k">is</span> <span class="n">missing</span>
 
-<span class="o">//</span> <span class="n">state</span> <span class="n">machine</span> <span class="k">for</span> <span class="n">axis</span> <span class="n">motion</span>
-	<span class="p">(</span><span class="o">*</span> <span class="n">move</span> <span class="n">axis</span> <span class="n">using</span> <span class="n">a</span> <span class="n">state</span> <span class="n">machine</span> <span class="o">*</span><span class="p">)</span>
-	<span class="k">CASE</span> <span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="k">OF</span>
+ACT_LIN_INTERPOLATION();
+ACT_AXIS();
+//ACT_HOME();
 
-		<span class="n">MOVESTATE_INIT</span> <span class="o">:</span>	<span class="p">(</span><span class="o">*</span> <span class="n">initialisation</span> <span class="o">*</span><span class="p">)</span>
-			<span class="p">(</span><span class="o">*</span> <span class="n">initialize</span> <span class="k">all</span> <span class="k">function</span> <span class="n">blocks</span> <span class="o">*</span><span class="p">)</span>
-			<span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">fbMoveAxisABS2</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">fbReset</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">fbHALT</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span><span class="n">FALSE</span><span class="p">;</span><span class="o">//</span>
-			<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_ENABLE</span><span class="p">;</span> <span class="o">//</span> <span class="n">Check</span> <span class="n">homing</span> <span class="n">first</span>
+END_FUNCTION_BLOCK
+ACTION ACT_AXIS:
+//update the axis status
+AXIS();
+q_stVGP.rEnoder_Position := LREAL_TO_REAL(Axis.NcToPlc.ActPos); // encoder position
 
-		<span class="n">MOVESTATE_ENABLE</span> <span class="o">:</span>
-			<span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Enable</span> <span class="o">:=</span>  <span class="n">TRUE</span><span class="p">;</span>
-			<span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Enable_Positive</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-			<span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Enable_Negative</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-			<span class="k">IF</span> <span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Status</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_READY</span><span class="p">;</span>
-			<span class="k">ELSIF</span> <span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Error</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_ERROR</span><span class="p">;</span>
-			<span class="n">END_IF</span>
+//Homing STATE is missing
+
+// state machine for axis motion
+	(* move axis using a state machine *)
+	CASE q_stVGP.state OF
+
+		MOVESTATE_INIT :	(* initialisation *)
+			(* initialize all function blocks *)
+			fbMoveAxisABS.Execute := FALSE;
+			fbMoveAxisABS2.Execute := FALSE;
+			fbReset.Execute := FALSE;
+			fbHALT.Execute :=FALSE;//
+			q_stVGP.state := MOVESTATE_ENABLE; // Check homing first
+
+		MOVESTATE_ENABLE :
+			fbPowerAxis.Enable :=  TRUE;
+			fbPowerAxis.Enable_Positive := TRUE;
+			fbPowerAxis.Enable_Negative := TRUE;
+			IF fbPowerAxis.Status THEN
+				q_stVGP.state := MOVESTATE_READY;
+			ELSIF fbPowerAxis.Error THEN
+				q_stVGP.state := MOVESTATE_ERROR;
+			END_IF
 		
-		<span class="n">MOVESTATE_READY</span><span class="o">:</span> <span class="o">//</span> <span class="n">waiting</span> <span class="k">for</span> <span class="n">move</span> <span class="n">command</span>
-			<span class="k">IF</span> <span class="p">(</span><span class="n">HomeState</span> <span class="o">=</span> <span class="n">READY</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">q_stVGP</span><span class="p">.</span><span class="n">pv_xHome_SW</span><span class="p">)</span> <span class="k">THEN</span>
-					<span class="n">HomeState</span><span class="o">:=</span> <span class="n">INIT</span><span class="p">;</span>
-					<span class="n">q_stVGP</span><span class="p">.</span><span class="n">pv_xHome_SW</span><span class="o">:=</span><span class="n">false</span><span class="p">;</span>
-					<span class="n">bHome</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-					<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_HOME</span><span class="p">;</span>
-					<span class="k">ELSE</span> 
-					<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_READY</span><span class="p">;</span>
-				<span class="n">END_IF</span>
-			<span class="k">IF</span> <span class="p">(</span><span class="n">q_stVGP</span><span class="p">.</span><span class="n">pv_xGo_SW</span><span class="p">)</span> <span class="k">AND</span> <span class="n">i_xExtIlkOK</span><span class="p">(</span><span class="o">*</span> <span class="k">AND</span><span class="p">(</span> <span class="n">rOldTargetPosition</span> <span class="o">&lt;&gt;</span> <span class="n">rTargetPosition</span><span class="p">)</span> <span class="o">*</span><span class="p">)</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">pv_xGo_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_NEWTARGETPOSITION</span><span class="p">;</span>	
-			<span class="n">END_IF</span>
-			<span class="k">IF</span> <span class="k">NOT</span> <span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Status</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_ENABLE</span><span class="p">;</span>
-			<span class="k">ELSIF</span> <span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Error</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_ERROR</span><span class="p">;</span>
-			<span class="n">END_IF</span>
+		MOVESTATE_READY: // waiting for move command
+			IF (HomeState = READY) AND (q_stVGP.pv_xHome_SW) THEN
+					HomeState:= INIT;
+					q_stVGP.pv_xHome_SW:=false;
+					bHome := false;
+					q_stVGP.state := MOVESTATE_HOME;
+					ELSE 
+					q_stVGP.state := MOVESTATE_READY;
+				END_IF
+			IF (q_stVGP.pv_xGo_SW) AND i_xExtIlkOK(* AND( rOldTargetPosition &lt;&gt; rTargetPosition) *) THEN
+				q_stVGP.pv_xGo_SW := false;
+				q_stVGP.state := MOVESTATE_NEWTARGETPOSITION;	
+			END_IF
+			IF NOT fbPowerAxis.Status THEN
+				q_stVGP.state := MOVESTATE_ENABLE;
+			ELSIF fbPowerAxis.Error THEN
+				q_stVGP.state := MOVESTATE_ERROR;
+			END_IF
 			
-		<span class="n">MOVESTATE_HOME</span><span class="o">:</span>
-				<span class="k">if</span> <span class="p">(</span><span class="n">HomeState</span> <span class="o">=</span> <span class="n">DONE</span><span class="p">)</span> <span class="k">THEN</span>
-					 <span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_READY</span><span class="p">;</span>
-					 <span class="n">q_stVGP</span><span class="p">.</span><span class="n">pv_xHomed</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-				<span class="n">END_IF</span>
+		MOVESTATE_HOME:
+				if (HomeState = DONE) THEN
+					 q_stVGP.state := MOVESTATE_READY;
+					 q_stVGP.pv_xHomed := TRUE;
+				END_IF
 				
-				<span class="k">if</span> <span class="p">(</span><span class="n">HomeState</span> <span class="o">=</span> <span class="n">ERROR</span><span class="p">)</span> <span class="k">THEN</span>
-					 <span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_ERROR</span><span class="p">;</span>
-					  <span class="n">q_stVGP</span><span class="p">.</span><span class="n">pv_xHomed</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-				<span class="n">END_IF</span>
+				if (HomeState = ERROR) THEN
+					 q_stVGP.state := MOVESTATE_ERROR;
+					  q_stVGP.pv_xHomed := FALSE;
+				END_IF
 				
-		<span class="n">MOVESTATE_NEWTARGETPOSITION</span><span class="o">:</span>
-			<span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Position</span> <span class="o">:=</span> <span class="n">rTargetPosition</span><span class="p">;</span>	
-			<span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Velocity</span> <span class="o">:=</span> <span class="n">rTargetVelocity</span><span class="p">;</span>		
-			<span class="o">//</span><span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">BufferMode</span> <span class="o">:=</span> <span class="n">MC_BlendingNext</span><span class="p">;</span>
-			<span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-			<span class="k">IF</span> <span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Active</span>  <span class="k">THEN</span>
-				<span class="p">(</span><span class="o">*</span> <span class="n">axis</span> <span class="k">is</span> <span class="n">executing</span> <span class="n">job</span> <span class="n">but</span> <span class="k">is</span> <span class="k">not</span> <span class="n">yet</span> <span class="n">finished</span> <span class="o">*</span><span class="p">)</span>
-				<span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-				<span class="p">(</span><span class="o">*</span> <span class="n">leave</span> <span class="n">this</span> <span class="n">state</span> <span class="k">and</span> <span class="k">buffer</span> <span class="n">a</span> <span class="n">second</span> <span class="n">command</span> <span class="o">*</span><span class="p">)</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_MOVING</span><span class="p">;</span> 
-			<span class="k">ElSIF</span> <span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Done</span> <span class="k">THEN</span>
-				<span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_READY</span><span class="p">;</span>
-			<span class="k">ELSIF</span> <span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">CommandAborted</span> <span class="k">OR</span> <span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Error</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_ERROR</span><span class="p">;</span>
-			<span class="n">END_IF</span>
+		MOVESTATE_NEWTARGETPOSITION:
+			fbMoveAxisABS.Position := rTargetPosition;	
+			fbMoveAxisABS.Velocity := rTargetVelocity;		
+			//fbMoveAxisABS.BufferMode := MC_BlendingNext;
+			fbMoveAxisABS.Execute := TRUE;
+			IF fbMoveAxisABS.Active  THEN
+				(* axis is executing job but is not yet finished *)
+				fbMoveAxisABS.Execute := FALSE;
+				(* leave this state and buffer a second command *)
+				q_stVGP.state := MOVESTATE_MOVING; 
+			ElSIF fbMoveAxisABS.Done THEN
+				fbMoveAxisABS.Execute := FALSE;
+				q_stVGP.state := MOVESTATE_READY;
+			ELSIF fbMoveAxisABS.CommandAborted OR fbMoveAxisABS.Error THEN
+				q_stVGP.state := MOVESTATE_ERROR;
+			END_IF
 			
 				
-		<span class="n">MOVESTATE_MOVING</span><span class="o">://</span>
-			<span class="k">IF</span> <span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">CommandAborted</span> <span class="k">OR</span> <span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Error</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_ERROR</span><span class="p">;</span>
-			<span class="n">END_IF</span>	
-			<span class="k">IF</span> <span class="k">NOT</span> <span class="p">(</span> <span class="n">Axis</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">Moving</span><span class="p">)</span> <span class="k">OR</span> <span class="p">(</span><span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Done</span><span class="p">)</span> <span class="k">THEN</span> <span class="o">//</span><span class="p">(</span><span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Done</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">fbMoveAxisABS2</span><span class="p">.</span><span class="n">Done</span><span class="p">)</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_READY</span><span class="p">;</span>	
-			<span class="n">END_IF</span>
+		MOVESTATE_MOVING://
+			IF fbMoveAxisABS.CommandAborted OR fbMoveAxisABS.Error THEN
+				q_stVGP.state := MOVESTATE_ERROR;
+			END_IF	
+			IF NOT ( Axis.Status.Moving) OR (fbMoveAxisABS.Done) THEN //(fbMoveAxisABS.Done) AND (fbMoveAxisABS2.Done) THEN
+				q_stVGP.state := MOVESTATE_READY;	
+			END_IF
 			
 		
-		<span class="n">MOVESTATE_HALT</span><span class="o">:</span>
-			<span class="n">fbHALT</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
-			<span class="k">IF</span> <span class="n">Axis</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">Error</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_RESET</span><span class="p">;</span>	<span class="p">(</span><span class="o">*</span> <span class="n">axis</span> <span class="n">error</span> <span class="n">requires</span> <span class="n">reset</span> <span class="o">*</span><span class="p">)</span>
-			<span class="k">ELSE</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_INIT</span><span class="p">;</span>		<span class="p">(</span><span class="o">*</span> <span class="k">function</span> <span class="k">block</span> <span class="n">errors</span> <span class="n">don</span><span class="na">&#39;t</span> <span class="n">need</span> <span class="n">a</span> <span class="n">reset</span> <span class="o">*</span><span class="p">)</span>
-			<span class="n">END_IF</span>
+		MOVESTATE_HALT:
+			fbHALT.Execute :=TRUE;
+			IF Axis.Status.Error THEN
+				q_stVGP.state := MOVESTATE_RESET;	(* axis error requires reset *)
+			ELSE
+				q_stVGP.state := MOVESTATE_INIT;		(* function block errors don&#39;t need a reset *)
+			END_IF
 		
-		<span class="n">MOVESTATE_ERROR</span> <span class="o">:</span>
+		MOVESTATE_ERROR :
 			
-			<span class="k">IF</span> <span class="n">Axis</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">Error</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_RESET</span><span class="p">;</span>	<span class="p">(</span><span class="o">*</span> <span class="n">axis</span> <span class="n">error</span> <span class="n">requires</span> <span class="n">reset</span> <span class="o">*</span><span class="p">)</span>
-			<span class="k">ELSE</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_INIT</span><span class="p">;</span>		<span class="p">(</span><span class="o">*</span> <span class="k">function</span> <span class="k">block</span> <span class="n">errors</span> <span class="n">don</span><span class="na">&#39;t</span> <span class="n">need</span> <span class="n">a</span> <span class="n">reset</span> <span class="o">*</span><span class="p">)</span>
-			<span class="n">END_IF</span>
+			IF Axis.Status.Error THEN
+				q_stVGP.state := MOVESTATE_RESET;	(* axis error requires reset *)
+			ELSE
+				q_stVGP.state := MOVESTATE_INIT;		(* function block errors don&#39;t need a reset *)
+			END_IF
 
-		<span class="n">MOVESTATE_RESET</span> <span class="o">:</span>
-			<span class="n">fbReset</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-			<span class="k">IF</span> <span class="n">fbReset</span><span class="p">.</span><span class="n">Done</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_INIT</span><span class="p">;</span>
-			<span class="k">ELSIF</span> <span class="n">fbReset</span><span class="p">.</span><span class="n">Error</span> <span class="k">THEN</span>
-				<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_ERROR</span><span class="p">;</span> <span class="p">(</span><span class="o">*</span> <span class="n">keep</span> <span class="n">trying</span> <span class="k">to</span> <span class="n">reset</span><span class="o">*</span><span class="p">)</span>
-			<span class="n">END_IF</span>
+		MOVESTATE_RESET :
+			fbReset.Execute := TRUE;
+			IF fbReset.Done THEN
+				q_stVGP.state := MOVESTATE_INIT;
+			ELSIF fbReset.Error THEN
+				q_stVGP.state := MOVESTATE_ERROR; (* keep trying to reset*)
+			END_IF
 			
-		<span class="n">MOVESTATE_ABORT</span><span class="o">:</span>
-			<span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">fbMoveAxisABS2</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">fbReset</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="p">(</span><span class="o">*</span> <span class="n">save</span> <span class="n">target</span> <span class="n">position</span><span class="o">*</span><span class="p">)</span>
-			<span class="n">rOldTargetPosition</span> <span class="o">:=</span> 	<span class="n">q_stVGP</span><span class="p">.</span><span class="n">i_iPosition</span><span class="p">;</span>
-			<span class="n">fbHALT</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span><span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Enable</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Enable_Positive</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Enable_Negative</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_ENABLE</span><span class="p">;</span> <span class="o">//</span> <span class="n">Check</span> <span class="n">homing</span> <span class="n">first</span>
+		MOVESTATE_ABORT:
+			fbMoveAxisABS.Execute := FALSE;
+			fbMoveAxisABS2.Execute := FALSE;
+			fbReset.Execute := FALSE;
+			(* save target position*)
+			rOldTargetPosition := 	q_stVGP.i_iPosition;
+			fbHALT.Execute :=FALSE;
+			fbPowerAxis.Enable := FALSE;
+			fbPowerAxis.Enable_Positive := FALSE;
+			fbPowerAxis.Enable_Negative := FALSE;
+			q_stVGP.state := MOVESTATE_ENABLE; // Check homing first
 
-	<span class="n">END_CASE</span>
+	END_CASE
 
 
 
 
 
 	
-<span class="o">///</span> <span class="n">Motion</span> <span class="k">Function</span> <span class="n">Blocks</span>
-<span class="p">(</span><span class="o">*</span> <span class="n">AXIS</span> <span class="n">POWER</span><span class="o">*</span><span class="p">)</span>
-<span class="n">fbPowerAxis</span><span class="p">(</span>
-	<span class="n">Axis</span><span class="o">:=</span> <span class="n">Axis</span><span class="p">,</span> 
-	<span class="n">Enable</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Enable_Positive</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Enable_Negative</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Override</span><span class="o">:=</span> <span class="n">rOverride</span><span class="p">,</span> 
-	<span class="n">BufferMode</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Options</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Status</span><span class="o">=&gt;</span>  <span class="p">,</span> 
-	<span class="n">Busy</span><span class="o">=&gt;</span> <span class="n">PowerAxisOut</span><span class="p">.</span><span class="n">Busy</span> <span class="p">,</span> 
-	<span class="n">Active</span><span class="o">=&gt;</span> <span class="n">PowerAxisOut</span><span class="p">.</span><span class="n">Active</span> <span class="p">,</span> 
-	<span class="n">Error</span><span class="o">=&gt;</span> <span class="n">PowerAxisOut</span><span class="p">.</span><span class="n">Error</span><span class="p">,</span> 
-	<span class="n">ErrorID</span><span class="o">=&gt;</span> <span class="n">PowerAxisOut</span><span class="p">.</span><span class="n">ErrorID</span><span class="p">);</span>
-<span class="p">(</span><span class="o">*</span> <span class="n">AXIS</span> <span class="n">MOVE</span> <span class="n">ABSOLUTE</span><span class="o">*</span><span class="p">)</span>
-<span class="n">fbMoveAxisABS</span><span class="p">(</span>
-	<span class="n">Axis</span><span class="o">:=</span> <span class="n">Axis</span> <span class="p">,</span> 
-	<span class="n">Execute</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Position</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Velocity</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Acceleration</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Deceleration</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Jerk</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">BufferMode</span><span class="o">:=</span> <span class="n">MC_BlendingNext</span> <span class="p">,</span> 
-	<span class="n">Options</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Done</span><span class="o">=&gt;</span><span class="n">MoveAbsoluteOut</span><span class="p">.</span><span class="n">Done</span><span class="p">,</span> 
-	<span class="n">Busy</span><span class="o">=&gt;</span> <span class="n">MoveAbsoluteOut</span><span class="p">.</span><span class="n">Busy</span><span class="p">,</span> 
-	<span class="n">Active</span><span class="o">=&gt;</span> <span class="n">MoveAbsoluteOut</span><span class="p">.</span><span class="n">Active</span><span class="p">,</span> 
-	<span class="n">CommandAborted</span><span class="o">=&gt;</span> <span class="n">MoveAbsoluteOut</span><span class="p">.</span><span class="n">CommandAborted</span> <span class="p">,</span> 
-	<span class="n">Error</span><span class="o">=&gt;</span> <span class="n">MoveAbsoluteOut</span><span class="p">.</span><span class="n">Error</span><span class="p">,</span> 
-	<span class="n">ErrorID</span><span class="o">=&gt;</span> <span class="n">MoveAbsoluteOut</span><span class="p">.</span><span class="n">ErrorID</span><span class="p">);</span>
-	<span class="p">(</span><span class="o">*</span> <span class="n">AXIS</span> <span class="n">MOVE</span> <span class="n">ABSOLUTE</span><span class="o">*</span><span class="p">)</span>
-<span class="n">fbMoveAxisABS2</span><span class="p">(</span>
-	<span class="n">Axis</span><span class="o">:=</span> <span class="n">Axis</span> <span class="p">,</span> 
-	<span class="n">Execute</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Position</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Velocity</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Acceleration</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Deceleration</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Jerk</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">BufferMode</span><span class="o">:=</span> <span class="n">MC_BlendingNext</span> <span class="p">,</span> 
-	<span class="n">Options</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Done</span><span class="o">=&gt;</span><span class="n">MoveAbsoluteOut2</span><span class="p">.</span><span class="n">Done</span><span class="p">,</span> 
-	<span class="n">Busy</span><span class="o">=&gt;</span> <span class="n">MoveAbsoluteOut2</span><span class="p">.</span><span class="n">Busy</span><span class="p">,</span> 
-	<span class="n">Active</span><span class="o">=&gt;</span> <span class="n">MoveAbsoluteOut2</span><span class="p">.</span><span class="n">Active</span><span class="p">,</span> 
-	<span class="n">CommandAborted</span><span class="o">=&gt;</span> <span class="n">MoveAbsoluteOut2</span><span class="p">.</span><span class="n">CommandAborted</span> <span class="p">,</span> 
-	<span class="n">Error</span><span class="o">=&gt;</span> <span class="n">MoveAbsoluteOut2</span><span class="p">.</span><span class="n">Error</span><span class="p">,</span> 
-	<span class="n">ErrorID</span><span class="o">=&gt;</span> <span class="n">MoveAbsoluteOut2</span><span class="p">.</span><span class="n">ErrorID</span><span class="p">);</span>
-<span class="p">(</span><span class="o">*</span><span class="n">AXIS</span> <span class="n">RESET</span><span class="o">*</span><span class="p">)</span>
-<span class="n">fbReset</span><span class="p">(</span>
-	<span class="n">Axis</span><span class="o">:=</span> <span class="n">Axis</span><span class="p">,</span> 
-	<span class="n">Execute</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Done</span><span class="o">=&gt;</span><span class="n">ResetOut</span><span class="p">.</span><span class="n">Done</span> <span class="p">,</span> 
-	<span class="n">Busy</span><span class="o">=&gt;</span><span class="n">ResetOut</span><span class="p">.</span><span class="n">Busy</span> <span class="p">,</span> 
-	<span class="n">Error</span><span class="o">=&gt;</span> <span class="n">ResetOut</span><span class="p">.</span><span class="n">Error</span><span class="p">,</span> 
-	<span class="n">ErrorID</span><span class="o">=&gt;</span> <span class="n">ResetOut</span><span class="p">.</span><span class="n">ErrorID</span><span class="p">);</span>
-<span class="p">(</span><span class="o">*</span><span class="n">HALT</span><span class="o">*</span><span class="p">)</span>
-<span class="n">fbHalt</span><span class="p">(</span>
-	<span class="n">Axis</span><span class="o">:=</span> <span class="n">Axis</span><span class="p">,</span> 
-	<span class="n">Execute</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Deceleration</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Jerk</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">BufferMode</span><span class="o">:=</span> <span class="n">MC_BlendingNext</span> <span class="p">,</span> 
-	<span class="n">Options</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Done</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Busy</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Active</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">CommandAborted</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Error</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">ErrorID</span><span class="o">=&gt;</span> <span class="p">);</span>
+/// Motion Function Blocks
+(* AXIS POWER*)
+fbPowerAxis(
+	Axis:= Axis, 
+	Enable:= , 
+	Enable_Positive:= , 
+	Enable_Negative:= , 
+	Override:= rOverride, 
+	BufferMode:= , 
+	Options:= , 
+	Status=&gt;  , 
+	Busy=&gt; PowerAxisOut.Busy , 
+	Active=&gt; PowerAxisOut.Active , 
+	Error=&gt; PowerAxisOut.Error, 
+	ErrorID=&gt; PowerAxisOut.ErrorID);
+(* AXIS MOVE ABSOLUTE*)
+fbMoveAxisABS(
+	Axis:= Axis , 
+	Execute:= , 
+	Position:= , 
+	Velocity:= , 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= MC_BlendingNext , 
+	Options:= , 
+	Done=&gt;MoveAbsoluteOut.Done, 
+	Busy=&gt; MoveAbsoluteOut.Busy, 
+	Active=&gt; MoveAbsoluteOut.Active, 
+	CommandAborted=&gt; MoveAbsoluteOut.CommandAborted , 
+	Error=&gt; MoveAbsoluteOut.Error, 
+	ErrorID=&gt; MoveAbsoluteOut.ErrorID);
+	(* AXIS MOVE ABSOLUTE*)
+fbMoveAxisABS2(
+	Axis:= Axis , 
+	Execute:= , 
+	Position:= , 
+	Velocity:= , 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= MC_BlendingNext , 
+	Options:= , 
+	Done=&gt;MoveAbsoluteOut2.Done, 
+	Busy=&gt; MoveAbsoluteOut2.Busy, 
+	Active=&gt; MoveAbsoluteOut2.Active, 
+	CommandAborted=&gt; MoveAbsoluteOut2.CommandAborted , 
+	Error=&gt; MoveAbsoluteOut2.Error, 
+	ErrorID=&gt; MoveAbsoluteOut2.ErrorID);
+(*AXIS RESET*)
+fbReset(
+	Axis:= Axis, 
+	Execute:= , 
+	Done=&gt;ResetOut.Done , 
+	Busy=&gt;ResetOut.Busy , 
+	Error=&gt; ResetOut.Error, 
+	ErrorID=&gt; ResetOut.ErrorID);
+(*HALT*)
+fbHalt(
+	Axis:= Axis, 
+	Execute:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= MC_BlendingNext , 
+	Options:= , 
+	Done=&gt; , 
+	Busy=&gt; , 
+	Active=&gt; , 
+	CommandAborted=&gt; , 
+	Error=&gt; , 
+	ErrorID=&gt; );
 	
 
-<span class="o">///</span> <span class="n">ERROR</span>
-<span class="k">IF</span> <span class="n">Axis</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">Error</span> <span class="k">THEN</span>
-	<span class="n">q_stVGP</span><span class="p">.</span><span class="n">state</span> <span class="o">:=</span> <span class="n">MOVESTATE_ERROR</span><span class="p">;</span>	
-<span class="n">END_IF</span><span class="p">;</span>	
+/// ERROR
+IF Axis.Status.Error THEN
+	q_stVGP.state := MOVESTATE_ERROR;	
+END_IF;	
 	
-<span class="o">//</span> <span class="n">Error</span> <span class="n">Handling</span>
-<span class="k">if</span><span class="p">(</span> <span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Error</span> <span class="k">and</span> <span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Active</span> <span class="p">)</span> <span class="k">then</span> 
-	<span class="n">bError</span><span class="o">:=</span> <span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">Error</span><span class="p">;</span>
-	<span class="n">nErrorID</span><span class="o">:=</span> <span class="n">fbPowerAxis</span><span class="p">.</span><span class="n">ErrorID</span><span class="p">;</span>
-<span class="n">END_IF</span>
-<span class="k">if</span><span class="p">(</span> <span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Error</span> <span class="k">and</span> <span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Active</span> <span class="p">)</span> <span class="k">then</span> 
-	<span class="n">bError</span><span class="o">:=</span> <span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">Error</span><span class="p">;</span>
-	<span class="n">nErrorID</span><span class="o">:=</span> <span class="n">fbMoveAxisABS</span><span class="p">.</span><span class="n">ErrorID</span><span class="p">;</span>
-<span class="n">END_IF</span>
+// Error Handling
+if( fbPowerAxis.Error and fbPowerAxis.Active ) then 
+	bError:= fbPowerAxis.Error;
+	nErrorID:= fbPowerAxis.ErrorID;
+END_IF
+if( fbMoveAxisABS.Error and fbMoveAxisABS.Active ) then 
+	bError:= fbMoveAxisABS.Error;
+	nErrorID:= fbMoveAxisABS.ErrorID;
+END_IF
 
-<span class="p">(</span><span class="o">*</span><span class="n">Convert</span> <span class="n">nErrorID</span> <span class="k">to</span> <span class="kt">string</span><span class="o">*</span><span class="p">)</span>
-<span class="n">sErrorMessage</span><span class="o">:=</span><span class="n">WORD_TO_HEXSTR</span><span class="p">(</span><span class="k">in</span><span class="o">:=</span><span class="n">TO_WORD</span><span class="p">(</span><span class="n">nErrorID</span><span class="p">)</span> <span class="p">,</span> <span class="n">iPrecision</span><span class="o">:=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">bLoCase</span><span class="o">:=</span><span class="mi">0</span> <span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-act-home-st">
-<h3>FB_VGP.ACT_HOME: ST<a class="headerlink" href="#fb-vgp-act-home-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span> <span class="n">HomeState</span> <span class="k">OF</span>
-	<span class="n">READY</span><span class="o">:</span>
-		<span class="n">fbSetPosition</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-		<span class="n">fbWriteParameter</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-		<span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+(*Convert nErrorID to string*)
+sErrorMessage:=WORD_TO_HEXSTR(in:=TO_WORD(nErrorID) , iPrecision:= 4, bLoCase:=0 );
+END_ACTION
+ACTION ACT_HOME:
+CASE HomeState OF
+	READY:
+		fbSetPosition.Execute := FALSE;
+		fbWriteParameter.Execute := FALSE;
+		fbMoveRel.Execute := FALSE;
 		
-	<span class="n">INIT</span><span class="o">:</span>
-		<span class="o">//</span> <span class="n">disable</span> <span class="n">soft</span> <span class="n">limits</span> <span class="k">in</span> <span class="n">order</span> <span class="k">to</span> <span class="n">be</span> <span class="n">able</span> <span class="k">to</span> <span class="n">move</span> <span class="n">the</span> <span class="n">drive</span>
-		<span class="n">fbWriteParameter</span><span class="p">.</span><span class="n">ParameterNumber</span> <span class="o">:=</span> <span class="n">MC_AxisParameter</span><span class="p">.</span><span class="n">EnableLimitNeg</span><span class="p">;</span><span class="o">//</span><span class="n">EnableLimitPos</span><span class="p">;</span><span class="o">//</span> <span class="p">.</span><span class="n">EnableLimitNeg</span><span class="p">;</span>
-		<span class="n">fbWriteParameter</span><span class="p">.</span><span class="n">Value</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-		<span class="n">fbWriteParameter</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">fbWriteParameter</span><span class="p">.</span><span class="n">Done</span><span class="p">)</span> <span class="k">THEN</span>
-			<span class="n">fbWriteParameter</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">HomeState</span><span class="o">:=</span> <span class="n">MOVING</span><span class="p">;</span> 
-		<span class="n">END_IF</span>
+	INIT:
+		// disable soft limits in order to be able to move the drive
+		fbWriteParameter.ParameterNumber := MC_AxisParameter.EnableLimitNeg;//EnableLimitPos;// .EnableLimitNeg;
+		fbWriteParameter.Value := FALSE;
+		fbWriteParameter.Execute := TRUE;
+		if (fbWriteParameter.Done) THEN
+			fbWriteParameter.Execute := FALSE;
+			HomeState:= MOVING; 
+		END_IF
 
-	<span class="n">MOVING</span><span class="o">:</span>
-		<span class="k">IF</span> <span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Done</span> <span class="k">THEN</span>
-			<span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-		<span class="n">END_IF</span><span class="p">;</span>
-		<span class="k">IF</span> <span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Active</span>  <span class="k">THEN</span>
-			<span class="p">(</span><span class="o">*</span> <span class="n">axis</span> <span class="k">is</span> <span class="n">executing</span> <span class="n">job</span> <span class="n">but</span> <span class="k">is</span> <span class="k">not</span> <span class="n">yet</span> <span class="n">finished</span> <span class="o">*</span><span class="p">)</span>
-			<span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">HomeState</span> <span class="o">:=</span> <span class="n">MOVING2</span><span class="p">;</span>
-		<span class="k">ElSIF</span> <span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Done</span> <span class="k">THEN</span>
-			<span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">HomeState</span> <span class="o">:=</span> <span class="n">MOVING2</span><span class="p">;</span>
-		<span class="k">ELSIF</span> <span class="n">fbMoveRel</span><span class="p">.</span><span class="n">CommandAborted</span> <span class="k">OR</span> <span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Error</span> <span class="k">THEN</span>
-			<span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">HomeState</span> <span class="o">:=</span> <span class="n">ERROR</span><span class="p">;</span>
-		<span class="n">END_IF</span>
+	MOVING:
+		IF fbMoveRel.Done THEN
+			fbMoveRel.Execute := TRUE;
+		END_IF;
+		IF fbMoveRel.Active  THEN
+			(* axis is executing job but is not yet finished *)
+			fbMoveRel.Execute := FALSE;
+			HomeState := MOVING2;
+		ElSIF fbMoveRel.Done THEN
+			fbMoveRel.Execute := FALSE;
+			HomeState := MOVING2;
+		ELSIF fbMoveRel.CommandAborted OR fbMoveRel.Error THEN
+			fbMoveRel.Execute := FALSE;
+			HomeState := ERROR;
+		END_IF
 	
-	<span class="n">MOVING2</span><span class="o">:</span>
-		<span class="k">IF</span> <span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Done</span> <span class="k">THEN</span>
-			<span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-		<span class="n">END_IF</span><span class="p">;</span>
-		<span class="k">IF</span> <span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Active</span>  <span class="k">THEN</span>
-			<span class="p">(</span><span class="o">*</span> <span class="n">axis</span> <span class="k">is</span> <span class="n">executing</span> <span class="n">job</span> <span class="n">but</span> <span class="k">is</span> <span class="k">not</span> <span class="n">yet</span> <span class="n">finished</span> <span class="o">*</span><span class="p">)</span>
-			<span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">HomeState</span> <span class="o">:=</span> <span class="n">MOVING</span><span class="p">;</span>
-		<span class="k">ElSIF</span> <span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Done</span> <span class="k">THEN</span>
-			<span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">HomeState</span> <span class="o">:=</span> <span class="n">MOVING</span><span class="p">;</span>
-		<span class="k">ELSIF</span> <span class="n">fbMoveRel</span><span class="p">.</span><span class="n">CommandAborted</span> <span class="k">OR</span> <span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Error</span> <span class="k">THEN</span>
-			<span class="n">fbMoveRel</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">HomeState</span> <span class="o">:=</span> <span class="n">CHECK</span><span class="p">;</span>
-		<span class="n">END_IF</span>	
+	MOVING2:
+		IF fbMoveRel.Done THEN
+			fbMoveRel.Execute := TRUE;
+		END_IF;
+		IF fbMoveRel.Active  THEN
+			(* axis is executing job but is not yet finished *)
+			fbMoveRel.Execute := FALSE;
+			HomeState := MOVING;
+		ElSIF fbMoveRel.Done THEN
+			fbMoveRel.Execute := FALSE;
+			HomeState := MOVING;
+		ELSIF fbMoveRel.CommandAborted OR fbMoveRel.Error THEN
+			fbMoveRel.Execute := FALSE;
+			HomeState := CHECK;
+		END_IF	
 
 	
-	<span class="n">CHECK</span><span class="o">:</span>
-		<span class="o">//</span><span class="n">Check</span> <span class="n">position</span> <span class="n">lag</span> <span class="n">monitoring</span> <span class="n">error</span>
-		<span class="k">if</span> <span class="p">(</span> <span class="n">Axis</span><span class="p">.</span><span class="n">Status</span><span class="p">.</span><span class="n">ErrorID</span> <span class="o">=</span> <span class="mi">17245</span><span class="p">)</span><span class="k">THEN</span> 
-			<span class="o">//</span> <span class="n">Set</span> <span class="n">Current</span> <span class="n">Position</span>
-			<span class="n">fbSetPosition</span><span class="p">.</span><span class="n">Position</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">//</span><span class="n">rOpenPosition</span><span class="o">+</span><span class="n">rHomingDistance</span><span class="p">;</span>
-			<span class="n">fbSetPosition</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-			<span class="k">if</span> <span class="p">(</span> <span class="n">fbSetPosition</span><span class="p">.</span><span class="n">Done</span> <span class="p">)</span> <span class="k">THEN</span>
-				<span class="n">fbSetPosition</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-				<span class="n">HomeState</span><span class="o">:=</span> <span class="n">WRITE</span><span class="p">;</span>
-			<span class="n">END_IF</span>
-		<span class="k">ELSE</span>
-			<span class="n">HomeState</span> <span class="o">:=</span> <span class="n">ERROR</span><span class="p">;</span>
-		<span class="n">END_IF</span>
+	CHECK:
+		//Check position lag monitoring error
+		if ( Axis.Status.ErrorID = 17245)THEN 
+			// Set Current Position
+			fbSetPosition.Position := 0; //rOpenPosition+rHomingDistance;
+			fbSetPosition.Execute := TRUE;
+			if ( fbSetPosition.Done ) THEN
+				fbSetPosition.Execute := FALSE;
+				HomeState:= WRITE;
+			END_IF
+		ELSE
+			HomeState := ERROR;
+		END_IF
 	
-	<span class="n">ERROR</span><span class="o">:</span>
+	ERROR:
 	
 	
-	<span class="n">WRITE</span><span class="o">:</span>
-	<span class="o">//</span> <span class="n">Re</span> <span class="n">Enable</span> <span class="n">the</span> <span class="n">Soft</span> <span class="n">limits</span>	
-		<span class="n">fbWriteParameter</span><span class="p">.</span><span class="n">ParameterNumber</span> <span class="o">:=</span> <span class="n">MC_AxisParameter</span><span class="p">.</span><span class="n">AxisEnMinSoftPosLimit</span><span class="p">;</span><span class="o">//</span><span class="n">AxisEnMaxSoftPosLimit</span><span class="p">;</span><span class="o">//</span> <span class="p">.</span><span class="n">AxisEnMinSoftPosLimit</span><span class="p">;</span>
-		<span class="n">fbWriteParameter</span><span class="p">.</span><span class="n">Value</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-		<span class="n">fbWriteParameter</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">fbWriteParameter</span><span class="p">.</span><span class="n">Done</span><span class="p">)</span> <span class="k">THEN</span>
-			<span class="n">fbWriteParameter</span><span class="p">.</span><span class="n">Execute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-			<span class="n">HomeState</span><span class="o">:=</span> <span class="n">DONE</span><span class="p">;</span> 
-		<span class="n">END_IF</span>
+	WRITE:
+	// Re Enable the Soft limits	
+		fbWriteParameter.ParameterNumber := MC_AxisParameter.AxisEnMinSoftPosLimit;//AxisEnMaxSoftPosLimit;// .AxisEnMinSoftPosLimit;
+		fbWriteParameter.Value := TRUE;
+		fbWriteParameter.Execute := TRUE;
+		if (fbWriteParameter.Done) THEN
+			fbWriteParameter.Execute := FALSE;
+			HomeState:= DONE; 
+		END_IF
 	
-	<span class="n">DONE</span><span class="o">:</span>
-	<span class="o">//</span> <span class="n">Homing</span> <span class="n">DONE</span> <span class="n">STATE</span> 
-	<span class="o">//</span> <span class="n">should</span> <span class="n">go</span> <span class="n">back</span> <span class="k">to</span> <span class="n">closed</span> <span class="n">zero</span> <span class="n">position</span><span class="o">???</span>
+	DONE:
+	// Homing DONE STATE 
+	// should go back to closed zero position???
 
-<span class="n">END_CASE</span>
+END_CASE
 
-<span class="o">//</span> <span class="n">Move</span> <span class="n">Forward</span>
-<span class="n">fbMoveRel</span><span class="p">(</span>
-	<span class="n">Axis</span><span class="o">:=</span> <span class="n">Axis</span> <span class="p">,</span> 
-	<span class="n">Execute</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Distance</span><span class="o">:=</span> <span class="n">rHomingDistance</span> <span class="p">,</span> 
-	<span class="n">Velocity</span><span class="o">:=</span> <span class="n">rHomingVelocity</span><span class="p">,</span> 
-	<span class="n">Acceleration</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Deceleration</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Jerk</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">BufferMode</span><span class="o">:=</span> <span class="n">MC_BlendingNext</span><span class="p">,</span> 
-	<span class="n">Options</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Done</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Busy</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Active</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">CommandAborted</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Error</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">ErrorID</span><span class="o">=&gt;</span> <span class="p">);</span>
+// Move Forward
+fbMoveRel(
+	Axis:= Axis , 
+	Execute:= , 
+	Distance:= rHomingDistance , 
+	Velocity:= rHomingVelocity, 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= MC_BlendingNext, 
+	Options:= , 
+	Done=&gt; , 
+	Busy=&gt; , 
+	Active=&gt; , 
+	CommandAborted=&gt; , 
+	Error=&gt; , 
+	ErrorID=&gt; );
 	
-<span class="o">//</span> <span class="n">Set</span> <span class="n">Encoder</span> <span class="n">Position</span>
-<span class="n">fbSetPosition</span><span class="p">(</span>
-	<span class="n">Axis</span><span class="o">:=</span> <span class="n">Axis</span> <span class="p">,</span> 
-	<span class="n">Execute</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Position</span><span class="o">:=</span> <span class="mi">0</span> <span class="p">,</span> 
-	<span class="n">Mode</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Options</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Done</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Busy</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Error</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">ErrorID</span><span class="o">=&gt;</span> <span class="p">);</span>
+// Set Encoder Position
+fbSetPosition(
+	Axis:= Axis , 
+	Execute:= , 
+	Position:= 0 , 
+	Mode:= , 
+	Options:= , 
+	Done=&gt; , 
+	Busy=&gt; , 
+	Error=&gt; , 
+	ErrorID=&gt; );
 	
-<span class="o">//</span> <span class="n">Write</span> <span class="n">Parameters</span>
-<span class="n">fbWriteParameter</span><span class="p">(</span>
-	<span class="n">Axis</span><span class="o">:=</span> <span class="n">Axis</span> <span class="p">,</span> 
-	<span class="n">Execute</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">ParameterNumber</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Value</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Done</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Busy</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Error</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">ErrorID</span><span class="o">=&gt;</span> <span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-act-init-st">
-<h3>FB_VGP.ACT_INIT: ST<a class="headerlink" href="#fb-vgp-act-init-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>IF bInit THEN
+// Write Parameters
+fbWriteParameter(
+	Axis:= Axis , 
+	Execute:= , 
+	ParameterNumber:= , 
+	Value:= , 
+	Done=&gt; , 
+	Busy=&gt; , 
+	Error=&gt; , 
+	ErrorID=&gt; );
+END_ACTION
+ACTION ACT_INIT:
+IF bInit THEN
 	
 (*
 	(* init array with the interpolation points  *)
@@ -1186,198 +1137,49 @@ END_VAR
 	bInit							:= FALSE;
 	
 END_IF;
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-act-lin-interpolation-st">
-<h3>FB_VGP.ACT_LIN_INTERPOLATION: ST<a class="headerlink" href="#fb-vgp-act-lin-interpolation-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">fbCTRL_LIN_INTERPOLATION</span><span class="p">(</span>
-	<span class="n">fIn</span><span class="o">:=</span> <span class="n">q_stVGP</span><span class="p">.</span><span class="n">rReqPosition</span> <span class="p">,</span> 
-	<span class="n">fManValue</span><span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> 
-	<span class="n">bExtrapolate</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">eMode</span><span class="o">:=</span> <span class="n">eMode</span><span class="p">,</span> 
-	<span class="n">fOut</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">bInIsGreaterThanMaxElement</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">bInIsLessThanMinElement</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">eState</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">eErrorId</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">bError</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">stParams</span><span class="o">:=</span> <span class="n">stCTRL_LIN_INTERPOLATION_PARAMS</span> <span class="p">);</span>
+END_ACTION
+ACTION ACT_LIN_INTERPOLATION:
+fbCTRL_LIN_INTERPOLATION(
+	fIn:= q_stVGP.rReqPosition , 
+	fManValue:= 0, 
+	bExtrapolate:= , 
+	eMode:= eMode, 
+	fOut=&gt; , 
+	bInIsGreaterThanMaxElement=&gt; , 
+	bInIsLessThanMinElement=&gt; , 
+	eState=&gt; , 
+	eErrorId=&gt; , 
+	bError=&gt; , 
+	stParams:= stCTRL_LIN_INTERPOLATION_PARAMS );
 	
-<span class="o">//</span> <span class="n">Target</span> <span class="n">position</span> <span class="n">Calculation</span>
-<span class="n">rTargetPosition</span> <span class="o">:=</span> <span class="n">LREAL_TO_REAL</span><span class="p">(</span><span class="n">fbCTRL_LIN_INTERPOLATION</span><span class="p">.</span><span class="n">fOut</span><span class="p">);</span>
-<span class="o">//</span><span class="n">rTargetPosition</span> <span class="o">:=</span> <span class="n">LIMIT</span><span class="p">(</span><span class="n">rClosePosition</span><span class="p">,</span> <span class="n">rTargetPosition</span><span class="p">,</span> <span class="n">rOpenPosition</span><span class="p">);</span>	
+// Target position Calculation
+rTargetPosition := LREAL_TO_REAL(fbCTRL_LIN_INTERPOLATION.fOut);
+//rTargetPosition := LIMIT(rClosePosition, rTargetPosition, rOpenPosition);	
 	
-<span class="n">fbCTRL_LIN_INTERPOLATION_ENC</span><span class="p">(</span>
-	<span class="n">fIn</span><span class="o">:=</span> <span class="n">Axis</span><span class="p">.</span><span class="n">NcToPlc</span><span class="p">.</span><span class="n">ActPos</span> <span class="p">,</span> 
-	<span class="n">fManValue</span><span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> 
-	<span class="n">bExtrapolate</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">eMode</span><span class="o">:=</span> <span class="n">eMode</span><span class="p">,</span> 
-	<span class="n">fOut</span><span class="o">=&gt;</span>  <span class="p">,</span> 
-	<span class="n">bInIsGreaterThanMaxElement</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">bInIsLessThanMinElement</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">eState</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">eErrorId</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">bError</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">stParams</span><span class="o">:=</span> <span class="n">stCTRL_LIN_INTERPOLATION_PARAMS_ENC</span> <span class="p">);</span>
-<span class="n">q_stVGP</span><span class="p">.</span><span class="n">i_iPosition</span> <span class="o">:=</span> <span class="n">LREAL_TO_REAL</span><span class="p">(</span><span class="n">fbCTRL_LIN_INTERPOLATION_ENC</span><span class="p">.</span><span class="n">fOut</span><span class="p">);</span>
+fbCTRL_LIN_INTERPOLATION_ENC(
+	fIn:= Axis.NcToPlc.ActPos , 
+	fManValue:= 0, 
+	bExtrapolate:= , 
+	eMode:= eMode, 
+	fOut=&gt;  , 
+	bInIsGreaterThanMaxElement=&gt; , 
+	bInIsLessThanMinElement=&gt; , 
+	eState=&gt; , 
+	eErrorId=&gt; , 
+	bError=&gt; , 
+	stParams:= stCTRL_LIN_INTERPOLATION_PARAMS_ENC );
+q_stVGP.i_iPosition := LREAL_TO_REAL(fbCTRL_LIN_INTERPOLATION_ENC.fOut);
+END_ACTION
 </pre></div>
 </div>
 </div>
-<div class="section" id="fb-vgp-configencoder-declaration">
-<h3>FB_VGP.ConfigEncoder: Declaration<a class="headerlink" href="#fb-vgp-configencoder-declaration" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">METHOD</span> <span class="n">ConfigEncoder</span> <span class="o">:</span> <span class="n">BOOL</span>
-<span class="n">VAR_INPUT</span>
-	<span class="n">EncoderMax</span><span class="o">:</span> <span class="n">REAl</span><span class="p">;</span> <span class="o">//</span> <span class="n">Maximum</span> <span class="n">encoder</span> <span class="n">reading</span> <span class="n">from</span> <span class="n">fully</span> <span class="n">closed</span> <span class="k">to</span> <span class="n">fully</span> <span class="k">open</span>
-	<span class="n">invert</span><span class="o">:</span> <span class="n">Bool</span><span class="p">;</span> <span class="o">//</span> <span class="n">Invert</span> <span class="n">Encoder</span> <span class="n">Counting</span> <span class="n">Direction</span>
-<span class="n">END_VAR</span>
-<span class="n">VAR</span>
-	<span class="n">fbWriteParameter1</span><span class="o">:</span> <span class="n">MC_WriteBoolParameter</span><span class="p">;</span>
-<span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-configencoder-st">
-<h3>FB_VGP.ConfigEncoder: ST<a class="headerlink" href="#fb-vgp-configencoder-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">rOpenPosition</span> <span class="o">:=</span> <span class="n">EncoderMax</span><span class="p">;</span>
-
-<span class="o">//</span> <span class="n">fEncScaleFactor</span>  <span class="o">-</span>  <span class="n">AxisEncoderScalingFactor</span>
- 
-<span class="o">//</span> <span class="n">bEncIsInverse</span>  <span class="o">-</span>              
-<span class="k">if</span> <span class="p">(</span><span class="n">invert</span><span class="p">)</span> <span class="k">THEN</span>
-	<span class="n">fbWriteParameter1</span><span class="p">.</span><span class="n">ParameterNumber</span> <span class="o">:=</span>  <span class="n">MC_AxisParameter</span><span class="p">.</span><span class="n">AxisEncoderDirectionInverse</span><span class="p">;</span>
-	<span class="n">fbWriteParameter1</span><span class="p">.</span><span class="n">Value</span> <span class="o">:=</span> <span class="n">True</span><span class="p">;</span>
-<span class="n">END_IF</span>
-
-<span class="o">//</span> <span class="n">Write</span> <span class="n">Parameters</span>
-<span class="n">fbWriteParameter1</span><span class="p">(</span>
-	<span class="n">Axis</span><span class="o">:=</span> <span class="n">Axis</span> <span class="p">,</span> 
-	<span class="n">Execute</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">ParameterNumber</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Value</span><span class="o">:=</span> <span class="p">,</span> 
-	<span class="n">Done</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Busy</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">Error</span><span class="o">=&gt;</span> <span class="p">,</span> 
-	<span class="n">ErrorID</span><span class="o">=&gt;</span> <span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-m-init-declaration">
-<h3>FB_VGP.M_INIT: Declaration<a class="headerlink" href="#fb-vgp-m-init-declaration" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">METHOD</span> <span class="n">M_INIT</span> <span class="o">:</span> <span class="n">BOOL</span>
-<span class="n">VAR_INPUT</span>
-	<span class="n">arrTable</span>	<span class="o">:</span> <span class="k">ARRAY</span><span class="p">[</span><span class="mi">1</span><span class="p">..</span><span class="mi">14</span><span class="p">,</span><span class="mi">1</span><span class="p">..</span><span class="mi">2</span><span class="p">]</span> <span class="k">OF</span> <span class="n">FLOAT</span><span class="p">;</span>
-	<span class="n">arrTable_ENC</span> <span class="o">:</span> <span class="k">ARRAY</span><span class="p">[</span><span class="mi">1</span><span class="p">..</span><span class="mi">14</span><span class="p">,</span><span class="mi">1</span><span class="p">..</span><span class="mi">2</span><span class="p">]</span> <span class="k">OF</span> <span class="n">FLOAT</span><span class="p">;</span>
-<span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-m-init-st">
-<h3>FB_VGP.M_INIT: ST<a class="headerlink" href="#fb-vgp-m-init-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>(* init array with the interpolation points  *)
-	(* 	fIn					 |		fOut		*)
-	arrTable[1,1] := 0;			arrTable[1,2] := 0;
-	arrTable[2,1] := 5;		    arrTable[2,2] := 135;
-	arrTable[3,1] := 10;		arrTable[3,2] := 245;
-	arrTable[4,1] :=  20;	    arrTable[4,2] := 405;
-	arrTable[5,1] :=  30;	    arrTable[5,2] := 535;
-	arrTable[6,1] := 40;		arrTable[6,2] := 689;
-	arrTable[7,1] := 50;		arrTable[7,2] := 830;
-	arrTable[8,1] := 60;	    arrTable[8,2] := 960;
-	arrTable[9,1] := 70;	    arrTable[9,2] := 1095;
-	arrTable[10,1] := 80;		arrTable[10,2] := 1225;
-	arrTable[11,1] := 90;		arrTable[11,2] := 1415;
-	arrTable[12,1] := 95;		arrTable[12,2] := 1495;
-	arrTable[13,1] := 98;		arrTable[13,2] := 1559;
-	arrTable[14,1] := 100;		arrTable[14,2] := 1645;
-	
-	
-	(* init parameter struct *)
-	stCTRL_LIN_INTERPOLATION_PARAMS.tCtrlCycleTime					:= T#10ms;
-	stCTRL_LIN_INTERPOLATION_PARAMS.tTaskCycleTime					:= T#10ms;
-	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_NumberOfRows		:= INT_TO_UINT(14);
-
-	(* set the addresses *)
-	stCTRL_LIN_INTERPOLATION_PARAMS.pDataTable_ADR			:= ADR(arrTable);
-	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_SIZEOF		:= SIZEOF(arrTable);
-
-	(* set the mode to ACTIVE --&gt; normal operation *)
-	eMode							:= eCTRL_MODE_ACTIVE;
-	
-	
-	(* init array with the interpolation points  *)
-	(* 	fIn					 |		fOut		*)
-	arrTable_ENC[1,1] := 0;			arrTable_ENC[1,2] := 0;
-	arrTable_ENC[2,1] := 135;		    arrTable_ENC[2,2] := 5;
-	arrTable_ENC[3,1] := 245;		arrTable_ENC[3,2] := 10;
-	arrTable_ENC[4,1] :=  405;	    arrTable_ENC[4,2] := 20;
-	arrTable_ENC[5,1] :=  535;	    arrTable_ENC[5,2] := 30;
-	arrTable_ENC[6,1] := 689;		arrTable_ENC[6,2] := 40;
-	arrTable_ENC[7,1] := 830;		arrTable_ENC[7,2] := 50;
-	arrTable_ENC[8,1] := 960;	    arrTable_ENC[8,2] := 60;
-	arrTable_ENC[9,1] := 1095;	    arrTable_ENC[9,2] := 70;
-	arrTable_ENC[10,1] := 1225;		arrTable_ENC[10,2] := 80;
-	arrTable_ENC[11,1] := 1415;		arrTable_ENC[11,2] := 90;
-	arrTable_ENC[12,1] := 1495;		arrTable_ENC[12,2] := 95;
-	arrTable_ENC[13,1] := 1559;		arrTable_ENC[13,2] := 98;
-	arrTable_ENC[14,1] := 1645;		arrTable_ENC[14,2] := 100;
-	
-	
-	(* init parameter struct *)
-	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.tCtrlCycleTime					:= T#10ms;
-	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.tTaskCycleTime					:= T#10ms;
-	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.nDataTable_NumberOfRows		:= INT_TO_UINT(14);
-
-	(* set the addresses *)
-	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.pDataTable_ADR			:= ADR(arrTable_ENC);
-	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.nDataTable_SIZEOF		:= SIZEOF(arrTable_ENC);
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-m-valvecontrol-declaration">
-<h3>FB_VGP.M_ValveControl: Declaration<a class="headerlink" href="#fb-vgp-m-valvecontrol-declaration" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">METHOD</span> <span class="n">M_ValveControl</span> <span class="o">:</span> <span class="n">BOOL</span>
-<span class="n">VAR_INPUT</span>
-	<span class="n">state</span><span class="o">:</span><span class="n">E_VCN</span><span class="p">;</span> <span class="o">//</span> <span class="n">Close</span><span class="p">,</span> <span class="k">Open</span><span class="p">,</span> <span class="n">Pressure</span><span class="p">,</span> <span class="n">Manual</span>
-<span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-m-valvecontrol-st">
-<h3>FB_VGP.M_ValveControl: ST<a class="headerlink" href="#fb-vgp-m-valvecontrol-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">q_stVGP</span><span class="p">.</span><span class="n">eValveControl</span> <span class="o">:=</span> <span class="n">state</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-setencodermax-declaration">
-<h3>FB_VGP.SetEncoderMax: Declaration<a class="headerlink" href="#fb-vgp-setencodermax-declaration" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">METHOD</span> <span class="n">PUBLIC</span> <span class="n">SetEncoderMax</span> <span class="o">:</span> <span class="n">BOOL</span>
-<span class="n">VAR_INPUT</span>
-	<span class="n">EncoderMax</span><span class="o">:</span> <span class="n">REAl</span><span class="p">;</span>
-<span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="fb-vgp-setencodermax-st">
-<h3>FB_VGP.SetEncoderMax: ST<a class="headerlink" href="#fb-vgp-setencodermax-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">rOpenPosition</span> <span class="o">:=</span> <span class="n">EncoderMax</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="pous-main-tcpou-tcplcobject">
-<h2>POUs/MAIN.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-main-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="main-declaration">
-<h3>MAIN: Declaration<a class="headerlink" href="#main-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pou-main">
+<h2>POU: MAIN<a class="headerlink" href="#pou-main" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/MAIN.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">MAIN</span>
 <span class="n">VAR</span>
 <span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="main-st">
-<h3>MAIN: ST<a class="headerlink" href="#main-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PRG_DIAGNOSTIC</span><span class="p">();</span>
+<span class="n">PRG_DIAGNOSTIC</span><span class="p">();</span>
 <span class="n">PRG_GMD</span><span class="p">();</span>
 
 
@@ -1388,14 +1190,14 @@ END_IF;
 <span class="o">//</span><span class="n">call</span> <span class="n">orther</span> <span class="n">PRG</span>
 
 <span class="o">//</span> <span class="n">instaniate</span> <span class="n">the</span> <span class="n">RTD</span> <span class="k">and</span> <span class="n">HV</span>
+
+<span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="pous-prg-diagnostic-tcpou-tcplcobject">
-<h2>POUs/PRG_DIAGNOSTIC.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-prg-diagnostic-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="prg-diagnostic-declaration">
-<h3>PRG_DIAGNOSTIC: Declaration<a class="headerlink" href="#prg-diagnostic-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pou-prg-diagnostic">
+<h2>POU: PRG_DIAGNOSTIC<a class="headerlink" href="#pou-prg-diagnostic" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/PRG_DIAGNOSTIC.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>PROGRAM PRG_DIAGNOSTIC
 VAR
    fbTime : FB_LocalSystemTime := ( bEnable := TRUE, dwCycle := 1 );
@@ -1413,114 +1215,36 @@ VAR
    plcLocalTime : STRING[25];
    
 END_VAR
+plcHeartbeat := plcHeartbeat + 1;
+IF plcHeartbeat &gt; 4294967000
+   THEN plcHeartbeat := 0;
+END_IF
+
+// get timestamp as string every second
+fbTime();
+logTimer( IN := fbTime.bValid );
+IF logTimer.Q THEN
+   logTimer( IN := FALSE ); logTimer( IN := fbTime.bValid );
+   plcLocalTime := SYSTEMTIME_TO_STRING(fbTime.systemTime);
+END_IF
+
+// make an info string
+plcName := &#39;Prototype PLC: &#39;;
+plcInfo := CONCAT(plcName, plcLocalTime);
+
+END_PROGRAM
 </pre></div>
 </div>
 </div>
-<div class="section" id="prg-diagnostic-st">
-<h3>PRG_DIAGNOSTIC: ST<a class="headerlink" href="#prg-diagnostic-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">plcHeartbeat</span> <span class="o">:=</span> <span class="n">plcHeartbeat</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">IF</span> <span class="n">plcHeartbeat</span> <span class="o">&gt;</span> <span class="mi">4294967000</span>
-   <span class="k">THEN</span> <span class="n">plcHeartbeat</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">END_IF</span>
-
-<span class="o">//</span> <span class="n">get</span> <span class="n">timestamp</span> <span class="n">as</span> <span class="kt">string</span> <span class="n">every</span> <span class="n">second</span>
-<span class="n">fbTime</span><span class="p">();</span>
-<span class="n">logTimer</span><span class="p">(</span> <span class="k">IN</span> <span class="o">:=</span> <span class="n">fbTime</span><span class="p">.</span><span class="n">bValid</span> <span class="p">);</span>
-<span class="k">IF</span> <span class="n">logTimer</span><span class="p">.</span><span class="n">Q</span> <span class="k">THEN</span>
-   <span class="n">logTimer</span><span class="p">(</span> <span class="k">IN</span> <span class="o">:=</span> <span class="n">FALSE</span> <span class="p">);</span> <span class="n">logTimer</span><span class="p">(</span> <span class="k">IN</span> <span class="o">:=</span> <span class="n">fbTime</span><span class="p">.</span><span class="n">bValid</span> <span class="p">);</span>
-   <span class="n">plcLocalTime</span> <span class="o">:=</span> <span class="n">SYSTEMTIME_TO_STRING</span><span class="p">(</span><span class="n">fbTime</span><span class="p">.</span><span class="n">systemTime</span><span class="p">);</span>
-<span class="n">END_IF</span>
-
-<span class="o">//</span> <span class="n">make</span> <span class="n">an</span> <span class="n">info</span> <span class="kt">string</span>
-<span class="n">plcName</span> <span class="o">:=</span> <span class="na">&#39;Prototype</span> <span class="n">PLC</span><span class="o">:</span> <span class="p">&#39;;</span>
-<span class="n">plcInfo</span> <span class="o">:=</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">plcName</span><span class="p">,</span> <span class="n">plcLocalTime</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="pous-prg-gas-selection-tcpou-tcplcobject">
-<h2>POUs/PRG_Gas_Selection.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-prg-gas-selection-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="prg-gas-selection-declaration">
-<h3>PRG_Gas_Selection: Declaration<a class="headerlink" href="#prg-gas-selection-declaration" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_Gas_Selection</span>
-<span class="n">VAR</span>
-	<span class="n">CurrentGas</span><span class="o">:</span> <span class="n">E_GasType</span><span class="p">;</span>
-	<span class="o">//</span><span class="n">pragma</span>
-	<span class="n">SelectedGas</span><span class="o">:</span> <span class="n">E_GasType</span><span class="p">;</span>
-<span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="prg-gas-selection-st">
-<h3>PRG_Gas_Selection: ST<a class="headerlink" href="#prg-gas-selection-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">*</span> <span class="n">Gas</span> <span class="n">selection</span> <span class="n">includes</span> <span class="n">a</span> <span class="n">purge</span> <span class="k">and</span> <span class="n">checks</span> <span class="n">interlocks</span><span class="o">*</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="p">(</span> <span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="k">then</span>
-	<span class="n">CurrentGas</span> <span class="o">:=</span> <span class="n">E_GasType</span><span class="p">.</span><span class="n">Neon</span><span class="p">;</span>
-	<span class="k">elsif</span> <span class="p">(</span> <span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="k">then</span>
-		<span class="n">CurrentGas</span> <span class="o">:=</span> <span class="n">E_GasType</span><span class="p">.</span><span class="n">Argon</span><span class="p">;</span>
-		<span class="k">elsif</span> <span class="p">(</span> <span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="k">then</span>
-		<span class="n">CurrentGas</span> <span class="o">:=</span> <span class="n">E_GasType</span><span class="p">.</span><span class="n">Krypton</span><span class="p">;</span>
-			<span class="k">elsif</span> <span class="p">(</span> <span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="k">then</span>
-			<span class="n">CurrentGas</span> <span class="o">:=</span> <span class="n">E_GasType</span><span class="p">.</span><span class="n">Xenon</span><span class="p">;</span>
-<span class="n">END_IF</span>
-
-
-<span class="k">If</span><span class="p">(</span> <span class="n">CurrentGas</span> <span class="o">&lt;&gt;</span> <span class="n">SelectedGas</span><span class="p">)</span> <span class="k">then</span>
-	<span class="n">PRG_Purge</span><span class="p">.</span><span class="n">bStartPurge_sw</span> <span class="o">:=</span> <span class="n">true</span><span class="p">;</span>
-<span class="n">END_IF</span>
-
-<span class="k">if</span> <span class="k">NOT</span><span class="p">(</span><span class="n">PRG_Purge</span><span class="p">.</span><span class="n">bStartPurge_sw</span><span class="p">)</span> <span class="k">AND</span><span class="p">(</span><span class="n">PRG_Purge</span><span class="p">.</span><span class="n">bPurgeDone</span><span class="p">)</span> <span class="k">then</span>
-	<span class="k">case</span> <span class="n">SelectedGas</span> <span class="k">of</span>
-	<span class="n">E_GasType</span><span class="p">.</span><span class="n">none</span><span class="o">:</span> <span class="o">//</span> <span class="k">all</span> <span class="n">valves</span> <span class="n">closed</span>
-		<span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span><span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-	<span class="n">E_GasType</span><span class="p">.</span><span class="n">Neon</span><span class="o">:</span>
-		<span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span><span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-		<span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-	<span class="n">E_GasType</span><span class="p">.</span><span class="n">Argon</span><span class="o">:</span> <span class="o">//</span> <span class="k">all</span> <span class="n">valves</span> <span class="n">closed</span>
-		<span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span><span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-		<span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>	 
-	<span class="n">E_GasType</span><span class="p">.</span><span class="n">Krypton</span><span class="o">:</span> <span class="o">//</span> <span class="k">all</span> <span class="n">valves</span> <span class="n">closed</span>
-		<span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span><span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-		<span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-	<span class="n">E_GasType</span><span class="p">.</span><span class="n">Xenon</span><span class="o">:</span> <span class="o">//</span> <span class="k">all</span> <span class="n">valves</span> <span class="n">closed</span>
-		<span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span><span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
-		<span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-	<span class="n">END_CASE</span>
-<span class="n">END_IF</span>
-
-
-<span class="o">///</span> <span class="n">vcn</span> <span class="k">and</span> <span class="n">vgp</span> <span class="k">on</span> <span class="n">manual</span> <span class="k">or</span> <span class="n">auto</span><span class="o">??</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="pous-prg-gmd-tcpou-tcplcobject">
-<h2>POUs/PRG_GMD.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-prg-gmd-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="prg-gmd-declaration">
-<h3>PRG_GMD: Declaration<a class="headerlink" href="#prg-gmd-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pou-prg-gmd">
+<h2>POU: PRG_GMD<a class="headerlink" href="#pou-prg-gmd" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/PRG_GMD.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_GMD</span>
 <span class="n">VAR</span>
 	<span class="n">f_</span><span class="o">:</span> <span class="n">INT</span><span class="p">;</span>
 	<span class="n">fb_EM1K0_GMD_PTM_10i_xExtILKOk</span><span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span>
 <span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="prg-gmd-st">
-<h3>PRG_GMD: ST<a class="headerlink" href="#prg-gmd-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">FB_MKS317</span>
+<span class="o">//</span> <span class="n">FB_MKS317</span>
 
 <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">(</span><span class="n">PG</span><span class="o">=&gt;</span><span class="p">);</span>
 <span class="n">fb_EM1K0_GMD_GPI_40</span><span class="p">(</span><span class="n">PG</span><span class="o">=&gt;</span><span class="p">);</span>
@@ -1635,36 +1359,94 @@ END_VAR
 <span class="o">//</span> <span class="n">FB_EbaraEVA</span>
 
 <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">(</span><span class="n">i_xExtIlkOK</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">);</span>
+
+<span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="pou-prg-gas-selection">
+<h2>POU: PRG_Gas_Selection<a class="headerlink" href="#pou-prg-gas-selection" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/PRG_Gas_Selection.TcPOU</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_Gas_Selection</span>
+<span class="n">VAR</span>
+	<span class="n">CurrentGas</span><span class="o">:</span> <span class="n">E_GasType</span><span class="p">;</span>
+	<span class="o">//</span><span class="n">pragma</span>
+	<span class="n">SelectedGas</span><span class="o">:</span> <span class="n">E_GasType</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="p">(</span><span class="o">*</span> <span class="n">Gas</span> <span class="n">selection</span> <span class="n">includes</span> <span class="n">a</span> <span class="n">purge</span> <span class="k">and</span> <span class="n">checks</span> <span class="n">interlocks</span><span class="o">*</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="k">then</span>
+	<span class="n">CurrentGas</span> <span class="o">:=</span> <span class="n">E_GasType</span><span class="p">.</span><span class="n">Neon</span><span class="p">;</span>
+	<span class="k">elsif</span> <span class="p">(</span> <span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="k">then</span>
+		<span class="n">CurrentGas</span> <span class="o">:=</span> <span class="n">E_GasType</span><span class="p">.</span><span class="n">Argon</span><span class="p">;</span>
+		<span class="k">elsif</span> <span class="p">(</span> <span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="k">then</span>
+		<span class="n">CurrentGas</span> <span class="o">:=</span> <span class="n">E_GasType</span><span class="p">.</span><span class="n">Krypton</span><span class="p">;</span>
+			<span class="k">elsif</span> <span class="p">(</span> <span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="k">then</span>
+			<span class="n">CurrentGas</span> <span class="o">:=</span> <span class="n">E_GasType</span><span class="p">.</span><span class="n">Xenon</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+
+<span class="k">If</span><span class="p">(</span> <span class="n">CurrentGas</span> <span class="o">&lt;&gt;</span> <span class="n">SelectedGas</span><span class="p">)</span> <span class="k">then</span>
+	<span class="n">PRG_Purge</span><span class="p">.</span><span class="n">bStartPurge_sw</span> <span class="o">:=</span> <span class="n">true</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="k">if</span> <span class="k">NOT</span><span class="p">(</span><span class="n">PRG_Purge</span><span class="p">.</span><span class="n">bStartPurge_sw</span><span class="p">)</span> <span class="k">AND</span><span class="p">(</span><span class="n">PRG_Purge</span><span class="p">.</span><span class="n">bPurgeDone</span><span class="p">)</span> <span class="k">then</span>
+	<span class="k">case</span> <span class="n">SelectedGas</span> <span class="k">of</span>
+	<span class="n">E_GasType</span><span class="p">.</span><span class="n">none</span><span class="o">:</span> <span class="o">//</span> <span class="k">all</span> <span class="n">valves</span> <span class="n">closed</span>
+		<span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span><span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+	<span class="n">E_GasType</span><span class="p">.</span><span class="n">Neon</span><span class="o">:</span>
+		<span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span><span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+		<span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+	<span class="n">E_GasType</span><span class="p">.</span><span class="n">Argon</span><span class="o">:</span> <span class="o">//</span> <span class="k">all</span> <span class="n">valves</span> <span class="n">closed</span>
+		<span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span><span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+		<span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>	 
+	<span class="n">E_GasType</span><span class="p">.</span><span class="n">Krypton</span><span class="o">:</span> <span class="o">//</span> <span class="k">all</span> <span class="n">valves</span> <span class="n">closed</span>
+		<span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span><span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+		<span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+	<span class="n">E_GasType</span><span class="p">.</span><span class="n">Xenon</span><span class="o">:</span> <span class="o">//</span> <span class="k">all</span> <span class="n">valves</span> <span class="n">closed</span>
+		<span class="n">VVC_83</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span><span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_84</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_85</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+		<span class="n">VVC_86</span><span class="p">.</span><span class="n">iq_stValve</span><span class="p">.</span><span class="n">pv_xOPN_SW</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+	<span class="n">END_CASE</span>
+<span class="n">END_IF</span>
+
+
+<span class="o">///</span> <span class="n">vcn</span> <span class="k">and</span> <span class="n">vgp</span> <span class="k">on</span> <span class="n">manual</span> <span class="k">or</span> <span class="n">auto</span><span class="o">??</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
 </div>
-<div class="section" id="pous-prg-hv-ilk-tcpou-tcplcobject">
-<h2>POUs/PRG_HV_ILK.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-prg-hv-ilk-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="prg-hv-ilk-declaration">
-<h3>PRG_HV_ILK: Declaration<a class="headerlink" href="#prg-hv-ilk-declaration" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="pou-prg-hv-ilk">
+<h2>POU: PRG_HV_ILK<a class="headerlink" href="#pou-prg-hv-ilk" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/PRG_HV_ILK.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_HV_ILK</span>
 <span class="n">VAR</span>
 	<span class="n">HV_ILK_OK</span><span class="o">:</span> <span class="n">bool</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
 <span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="prg-hv-ilk-st">
-<h3>PRG_HV_ILK: ST<a class="headerlink" href="#prg-hv-ilk-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">evaluate</span> <span class="n">the</span> <span class="n">HV</span> <span class="n">ILK_OK</span> <span class="kt">bit</span>
+<span class="o">//</span><span class="n">evaluate</span> <span class="n">the</span> <span class="n">HV</span> <span class="n">ILK_OK</span> <span class="kt">bit</span>
 <span class="o">//</span><span class="n">HV_ILK_OK</span> <span class="o">:=</span> <span class="n">GCC_40</span><span class="p">.</span><span class="n">IG</span><span class="p">.</span><span class="n">xAT_VAC</span><span class="p">;</span>
 
 <span class="n">hv1</span><span class="p">(</span><span class="n">i_xExtIlkOK</span> <span class="o">:=</span> <span class="n">HV_ILK_OK</span><span class="p">);</span>
 <span class="n">hv2</span><span class="p">(</span><span class="n">i_xExtIlkOK</span> <span class="o">:=</span> <span class="n">HV_ILK_OK</span><span class="p">);</span>
+
+<span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="pous-prg-inj-tcpou-tcplcobject">
-<h2>POUs/PRG_INJ.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-prg-inj-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="prg-inj-declaration">
-<h3>PRG_INJ: Declaration<a class="headerlink" href="#prg-inj-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pou-prg-inj">
+<h2>POU: PRG_INJ<a class="headerlink" href="#pou-prg-inj" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/PRG_INJ.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_INJ</span>
 <span class="n">VAR</span>
 	<span class="n">i</span><span class="o">:</span><span class="n">INT</span><span class="p">;</span>
@@ -1672,12 +1454,7 @@ END_VAR
 	<span class="n">DefaultSP</span> <span class="o">:</span><span class="n">REAL</span><span class="o">:=</span><span class="mi">0</span><span class="p">;</span>
 	<span class="n">rFULL_SCALE</span><span class="o">:</span><span class="n">REAL</span><span class="o">:=</span><span class="mi">3000</span><span class="p">;</span><span class="o">//</span><span class="n">psig</span>
 <span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="prg-inj-st">
-<h3>PRG_INJ: ST<a class="headerlink" href="#prg-inj-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">GCM</span>
+<span class="o">//</span> <span class="n">GCM</span>
 <span class="n">GCM_80</span><span class="p">(</span><span class="n">i_rFULL_SCALE</span> <span class="o">:=</span> <span class="n">fullScale</span> <span class="p">);</span>
 <span class="n">GFM_86</span><span class="p">(</span><span class="n">i_rFULL_SCALE</span><span class="o">:=</span> <span class="n">rFULL_SCALE</span><span class="p">,</span><span class="n">rDefaultSP</span><span class="o">:=</span><span class="n">DefaultSP</span><span class="p">);</span>
 
@@ -1709,25 +1486,25 @@ END_VAR
 <span class="n">VVC_84</span><span class="p">(</span><span class="n">i_xExtILK_OK</span><span class="o">:=</span> <span class="p">,</span> <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="n">xOverrideMode</span><span class="p">,</span> <span class="n">iq_stValve</span><span class="o">=&gt;</span> <span class="p">);</span>
 <span class="n">VVC_85</span><span class="p">(</span><span class="n">i_xExtILK_OK</span><span class="o">:=</span> <span class="p">,</span> <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="n">xOverrideMode</span><span class="p">,</span> <span class="n">iq_stValve</span><span class="o">=&gt;</span> <span class="p">);</span>
 <span class="n">VVC_86</span><span class="p">(</span><span class="n">i_xExtILK_OK</span><span class="o">:=</span> <span class="p">,</span> <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="n">xOverrideMode</span><span class="p">,</span> <span class="n">iq_stValve</span><span class="o">=&gt;</span> <span class="p">);</span>
+
+<span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="pous-prg-pressurecontrol-tcpou-tcplcobject">
-<h2>POUs/PRG_PressureControl.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-prg-pressurecontrol-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="prg-pressurecontrol-declaration">
-<h3>PRG_PressureControl: Declaration<a class="headerlink" href="#prg-pressurecontrol-declaration" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_PressureControl</span>
-<span class="n">VAR</span> <span class="k">CONSTANT</span>
-		<span class="n">nDataTable_NumberOfRows</span> <span class="o">:</span> <span class="n">INT</span><span class="o">:=</span><span class="mi">9</span><span class="p">;</span>
-<span class="n">END_VAR</span>
-<span class="n">VAR</span>
+<div class="section" id="pou-prg-pressurecontrol">
+<h2>POU: PRG_PressureControl<a class="headerlink" href="#pou-prg-pressurecontrol" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/PRG_PressureControl.TcPOU</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>PROGRAM PRG_PressureControl
+VAR CONSTANT
+		nDataTable_NumberOfRows : INT:=9;
+END_VAR
+VAR
 
-	<span class="n">fSetpointValue</span>				<span class="o">:</span> <span class="n">FLOAT</span><span class="p">;</span>
-	<span class="n">fActualValue</span>				<span class="o">:</span> <span class="n">FLOAT</span><span class="p">;</span>
-	<span class="n">fCtrlOutput</span>						<span class="o">:</span> <span class="n">FLOAT</span><span class="p">;</span>
-	<span class="n">fBasicCtrlOutput</span>						<span class="o">:</span> <span class="n">FLOAT</span><span class="p">;</span>
-	<span class="n">f_Rep_POS</span><span class="o">:</span> <span class="n">Float</span><span class="p">;</span>
+	fSetpointValue				: FLOAT;
+	fActualValue				: FLOAT;
+	fCtrlOutput						: FLOAT;
+	fBasicCtrlOutput						: FLOAT;
+	f_Rep_POS: Float;
 	
 	
 	
@@ -1735,36 +1512,31 @@ END_VAR
 
 
 	
-	<span class="n">fManValue</span>											<span class="o">:</span> <span class="n">FLOAT</span><span class="p">;</span>
-	<span class="n">bExtrapolate</span>										<span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span>
-	<span class="n">fManSyncValue</span>			<span class="o">:</span> <span class="n">FLOAT</span><span class="p">;</span>
-	<span class="n">bSync</span>						<span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span>
+	fManValue											: FLOAT;
+	bExtrapolate										: BOOL;
+	fManSyncValue			: FLOAT;
+	bSync						: BOOL;
 
-	<span class="n">bHold</span>						<span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span>
+	bHold						: BOOL;
 
-	<span class="n">eMode</span>						<span class="o">:</span> <span class="n">E_CTRL_MODE</span><span class="p">;</span>
-	<span class="n">stCTRL_PI_PARAMS</span>		<span class="o">:</span> <span class="n">ST_CTRL_PI_PARAMS</span><span class="p">;</span>
-	<span class="n">stCTRL_LIN_INTERPOLATION_PARAMS</span>		<span class="o">:</span> <span class="n">ST_CTRL_LIN_INTERPOLATION_PARAMS</span><span class="p">;</span>
+	eMode						: E_CTRL_MODE;
+	stCTRL_PI_PARAMS		: ST_CTRL_PI_PARAMS;
+	stCTRL_LIN_INTERPOLATION_PARAMS		: ST_CTRL_LIN_INTERPOLATION_PARAMS;
 
-	<span class="n">eErrorId</span>					<span class="o">:</span> <span class="n">E_CTRL_ERRORCODES</span><span class="p">;</span>
-	<span class="n">bError</span>						<span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span>
-	<span class="n">bARWactive</span>				<span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span>
+	eErrorId					: E_CTRL_ERRORCODES;
+	bError						: BOOL;
+	bARWactive				: BOOL;
 	
-	<span class="n">arrTable</span>											<span class="o">:</span> <span class="k">ARRAY</span><span class="p">[</span><span class="mi">1</span><span class="p">..</span><span class="n">nDataTable_NumberOfRows</span><span class="p">,</span><span class="mi">1</span><span class="p">..</span><span class="mi">2</span><span class="p">]</span> <span class="k">OF</span> <span class="n">FLOAT</span><span class="p">;</span>
-	<span class="p">(</span><span class="o">*</span> <span class="n">controller</span>  <span class="o">*</span><span class="p">)</span>
-	<span class="n">fbCTRL_PI</span>				<span class="o">:</span> <span class="n">FB_CTRL_PI</span><span class="p">;</span>
-	<span class="n">fbCTRL_Normalize</span> 	<span class="o">:</span> <span class="n">FB_CTRL_NORMALIZE</span><span class="p">;</span>
-	<span class="n">fbCTRL_LIN_INTERPOLATION</span>					<span class="o">:</span> <span class="n">FB_CTRL_LIN_INTERPOLATION</span><span class="p">;</span>
+	arrTable											: ARRAY[1..nDataTable_NumberOfRows,1..2] OF FLOAT;
+	(* controller  *)
+	fbCTRL_PI				: FB_CTRL_PI;
+	fbCTRL_Normalize 	: FB_CTRL_NORMALIZE;
+	fbCTRL_LIN_INTERPOLATION					: FB_CTRL_LIN_INTERPOLATION;
 
-	<span class="n">bInit</span>						<span class="o">:</span> <span class="n">BOOL</span>		<span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-	<span class="n">BasicPID</span><span class="o">:</span> <span class="n">FB_BasicPID</span><span class="p">;</span>
-<span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="prg-pressurecontrol-st">
-<h3>PRG_PressureControl: ST<a class="headerlink" href="#prg-pressurecontrol-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>//VCN
+	bInit						: BOOL		:= TRUE;
+	BasicPID: FB_BasicPID;
+END_VAR
+//VCN
 VCN_40(i_xExtIlkOK := true(*GCC_40.IG.xAT_VAC*), i_ReqPos:= );
 //VGP_40(i_xExtIlkOK := true(*GCC_40.IG.xAT_VAC*), i_ReqPos:= );
 f_Rep_POS := VCN_40.iq_stVCN.rReqPosition;
@@ -1854,14 +1626,14 @@ fCtrlOutput := fbCTRL_PI.fOut + fbCTRL_LIN_INTERPOLATION.fOut;
 	fTd:= 0, 
 	fCtrlOutput=&gt; fBasicCtrlOutput, 
 	nErrorStatus=&gt; );
+
+END_PROGRAM
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="pous-prg-purge-tcpou-tcplcobject">
-<h2>POUs/PRG_Purge.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-prg-purge-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="prg-purge-declaration">
-<h3>PRG_Purge: Declaration<a class="headerlink" href="#prg-purge-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pou-prg-purge">
+<h2>POU: PRG_Purge<a class="headerlink" href="#pou-prg-purge" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/PRG_Purge.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>PROGRAM PRG_Purge
 VAR
 	step: INT:=0;
@@ -1905,12 +1677,7 @@ VAR
 	
 
 END_VAR
-</pre></div>
-</div>
-</div>
-<div class="section" id="prg-purge-st">
-<h3>PRG_Purge: ST<a class="headerlink" href="#prg-purge-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>(* 		PURGE CYCLE
+(* 		PURGE CYCLE
 	The purge cycle cosists of the following steps;	
 	1. Close all gas valves 83-86
 	2. Close Needle valve 
@@ -2079,14 +1846,14 @@ VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
 
 
 /// vcn and vgp on manual or auto?? manual, until the Go or auto button is pressed??
+
+END_PROGRAM
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="pous-prg-vgp-tcpou-tcplcobject">
-<h2>POUs/PRG_VGP.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-prg-vgp-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="prg-vgp-declaration">
-<h3>PRG_VGP: Declaration<a class="headerlink" href="#prg-vgp-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pou-prg-vgp">
+<h2>POU: PRG_VGP<a class="headerlink" href="#pou-prg-vgp" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac/POUs/PRG_VGP.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_VGP</span>
 <span class="n">VAR</span>
 	<span class="n">arrTable</span>											<span class="o">:</span> <span class="k">ARRAY</span><span class="p">[</span><span class="mi">1</span><span class="p">..</span><span class="mi">14</span><span class="p">,</span><span class="mi">1</span><span class="p">..</span><span class="mi">2</span><span class="p">]</span> <span class="k">OF</span> <span class="n">FLOAT</span><span class="p">;</span>
@@ -2097,12 +1864,7 @@ VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
 	<span class="n">VGP_REQ_POS</span><span class="o">:</span> <span class="n">LREAL</span><span class="p">;</span>
 	<span class="n">VGP_OUT_POS</span><span class="o">:</span><span class="n">LREAL</span><span class="p">;</span>
 <span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="prg-vgp-st">
-<h3>PRG_VGP: ST<a class="headerlink" href="#prg-vgp-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span> <span class="n">bInit</span>
+<span class="k">IF</span> <span class="n">bInit</span>
 <span class="k">THEN</span>
 	
 	
@@ -2135,8 +1897,9 @@ VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
 	<span class="n">arrTable</span><span class="o">:=</span> <span class="n">arrTable</span> <span class="p">,</span> 
 	<span class="p">(</span><span class="o">*</span><span class="n">arrTable_ENC</span><span class="o">:=</span> <span class="n">arrTable_ENC</span> <span class="p">,</span> <span class="o">*</span><span class="p">)</span>
 	<span class="n">q_stVGP</span><span class="o">=&gt;</span> <span class="p">);</span>
+
+<span class="n">END_PROGRAM</span>
 </pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="symbols">
@@ -2286,7 +2049,7 @@ VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
 <span class="n">GVL_INJ</span><span class="o">.</span><span class="n">hv2</span> <span class="p">:</span> <span class="n">FB_HighVoltage</span> <span class="p">(</span><span class="mi">4582368</span> <span class="mi">96</span><span class="p">)</span>
 <span class="n">GVL_INJ</span><span class="o">.</span><span class="n">hv2</span><span class="o">.</span><span class="n">q_HV_DO</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">4582432</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">GVL_INJ</span><span class="o">.</span><span class="n">xOverrideMode</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">4500760</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">GVL_Logger</span><span class="o">.</span><span class="n">asLoggerMesgBuffer</span> <span class="p">:</span> <span class="n">Tc2_System</span><span class="o">.</span><span class="n">T_MaxString</span> <span class="p">(</span><span class="mi">4096208</span> <span class="mi">104448</span><span class="p">)</span>
+<span class="n">GVL_Logger</span><span class="o">.</span><span class="n">asLoggerMesgBuffer</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">50</span><span class="p">]</span> <span class="n">OF</span> <span class="n">Tc2_System</span><span class="o">.</span><span class="n">T_MaxString</span> <span class="p">(</span><span class="mi">4096208</span> <span class="mi">104448</span><span class="p">)</span>
 <span class="n">GVL_Logger</span><span class="o">.</span><span class="n">cnLoggerMesgArraySize</span> <span class="p">:</span> <span class="n">INT</span> <span class="p">(</span><span class="mi">4096112</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">GVL_Logger</span><span class="o">.</span><span class="n">cnSyslogVer</span> <span class="p">:</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">4096192</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">GVL_Logger</span><span class="o">.</span><span class="n">csNILVALUE</span> <span class="p">:</span> <span class="n">STRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="mi">4096088</span> <span class="mi">16</span><span class="p">)</span>
@@ -2422,8 +2185,8 @@ VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">FOPEN_MODEREAD</span> <span class="p">:</span> <span class="n">DWORD</span> <span class="p">(</span><span class="mi">4448416</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">FOPEN_MODETEXT</span> <span class="p">:</span> <span class="n">DWORD</span> <span class="p">(</span><span class="mi">4448576</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">FOPEN_MODEWRITE</span> <span class="p">:</span> <span class="n">DWORD</span> <span class="p">(</span><span class="mi">4448448</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">Global_Variables</span><span class="o">.</span><span class="n">FORMAT_DECASC_CODES</span> <span class="p">:</span> <span class="n">BYTE</span> <span class="p">(</span><span class="mi">4307648</span> <span class="mi">80</span><span class="p">)</span>
-<span class="n">Global_Variables</span><span class="o">.</span><span class="n">FORMAT_HEXASC_CODES</span> <span class="p">:</span> <span class="n">BYTE</span> <span class="p">(</span><span class="mi">4307392</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">Global_Variables</span><span class="o">.</span><span class="n">FORMAT_DECASC_CODES</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">9</span><span class="p">]</span> <span class="n">OF</span> <span class="n">BYTE</span> <span class="p">(</span><span class="mi">4307648</span> <span class="mi">80</span><span class="p">)</span>
+<span class="n">Global_Variables</span><span class="o">.</span><span class="n">FORMAT_HEXASC_CODES</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">BYTE</span> <span class="p">(</span><span class="mi">4307392</span> <span class="mi">256</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">FORMAT_MAX_ARGS</span> <span class="p">:</span> <span class="n">INT</span> <span class="p">(</span><span class="mi">4306768</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">GLOBAL_DCF77_PULSE_SPLIT</span> <span class="p">:</span> <span class="n">TIME</span> <span class="p">(</span><span class="mi">4243456</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">GLOBAL_DCF77_SEQUENCE_CHECK</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">4096104</span> <span class="mi">8</span><span class="p">)</span>
@@ -2485,8 +2248,8 @@ VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_DATE_AND_TIME_MAX64</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="p">(</span><span class="mi">4314624</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_DATE_AND_TIME_MIN</span> <span class="p">:</span> <span class="n">Tc2_Utilities</span><span class="o">.</span><span class="n">T_ULARGE_INTEGER</span> <span class="p">(</span><span class="mi">4314208</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_DATE_AND_TIME_MIN64</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="p">(</span><span class="mi">4314560</span> <span class="mi">64</span><span class="p">)</span>
-<span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_MAX_MONTHDAYS</span> <span class="p">:</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">4313136</span> <span class="mi">384</span><span class="p">)</span>
-<span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_MAX_YEARSDAY</span> <span class="p">:</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">4313520</span> <span class="mi">448</span><span class="p">)</span>
+<span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_MAX_MONTHDAYS</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">4313136</span> <span class="mi">384</span><span class="p">)</span>
+<span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_MAX_YEARSDAY</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">4313520</span> <span class="mi">448</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_TICKSPERDAY</span> <span class="p">:</span> <span class="n">Tc2_Utilities</span><span class="o">.</span><span class="n">T_ULARGE_INTEGER</span> <span class="p">(</span><span class="mi">4314144</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_TICKSPERDAY64</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="p">(</span><span class="mi">4314496</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_TICKSPERMSEC</span> <span class="p">:</span> <span class="n">Tc2_Utilities</span><span class="o">.</span><span class="n">T_ULARGE_INTEGER</span> <span class="p">(</span><span class="mi">4314016</span> <span class="mi">64</span><span class="p">)</span>
@@ -2535,7 +2298,7 @@ VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cnMaxStateArrayLen</span> <span class="p">:</span> <span class="n">INT</span> <span class="p">(</span><span class="mi">4238864</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span> <span class="p">:</span> <span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">4238880</span> <span class="mi">1760</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstSafeBeam</span> <span class="p">:</span> <span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">4240640</span> <span class="mi">1760</span><span class="p">)</span>
-<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">g_areVBoundaries</span> <span class="p">:</span> <span class="n">REAL</span> <span class="p">(</span><span class="mi">4242464</span> <span class="mi">512</span><span class="p">)</span>
+<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">g_areVBoundaries</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">15</span><span class="p">]</span> <span class="n">OF</span> <span class="n">REAL</span> <span class="p">(</span><span class="mi">4242464</span> <span class="mi">512</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">g_cBoundaries</span> <span class="p">:</span> <span class="n">INT</span> <span class="p">(</span><span class="mi">4242432</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span> <span class="p">:</span> <span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">4236896</span> <span class="mi">1760</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stReqFBDBeamParamsSum</span> <span class="p">:</span> <span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">4233376</span> <span class="mi">1760</span><span class="p">)</span>
@@ -2552,7 +2315,7 @@ VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
 <span class="n">PRG_INJ</span><span class="o">.</span><span class="n">i</span> <span class="p">:</span> <span class="n">INT</span> <span class="p">(</span><span class="mi">4498096</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">PRG_INJ</span><span class="o">.</span><span class="n">rFULL_SCALE</span> <span class="p">:</span> <span class="n">REAL</span> <span class="p">(</span><span class="mi">4498752</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">PRG_PressureControl</span><span class="o">.</span><span class="n">BasicPID</span> <span class="p">:</span> <span class="n">Tc2_Utilities</span><span class="o">.</span><span class="n">FB_BasicPID</span> <span class="p">(</span><span class="mi">4507584</span> <span class="mi">1856</span><span class="p">)</span>
-<span class="n">PRG_PressureControl</span><span class="o">.</span><span class="n">arrTable</span> <span class="p">:</span> <span class="n">Tc2_Utilities</span><span class="o">.</span><span class="n">FLOAT</span> <span class="p">(</span><span class="mi">4500800</span> <span class="mi">1152</span><span class="p">)</span>
+<span class="n">PRG_PressureControl</span><span class="o">.</span><span class="n">arrTable</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">9</span><span class="p">]</span> <span class="n">OF</span> <span class="n">Tc2_Utilities</span><span class="o">.</span><span class="n">FLOAT</span> <span class="p">(</span><span class="mi">4500800</span> <span class="mi">1152</span><span class="p">)</span>
 <span class="n">PRG_PressureControl</span><span class="o">.</span><span class="n">bARWactive</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">4500744</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">PRG_PressureControl</span><span class="o">.</span><span class="n">bError</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">4500736</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">PRG_PressureControl</span><span class="o">.</span><span class="n">bExtrapolate</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">4498680</span> <span class="mi">8</span><span class="p">)</span>
@@ -2575,9 +2338,9 @@ VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
 <span class="n">PRG_PressureControl</span><span class="o">.</span><span class="n">stCTRL_LIN_INTERPOLATION_PARAMS</span> <span class="p">:</span> <span class="n">Tc2_ControllerToolbox</span><span class="o">.</span><span class="n">ST_CTRL_LIN_INTERPOLATION_PARAMS</span> <span class="p">(</span><span class="mi">4500608</span> <span class="mi">128</span><span class="p">)</span>
 <span class="n">PRG_PressureControl</span><span class="o">.</span><span class="n">stCTRL_PI_PARAMS</span> <span class="p">:</span> <span class="n">Tc2_ControllerToolbox</span><span class="o">.</span><span class="n">ST_CTRL_PI_PARAMS</span> <span class="p">(</span><span class="mi">4500224</span> <span class="mi">384</span><span class="p">)</span>
 <span class="n">ParameterList</span><span class="o">.</span><span class="n">cSourceNameSize</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">4243360</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">TwinCAT_LicenseInfoVarList</span><span class="o">.</span><span class="n">_LicenseInfo</span> <span class="p">:</span> <span class="n">PlcLicenseInfo</span> <span class="p">(</span><span class="mi">4604640</span> <span class="mi">3072</span><span class="p">)</span>
+<span class="n">TwinCAT_LicenseInfoVarList</span><span class="o">.</span><span class="n">_LicenseInfo</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">3</span><span class="p">]</span> <span class="n">OF</span> <span class="n">PlcLicenseInfo</span> <span class="p">(</span><span class="mi">4604640</span> <span class="mi">3072</span><span class="p">)</span>
 <span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_AppInfo</span> <span class="p">:</span> <span class="n">PlcAppSystemInfo</span> <span class="p">(</span><span class="mi">4607712</span> <span class="mi">2048</span><span class="p">)</span>
-<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskInfo</span> <span class="p">:</span> <span class="n">PlcTaskSystemInfo</span> <span class="p">(</span><span class="mi">4609792</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskInfo</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">PlcTaskSystemInfo</span> <span class="p">(</span><span class="mi">4609792</span> <span class="mi">1024</span><span class="p">)</span>
 <span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskOid_PlcTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">4610816</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskPouOid_PlcTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">4609760</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">__PlcTask</span> <span class="p">:</span> <span class="n">_Implicit_Task_Info</span> <span class="p">(</span><span class="mi">4610848</span> <span class="mi">704</span><span class="p">)</span>
@@ -2615,9 +2378,8 @@ VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
 </pre></div>
 </div>
 <div class="section" id="id1">
-<h2>GVLs/GVL_GMD.TcGVL (TcPlcObject)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
-<h3>GVL_GMD: Declaration<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h2>GVL: GVL_GMD<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac_sim/GVLs/GVL_GMD.TcGVL</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">VAR_GLOBAL</span>
 
 <span class="o">//</span> <span class="n">ST_Volume</span>
@@ -2710,11 +2472,9 @@ VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="id3">
-<h2>GVLs/GVL_VARIABLES.TcGVL (TcPlcObject)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id4">
-<h3>GVL_VARIABLES: Declaration<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h2>GVL: GVL_VARIABLES<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac_sim/GVLs/GVL_VARIABLES.TcGVL</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>{attribute &#39;global_init_slot&#39; := &#39;40500&#39;} // make sure variables are initialized before other GVLs
 VAR_GLOBAL
 
@@ -2727,78 +2487,56 @@ END_VAR
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="id5">
-<h2>POUs/MAIN.TcPOU (TcPlcObject)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id6">
-<h3>MAIN: Declaration<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h2>POU: MAIN<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac_sim/POUs/MAIN.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">MAIN</span>
 <span class="n">VAR</span>
 <span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id7">
-<h3>MAIN: ST<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PRG_DIAGNOSTIC</span><span class="p">();</span>
+<span class="n">PRG_DIAGNOSTIC</span><span class="p">();</span>
 <span class="n">OverridePressure</span><span class="p">();</span>
 <span class="n">PRG_GMD</span><span class="p">();</span>
+
+<span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="pous-overridepressure-tcpou-tcplcobject">
-<h2>POUs/OverridePressure.TcPOU (TcPlcObject)<a class="headerlink" href="#pous-overridepressure-tcpou-tcplcobject" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="overridepressure-declaration">
-<h3>OverridePressure: Declaration<a class="headerlink" href="#overridepressure-declaration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pou-overridepressure">
+<h2>POU: OverridePressure<a class="headerlink" href="#pou-overridepressure" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac_sim/POUs/OverridePressure.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">OverridePressure</span>
 <span class="n">VAR</span>
 	<span class="n">fb_SetPressure</span> <span class="o">:</span> <span class="n">FB_SetChamberPressure</span><span class="p">;</span>
 <span class="n">END_VAR</span>
+<span class="n">fb_SetPressure</span><span class="p">(</span><span class="n">chamber</span> <span class="o">:=</span> <span class="n">st_GMD</span><span class="p">,</span> <span class="n">rNewPressure</span> <span class="o">:=</span> <span class="n">New_Pressure</span><span class="p">,</span> <span class="n">Override</span> <span class="o">:=</span> <span class="n">Global_OverridePressure</span><span class="p">);</span>
+
+<span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="overridepressure-st">
-<h3>OverridePressure: ST<a class="headerlink" href="#overridepressure-st" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">fb_SetPressure</span><span class="p">(</span><span class="n">chamber</span> <span class="o">:=</span> <span class="n">st_GMD</span><span class="p">,</span> <span class="n">rNewPressure</span> <span class="o">:=</span> <span class="n">New_Pressure</span><span class="p">,</span> <span class="n">Override</span> <span class="o">:=</span> <span class="n">Global_OverridePressure</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="id8">
-<h2>POUs/PRG_DIAGNOSTIC.TcPOU (TcPlcObject)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id9">
-<h3>PRG_DIAGNOSTIC: Declaration<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h2>POU: PRG_DIAGNOSTIC<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac_sim/POUs/PRG_DIAGNOSTIC.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_DIAGNOSTIC</span>
 <span class="n">VAR</span>
    <span class="n">heartbeat</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span> <span class="o">:</span> <span class="n">UINT</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id10">
-<h3>PRG_DIAGNOSTIC: ST<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">heartbeat</span> <span class="o">:=</span> <span class="n">heartbeat</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">heartbeat</span> <span class="o">:=</span> <span class="n">heartbeat</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 <span class="k">IF</span> <span class="n">heartbeat</span> <span class="o">&gt;</span> <span class="mi">65000</span>
    <span class="k">THEN</span> <span class="n">heartbeat</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">END_IF</span>
+
+<span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="id11">
-<h2>POUs/PRG_GMD.TcPOU (TcPlcObject)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id12">
-<h3>PRG_GMD: Declaration<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h2>POU: PRG_GMD<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>File: plc_kfe_gmd_vac_sim/POUs/PRG_GMD.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_GMD</span>
 <span class="n">VAR</span>
 <span class="n">END_VAR</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id13">
-<h3>PRG_GMD: ST<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">FB_MKS_275</span>
+<span class="o">//</span> <span class="n">FB_MKS_275</span>
 
 <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="p">(</span><span class="n">stVolume</span> <span class="o">:=</span> <span class="n">st_GMD</span><span class="p">,</span> <span class="n">stGauge</span> <span class="o">:=</span> <span class="n">st_EM1K0_GMD_GPI_10</span><span class="p">);</span>
 <span class="n">fb_EM1K0_GMD_GPI_40</span><span class="p">(</span><span class="n">stVolume</span> <span class="o">:=</span> <span class="n">st_GMD</span><span class="p">,</span> <span class="n">stGauge</span> <span class="o">:=</span> <span class="n">st_EM1K0_GMD_GPI_40</span><span class="p">);</span>
@@ -2836,15 +2574,13 @@ END_VAR
 <span class="o">//</span> <span class="n">FB_RoughPump</span>
 
 <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="p">(</span><span class="n">stVolInlet</span> <span class="o">:=</span> <span class="n">st_RoughingLine</span><span class="p">,</span> <span class="n">stPump</span> <span class="o">:=</span> <span class="n">st_EM1K0_GMD_PRT_40</span><span class="p">);</span>
+
+<span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="simtask-tctto-tcplcobject">
-<h2>SimTask.TcTTO (TcPlcObject)<a class="headerlink" href="#simtask-tctto-tcplcobject" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="id14">
-<h2>Symbols<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>Symbols<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Constants</span><span class="o">.</span><span class="n">CompilerVersion</span> <span class="p">:</span> <span class="n">VERSION</span> <span class="p">(</span><span class="mi">4487872</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">Constants</span><span class="o">.</span><span class="n">CompilerVersionNumeric</span> <span class="p">:</span> <span class="n">DWORD</span> <span class="p">(</span><span class="mi">4488000</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">Constants</span><span class="o">.</span><span class="n">RuntimeVersion</span> <span class="p">:</span> <span class="n">VERSION</span> <span class="p">(</span><span class="mi">4487808</span> <span class="mi">64</span><span class="p">)</span>
@@ -2911,7 +2647,7 @@ END_VAR
 <span class="n">GVL_GMD</span><span class="o">.</span><span class="n">st_EM1K0_GMD_VRC_70_VOL</span> <span class="p">:</span> <span class="n">Vacuum_System_Simulator_Library</span><span class="o">.</span><span class="n">ST_Volume</span> <span class="p">(</span><span class="mi">4448000</span> <span class="mi">96</span><span class="p">)</span>
 <span class="n">GVL_GMD</span><span class="o">.</span><span class="n">st_GMD</span> <span class="p">:</span> <span class="n">Vacuum_System_Simulator_Library</span><span class="o">.</span><span class="n">ST_Volume</span> <span class="p">(</span><span class="mi">4447328</span> <span class="mi">96</span><span class="p">)</span>
 <span class="n">GVL_GMD</span><span class="o">.</span><span class="n">st_RoughingLine</span> <span class="p">:</span> <span class="n">Vacuum_System_Simulator_Library</span><span class="o">.</span><span class="n">ST_Volume</span> <span class="p">(</span><span class="mi">4447520</span> <span class="mi">96</span><span class="p">)</span>
-<span class="n">GVL_Logger</span><span class="o">.</span><span class="n">asLoggerMesgBuffer</span> <span class="p">:</span> <span class="n">Tc2_System</span><span class="o">.</span><span class="n">T_MaxString</span> <span class="p">(</span><span class="mi">4096144</span> <span class="mi">104448</span><span class="p">)</span>
+<span class="n">GVL_Logger</span><span class="o">.</span><span class="n">asLoggerMesgBuffer</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">50</span><span class="p">]</span> <span class="n">OF</span> <span class="n">Tc2_System</span><span class="o">.</span><span class="n">T_MaxString</span> <span class="p">(</span><span class="mi">4096144</span> <span class="mi">104448</span><span class="p">)</span>
 <span class="n">GVL_Logger</span><span class="o">.</span><span class="n">cnLoggerMesgArraySize</span> <span class="p">:</span> <span class="n">INT</span> <span class="p">(</span><span class="mi">4096112</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">GVL_Logger</span><span class="o">.</span><span class="n">cnSyslogVer</span> <span class="p">:</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">4096128</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">GVL_Logger</span><span class="o">.</span><span class="n">csNILVALUE</span> <span class="p">:</span> <span class="n">STRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="mi">4096088</span> <span class="mi">16</span><span class="p">)</span>
@@ -3046,8 +2782,8 @@ END_VAR
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">FOPEN_MODEREAD</span> <span class="p">:</span> <span class="n">DWORD</span> <span class="p">(</span><span class="mi">4437152</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">FOPEN_MODETEXT</span> <span class="p">:</span> <span class="n">DWORD</span> <span class="p">(</span><span class="mi">4437312</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">FOPEN_MODEWRITE</span> <span class="p">:</span> <span class="n">DWORD</span> <span class="p">(</span><span class="mi">4437184</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">Global_Variables</span><span class="o">.</span><span class="n">FORMAT_DECASC_CODES</span> <span class="p">:</span> <span class="n">BYTE</span> <span class="p">(</span><span class="mi">4296480</span> <span class="mi">80</span><span class="p">)</span>
-<span class="n">Global_Variables</span><span class="o">.</span><span class="n">FORMAT_HEXASC_CODES</span> <span class="p">:</span> <span class="n">BYTE</span> <span class="p">(</span><span class="mi">4296224</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">Global_Variables</span><span class="o">.</span><span class="n">FORMAT_DECASC_CODES</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">9</span><span class="p">]</span> <span class="n">OF</span> <span class="n">BYTE</span> <span class="p">(</span><span class="mi">4296480</span> <span class="mi">80</span><span class="p">)</span>
+<span class="n">Global_Variables</span><span class="o">.</span><span class="n">FORMAT_HEXASC_CODES</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">BYTE</span> <span class="p">(</span><span class="mi">4296224</span> <span class="mi">256</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">FORMAT_MAX_ARGS</span> <span class="p">:</span> <span class="n">INT</span> <span class="p">(</span><span class="mi">4295600</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">GLOBAL_DCF77_PULSE_SPLIT</span> <span class="p">:</span> <span class="n">TIME</span> <span class="p">(</span><span class="mi">4232256</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">GLOBAL_DCF77_SEQUENCE_CHECK</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">4096104</span> <span class="mi">8</span><span class="p">)</span>
@@ -3109,8 +2845,8 @@ END_VAR
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_DATE_AND_TIME_MAX64</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="p">(</span><span class="mi">4303424</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_DATE_AND_TIME_MIN</span> <span class="p">:</span> <span class="n">Tc2_Utilities</span><span class="o">.</span><span class="n">T_ULARGE_INTEGER</span> <span class="p">(</span><span class="mi">4303040</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_DATE_AND_TIME_MIN64</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="p">(</span><span class="mi">4303360</span> <span class="mi">64</span><span class="p">)</span>
-<span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_MAX_MONTHDAYS</span> <span class="p">:</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">4301968</span> <span class="mi">384</span><span class="p">)</span>
-<span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_MAX_YEARSDAY</span> <span class="p">:</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">4302352</span> <span class="mi">448</span><span class="p">)</span>
+<span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_MAX_MONTHDAYS</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">4301968</span> <span class="mi">384</span><span class="p">)</span>
+<span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_MAX_YEARSDAY</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">4302352</span> <span class="mi">448</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_TICKSPERDAY</span> <span class="p">:</span> <span class="n">Tc2_Utilities</span><span class="o">.</span><span class="n">T_ULARGE_INTEGER</span> <span class="p">(</span><span class="mi">4302976</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_TICKSPERDAY64</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="p">(</span><span class="mi">4303296</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">Global_Variables</span><span class="o">.</span><span class="n">SYSTEMTIME_TICKSPERMSEC</span> <span class="p">:</span> <span class="n">Tc2_Utilities</span><span class="o">.</span><span class="n">T_ULARGE_INTEGER</span> <span class="p">(</span><span class="mi">4302848</span> <span class="mi">64</span><span class="p">)</span>
@@ -3143,9 +2879,9 @@ END_VAR
 <span class="n">LCLS_General</span><span class="o">.</span><span class="n">DefaultGlobals</span><span class="o">.</span><span class="n">stSys</span><span class="o">.</span><span class="n">I_EcatMaster1</span> <span class="p">:</span> <span class="n">AMSNETID</span> <span class="p">(</span><span class="mi">4096040</span> <span class="mi">48</span><span class="p">)</span>
 <span class="n">OverridePressure</span><span class="o">.</span><span class="n">fb_SetPressure</span> <span class="p">:</span> <span class="n">Vacuum_System_Simulator_Library</span><span class="o">.</span><span class="n">FB_SetChamberPressure</span> <span class="p">(</span><span class="mi">4447200</span> <span class="mi">128</span><span class="p">)</span>
 <span class="n">PRG_DIAGNOSTIC</span><span class="o">.</span><span class="n">heartbeat</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">4447008</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">TwinCAT_LicenseInfoVarList</span><span class="o">.</span><span class="n">_LicenseInfo</span> <span class="p">:</span> <span class="n">PlcLicenseInfo</span> <span class="p">(</span><span class="mi">4488032</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="n">TwinCAT_LicenseInfoVarList</span><span class="o">.</span><span class="n">_LicenseInfo</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">PlcLicenseInfo</span> <span class="p">(</span><span class="mi">4488032</span> <span class="mi">1024</span><span class="p">)</span>
 <span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_AppInfo</span> <span class="p">:</span> <span class="n">PlcAppSystemInfo</span> <span class="p">(</span><span class="mi">4489056</span> <span class="mi">2048</span><span class="p">)</span>
-<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskInfo</span> <span class="p">:</span> <span class="n">PlcTaskSystemInfo</span> <span class="p">(</span><span class="mi">4491136</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskInfo</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">PlcTaskSystemInfo</span> <span class="p">(</span><span class="mi">4491136</span> <span class="mi">1024</span><span class="p">)</span>
 <span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskOid_SimTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">4492160</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskPouOid_SimTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">4491104</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">__SimTask</span> <span class="p">:</span> <span class="n">_Implicit_Task_Info</span> <span class="p">(</span><span class="mi">4492192</span> <span class="mi">704</span><span class="p">)</span>
@@ -3596,41 +3332,39 @@ END_VAR
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">PLC Project (1): plc_kfe_gmd_vac</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#duts-e-gastype-tcdut-tcplcobject">DUTs/E_GasType.TcDUT (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#duts-e-homestate-tcdut-tcplcobject">DUTs/E_HomeState.TcDUT (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#duts-e-movestate-tcdut-tcplcobject">DUTs/E_MoveState.TcDUT (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#duts-st-hv-tcdut-tcplcobject">DUTs/ST_HV.TcDUT (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#duts-st-pressuresensor-tcdut-tcplcobject">DUTs/ST_PressureSensor.TcDUT (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#duts-st-vgp-tcdut-tcplcobject">DUTs/ST_VGP.TcDUT (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gvls-gvl-inj-tcgvl-tcplcobject">GVLs/GVL_INJ.TcGVL (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gvls-gvl-gmd-tcgvl-tcplcobject">GVLs/GVL_GMD.TcGVL (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gvls-gvl-variables-tcgvl-tcplcobject">GVLs/GVL_VARIABLES.TcGVL (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#plctask-tctto-tcplcobject">PlcTask.TcTTO (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-fb-highvoltage-tcpou-tcplcobject">POUs/FB_HighVoltage.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-fb-pressuretransducer-tcpou-tcplcobject">POUs/FB_PressureTransducer.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-fb-rtd-tcpou-tcplcobject">POUs/FB_RTD.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-fb-vgp-tcpou-tcplcobject">POUs/FB_VGP.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-main-tcpou-tcplcobject">POUs/MAIN.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-prg-diagnostic-tcpou-tcplcobject">POUs/PRG_DIAGNOSTIC.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-prg-gas-selection-tcpou-tcplcobject">POUs/PRG_Gas_Selection.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-prg-gmd-tcpou-tcplcobject">POUs/PRG_GMD.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-prg-hv-ilk-tcpou-tcplcobject">POUs/PRG_HV_ILK.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-prg-inj-tcpou-tcplcobject">POUs/PRG_INJ.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-prg-pressurecontrol-tcpou-tcplcobject">POUs/PRG_PressureControl.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-prg-purge-tcpou-tcplcobject">POUs/PRG_Purge.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-prg-vgp-tcpou-tcplcobject">POUs/PRG_VGP.TcPOU (TcPlcObject)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dut-e-gastype">DUT: E_GasType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dut-e-homestate">DUT: E_HomeState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dut-e-movestate">DUT: E_MoveState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dut-st-hv">DUT: ST_HV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dut-st-pressuresensor">DUT: ST_PressureSensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dut-st-vgp">DUT: ST_VGP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-gvl-gmd">GVL: GVL_GMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-gvl-inj">GVL: GVL_INJ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-gvl-variables">GVL: GVL_VARIABLES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-fb-highvoltage">POU: FB_HighVoltage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-fb-pressuretransducer">POU: FB_PressureTransducer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-fb-rtd">POU: FB_RTD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-fb-vgp">POU: FB_VGP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-main">POU: MAIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-prg-diagnostic">POU: PRG_DIAGNOSTIC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-prg-gmd">POU: PRG_GMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-prg-gas-selection">POU: PRG_Gas_Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-prg-hv-ilk">POU: PRG_HV_ILK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-prg-inj">POU: PRG_INJ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-prg-pressurecontrol">POU: PRG_PressureControl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-prg-purge">POU: PRG_Purge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-prg-vgp">POU: PRG_VGP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#symbols">Symbols</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#plc-project-2-plc-kfe-gmd-vac-sim">PLC Project (2): plc_kfe_gmd_vac_sim</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">GVLs/GVL_GMD.TcGVL (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">GVLs/GVL_VARIABLES.TcGVL (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">POUs/MAIN.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pous-overridepressure-tcpou-tcplcobject">POUs/OverridePressure.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">POUs/PRG_DIAGNOSTIC.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">POUs/PRG_GMD.TcPOU (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#simtask-tctto-tcplcobject">SimTask.TcTTO (TcPlcObject)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">Symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">GVL: GVL_GMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">GVL: GVL_VARIABLES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">POU: MAIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-overridepressure">POU: OverridePressure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">POU: PRG_DIAGNOSTIC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">POU: PRG_GMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Symbols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#boxes">Boxes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nc-axes">NC axes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#links">Links</a></li>
@@ -3676,7 +3410,7 @@ END_VAR
       &copy;2019, SLAC National Accelerator Laboratory.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
