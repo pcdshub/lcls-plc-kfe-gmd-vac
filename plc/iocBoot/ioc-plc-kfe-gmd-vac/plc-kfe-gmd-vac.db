@@ -1093,6 +1093,29 @@ record(bi, "EM1K0:GMD:GCM:80:PRESS_OK_RBV") {
   field(ONAM, "ON")
 }
 
+record(mbbi, "EM1K0:GMD:GCM:80:STATE_RBV") {
+  field(DESC, "ads:GVL_INJ.GCM_80.VG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_INJ.GCM_80.VG.eState?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "6")
+  field(FVVL, "11")
+  field(SXVL, "12")
+  field(ZRST, "PressInvalid")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "Off")
+  field(THST, "Starting")
+  field(FRST, "OoR")
+  field(FVST, "ValidHi")
+  field(SXST, "ValidLo")
+}
+
 record(bi, "EM1K0:GMD:GCM:80:HV_SW_RBV") {
   field(DESC, "ads:GVL_INJ.GCM_80.VG.xHV_SW")
   field(SCAN, "I/O Intr")
@@ -1804,6 +1827,29 @@ record(bi, "EM1K0:GMD:GPI:10:PRESS_OK_RBV") {
   field(ONAM, "ON")
 }
 
+record(mbbi, "EM1K0:GMD:GPI:10:STATE_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._GPI_10.PG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.eState?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "6")
+  field(FVVL, "11")
+  field(SXVL, "12")
+  field(ZRST, "PressInvalid")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "Off")
+  field(THST, "Starting")
+  field(FRST, "OoR")
+  field(FVST, "ValidHi")
+  field(SXST, "ValidLo")
+}
+
 record(bi, "EM1K0:GMD:GPI:10:HV_SW_RBV") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GPI_10.PG.xHV_SW")
   field(SCAN, "I/O Intr")
@@ -1970,6 +2016,29 @@ record(bi, "EM1K0:GMD:GPI:40:PRESS_OK_RBV") {
   field(ONAM, "ON")
 }
 
+record(mbbi, "EM1K0:GMD:GPI:40:STATE_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._GPI_40.PG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.eState?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "6")
+  field(FVVL, "11")
+  field(SXVL, "12")
+  field(ZRST, "PressInvalid")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "Off")
+  field(THST, "Starting")
+  field(FRST, "OoR")
+  field(FVST, "ValidHi")
+  field(SXST, "ValidLo")
+}
+
 record(bi, "EM1K0:GMD:GPI:40:HV_SW_RBV") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GPI_40.PG.xHV_SW")
   field(SCAN, "I/O Intr")
@@ -2134,6 +2203,29 @@ record(bi, "EM1K0:GMD:GPI:70:PRESS_OK_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xPRESS_OK?")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
+}
+
+record(mbbi, "EM1K0:GMD:GPI:70:STATE_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._GPI_70.PG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.eState?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "6")
+  field(FVVL, "11")
+  field(SXVL, "12")
+  field(ZRST, "PressInvalid")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "Off")
+  field(THST, "Starting")
+  field(FRST, "OoR")
+  field(FVST, "ValidHi")
+  field(SXST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GPI:70:HV_SW_RBV") {
@@ -4724,6 +4816,29 @@ record(bi, "EM1K0:GMD:GCC:10:PRESS_OK_RBV") {
   field(ONAM, "ON")
 }
 
+record(mbbi, "EM1K0:GMD:GCC:10:STATE_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_10.IG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.eState?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "6")
+  field(FVVL, "11")
+  field(SXVL, "12")
+  field(ZRST, "PressInvalid")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "Off")
+  field(THST, "Starting")
+  field(FRST, "OoR")
+  field(FVST, "ValidHi")
+  field(SXST, "ValidLo")
+}
+
 record(bi, "EM1K0:GMD:GCC:10:HV_SW_RBV") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_10.IG.xHV_SW")
   field(SCAN, "I/O Intr")
@@ -4888,6 +5003,29 @@ record(bi, "EM1K0:GMD:GCC:20:PRESS_OK_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xPRESS_OK?")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
+}
+
+record(mbbi, "EM1K0:GMD:GCC:20:STATE_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_20.IG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.eState?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "6")
+  field(FVVL, "11")
+  field(SXVL, "12")
+  field(ZRST, "PressInvalid")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "Off")
+  field(THST, "Starting")
+  field(FRST, "OoR")
+  field(FVST, "ValidHi")
+  field(SXST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GCC:20:HV_SW_RBV") {
@@ -5056,6 +5194,29 @@ record(bi, "EM1K0:GMD:GCC:30:PRESS_OK_RBV") {
   field(ONAM, "ON")
 }
 
+record(mbbi, "EM1K0:GMD:GCC:30:STATE_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_30.IG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.eState?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "6")
+  field(FVVL, "11")
+  field(SXVL, "12")
+  field(ZRST, "PressInvalid")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "Off")
+  field(THST, "Starting")
+  field(FRST, "OoR")
+  field(FVST, "ValidHi")
+  field(SXST, "ValidLo")
+}
+
 record(bi, "EM1K0:GMD:GCC:30:HV_SW_RBV") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_30.IG.xHV_SW")
   field(SCAN, "I/O Intr")
@@ -5220,6 +5381,29 @@ record(bi, "EM1K0:GMD:GCC:40:PRESS_OK_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xPRESS_OK?")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
+}
+
+record(mbbi, "EM1K0:GMD:GCC:40:STATE_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_40.IG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.eState?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "6")
+  field(FVVL, "11")
+  field(SXVL, "12")
+  field(ZRST, "PressInvalid")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "Off")
+  field(THST, "Starting")
+  field(FRST, "OoR")
+  field(FVST, "ValidHi")
+  field(SXST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GCC:40:HV_SW_RBV") {
@@ -5388,6 +5572,29 @@ record(bi, "EM1K0:GMD:GCC:50:PRESS_OK_RBV") {
   field(ONAM, "ON")
 }
 
+record(mbbi, "EM1K0:GMD:GCC:50:STATE_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_50.IG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.eState?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "6")
+  field(FVVL, "11")
+  field(SXVL, "12")
+  field(ZRST, "PressInvalid")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "Off")
+  field(THST, "Starting")
+  field(FRST, "OoR")
+  field(FVST, "ValidHi")
+  field(SXST, "ValidLo")
+}
+
 record(bi, "EM1K0:GMD:GCC:50:HV_SW_RBV") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_50.IG.xHV_SW")
   field(SCAN, "I/O Intr")
@@ -5554,6 +5761,29 @@ record(bi, "EM1K0:GMD:GCC:60:PRESS_OK_RBV") {
   field(ONAM, "ON")
 }
 
+record(mbbi, "EM1K0:GMD:GCC:60:STATE_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_60.IG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.eState?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "6")
+  field(FVVL, "11")
+  field(SXVL, "12")
+  field(ZRST, "PressInvalid")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "Off")
+  field(THST, "Starting")
+  field(FRST, "OoR")
+  field(FVST, "ValidHi")
+  field(SXST, "ValidLo")
+}
+
 record(bi, "EM1K0:GMD:GCC:60:HV_SW_RBV") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_60.IG.xHV_SW")
   field(SCAN, "I/O Intr")
@@ -5718,6 +5948,29 @@ record(bi, "EM1K0:GMD:GCC:70:PRESS_OK_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xPRESS_OK?")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
+}
+
+record(mbbi, "EM1K0:GMD:GCC:70:STATE_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_70.IG.eState")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.eState?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "6")
+  field(FVVL, "11")
+  field(SXVL, "12")
+  field(ZRST, "PressInvalid")
+  field(ONST, "GaugeDisconnected")
+  field(TWST, "Off")
+  field(THST, "Starting")
+  field(FRST, "OoR")
+  field(FVST, "ValidHi")
+  field(SXST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GCC:70:HV_SW_RBV") {
