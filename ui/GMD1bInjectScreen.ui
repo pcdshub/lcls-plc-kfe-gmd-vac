@@ -395,7 +395,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <enum>PCDSSymbolBase::Right</enum>
        </property>
        <property name="channelsPrefix" stdset="0">
-        <string>ca://EM1K0:GMD:VIC:81</string>
+        <string>ca://EM1K0:GMD:VVC:81</string>
        </property>
        <property name="rotateIcon" stdset="0">
         <bool>true</bool>
@@ -588,7 +588,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <enum>PCDSSymbolBase::Left</enum>
        </property>
        <property name="channelsPrefix" stdset="0">
-        <string>ca://EM1K0:GMD:VIC:84</string>
+        <string>ca://EM1K0:GMD:VVC:84</string>
        </property>
        <property name="rotateIcon" stdset="0">
         <bool>true</bool>
@@ -648,7 +648,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="channelsPrefix" stdset="0">
-        <string>ca://EM1K0:GMD:VIC:80</string>
+        <string>ca://EM1K0:GMD:VVC:80</string>
        </property>
        <property name="rotateIcon" stdset="0">
         <bool>false</bool>
@@ -711,7 +711,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <enum>PCDSSymbolBase::Right</enum>
        </property>
        <property name="channelsPrefix" stdset="0">
-        <string>ca://EM1K0:GMD:VIC:85</string>
+        <string>ca://EM1K0:GMD:VVC:85</string>
        </property>
        <property name="rotateIcon" stdset="0">
         <bool>true</bool>
@@ -1163,7 +1163,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="macros" stdset="0">
-        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:40&quot;, &quot;GPI&quot;: &quot;EM1K0:GMD:GPI:40&quot;, &quot;VCN&quot;: &quot;EM1K0:GMD:VCN:40&quot;, &quot;VGP&quot;: &quot;EM1K0:GMD:VGP:40&quot;, &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:40&quot;, &quot;NA&quot;: &quot;EM1K0:GMD:NA:40&quot;, &quot;GHC&quot;: &quot;EM1K0:GMD:GHC:40&quot;}</string>
+        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:40&quot;, &quot;GPI&quot;: &quot;EM1K0:GMD:GPI:40&quot;, &quot;VCN&quot;: &quot;EM1K0:GMD:VCN:40&quot;, &quot;VGP&quot;: &quot;EM1K0:GMD:VGP:40&quot;, &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:40&quot;, &quot;VVC&quot;: &quot;EM1K0:GMD:VVC:40&quot;, &quot;GHC&quot;: &quot;EM1K0:GMD:GHC:40&quot;}</string>
        </property>
        <property name="filename" stdset="0">
         <string>GasInjectorInterface.ui</string>
@@ -1320,7 +1320,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <enum>PCDSSymbolBase::Left</enum>
        </property>
        <property name="channelsPrefix" stdset="0">
-        <string>ca://EM1K0:GMD:VIC:82</string>
+        <string>ca://EM1K0:GMD:VVC:82</string>
        </property>
        <property name="rotateIcon" stdset="0">
         <bool>true</bool>
@@ -1345,7 +1345,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <enum>PCDSSymbolBase::Left</enum>
        </property>
        <property name="channelsPrefix" stdset="0">
-        <string>ca://EM1K0:GMD:VIC:86</string>
+        <string>ca://EM1K0:GMD:VVC:86</string>
        </property>
        <property name="rotateIcon" stdset="0">
         <bool>true</bool>
@@ -1456,7 +1456,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <enum>PCDSSymbolBase::Right</enum>
        </property>
        <property name="channelsPrefix" stdset="0">
-        <string>ca://EM1K0:GMD:VIC:83</string>
+        <string>ca://EM1K0:GMD:VVC:83</string>
        </property>
        <property name="rotateIcon" stdset="0">
         <bool>true</bool>
@@ -1478,6 +1478,63 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <enum>Qt::Vertical</enum>
        </property>
       </widget>
+      <zorder>PyDMDrawingRectangle</zorder>
+      <zorder>PyDMDrawingRectangle_2</zorder>
+      <zorder>ControlOnlyValveNC_4</zorder>
+      <zorder>line_23</zorder>
+      <zorder>line_7</zorder>
+      <zorder>line_15</zorder>
+      <zorder>label_10</zorder>
+      <zorder>line_14</zorder>
+      <zorder>label_9</zorder>
+      <zorder>PyDMDrawingRectangle_6</zorder>
+      <zorder>PyDMDrawingRectangle_5</zorder>
+      <zorder>ControlOnlyValveNC_5</zorder>
+      <zorder>line_3</zorder>
+      <zorder>label_5</zorder>
+      <zorder>ControlOnlyValveNC</zorder>
+      <zorder>line_21</zorder>
+      <zorder>label_3</zorder>
+      <zorder>ControlOnlyValveNC_7</zorder>
+      <zorder>line_18</zorder>
+      <zorder>line_13</zorder>
+      <zorder>line_17</zorder>
+      <zorder>line_24</zorder>
+      <zorder>label</zorder>
+      <zorder>line_10</zorder>
+      <zorder>line_9</zorder>
+      <zorder>line_5</zorder>
+      <zorder>line_25</zorder>
+      <zorder>line_12</zorder>
+      <zorder>label_2</zorder>
+      <zorder>label_8</zorder>
+      <zorder>line_8</zorder>
+      <zorder>PyDMDrawingCircle</zorder>
+      <zorder>line_22</zorder>
+      <zorder>label_12</zorder>
+      <zorder>PyDMDrawingLine</zorder>
+      <zorder>PyDMLabel_5</zorder>
+      <zorder>line_6</zorder>
+      <zorder>line_2</zorder>
+      <zorder>label_4</zorder>
+      <zorder>label_6</zorder>
+      <zorder>PyDMDrawingTriangle</zorder>
+      <zorder>RoughGauge</zorder>
+      <zorder>PyDMEmbeddedDisplay</zorder>
+      <zorder>line_20</zorder>
+      <zorder>label_13</zorder>
+      <zorder>PyDMDrawingCircle_2</zorder>
+      <zorder>PyDMDrawingRectangle_4</zorder>
+      <zorder>line_4</zorder>
+      <zorder>ControlOnlyValveNC_2</zorder>
+      <zorder>ControlOnlyValveNC_3</zorder>
+      <zorder>label_11</zorder>
+      <zorder>PyDMDrawingRectangle_3</zorder>
+      <zorder>label_7</zorder>
+      <zorder>line_19</zorder>
+      <zorder>line_11</zorder>
+      <zorder>ControlOnlyValveNC_6</zorder>
+      <zorder>line</zorder>
      </widget>
     </widget>
    </item>
