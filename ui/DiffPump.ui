@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DiffPump</class>
+ <widget class="QWidget" name="DiffPump">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>154</width>
+    <height>386</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <widget class="TurboPump" name="TurboPump">
+   <property name="geometry">
+    <rect>
+     <x>-25</x>
+     <y>298</y>
+     <width>180</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="controlsLocation" stdset="0">
+    <enum>PCDSSymbolBase::Left</enum>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://${PTM}</string>
+   </property>
+   <property name="controlButtonHorizontal" stdset="0">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="PneumaticValve" name="PneumaticValve">
+   <property name="geometry">
+    <rect>
+     <x>-23</x>
+     <y>206</y>
+     <width>181</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="controlsLocation" stdset="0">
+    <enum>PCDSSymbolBase::Left</enum>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://${VRC}</string>
+   </property>
+   <property name="rotateIcon" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="controlButtonHorizontal" stdset="0">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="PyDMDrawingCircle" name="PyDMDrawingCircle">
+   <property name="geometry">
+    <rect>
+     <x>96</x>
+     <y>114</y>
+     <width>51</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="brush" stdset="0">
+    <brush brushstyle="NoBrush">
+     <color alpha="255">
+      <red>0</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </brush>
+   </property>
+   <property name="penStyle" stdset="0">
+    <enum>Qt::SolidLine</enum>
+   </property>
+  </widget>
+  <widget class="ColdCathodeGauge" name="ColdCathodeGauge">
+   <property name="geometry">
+    <rect>
+     <x>-25</x>
+     <y>-6</y>
+     <width>180</width>
+     <height>99</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="controlsLocation" stdset="0">
+    <enum>PCDSSymbolBase::Left</enum>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://${GCC}</string>
+   </property>
+   <property name="controlButtonHorizontal" stdset="0">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>121</x>
+     <y>263</y>
+     <width>3</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>121</x>
+     <y>170</y>
+     <width>3</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>59</y>
+     <width>3</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PyDMDrawingCircle</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.drawing</header>
+  </customwidget>
+  <customwidget>
+   <class>PCDSSymbolBase</class>
+   <extends>QWidget</extends>
+   <header>pcdswidgets.vacuum.base</header>
+  </customwidget>
+  <customwidget>
+   <class>PneumaticValve</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.valves</header>
+  </customwidget>
+  <customwidget>
+   <class>TurboPump</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.pumps</header>
+  </customwidget>
+  <customwidget>
+   <class>ColdCathodeGauge</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.gauges</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
