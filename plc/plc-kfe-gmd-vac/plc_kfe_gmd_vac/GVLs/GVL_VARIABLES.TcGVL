@@ -4,6 +4,9 @@
     <Declaration><![CDATA[VAR_GLOBAL
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:OVERRIDE_VAC '}
 	xSystemOverrideMode : BOOL; (* Global system override for the prototype section*)
+	
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:AUTO_VVC_40 '}
+	bAutoVVC40 : BOOL := False;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

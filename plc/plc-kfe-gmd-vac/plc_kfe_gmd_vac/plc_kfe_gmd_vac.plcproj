@@ -60,6 +60,9 @@
     <Compile Include="POUs\FB_VGP.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\F_TURBO_PROT_SLND_ILK.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>

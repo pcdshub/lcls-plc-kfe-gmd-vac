@@ -72,6 +72,11 @@ fb_EM1K0_GMD_GCC_70 : FB_MKS422;
 {attribute 'pytmc' := ' pv: EM1K0:GMD:PRT:40 '}
 fb_EM1K0_GMD_PRT_40 : FB_EbaraEVA;
 
+// FB_VVC
+
+{attribute 'pytmc' := ' pv: EM1K0:GMD:VVC:40 '}
+fb_EM1K0_GMD_VVC_40 : FB_VVC;
+
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
