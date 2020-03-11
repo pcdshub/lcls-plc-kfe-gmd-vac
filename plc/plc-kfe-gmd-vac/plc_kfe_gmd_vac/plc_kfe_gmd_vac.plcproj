@@ -60,6 +60,9 @@
     <Compile Include="POUs\FB_VGP.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\F_TURBO_PROT_SLND_ILK.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -103,6 +106,10 @@
       <DefaultResolution>LCLS General, * (SLAC)</DefaultResolution>
       <Namespace>LCLS_General</Namespace>
     </PlaceholderReference>
+    <PlaceholderReference Include="PMPS">
+      <DefaultResolution>PMPS, * (SLAC - LCLS)</DefaultResolution>
+      <Namespace>PMPS</Namespace>
+    </PlaceholderReference>
     <PlaceholderReference Include="Tc2_ControllerToolbox">
       <DefaultResolution>Tc2_ControllerToolbox, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_ControllerToolbox</Namespace>
@@ -129,17 +136,23 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="plc_kfe_gmd_vac.tmc">
-      <SubType>Content</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <PlaceholderResolution Include="L2SI Vacuum Library">
       <Resolution>L2SI Vacuum Library, * (SLAC)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="LCLS General">
-      <Resolution>LCLS General, 0.0.0 (SLAC)</Resolution>
+      <Resolution>LCLS General, * (SLAC)</Resolution>
     </PlaceholderResolution>
+    <PlaceholderResolution Include="PMPS">
+      <Resolution>PMPS, * (SLAC - LCLS)</Resolution>
+    </PlaceholderResolution>
+    <PlaceholderResolution Include="Tc2_Utilities">
+      <Resolution>Tc2_Utilities, 3.3.35.0 (Beckhoff Automation GmbH)</Resolution>
+    </PlaceholderResolution>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="plc_kfe_gmd_vac.tmc">
+      <SubType>Content</SubType>
+    </None>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

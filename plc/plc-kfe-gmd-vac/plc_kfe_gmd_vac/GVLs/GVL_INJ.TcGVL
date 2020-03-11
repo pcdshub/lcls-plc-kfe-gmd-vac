@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.0">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <GVL Name="GVL_INJ" Id="{b0e309d1-2282-43cb-a77d-1c68f1ea549b}">
     <Declaration><![CDATA[VAR_GLOBAL
 		
@@ -49,7 +49,7 @@
 	hv1 : FB_HighVoltage;
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:HV:2 '}
 	hv2 : FB_HighVoltage;
-	{attribute 'pytmc' :=' pv: EM1K0:GEM:RTD:1 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:RTD:1 '}
 	RTD : FB_RTD;
 
 END_VAR]]></Declaration>

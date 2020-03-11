@@ -72,11 +72,6 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="plc_kfe_gmd_vac_sim.tmc">
-      <SubType>Content</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <PlaceholderResolution Include="LCLS General">
       <Resolution>LCLS General, * (SLAC)</Resolution>
     </PlaceholderResolution>
@@ -101,6 +96,11 @@
     <PlaceholderResolution Include="Vacuum System Simulator Library">
       <Resolution>Vacuum System Simulator Library, * (SLAC)</Resolution>
     </PlaceholderResolution>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="plc_kfe_gmd_vac_sim.tmc">
+      <SubType>Content</SubType>
+    </None>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

@@ -1221,6 +1221,141 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string>EM1K0:GMD Vacuum System</string>
        </property>
       </widget>
+      <widget class="PyDMCheckbox" name="PyDMCheckbox_2">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>510</y>
+         <width>14</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="alarmSensitiveContent" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="alarmSensitiveBorder" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="channel" stdset="0">
+        <string>ca://EM1K0:GMD:AUTO_VVC_40</string>
+       </property>
+      </widget>
+      <widget class="PyDMCheckbox" name="PyDMCheckbox">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>460</y>
+         <width>14</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+       <property name="alarmSensitiveContent" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="alarmSensitiveBorder" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="channel" stdset="0">
+        <string>ca://EM1K0:GMD:OVERRIDE_VAC</string>
+       </property>
+      </widget>
+      <widget class="PyDMByteIndicator" name="PyDMByteIndicator">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>430</y>
+         <width>221</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="rules" stdset="0">
+        <string>[]</string>
+       </property>
+       <property name="alarmSensitiveContent" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="channel" stdset="0">
+        <string>ca://EM1K0:GMD:OVERRIDE_VAC_RBV</string>
+       </property>
+       <property name="onColor" stdset="0">
+        <color>
+         <red>255</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </property>
+       <property name="offColor" stdset="0">
+        <color>
+         <red>0</red>
+         <green>255</green>
+         <blue>0</blue>
+        </color>
+       </property>
+       <property name="showLabels" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="labels" stdset="0">
+        <stringlist>
+         <string>Vacuum interlocks enabled</string>
+         <string>Vacuum Interlocks DISABLED</string>
+         <string></string>
+        </stringlist>
+       </property>
+      </widget>
+      <widget class="PyDMByteIndicator" name="PyDMByteIndicator_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>480</y>
+         <width>221</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="rules" stdset="0">
+        <string>[]</string>
+       </property>
+       <property name="alarmSensitiveContent" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="channel" stdset="0">
+        <string>ca://EM1K0:GMD:AUTO_VVC_40_RBV</string>
+       </property>
+       <property name="onColor" stdset="0">
+        <color>
+         <red>0</red>
+         <green>255</green>
+         <blue>0</blue>
+        </color>
+       </property>
+       <property name="showLabels" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="labels" stdset="0">
+        <stringlist>
+         <string>VVC-40 automation disabled</string>
+         <string>VVC-40 automation enabled</string>
+         <string></string>
+        </stringlist>
+       </property>
+      </widget>
      </widget>
     </widget>
    </item>
@@ -1231,6 +1366,16 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
    <class>PyDMLabel</class>
    <extends>QLabel</extends>
    <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMCheckbox</class>
+   <extends>QCheckBox</extends>
+   <header>pydm.widgets.checkbox</header>
   </customwidget>
   <customwidget>
    <class>PyDMDrawingArc</class>
