@@ -135,7 +135,12 @@ IF bAutoVVC40 THEN
 END_IF
 
 fb_EM1K0_GMD_VVC_40(
-	i_xExtILK_OK := F_TURBO_PROT_SLND_ILK(fb_EM1K0_GMD_PRT_40.stPump),
+	i_xExtILK_OK := F_TURBO_PROT_SLND_ILK(
+        i_Turbo := fb_EM1K0_GMD_PTM_70.iq_stPtm,
+	    i_stISG := fb_EM1K0_GMD_GPI_40.PG,
+	    i_stBSG := fb_EM1K0_GMD_GPI_10.PG,
+        ScrollPump := fb_EM1K0_GMD_PRT_40.stPump
+    ),
 	i_xOverrideMode := xSystemOverrideMode,
 );
 ]]></ST>
@@ -173,7 +178,11 @@ fb_EM1K0_GMD_VVC_40(
       <LineId Id="31" Count="0" />
       <LineId Id="108" Count="0" />
       <LineId Id="32" Count="12" />
-      <LineId Id="168" Count="12" />
+      <LineId Id="168" Count="11" />
+      <LineId Id="189" Count="1" />
+      <LineId Id="188" Count="0" />
+      <LineId Id="186" Count="1" />
+      <LineId Id="180" Count="0" />
       <LineId Id="167" Count="0" />
       <LineId Id="5" Count="0" />
     </LineIds>
