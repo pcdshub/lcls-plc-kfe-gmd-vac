@@ -596,16 +596,16 @@ Records
  "EM1K0:GMD:VVC:86:OPN_SW_RBV" (bi)
  "EM1K0:GMD:VVC:86:OVRD_ON" (bo)
  "EM1K0:GMD:VVC:86:OVRD_ON_RBV" (bi)
- "$(IOC):LCLSGeneral:LogHost_RBV" (waveform)
- "$(IOC):LCLSGeneral:LogHost" (waveform)
- "$(IOC):LCLSGeneral:LogPort" (longout)
- "$(IOC):LCLSGeneral:LogPort_RBV" (longin)
  "plcHeartbeat" (longout)
  "plcHeartbeat_RBV" (longin)
  "plcInfo_RBV" (waveform)
  "plcInfo" (waveform)
  "plcLocalTime_RBV" (waveform)
  "plcLocalTime" (waveform)
+ "$(PREFIX)LCLSGeneral:LogHost_RBV" (waveform)
+ "$(PREFIX)LCLSGeneral:LogHost" (waveform)
+ "$(PREFIX)LCLSGeneral:LogPort" (longout)
+ "$(PREFIX)LCLSGeneral:LogPort_RBV" (longin)
  "simHeartbeat" (longout)
  "simHeartbeat_RBV" (longin)
 ```
@@ -629,7 +629,7 @@ record(longout, "simHeartbeat") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "$(IOC):LCLSGeneral:LogPort_RBV") {
+record(longin, "$(PREFIX)LCLSGeneral:LogPort_RBV") {
   field(DESC, "The log host UDP port")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -638,14 +638,14 @@ record(longin, "$(IOC):LCLSGeneral:LogPort_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_Logger.iLogPort?")
 }
 
-record(longout, "$(IOC):LCLSGeneral:LogPort") {
+record(longout, "$(PREFIX)LCLSGeneral:LogPort") {
   field(DESC, "The log host UDP port")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_Logger.iLogPort=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(waveform, "$(IOC):LCLSGeneral:LogHost_RBV") {
+record(waveform, "$(PREFIX)LCLSGeneral:LogHost_RBV") {
   field(DESC, "The log host IP address")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -656,7 +656,7 @@ record(waveform, "$(IOC):LCLSGeneral:LogHost_RBV") {
   field(NELM, "15")
 }
 
-record(waveform, "$(IOC):LCLSGeneral:LogHost") {
+record(waveform, "$(PREFIX)LCLSGeneral:LogHost") {
   field(DESC, "The log host IP address")
   field(DTYP, "asynInt8ArrayOut")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_Logger.cLogHost=")
@@ -858,6 +858,26 @@ record(bo, "EM1K0:GMD:OVERRIDE_VAC") {
   field(DESC, "ads:GVL_VARIABLES.xSystemOverrideMode")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.xSystemOverrideMode=")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  info(autosaveFields_pass0, "VAL")
+}
+
+record(bi, "EM1K0:GMD:AUTO_VVC_40_RBV") {
+  field(DESC, "ads:GVL_VARIABLES.bAutoVVC40")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.bAutoVVC40?")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+}
+
+record(bo, "EM1K0:GMD:AUTO_VVC_40") {
+  field(DESC, "ads:GVL_VARIABLES.bAutoVVC40")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bAutoVVC40=")
   field(ZNAM, "Zero")
   field(ONAM, "One")
   info(autosaveFields_pass0, "VAL")
@@ -2434,26 +2454,6 @@ record(bi, "EM1K0:GMD:RTD:1:ERR_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_INJ.RTD.bError?")
   field(ZNAM, "Zero")
   field(ONAM, "One")
-}
-
-record(bi, "EM1K0:GMD:AUTO_VVC_40_RBV") {
-  field(DESC, "ads:GVL_VARIABLES.bAutoVVC40")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.bAutoVVC40?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
-}
-
-record(bo, "EM1K0:GMD:AUTO_VVC_40") {
-  field(DESC, "ads:GVL_VARIABLES.bAutoVVC40")
-  field(DTYP, "asynInt32")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bAutoVVC40=")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
-  info(autosaveFields_pass0, "VAL")
 }
 
 record(ai, "EM1K0:GMD:GPI:10:PRESS_RBV") {

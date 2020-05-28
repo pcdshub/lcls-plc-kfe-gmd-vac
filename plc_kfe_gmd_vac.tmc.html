@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>plc_kfe_gmd_vac.tmc &#8212; pcdshub/lcls-plc-kfe-gmd-vac  documentation</title>
@@ -627,16 +627,16 @@
  <span class="s2">&quot;EM1K0:GMD:VVC:86:OPN_SW_RBV&quot;</span> <span class="p">(</span><span class="n">bi</span><span class="p">)</span>
  <span class="s2">&quot;EM1K0:GMD:VVC:86:OVRD_ON&quot;</span> <span class="p">(</span><span class="n">bo</span><span class="p">)</span>
  <span class="s2">&quot;EM1K0:GMD:VVC:86:OVRD_ON_RBV&quot;</span> <span class="p">(</span><span class="n">bi</span><span class="p">)</span>
- <span class="s2">&quot;$(IOC):LCLSGeneral:LogHost_RBV&quot;</span> <span class="p">(</span><span class="n">waveform</span><span class="p">)</span>
- <span class="s2">&quot;$(IOC):LCLSGeneral:LogHost&quot;</span> <span class="p">(</span><span class="n">waveform</span><span class="p">)</span>
- <span class="s2">&quot;$(IOC):LCLSGeneral:LogPort&quot;</span> <span class="p">(</span><span class="n">longout</span><span class="p">)</span>
- <span class="s2">&quot;$(IOC):LCLSGeneral:LogPort_RBV&quot;</span> <span class="p">(</span><span class="n">longin</span><span class="p">)</span>
  <span class="s2">&quot;plcHeartbeat&quot;</span> <span class="p">(</span><span class="n">longout</span><span class="p">)</span>
  <span class="s2">&quot;plcHeartbeat_RBV&quot;</span> <span class="p">(</span><span class="n">longin</span><span class="p">)</span>
  <span class="s2">&quot;plcInfo_RBV&quot;</span> <span class="p">(</span><span class="n">waveform</span><span class="p">)</span>
  <span class="s2">&quot;plcInfo&quot;</span> <span class="p">(</span><span class="n">waveform</span><span class="p">)</span>
  <span class="s2">&quot;plcLocalTime_RBV&quot;</span> <span class="p">(</span><span class="n">waveform</span><span class="p">)</span>
  <span class="s2">&quot;plcLocalTime&quot;</span> <span class="p">(</span><span class="n">waveform</span><span class="p">)</span>
+ <span class="s2">&quot;$(PREFIX)LCLSGeneral:LogHost_RBV&quot;</span> <span class="p">(</span><span class="n">waveform</span><span class="p">)</span>
+ <span class="s2">&quot;$(PREFIX)LCLSGeneral:LogHost&quot;</span> <span class="p">(</span><span class="n">waveform</span><span class="p">)</span>
+ <span class="s2">&quot;$(PREFIX)LCLSGeneral:LogPort&quot;</span> <span class="p">(</span><span class="n">longout</span><span class="p">)</span>
+ <span class="s2">&quot;$(PREFIX)LCLSGeneral:LogPort_RBV&quot;</span> <span class="p">(</span><span class="n">longin</span><span class="p">)</span>
  <span class="s2">&quot;simHeartbeat&quot;</span> <span class="p">(</span><span class="n">longout</span><span class="p">)</span>
  <span class="s2">&quot;simHeartbeat_RBV&quot;</span> <span class="p">(</span><span class="n">longin</span><span class="p">)</span>
 </pre></div>
@@ -660,7 +660,7 @@ record(longout, &quot;simHeartbeat&quot;) {
   info(autosaveFields_pass0, &quot;VAL&quot;)
 }
 
-record(longin, &quot;$(IOC):LCLSGeneral:LogPort_RBV&quot;) {
+record(longin, &quot;$(PREFIX)LCLSGeneral:LogPort_RBV&quot;) {
   field(DESC, &quot;The log host UDP port&quot;)
   field(SCAN, &quot;I/O Intr&quot;)
   field(PINI, &quot;1&quot;)
@@ -669,14 +669,14 @@ record(longin, &quot;$(IOC):LCLSGeneral:LogPort_RBV&quot;) {
   field(INP, &quot;@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_Logger.iLogPort?&quot;)
 }
 
-record(longout, &quot;$(IOC):LCLSGeneral:LogPort&quot;) {
+record(longout, &quot;$(PREFIX)LCLSGeneral:LogPort&quot;) {
   field(DESC, &quot;The log host UDP port&quot;)
   field(DTYP, &quot;asynInt32&quot;)
   field(OUT, &quot;@asyn($(PORT),0,1)ADSPORT=851/GVL_Logger.iLogPort=&quot;)
   info(autosaveFields_pass0, &quot;VAL&quot;)
 }
 
-record(waveform, &quot;$(IOC):LCLSGeneral:LogHost_RBV&quot;) {
+record(waveform, &quot;$(PREFIX)LCLSGeneral:LogHost_RBV&quot;) {
   field(DESC, &quot;The log host IP address&quot;)
   field(SCAN, &quot;I/O Intr&quot;)
   field(PINI, &quot;1&quot;)
@@ -687,7 +687,7 @@ record(waveform, &quot;$(IOC):LCLSGeneral:LogHost_RBV&quot;) {
   field(NELM, &quot;15&quot;)
 }
 
-record(waveform, &quot;$(IOC):LCLSGeneral:LogHost&quot;) {
+record(waveform, &quot;$(PREFIX)LCLSGeneral:LogHost&quot;) {
   field(DESC, &quot;The log host IP address&quot;)
   field(DTYP, &quot;asynInt8ArrayOut&quot;)
   field(INP, &quot;@asyn($(PORT),0,1)ADSPORT=851/GVL_Logger.cLogHost=&quot;)
@@ -889,6 +889,26 @@ record(bo, &quot;EM1K0:GMD:OVERRIDE_VAC&quot;) {
   field(DESC, &quot;ads:GVL_VARIABLES.xSystemOverrideMode&quot;)
   field(DTYP, &quot;asynInt32&quot;)
   field(OUT, &quot;@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.xSystemOverrideMode=&quot;)
+  field(ZNAM, &quot;Zero&quot;)
+  field(ONAM, &quot;One&quot;)
+  info(autosaveFields_pass0, &quot;VAL&quot;)
+}
+
+record(bi, &quot;EM1K0:GMD:AUTO_VVC_40_RBV&quot;) {
+  field(DESC, &quot;ads:GVL_VARIABLES.bAutoVVC40&quot;)
+  field(SCAN, &quot;I/O Intr&quot;)
+  field(PINI, &quot;1&quot;)
+  field(TSE, &quot;-2&quot;)
+  field(DTYP, &quot;asynInt32&quot;)
+  field(INP, &quot;@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.bAutoVVC40?&quot;)
+  field(ZNAM, &quot;Zero&quot;)
+  field(ONAM, &quot;One&quot;)
+}
+
+record(bo, &quot;EM1K0:GMD:AUTO_VVC_40&quot;) {
+  field(DESC, &quot;ads:GVL_VARIABLES.bAutoVVC40&quot;)
+  field(DTYP, &quot;asynInt32&quot;)
+  field(OUT, &quot;@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bAutoVVC40=&quot;)
   field(ZNAM, &quot;Zero&quot;)
   field(ONAM, &quot;One&quot;)
   info(autosaveFields_pass0, &quot;VAL&quot;)
@@ -2465,26 +2485,6 @@ record(bi, &quot;EM1K0:GMD:RTD:1:ERR_RBV&quot;) {
   field(INP, &quot;@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_INJ.RTD.bError?&quot;)
   field(ZNAM, &quot;Zero&quot;)
   field(ONAM, &quot;One&quot;)
-}
-
-record(bi, &quot;EM1K0:GMD:AUTO_VVC_40_RBV&quot;) {
-  field(DESC, &quot;ads:GVL_VARIABLES.bAutoVVC40&quot;)
-  field(SCAN, &quot;I/O Intr&quot;)
-  field(PINI, &quot;1&quot;)
-  field(TSE, &quot;-2&quot;)
-  field(DTYP, &quot;asynInt32&quot;)
-  field(INP, &quot;@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.bAutoVVC40?&quot;)
-  field(ZNAM, &quot;Zero&quot;)
-  field(ONAM, &quot;One&quot;)
-}
-
-record(bo, &quot;EM1K0:GMD:AUTO_VVC_40&quot;) {
-  field(DESC, &quot;ads:GVL_VARIABLES.bAutoVVC40&quot;)
-  field(DTYP, &quot;asynInt32&quot;)
-  field(OUT, &quot;@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bAutoVVC40=&quot;)
-  field(ZNAM, &quot;Zero&quot;)
-  field(ONAM, &quot;One&quot;)
-  info(autosaveFields_pass0, &quot;VAL&quot;)
 }
 
 record(ai, &quot;EM1K0:GMD:GPI:10:PRESS_RBV&quot;) {
@@ -7132,7 +7132,7 @@ record(bi, &quot;EM1K0:GMD:VVC:40:OPN_DO_RBV&quot;) {
       &copy;2019, SLAC National Accelerator Laboratory.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
