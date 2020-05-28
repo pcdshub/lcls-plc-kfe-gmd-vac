@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <POU Name="F_TurboGateValve_Protection_ILK_local" Id="{3b9d2a88-eed5-4de0-bf75-89928e7b332f}" SpecialFunc="None">
+    <Declaration><![CDATA[(* This Function Block evaluates the ILK condition of the Turbo Gate valve *)
+(* The logic Protects the Turbo pump from inlet pressure above the SP*)
+(* And Protects the Turbo pump from backing pressure above the SP*)
+(* And Protects the Turbo pump in the case of backing pump not running*)
+
+(* This is to be used whle the vacuum library has not yet updated to watch for the pumpRUNNING state. Switch to the vacuum library's version at earliest convenience. *)
+
+FUNCTION F_TurboGateValve_Protection_ILK_local : BOOL(* function return TRUE when ILK is OK*)
+VAR_INPUT
+	i_Turbo : ST_PTM; // Turbo Pump
+	i_stISG : ST_VG; //Gauge measuring inlet Pressure e.g Pirani
+	i_stBSG : ST_VG; //Gauge measuring backing Pressure e.g Pirani
+	ScrollPump	:	ST_RoughPump; // Roughing pump
+END_VAR
+VAR
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* This Function Block evaluates the ILK condition of the Turbo Gate valve *)
+(* The logic Protects the Turbo pump from inlet pressure above the SP*)
+F_TurboGateValve_Protection_ILK_local := (i_Turbo.eState = pumpRUNNING)
+						AND (i_stISG.xPRESS_OK AND i_stISG.rPRESS < i_Turbo.rInletPressureSP)
+						AND (i_stBSG.xPRESS_OK AND i_stBSG.rPRESS < i_Turbo.rBackingPressureSP)
+						AND (ScrollPump.eState = pumpRUNNING);
+]]></ST>
+    </Implementation>
+    <LineIds Name="F_TurboGateValve_Protection_ILK_local">
+      <LineId Id="22" Count="5" />
+      <LineId Id="7" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
