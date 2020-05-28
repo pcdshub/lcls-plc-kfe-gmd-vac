@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <POU Name="PRG_VGP" Id="{8930a62c-e5aa-41cb-8f40-588ee8e873ab}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_VGP
 VAR
