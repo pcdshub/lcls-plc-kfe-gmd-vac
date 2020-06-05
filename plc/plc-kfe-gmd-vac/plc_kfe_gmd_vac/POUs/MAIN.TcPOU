@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
   <POU Name="MAIN" Id="{80634dbc-d649-47af-a183-d3f1342ca1c9}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
+		vgp_debug_mode : BOOL;
+	
+	gas_selection_debug_mode : BOOL := TRUE;
 END_VAR
 
     ]]></Declaration>
@@ -14,18 +17,18 @@ PRG_GMD();
 (*INJ*)
 PRG_INJ();
 PRG_PressureControl();
-//PRG_Purge();
-//call orther PRG
+
+IF NOT vgp_debug_mode THEN
+	PRG_VGP(); // Keep commented out, test VGP  through axis until positions are verfified
+END_IF
+
+//TO Be tested
+IF NOT gas_selection_debug_mode THEN
+	PRG_Purge();
+	PRG_Gas_Selection();
+END_IF
 
 // instaniate the RTD and HV]]></ST>
     </Implementation>
-    <LineIds Name="MAIN">
-      <LineId Id="13" Count="0" />
-      <LineId Id="7" Count="0" />
-      <LineId Id="18" Count="1" />
-      <LineId Id="8" Count="0" />
-      <LineId Id="21" Count="4" />
-      <LineId Id="20" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

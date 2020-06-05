@@ -1,23 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
   <DUT Name="ST_VGP" Id="{4bbaa8fe-fc94-469a-8575-48b17c1a966d}">
     <Declaration><![CDATA[TYPE ST_VGP :
 STRUCT
 
 	{attribute 'pytmc' := '
-    pv: POS_RDBK;
+    pv: POS_RBV;
 	io: i;
     '}
 	// Inputs
 	i_iPosition	:	REAL; //Encoder position readback (if it exists)
 	{attribute 'pytmc' := '
-    pv: ENC_RDBK;
+    pv: ENC_RBV;
 	io: i;
     '}
 	// Inputs
 	rEnoder_Position	:	REAL; //Encoder position readback (if it exists)
 	{attribute 'pytmc' := '
     pv: ERROR;
+	field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
 	io: i;
     '}
 	// Inputs
@@ -25,43 +27,72 @@ STRUCT
 	
 	{attribute 'pytmc' := '
     pv: IS_HOMED;
+	field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
 	io: i;
     '}
 	// Inputs
 	pv_xHomed	:	BOOL :=false;
 	
+	
 	//Softvariables
 	{attribute 'pytmc' := '
     pv: ILK_OK;
+	field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
 	io: i;
     '}
 	xIlkOK	:	BOOL := FALSE; // Interlock Bit
 	//Manually Pressing valve "Open/Close" on EDM
 	{attribute 'pytmc' := '
     pv: OPN_SW;
+	field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
 	io: io;
     '}
 	pv_xOPN_SW	: BOOL;
 	
 	{attribute 'pytmc' := '
     pv: GO_SW;
+	field: ZNAM FALSE; 
+	field: ONAM TRUE; 
 	io: io;
     '}
 	pv_xGo_SW	: BOOL;
 	
 	{attribute 'pytmc' := '
     pv: HOME_SW;
+	field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
 	io: io;
     '}
 	pv_xHome_SW	: BOOL;
 	
 	{attribute 'pytmc' := '
+    pv: Reset_SW;
+	field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
+	io: io;
+    '}
+	pv_xReset_SW	: BOOL;
+	
+	{attribute 'pytmc' := '
+    pv: Busy;
+	field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
+	io: io;
+    '}
+	xBusy	: BOOL;
+	
+	{attribute 'pytmc' := '
     pv: ABORT;
+	 field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
 	io: io;
     '}
 	pv_xABORT_SW	: BOOL;
 	
-	rUpperLimit	:	REAL:=100;	//Percentage Upper limit on valve open
+	
 	{attribute 'pytmc' := '
 	pv: POS_CTRL;
 	io: io; 
@@ -79,7 +110,7 @@ STRUCT
 	field: ZRST CLOSE ;
 	field: ONST OPEN;
 	field: TWST PRESS CNTRL ;
-	field: THST MANUAL CNTRL ;
+	field: THST MANUAL CNTRL ;;
 	io: io;
 	'}
 	eValveControl	:	E_VCN := CloseValve; // Valve control state
@@ -88,8 +119,19 @@ STRUCT
 	pv: Axis_STATE;
 	io: io;
 	'}
-	state: E_MoveState; //Axis Move state
+	eState: E_MoveState; //Axis Move state
 	ftIlk	:	F_TRIG;	
+	{attribute 'pytmc' := '
+	pv: ERR_ID;
+	io: i; 
+	'}
+	nErrorID: UDINT;
+
+	{attribute 'pytmc' := '
+	pv: ERR_MSG;
+	io: i; 
+	'}
+	sErrorMessage : STRING;
 
 END_STRUCT
 END_TYPE
