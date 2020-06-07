@@ -110,7 +110,7 @@ STRUCT
 	field: ZRST CLOSE ;
 	field: ONST OPEN;
 	field: TWST PRESS CNTRL ;
-	field: THST MANUAL CNTRL ;;
+	field: THST MANUAL CNTRL ;
 	io: io;
 	'}
 	eValveControl	:	E_VCN := CloseValve; // Valve control state

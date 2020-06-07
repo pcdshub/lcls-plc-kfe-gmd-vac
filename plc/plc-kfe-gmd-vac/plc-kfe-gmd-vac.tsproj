@@ -2064,12 +2064,16 @@ External Setpoint Generation:
 						<General UnitName="steps"/>
 						<Velo SlowManual="20" FastManual="30" Maximum="1800"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
+						<ParameterChanged>257</ParameterChanged>
+						<ParameterChanged>18</ParameterChanged>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="4">
 						<EncPara ScaleFactorNumerator="0.0390625" Inverse="true" MaxCount="#x0000ffff">
-							<SoftEndMinControl Enable="true" Range="-20"/>
-							<SoftEndMaxControl Enable="true" Range="1650"/>
+							<SoftEndMinControl Enable="true" Range="-15"/>
+							<SoftEndMaxControl Enable="true" Range="1655"/>
 							<Inc RefMode="2" RefSoftSyncMask="#x0000ffff"/>
+							<ParameterChanged>14</ParameterChanged>
+							<ParameterChanged>13</ParameterChanged>
 						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
@@ -2129,7 +2133,7 @@ External Setpoint Generation:
 					</Encoder>
 					<Drive Name="Drive" DrvType="24">
 						<DrvPara>
-							<Analog VeloReferenz="2000" ScaleFactorActTorque="0.1"/>
+							<Analog VeloReferenz="1000" ScaleFactorActTorque="0.1"/>
 							<TimeComp TaskDelayCycles="1"/>
 						</DrvPara>
 						<Vars VarGrpType="1">
@@ -2203,7 +2207,7 @@ External Setpoint Generation:
 					</Drive>
 					<Controller Name="Ctrl" CtrType="1">
 						<CtrPara PriorControlFactor="1">
-							<PosDiffControl Range="50"/>
+							<PosDiffControl Range="10"/>
 							<Observer BandWidth="20"/>
 						</CtrPara>
 					</Controller>
