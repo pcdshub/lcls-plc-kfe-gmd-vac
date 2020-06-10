@@ -14,12 +14,14 @@ END_VAR
     <Implementation>
       <ST><![CDATA[F_TURBO_PROT_SLND_ILK := (i_stISG.xPRESS_OK AND i_stISG.rPRESS < i_Turbo.rInletPressureSP)
 						    AND (i_stBSG.xPRESS_OK AND i_stBSG.rPRESS < i_Turbo.rBackingPressureSP)
-                            AND (ScrollPump.eState = pumpRUNNING);]]></ST>
+                            AND (ScrollPump.eState = pumpRUNNING)
+							AND (i_Turbo.eState = pumpRUNNING);]]></ST>
     </Implementation>
     <LineIds Name="F_TURBO_PROT_SLND_ILK">
       <LineId Id="7" Count="0" />
       <LineId Id="21" Count="0" />
       <LineId Id="20" Count="0" />
+      <LineId Id="31" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
