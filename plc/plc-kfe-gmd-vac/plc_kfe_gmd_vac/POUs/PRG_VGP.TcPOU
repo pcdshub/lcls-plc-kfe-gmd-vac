@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
   <POU Name="PRG_VGP" Id="{8930a62c-e5aa-41cb-8f40-588ee8e873ab}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_VGP
 VAR
@@ -40,28 +40,16 @@ THEN
 	bInit							:= FALSE;
 END_IF
 
- 
+VGP_40.i_xOpenIlkOK := (fb_EM1K0_GMD_PTM_40.iq_stPtm.eState = pumpRUNNING) ;
 VGP_40(
-	i_xExtIlkOK:= true(*GPI_50.IG.xAT_VAC*), 
+	i_xExtIlkOK:= (fb_EM1K0_GMD_PTM_40.iq_stPtm.eState = pumpRUNNING), 
 	i_ReqPos:= , 
 	arrTable:= arrTable , 
-	(*arrTable_ENC:= arrTable_ENC , *)
-	q_stVGP=> ); ]]></ST>
+	q_stVGP=> ); 
+	
+	
+ 
+]]></ST>
     </Implementation>
-    <LineIds Name="PRG_VGP">
-      <LineId Id="5" Count="0" />
-      <LineId Id="19" Count="0" />
-      <LineId Id="6" Count="0" />
-      <LineId Id="24" Count="12" />
-      <LineId Id="56" Count="4" />
-      <LineId Id="106" Count="1" />
-      <LineId Id="52" Count="0" />
-      <LineId Id="23" Count="0" />
-      <LineId Id="21" Count="0" />
-      <LineId Id="90" Count="0" />
-      <LineId Id="124" Count="0" />
-      <LineId Id="126" Count="4" />
-      <LineId Id="125" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
