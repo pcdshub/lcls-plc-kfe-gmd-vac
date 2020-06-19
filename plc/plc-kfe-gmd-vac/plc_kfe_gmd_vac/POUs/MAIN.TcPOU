@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <POU Name="MAIN" Id="{80634dbc-d649-47af-a183-d3f1342ca1c9}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
@@ -9,6 +9,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[PRG_DIAGNOSTIC();
 PRG_GMD();
+PRG_VAC_INTF();
 
 
 (*INJ*)
@@ -17,15 +18,20 @@ PRG_PressureControl();
 //PRG_Purge();
 //call orther PRG
 
-// instaniate the RTD and HV]]></ST>
+// instaniate the RTD and HV
+
+PRG_HV_ILK();]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="13" Count="0" />
       <LineId Id="7" Count="0" />
+      <LineId Id="30" Count="0" />
       <LineId Id="18" Count="1" />
       <LineId Id="8" Count="0" />
       <LineId Id="21" Count="4" />
       <LineId Id="20" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="35" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

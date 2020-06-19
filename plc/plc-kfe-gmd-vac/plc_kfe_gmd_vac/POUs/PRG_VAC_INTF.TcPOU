@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <POU Name="PRG_VAC_INTF" Id="{03dfdbac-33b6-48d6-ae39-4efb35fad270}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_VAC_INTF
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[ads_watch_dog(
+	sNetId := '172.21.92.61.1.1', // AMS NET ID of the PLC reading from this PLC (SXR Vacuum)
+	nPort := 851, // ADS port of the PLC reading from this PLC
+	sVarName := 'GVL_VAC_INTF.n_EM1K0_VAC_counter', // Full name of the UDINT provided to the 'iWatchdog' parameter in the interface functions on the PLC reading from this PLC 
+);]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_VAC_INTF">
+      <LineId Id="8" Count="3" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

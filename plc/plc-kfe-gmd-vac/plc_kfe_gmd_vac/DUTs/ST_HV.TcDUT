@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <DUT Name="ST_HV" Id="{595ba635-0869-4e35-ab9a-d45f350ae336}">
     <Declaration><![CDATA[TYPE ST_HV :
 STRUCT
@@ -7,19 +7,23 @@ STRUCT
     pv: HV_SW;
 	io: io;
     '}
-	HV_sw: BOOL:=false;
+	HV_sw: BOOL:=True; // EPICS control for switching the HV on or off. 
 	{attribute 'pytmc' := '
     pv: HV_DO;
 	io: i;
     '}
-	q_HV_DO: BOOL;
+	q_HV_DO: BOOL; // Readout of the HV's ouput value
 	{attribute 'pytmc' := '
     pv: ILK_OK;
 	io: i;
     '}
 	xIlkOK	:	BOOL := FALSE; // Interlock Bit
+	{attribute 'pytmc' := '
+    pv: PRO_SP;
+	io: io;
+    '}		
+	rPRO_SP: REAL := 0.0001; // Pressure below which the HV signal may turn o
 END_STRUCT
-END_TYPE
-]]></Declaration>
+END_TYPE]]></Declaration>
   </DUT>
 </TcPlcObject>

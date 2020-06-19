@@ -45,10 +45,10 @@
 	GFM_83 :FB_PressureTransducer;	
 
 (*HV*)
-	{attribute 'pytmc' :=' pv: EM1K0:GMD:HV:1 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:PSV:1 '}
 	hv1 : FB_HighVoltage;
-	{attribute 'pytmc' :=' pv: EM1K0:GMD:HV:2 '}
-	hv2 : FB_HighVoltage;
+	// {attribute 'pytmc' :=' pv: EM1K0:GMD:HV:2 '}
+	// hv2 : FB_HighVoltage;
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:RTD:1 '}
 	RTD : FB_RTD;
 
