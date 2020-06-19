@@ -64,6 +64,9 @@
     <Compile Include="POUs\FB_VGP.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\F_HV_ILK.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\F_TurboGateValve_Protection_ILK_local.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -108,13 +111,13 @@
     <Folder Include="POUs" />
   </ItemGroup>
   <ItemGroup>
-    <PlaceholderReference Include="L2SI Vacuum Library">
-      <DefaultResolution>L2SI Vacuum Library, * (SLAC)</DefaultResolution>
-      <Namespace>L2SI_Vacuum_Library</Namespace>
-    </PlaceholderReference>
     <PlaceholderReference Include="LCLS General">
       <DefaultResolution>LCLS General, * (SLAC)</DefaultResolution>
       <Namespace>LCLS_General</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="LCLS Vacuum">
+      <DefaultResolution>LCLS Vacuum, * (SLAC - LCLS)</DefaultResolution>
+      <Namespace>LCLS_Vacuum</Namespace>
     </PlaceholderReference>
     <PlaceholderReference Include="PMPS">
       <DefaultResolution>PMPS, * (SLAC - LCLS)</DefaultResolution>
@@ -146,17 +149,11 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <PlaceholderResolution Include="L2SI Vacuum Library">
-      <Resolution>L2SI Vacuum Library, * (SLAC)</Resolution>
-    </PlaceholderResolution>
     <PlaceholderResolution Include="LCLS General">
       <Resolution>LCLS General, * (SLAC)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="PMPS">
       <Resolution>PMPS, * (SLAC - LCLS)</Resolution>
-    </PlaceholderResolution>
-    <PlaceholderResolution Include="Tc2_Utilities">
-      <Resolution>Tc2_Utilities, 3.3.36.0 (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
   </ItemGroup>
   <ItemGroup>

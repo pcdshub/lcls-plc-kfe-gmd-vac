@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.7">
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.4">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
@@ -2237,7 +2237,7 @@ External Setpoint Generation:
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
-							<Name>L2SI_Vacuum_Library.Global_Variables.g_stSystem.I_EcatMaster1</Name>
+							<Name>LCLS_Vacuum.LCLSVacuumSerialDriverLib.L2SI_Vacuum_Library.Global_Variables.g_stSystem.I_EcatMaster1</Name>
 							<Comment><![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]></Comment>
 							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
 						</Var>
@@ -2249,19 +2249,6 @@ External Setpoint Generation:
 						<Var>
 							<Name>PRG_DIAGNOSTIC.simHeartbeat</Name>
 							<Type>UINT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_INJ.VGP_40.Axis.NcToPlc</Name>
-							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>GVL_INJ.VGP_40.InfoData_State</Name>
-							<Type>UINT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_INJ.GCM_80.i_iPRESS_R</Name>
-							<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>GVL_INJ.GFM_86.iError</Name>
@@ -2320,9 +2307,27 @@ External Setpoint Generation:
 							<Type>INT</Type>
 						</Var>
 						<Var>
+							<Name>LCLS_Vacuum.Global_Variables.g_stSystem.I_EcatMaster1</Name>
+							<Comment><![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]></Comment>
+							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+						</Var>
+						<Var>
+							<Name>GVL_INJ.GCM_80.i_iPRESS_R</Name>
+							<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
 							<Name>GVL_GMD.fb_EM1K0_GMD_GPI_10.i_iPRESS_R</Name>
 							<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
 							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_INJ.VGP_40.Axis.NcToPlc</Name>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL_INJ.VGP_40.InfoData_State</Name>
+							<Type>UINT</Type>
 						</Var>
 						<Var>
 							<Name>GVL_GMD.fb_EM1K0_GMD_GPI_40.i_iPRESS_R</Name>
@@ -2395,22 +2400,22 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_PTM_70.i_xAtSpd</Name>
-							<Comment><![CDATA[ Normaml operation when true]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>GVL_GMD.fb_EM1K0_GMD_PTM_70.i_xFault</Name>
 							<Comment><![CDATA[ Error // this open collector output signal is ON when a system fault condition is detected]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_VRC_10.i_xOpnLS</Name>
-							<Comment><![CDATA[IO]]></Comment>
+							<Name>GVL_GMD.fb_EM1K0_GMD_VRC_10.i_xClsLS</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_VRC_10.i_xClsLS</Name>
+							<Name>GVL_GMD.fb_EM1K0_GMD_PTM_70.i_xAtSpd</Name>
+							<Comment><![CDATA[ Normaml operation when true]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_VRC_10.i_xOpnLS</Name>
+							<Comment><![CDATA[IO]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -2514,10 +2519,6 @@ IO]]></Comment>
 							<Type>INT</Type>
 						</Var>
 						<Var>
-							<Name>GVL_INJ.VGP_40.Axis.PlcToNc</Name>
-							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
 							<Name>GVL_INJ.VVC_80.q_xOPN_DO</Name>
 							<Comment><![CDATA[IO]]></Comment>
 							<Type>BOOL</Type>
@@ -2553,13 +2554,22 @@ IO]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_VVC_40.q_xOPN_DO</Name>
+							<Comment><![CDATA[IO]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>GVL_INJ.hv1.q_HV_DO</Name>
 							<Comment><![CDATA[outputs]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL_INJ.hv2.q_HV_DO</Name>
-							<Comment><![CDATA[outputs]]></Comment>
+							<Name>GVL_INJ.VGP_40.Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_PTM_40.q_RunDO</Name>
+							<Comment><![CDATA[ Start/Stop]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -2574,11 +2584,6 @@ IO]]></Comment>
 						</Var>
 						<Var>
 							<Name>GVL_GMD.fb_EM1K0_GMD_PTM_30.q_RunDO</Name>
-							<Comment><![CDATA[ Start/Stop]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_PTM_40.q_RunDO</Name>
 							<Comment><![CDATA[ Start/Stop]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
@@ -2671,30 +2676,22 @@ IO]]></Comment>
 							<Comment><![CDATA[ Remote/Local Control]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_VVC_40.q_xOPN_DO</Name>
-							<Comment><![CDATA[IO]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
 					</Vars>
 					<Vars VarGrpType="8">
 						<Name>PlcTask Retains</Name>
 						<Var>
 							<Name>PMPS_GVL.SuccessfulPreemption</Name>
 							<Comment><![CDATA[ Any time BPTM applies a new BP request which is confirmed]]></Comment>
-							<Type>ULINT</Type>
+							<Type>UDINT</Type>
 							<InOut>7</InOut>
 						</Var>
 						<Var>
 							<Name>PMPS_GVL.AccumulatedFF</Name>
 							<Comment><![CDATA[ Any time a FF occurs]]></Comment>
-							<Type>ULINT</Type>
+							<Type>UDINT</Type>
 							<InOut>7</InOut>
 						</Var>
 					</Vars>
-					<TaskPouOids>
-						<TaskPouOid Prio="20" OTCID="#x08502001"/>
-					</TaskPouOids>
 				</Instance>
 			</Project>
 			<Project Disabled="true" GUID="{DC13CF13-96D9-4602-AE14-580A603776E8}" Name="plc_kfe_gmd_vac_sim" PrjFilePath="plc_kfe_gmd_vac_sim\plc_kfe_gmd_vac_sim.plcproj" TmcFilePath="plc_kfe_gmd_vac_sim\plc_kfe_gmd_vac_sim.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e">
@@ -2749,9 +2746,6 @@ IO]]></Comment>
 				</AddressInfo>
 				<Image Id="1" AddrType="9" ImageType="3">
 					<Name>Image</Name>
-				</Image>
-				<Image Id="4" AddrType="10" ImageType="3">
-					<Name>Image-2</Name>
 				</Image>
 				<Box Id="1" BoxType="9099">
 					<Name>EK1200_00_00</Name>
@@ -3083,7 +3077,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
 							<SuName>Group 0: CX, Spares</SuName>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7000" Sub="#x01">
+								<Entry Name="GVL_INJ.hv1.q_HV_DO" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -9268,7 +9262,6 @@ Bit1: Value is greater than or equal to limit 2]]></Comment>
 		</Io>
 	</Project>
 	<Mappings>
-		<MappingInfo Identifier="{00000000-2001-0850-0020-500841000403}" Id="#x02030020"/>
 		<MappingInfo Identifier="{00000000-0010-0304-3000-040310000403}" Id="#x02030010"/>
 		<OwnerA Name="TINC^NC-Task 1 SAF^Axes^VGP_40">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EP5101-0011_05_01">
@@ -9476,6 +9469,9 @@ Bit1: Value is greater than or equal to limit 2]]></Comment>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_50.q_RunDO" VarB="Channel 5^Output"/>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_60.q_RunDO" VarB="Channel 6^Output"/>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_70.q_RunDO" VarB="Channel 7^Output"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1200_00_00^EL2794_00_06">
+				<Link VarA="PlcTask Outputs^GVL_INJ.hv1.q_HV_DO" VarB="Channel 1^GVL_INJ.hv1.q_HV_DO"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EP4374-0002_05_00">
 				<Link VarA="PlcTask Inputs^GVL_INJ.GCM_80.i_iPRESS_R" VarB="AI Inputs Channel 1^Value"/>

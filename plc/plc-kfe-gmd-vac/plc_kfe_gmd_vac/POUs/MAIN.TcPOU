@@ -18,7 +18,9 @@ PRG_PressureControl();
 //PRG_Purge();
 //call orther PRG
 
-// instaniate the RTD and HV]]></ST>
+// instaniate the RTD and HV
+
+PRG_HV_ILK();]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="13" Count="0" />
@@ -28,6 +30,8 @@ PRG_PressureControl();
       <LineId Id="8" Count="0" />
       <LineId Id="21" Count="4" />
       <LineId Id="20" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="35" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
