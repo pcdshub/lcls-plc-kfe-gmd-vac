@@ -14,7 +14,7 @@ record(longout, "simHeartbeat") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "$(IOC):LCLSGeneral:LogPort_RBV") {
+record(longin, "$(PREFIX)LCLSGeneral:LogPort_RBV") {
   field(DESC, "The log host UDP port")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -23,14 +23,14 @@ record(longin, "$(IOC):LCLSGeneral:LogPort_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_Logger.iLogPort?")
 }
 
-record(longout, "$(IOC):LCLSGeneral:LogPort") {
+record(longout, "$(PREFIX)LCLSGeneral:LogPort") {
   field(DESC, "The log host UDP port")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_Logger.iLogPort=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(waveform, "$(IOC):LCLSGeneral:LogHost_RBV") {
+record(waveform, "$(PREFIX)LCLSGeneral:LogHost_RBV") {
   field(DESC, "The log host IP address")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -41,7 +41,7 @@ record(waveform, "$(IOC):LCLSGeneral:LogHost_RBV") {
   field(NELM, "15")
 }
 
-record(waveform, "$(IOC):LCLSGeneral:LogHost") {
+record(waveform, "$(PREFIX)LCLSGeneral:LogHost") {
   field(DESC, "The log host IP address")
   field(DTYP, "asynInt8ArrayOut")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/GVL_Logger.cLogHost=")
@@ -211,6 +211,61 @@ record(mbbi, "EM1K0:GMD:VCN:40:STATE_RBV") {
   field(ONST, "Open")
   field(TWST, "PressureControl")
   field(THST, "ManualControl")
+}
+
+record(mbbo, "EM1K0:GMD:VCN:40:STATE") {
+  field(DESC, "ads:GVL_INJ.VCN_40.i...VCN.eValveControl")
+  field(DTYP, "asynInt32")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(THVL, "3")
+  field(ZRST, "Close")
+  field(ONST, "Open")
+  field(TWST, "PressureControl")
+  field(THST, "ManualControl")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_INJ.VCN_40.iq_stVCN.eValveControl=")
+  info(autosaveFields_pass0, "VAL")
+}
+
+record(bi, "EM1K0:GMD:OVERRIDE_VAC_RBV") {
+  field(DESC, "ads:GVL_VARIABLES.xSystemOverrideMode")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.xSystemOverrideMode?")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+}
+
+record(bo, "EM1K0:GMD:OVERRIDE_VAC") {
+  field(DESC, "ads:GVL_VARIABLES.xSystemOverrideMode")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.xSystemOverrideMode=")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  info(autosaveFields_pass0, "VAL")
+}
+
+record(bi, "EM1K0:GMD:AUTO_VVC_40_RBV") {
+  field(DESC, "ads:GVL_VARIABLES.bAutoVVC40")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.bAutoVVC40?")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+}
+
+record(bo, "EM1K0:GMD:AUTO_VVC_40") {
+  field(DESC, "ads:GVL_VARIABLES.bAutoVVC40")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bAutoVVC40=")
+  field(ZNAM, "Zero")
+  field(ONAM, "One")
+  info(autosaveFields_pass0, "VAL")
 }
 
 record(ai, "EM1K0:GMD:VGP:40:POS_RDBK_RBV") {
@@ -1078,8 +1133,8 @@ record(bi, "EM1K0:GMD:GCM:80:AT_VAC_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_INJ.GCM_80.VG.xAT_VAC?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(bi, "EM1K0:GMD:GCM:80:PRESS_OK_RBV") {
@@ -1105,15 +1160,17 @@ record(mbbi, "EM1K0:GMD:GCM:80:STATE_RBV") {
   field(TWVL, "3")
   field(THVL, "4")
   field(FRVL, "6")
-  field(FVVL, "11")
-  field(SXVL, "12")
+  field(FVVL, "10")
+  field(SXVL, "11")
+  field(SVVL, "12")
   field(ZRST, "PressInvalid")
   field(ONST, "GaugeDisconnected")
   field(TWST, "Off")
   field(THST, "Starting")
   field(FRST, "OoR")
-  field(FVST, "ValidHi")
-  field(SXST, "ValidLo")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GCM:80:HV_SW_RBV") {
@@ -1123,16 +1180,16 @@ record(bi, "EM1K0:GMD:GCM:80:HV_SW_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_INJ.GCM_80.VG.xHV_SW?")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 record(bo, "EM1K0:GMD:GCM:80:HV_SW") {
   field(DESC, "ads:GVL_INJ.GCM_80.VG.xHV_SW")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_INJ.GCM_80.VG.xHV_SW=")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
   info(autosaveFields_pass0, "VAL")
 }
 
@@ -1174,8 +1231,8 @@ record(bi, "EM1K0:GMD:GCM:80:HV_DIS_DO_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_INJ.GCM_80.VG.q_xHV_DIS?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(ai, "EM1K0:GMD:GCM:80:VAC_SP_RBV") {
@@ -1185,7 +1242,10 @@ record(ai, "EM1K0:GMD:GCM:80:VAC_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_INJ.GCM_80.VG.rVAC_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -1193,7 +1253,10 @@ record(ao, "EM1K0:GMD:GCM:80:VAC_SP") {
   field(DESC, "ads:GVL_INJ.GCM_80.VG.rVAC_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_INJ.GCM_80.VG.rVAC_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -1204,7 +1267,10 @@ record(ai, "EM1K0:GMD:GCM:80:PRO_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_INJ.GCM_80.VG.rPRO_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -1212,7 +1278,10 @@ record(ao, "EM1K0:GMD:GCM:80:PRO_SP") {
   field(DESC, "ads:GVL_INJ.GCM_80.VG.rPRO_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_INJ.GCM_80.VG.rPRO_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -1223,7 +1292,10 @@ record(ai, "EM1K0:GMD:GCM:80:SP_HYS_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_INJ.GCM_80.VG.rHYS_PR?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -1231,7 +1303,10 @@ record(ao, "EM1K0:GMD:GCM:80:SP_HYS") {
   field(DESC, "ads:GVL_INJ.GCM_80.VG.rHYS_PR")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_INJ.GCM_80.VG.rHYS_PR=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -1242,8 +1317,8 @@ record(bi, "EM1K0:GMD:GCM:80:ILK_OK_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_INJ.GCM_80.VG.xILKOk?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
 }
 
 record(ai, "EM1K0:GMD:GFM:86:PRESS_RBV") {
@@ -1758,7 +1833,7 @@ record(bi, "EM1K0:GMD:HV:2:ILK_OK_RBV") {
   field(ONAM, "One")
 }
 
-record(ai, "EM1K0:GEM:RTD:1:TEMP_RBV") {
+record(ai, "EM1K0:GMD:RTD:1:TEMP_RBV") {
   field(DESC, "ads:GVL_INJ.RTD.fTemp")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1769,7 +1844,7 @@ record(ai, "EM1K0:GEM:RTD:1:TEMP_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(bi, "EM1K0:GEM:RTD:1:CONN_RBV") {
+record(bi, "EM1K0:GMD:RTD:1:CONN_RBV") {
   field(DESC, "ads:GVL_INJ.RTD.bConnected")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1780,7 +1855,7 @@ record(bi, "EM1K0:GEM:RTD:1:CONN_RBV") {
   field(ONAM, "One")
 }
 
-record(bi, "EM1K0:GEM:RTD:1:ERR_RBV") {
+record(bi, "EM1K0:GMD:RTD:1:ERR_RBV") {
   field(DESC, "ads:GVL_INJ.RTD.bError")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1812,8 +1887,8 @@ record(bi, "EM1K0:GMD:GPI:10:AT_VAC_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xAT_VAC?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(bi, "EM1K0:GMD:GPI:10:PRESS_OK_RBV") {
@@ -1839,15 +1914,17 @@ record(mbbi, "EM1K0:GMD:GPI:10:STATE_RBV") {
   field(TWVL, "3")
   field(THVL, "4")
   field(FRVL, "6")
-  field(FVVL, "11")
-  field(SXVL, "12")
+  field(FVVL, "10")
+  field(SXVL, "11")
+  field(SVVL, "12")
   field(ZRST, "PressInvalid")
   field(ONST, "GaugeDisconnected")
   field(TWST, "Off")
   field(THST, "Starting")
   field(FRST, "OoR")
-  field(FVST, "ValidHi")
-  field(SXST, "ValidLo")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GPI:10:HV_SW_RBV") {
@@ -1857,16 +1934,16 @@ record(bi, "EM1K0:GMD:GPI:10:HV_SW_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xHV_SW?")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 record(bo, "EM1K0:GMD:GPI:10:HV_SW") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GPI_10.PG.xHV_SW")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xHV_SW=")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
   info(autosaveFields_pass0, "VAL")
 }
 
@@ -1908,8 +1985,8 @@ record(bi, "EM1K0:GMD:GPI:10:HV_DIS_DO_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.q_xHV_DIS?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(ai, "EM1K0:GMD:GPI:10:VAC_SP_RBV") {
@@ -1919,7 +1996,10 @@ record(ai, "EM1K0:GMD:GPI:10:VAC_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rVAC_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -1927,7 +2007,10 @@ record(ao, "EM1K0:GMD:GPI:10:VAC_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GPI_10.PG.rVAC_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rVAC_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -1938,7 +2021,10 @@ record(ai, "EM1K0:GMD:GPI:10:PRO_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rPRO_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -1946,7 +2032,10 @@ record(ao, "EM1K0:GMD:GPI:10:PRO_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GPI_10.PG.rPRO_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rPRO_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -1957,7 +2046,10 @@ record(ai, "EM1K0:GMD:GPI:10:SP_HYS_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rHYS_PR?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -1965,7 +2057,10 @@ record(ao, "EM1K0:GMD:GPI:10:SP_HYS") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GPI_10.PG.rHYS_PR")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.rHYS_PR=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -1976,8 +2071,8 @@ record(bi, "EM1K0:GMD:GPI:10:ILK_OK_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xILKOk?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
 }
 
 record(ai, "EM1K0:GMD:GPI:40:PRESS_RBV") {
@@ -2001,8 +2096,8 @@ record(bi, "EM1K0:GMD:GPI:40:AT_VAC_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xAT_VAC?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(bi, "EM1K0:GMD:GPI:40:PRESS_OK_RBV") {
@@ -2028,15 +2123,17 @@ record(mbbi, "EM1K0:GMD:GPI:40:STATE_RBV") {
   field(TWVL, "3")
   field(THVL, "4")
   field(FRVL, "6")
-  field(FVVL, "11")
-  field(SXVL, "12")
+  field(FVVL, "10")
+  field(SXVL, "11")
+  field(SVVL, "12")
   field(ZRST, "PressInvalid")
   field(ONST, "GaugeDisconnected")
   field(TWST, "Off")
   field(THST, "Starting")
   field(FRST, "OoR")
-  field(FVST, "ValidHi")
-  field(SXST, "ValidLo")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GPI:40:HV_SW_RBV") {
@@ -2046,16 +2143,16 @@ record(bi, "EM1K0:GMD:GPI:40:HV_SW_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xHV_SW?")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 record(bo, "EM1K0:GMD:GPI:40:HV_SW") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GPI_40.PG.xHV_SW")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xHV_SW=")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
   info(autosaveFields_pass0, "VAL")
 }
 
@@ -2097,8 +2194,8 @@ record(bi, "EM1K0:GMD:GPI:40:HV_DIS_DO_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.q_xHV_DIS?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(ai, "EM1K0:GMD:GPI:40:VAC_SP_RBV") {
@@ -2108,7 +2205,10 @@ record(ai, "EM1K0:GMD:GPI:40:VAC_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rVAC_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2116,7 +2216,10 @@ record(ao, "EM1K0:GMD:GPI:40:VAC_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GPI_40.PG.rVAC_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rVAC_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2127,7 +2230,10 @@ record(ai, "EM1K0:GMD:GPI:40:PRO_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rPRO_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2135,7 +2241,10 @@ record(ao, "EM1K0:GMD:GPI:40:PRO_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GPI_40.PG.rPRO_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rPRO_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2146,7 +2255,10 @@ record(ai, "EM1K0:GMD:GPI:40:SP_HYS_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rHYS_PR?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2154,7 +2266,10 @@ record(ao, "EM1K0:GMD:GPI:40:SP_HYS") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GPI_40.PG.rHYS_PR")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rHYS_PR=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2165,8 +2280,8 @@ record(bi, "EM1K0:GMD:GPI:40:ILK_OK_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xILKOk?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
 }
 
 record(ai, "EM1K0:GMD:GPI:70:PRESS_RBV") {
@@ -2190,8 +2305,8 @@ record(bi, "EM1K0:GMD:GPI:70:AT_VAC_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xAT_VAC?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(bi, "EM1K0:GMD:GPI:70:PRESS_OK_RBV") {
@@ -2217,15 +2332,17 @@ record(mbbi, "EM1K0:GMD:GPI:70:STATE_RBV") {
   field(TWVL, "3")
   field(THVL, "4")
   field(FRVL, "6")
-  field(FVVL, "11")
-  field(SXVL, "12")
+  field(FVVL, "10")
+  field(SXVL, "11")
+  field(SVVL, "12")
   field(ZRST, "PressInvalid")
   field(ONST, "GaugeDisconnected")
   field(TWST, "Off")
   field(THST, "Starting")
   field(FRST, "OoR")
-  field(FVST, "ValidHi")
-  field(SXST, "ValidLo")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GPI:70:HV_SW_RBV") {
@@ -2235,16 +2352,16 @@ record(bi, "EM1K0:GMD:GPI:70:HV_SW_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xHV_SW?")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 record(bo, "EM1K0:GMD:GPI:70:HV_SW") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GPI_70.PG.xHV_SW")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xHV_SW=")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
   info(autosaveFields_pass0, "VAL")
 }
 
@@ -2286,8 +2403,8 @@ record(bi, "EM1K0:GMD:GPI:70:HV_DIS_DO_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.q_xHV_DIS?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(ai, "EM1K0:GMD:GPI:70:VAC_SP_RBV") {
@@ -2297,7 +2414,10 @@ record(ai, "EM1K0:GMD:GPI:70:VAC_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rVAC_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2305,7 +2425,10 @@ record(ao, "EM1K0:GMD:GPI:70:VAC_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GPI_70.PG.rVAC_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rVAC_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2316,7 +2439,10 @@ record(ai, "EM1K0:GMD:GPI:70:PRO_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rPRO_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2324,7 +2450,10 @@ record(ao, "EM1K0:GMD:GPI:70:PRO_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GPI_70.PG.rPRO_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rPRO_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2335,7 +2464,10 @@ record(ai, "EM1K0:GMD:GPI:70:SP_HYS_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rHYS_PR?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2343,7 +2475,10 @@ record(ao, "EM1K0:GMD:GPI:70:SP_HYS") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GPI_70.PG.rHYS_PR")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rHYS_PR=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2354,8 +2489,8 @@ record(bi, "EM1K0:GMD:GPI:70:ILK_OK_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xILKOk?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
 }
 
 record(bi, "EM1K0:GMD:PTM:10:RUN_SW_RBV") {
@@ -2491,7 +2626,10 @@ record(ai, "EM1K0:GMD:PTM:10:BP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.rBackingPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2499,7 +2637,10 @@ record(ao, "EM1K0:GMD:PTM:10:BP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...BackingPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.rBackingPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2510,7 +2651,10 @@ record(ai, "EM1K0:GMD:PTM:10:IP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.rInletPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2518,7 +2662,10 @@ record(ao, "EM1K0:GMD:PTM:10:IP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0....rInletPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_10.iq_stPtm.rInletPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2533,10 +2680,12 @@ record(mbbi, "EM1K0:GMD:PTM:10:STATE_RBV") {
   field(ONVL, "1")
   field(TWVL, "2")
   field(THVL, "3")
+  field(FRVL, "4")
   field(ZRST, "STOPPED")
   field(ONST, "STARTING")
   field(TWST, "RUNNING")
   field(THST, "FAULT")
+  field(FRST, "pumpSTOPPING")
 }
 
 record(longin, "EM1K0:GMD:PTM:10:CURR_MON_RBV") {
@@ -2681,7 +2830,10 @@ record(ai, "EM1K0:GMD:PTM:20:BP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.rBackingPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2689,7 +2841,10 @@ record(ao, "EM1K0:GMD:PTM:20:BP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...BackingPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.rBackingPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2700,7 +2855,10 @@ record(ai, "EM1K0:GMD:PTM:20:IP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.rInletPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2708,7 +2866,10 @@ record(ao, "EM1K0:GMD:PTM:20:IP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0....rInletPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_20.iq_stPtm.rInletPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2723,10 +2884,12 @@ record(mbbi, "EM1K0:GMD:PTM:20:STATE_RBV") {
   field(ONVL, "1")
   field(TWVL, "2")
   field(THVL, "3")
+  field(FRVL, "4")
   field(ZRST, "STOPPED")
   field(ONST, "STARTING")
   field(TWST, "RUNNING")
   field(THST, "FAULT")
+  field(FRST, "pumpSTOPPING")
 }
 
 record(longin, "EM1K0:GMD:PTM:20:CURR_MON_RBV") {
@@ -2871,7 +3034,10 @@ record(ai, "EM1K0:GMD:PTM:30:BP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.rBackingPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2879,7 +3045,10 @@ record(ao, "EM1K0:GMD:PTM:30:BP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...BackingPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.rBackingPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2890,7 +3059,10 @@ record(ai, "EM1K0:GMD:PTM:30:IP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.rInletPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -2898,7 +3070,10 @@ record(ao, "EM1K0:GMD:PTM:30:IP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0....rInletPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_30.iq_stPtm.rInletPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -2913,10 +3088,12 @@ record(mbbi, "EM1K0:GMD:PTM:30:STATE_RBV") {
   field(ONVL, "1")
   field(TWVL, "2")
   field(THVL, "3")
+  field(FRVL, "4")
   field(ZRST, "STOPPED")
   field(ONST, "STARTING")
   field(TWST, "RUNNING")
   field(THST, "FAULT")
+  field(FRST, "pumpSTOPPING")
 }
 
 record(longin, "EM1K0:GMD:PTM:30:CURR_MON_RBV") {
@@ -3061,7 +3238,10 @@ record(ai, "EM1K0:GMD:PTM:40:BP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.rBackingPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -3069,7 +3249,10 @@ record(ao, "EM1K0:GMD:PTM:40:BP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...BackingPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.rBackingPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -3080,7 +3263,10 @@ record(ai, "EM1K0:GMD:PTM:40:IP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.rInletPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -3088,7 +3274,10 @@ record(ao, "EM1K0:GMD:PTM:40:IP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0....rInletPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_40.iq_stPtm.rInletPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -3103,10 +3292,12 @@ record(mbbi, "EM1K0:GMD:PTM:40:STATE_RBV") {
   field(ONVL, "1")
   field(TWVL, "2")
   field(THVL, "3")
+  field(FRVL, "4")
   field(ZRST, "STOPPED")
   field(ONST, "STARTING")
   field(TWST, "RUNNING")
   field(THST, "FAULT")
+  field(FRST, "pumpSTOPPING")
 }
 
 record(longin, "EM1K0:GMD:PTM:40:CURR_MON_RBV") {
@@ -3251,7 +3442,10 @@ record(ai, "EM1K0:GMD:PTM:50:BP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.rBackingPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -3259,7 +3453,10 @@ record(ao, "EM1K0:GMD:PTM:50:BP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...BackingPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.rBackingPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -3270,7 +3467,10 @@ record(ai, "EM1K0:GMD:PTM:50:IP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.rInletPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -3278,7 +3478,10 @@ record(ao, "EM1K0:GMD:PTM:50:IP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0....rInletPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_50.iq_stPtm.rInletPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -3293,10 +3496,12 @@ record(mbbi, "EM1K0:GMD:PTM:50:STATE_RBV") {
   field(ONVL, "1")
   field(TWVL, "2")
   field(THVL, "3")
+  field(FRVL, "4")
   field(ZRST, "STOPPED")
   field(ONST, "STARTING")
   field(TWST, "RUNNING")
   field(THST, "FAULT")
+  field(FRST, "pumpSTOPPING")
 }
 
 record(longin, "EM1K0:GMD:PTM:50:CURR_MON_RBV") {
@@ -3441,7 +3646,10 @@ record(ai, "EM1K0:GMD:PTM:60:BP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.rBackingPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -3449,7 +3657,10 @@ record(ao, "EM1K0:GMD:PTM:60:BP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...BackingPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.rBackingPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -3460,7 +3671,10 @@ record(ai, "EM1K0:GMD:PTM:60:IP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.rInletPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -3468,7 +3682,10 @@ record(ao, "EM1K0:GMD:PTM:60:IP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0....rInletPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_60.iq_stPtm.rInletPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -3483,10 +3700,12 @@ record(mbbi, "EM1K0:GMD:PTM:60:STATE_RBV") {
   field(ONVL, "1")
   field(TWVL, "2")
   field(THVL, "3")
+  field(FRVL, "4")
   field(ZRST, "STOPPED")
   field(ONST, "STARTING")
   field(TWST, "RUNNING")
   field(THST, "FAULT")
+  field(FRST, "pumpSTOPPING")
 }
 
 record(longin, "EM1K0:GMD:PTM:60:CURR_MON_RBV") {
@@ -3631,7 +3850,10 @@ record(ai, "EM1K0:GMD:PTM:70:BP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.rBackingPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -3639,7 +3861,10 @@ record(ao, "EM1K0:GMD:PTM:70:BP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...BackingPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.rBackingPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -3650,7 +3875,10 @@ record(ai, "EM1K0:GMD:PTM:70:IP_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.rInletPressureSP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -3658,7 +3886,10 @@ record(ao, "EM1K0:GMD:PTM:70:IP_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0....rInletPressureSP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_PTM_70.iq_stPtm.rInletPressureSP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -3673,10 +3904,12 @@ record(mbbi, "EM1K0:GMD:PTM:70:STATE_RBV") {
   field(ONVL, "1")
   field(TWVL, "2")
   field(THVL, "3")
+  field(FRVL, "4")
   field(ZRST, "STOPPED")
   field(ONST, "STARTING")
   field(TWST, "RUNNING")
   field(THST, "FAULT")
+  field(FRST, "pumpSTOPPING")
 }
 
 record(longin, "EM1K0:GMD:PTM:70:CURR_MON_RBV") {
@@ -4801,8 +5034,8 @@ record(bi, "EM1K0:GMD:GCC:10:AT_VAC_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xAT_VAC?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(bi, "EM1K0:GMD:GCC:10:PRESS_OK_RBV") {
@@ -4828,15 +5061,17 @@ record(mbbi, "EM1K0:GMD:GCC:10:STATE_RBV") {
   field(TWVL, "3")
   field(THVL, "4")
   field(FRVL, "6")
-  field(FVVL, "11")
-  field(SXVL, "12")
+  field(FVVL, "10")
+  field(SXVL, "11")
+  field(SVVL, "12")
   field(ZRST, "PressInvalid")
   field(ONST, "GaugeDisconnected")
   field(TWST, "Off")
   field(THST, "Starting")
   field(FRST, "OoR")
-  field(FVST, "ValidHi")
-  field(SXST, "ValidLo")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GCC:10:HV_SW_RBV") {
@@ -4846,16 +5081,16 @@ record(bi, "EM1K0:GMD:GCC:10:HV_SW_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xHV_SW?")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 record(bo, "EM1K0:GMD:GCC:10:HV_SW") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_10.IG.xHV_SW")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xHV_SW=")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
   info(autosaveFields_pass0, "VAL")
 }
 
@@ -4897,8 +5132,8 @@ record(bi, "EM1K0:GMD:GCC:10:HV_DIS_DO_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.q_xHV_DIS?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(ai, "EM1K0:GMD:GCC:10:VAC_SP_RBV") {
@@ -4908,7 +5143,10 @@ record(ai, "EM1K0:GMD:GCC:10:VAC_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rVAC_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -4916,7 +5154,10 @@ record(ao, "EM1K0:GMD:GCC:10:VAC_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_10.IG.rVAC_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rVAC_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -4927,7 +5168,10 @@ record(ai, "EM1K0:GMD:GCC:10:PRO_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rPRO_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -4935,7 +5179,10 @@ record(ao, "EM1K0:GMD:GCC:10:PRO_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_10.IG.rPRO_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rPRO_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -4946,7 +5193,10 @@ record(ai, "EM1K0:GMD:GCC:10:SP_HYS_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rHYS_PR?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -4954,7 +5204,10 @@ record(ao, "EM1K0:GMD:GCC:10:SP_HYS") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_10.IG.rHYS_PR")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.rHYS_PR=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -4965,8 +5218,8 @@ record(bi, "EM1K0:GMD:GCC:10:ILK_OK_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xILKOk?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
 }
 
 record(ai, "EM1K0:GMD:GCC:20:PRESS_RBV") {
@@ -4990,8 +5243,8 @@ record(bi, "EM1K0:GMD:GCC:20:AT_VAC_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xAT_VAC?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(bi, "EM1K0:GMD:GCC:20:PRESS_OK_RBV") {
@@ -5017,15 +5270,17 @@ record(mbbi, "EM1K0:GMD:GCC:20:STATE_RBV") {
   field(TWVL, "3")
   field(THVL, "4")
   field(FRVL, "6")
-  field(FVVL, "11")
-  field(SXVL, "12")
+  field(FVVL, "10")
+  field(SXVL, "11")
+  field(SVVL, "12")
   field(ZRST, "PressInvalid")
   field(ONST, "GaugeDisconnected")
   field(TWST, "Off")
   field(THST, "Starting")
   field(FRST, "OoR")
-  field(FVST, "ValidHi")
-  field(SXST, "ValidLo")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GCC:20:HV_SW_RBV") {
@@ -5035,16 +5290,16 @@ record(bi, "EM1K0:GMD:GCC:20:HV_SW_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xHV_SW?")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 record(bo, "EM1K0:GMD:GCC:20:HV_SW") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_20.IG.xHV_SW")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xHV_SW=")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
   info(autosaveFields_pass0, "VAL")
 }
 
@@ -5086,8 +5341,8 @@ record(bi, "EM1K0:GMD:GCC:20:HV_DIS_DO_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.q_xHV_DIS?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(ai, "EM1K0:GMD:GCC:20:VAC_SP_RBV") {
@@ -5097,7 +5352,10 @@ record(ai, "EM1K0:GMD:GCC:20:VAC_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rVAC_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5105,7 +5363,10 @@ record(ao, "EM1K0:GMD:GCC:20:VAC_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_20.IG.rVAC_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rVAC_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5116,7 +5377,10 @@ record(ai, "EM1K0:GMD:GCC:20:PRO_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rPRO_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5124,7 +5388,10 @@ record(ao, "EM1K0:GMD:GCC:20:PRO_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_20.IG.rPRO_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rPRO_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5135,7 +5402,10 @@ record(ai, "EM1K0:GMD:GCC:20:SP_HYS_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rHYS_PR?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5143,7 +5413,10 @@ record(ao, "EM1K0:GMD:GCC:20:SP_HYS") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_20.IG.rHYS_PR")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rHYS_PR=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5154,8 +5427,8 @@ record(bi, "EM1K0:GMD:GCC:20:ILK_OK_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xILKOk?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
 }
 
 record(ai, "EM1K0:GMD:GCC:30:PRESS_RBV") {
@@ -5179,8 +5452,8 @@ record(bi, "EM1K0:GMD:GCC:30:AT_VAC_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xAT_VAC?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(bi, "EM1K0:GMD:GCC:30:PRESS_OK_RBV") {
@@ -5206,15 +5479,17 @@ record(mbbi, "EM1K0:GMD:GCC:30:STATE_RBV") {
   field(TWVL, "3")
   field(THVL, "4")
   field(FRVL, "6")
-  field(FVVL, "11")
-  field(SXVL, "12")
+  field(FVVL, "10")
+  field(SXVL, "11")
+  field(SVVL, "12")
   field(ZRST, "PressInvalid")
   field(ONST, "GaugeDisconnected")
   field(TWST, "Off")
   field(THST, "Starting")
   field(FRST, "OoR")
-  field(FVST, "ValidHi")
-  field(SXST, "ValidLo")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GCC:30:HV_SW_RBV") {
@@ -5224,16 +5499,16 @@ record(bi, "EM1K0:GMD:GCC:30:HV_SW_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xHV_SW?")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 record(bo, "EM1K0:GMD:GCC:30:HV_SW") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_30.IG.xHV_SW")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xHV_SW=")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
   info(autosaveFields_pass0, "VAL")
 }
 
@@ -5275,8 +5550,8 @@ record(bi, "EM1K0:GMD:GCC:30:HV_DIS_DO_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.q_xHV_DIS?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(ai, "EM1K0:GMD:GCC:30:VAC_SP_RBV") {
@@ -5286,7 +5561,10 @@ record(ai, "EM1K0:GMD:GCC:30:VAC_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rVAC_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5294,7 +5572,10 @@ record(ao, "EM1K0:GMD:GCC:30:VAC_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_30.IG.rVAC_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rVAC_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5305,7 +5586,10 @@ record(ai, "EM1K0:GMD:GCC:30:PRO_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rPRO_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5313,7 +5597,10 @@ record(ao, "EM1K0:GMD:GCC:30:PRO_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_30.IG.rPRO_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rPRO_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5324,7 +5611,10 @@ record(ai, "EM1K0:GMD:GCC:30:SP_HYS_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rHYS_PR?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5332,7 +5622,10 @@ record(ao, "EM1K0:GMD:GCC:30:SP_HYS") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_30.IG.rHYS_PR")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.rHYS_PR=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5343,8 +5636,8 @@ record(bi, "EM1K0:GMD:GCC:30:ILK_OK_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xILKOk?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
 }
 
 record(ai, "EM1K0:GMD:GCC:40:PRESS_RBV") {
@@ -5368,8 +5661,8 @@ record(bi, "EM1K0:GMD:GCC:40:AT_VAC_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xAT_VAC?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(bi, "EM1K0:GMD:GCC:40:PRESS_OK_RBV") {
@@ -5395,15 +5688,17 @@ record(mbbi, "EM1K0:GMD:GCC:40:STATE_RBV") {
   field(TWVL, "3")
   field(THVL, "4")
   field(FRVL, "6")
-  field(FVVL, "11")
-  field(SXVL, "12")
+  field(FVVL, "10")
+  field(SXVL, "11")
+  field(SVVL, "12")
   field(ZRST, "PressInvalid")
   field(ONST, "GaugeDisconnected")
   field(TWST, "Off")
   field(THST, "Starting")
   field(FRST, "OoR")
-  field(FVST, "ValidHi")
-  field(SXST, "ValidLo")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GCC:40:HV_SW_RBV") {
@@ -5413,16 +5708,16 @@ record(bi, "EM1K0:GMD:GCC:40:HV_SW_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xHV_SW?")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 record(bo, "EM1K0:GMD:GCC:40:HV_SW") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_40.IG.xHV_SW")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xHV_SW=")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
   info(autosaveFields_pass0, "VAL")
 }
 
@@ -5464,8 +5759,8 @@ record(bi, "EM1K0:GMD:GCC:40:HV_DIS_DO_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.q_xHV_DIS?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(ai, "EM1K0:GMD:GCC:40:VAC_SP_RBV") {
@@ -5475,7 +5770,10 @@ record(ai, "EM1K0:GMD:GCC:40:VAC_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rVAC_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5483,7 +5781,10 @@ record(ao, "EM1K0:GMD:GCC:40:VAC_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_40.IG.rVAC_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rVAC_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5494,7 +5795,10 @@ record(ai, "EM1K0:GMD:GCC:40:PRO_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rPRO_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5502,7 +5806,10 @@ record(ao, "EM1K0:GMD:GCC:40:PRO_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_40.IG.rPRO_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rPRO_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5513,7 +5820,10 @@ record(ai, "EM1K0:GMD:GCC:40:SP_HYS_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rHYS_PR?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5521,7 +5831,10 @@ record(ao, "EM1K0:GMD:GCC:40:SP_HYS") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_40.IG.rHYS_PR")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rHYS_PR=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5532,8 +5845,8 @@ record(bi, "EM1K0:GMD:GCC:40:ILK_OK_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xILKOk?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
 }
 
 record(ai, "EM1K0:GMD:GCC:50:PRESS_RBV") {
@@ -5557,8 +5870,8 @@ record(bi, "EM1K0:GMD:GCC:50:AT_VAC_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xAT_VAC?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(bi, "EM1K0:GMD:GCC:50:PRESS_OK_RBV") {
@@ -5584,15 +5897,17 @@ record(mbbi, "EM1K0:GMD:GCC:50:STATE_RBV") {
   field(TWVL, "3")
   field(THVL, "4")
   field(FRVL, "6")
-  field(FVVL, "11")
-  field(SXVL, "12")
+  field(FVVL, "10")
+  field(SXVL, "11")
+  field(SVVL, "12")
   field(ZRST, "PressInvalid")
   field(ONST, "GaugeDisconnected")
   field(TWST, "Off")
   field(THST, "Starting")
   field(FRST, "OoR")
-  field(FVST, "ValidHi")
-  field(SXST, "ValidLo")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GCC:50:HV_SW_RBV") {
@@ -5602,16 +5917,16 @@ record(bi, "EM1K0:GMD:GCC:50:HV_SW_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xHV_SW?")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 record(bo, "EM1K0:GMD:GCC:50:HV_SW") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_50.IG.xHV_SW")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xHV_SW=")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
   info(autosaveFields_pass0, "VAL")
 }
 
@@ -5653,8 +5968,8 @@ record(bi, "EM1K0:GMD:GCC:50:HV_DIS_DO_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.q_xHV_DIS?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(ai, "EM1K0:GMD:GCC:50:VAC_SP_RBV") {
@@ -5664,7 +5979,10 @@ record(ai, "EM1K0:GMD:GCC:50:VAC_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rVAC_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5672,7 +5990,10 @@ record(ao, "EM1K0:GMD:GCC:50:VAC_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_50.IG.rVAC_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rVAC_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5683,7 +6004,10 @@ record(ai, "EM1K0:GMD:GCC:50:PRO_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rPRO_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5691,7 +6015,10 @@ record(ao, "EM1K0:GMD:GCC:50:PRO_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_50.IG.rPRO_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rPRO_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5702,7 +6029,10 @@ record(ai, "EM1K0:GMD:GCC:50:SP_HYS_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rHYS_PR?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5710,7 +6040,10 @@ record(ao, "EM1K0:GMD:GCC:50:SP_HYS") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_50.IG.rHYS_PR")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.rHYS_PR=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5721,8 +6054,8 @@ record(bi, "EM1K0:GMD:GCC:50:ILK_OK_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xILKOk?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
 }
 
 record(ai, "EM1K0:GMD:GCC:60:PRESS_RBV") {
@@ -5746,8 +6079,8 @@ record(bi, "EM1K0:GMD:GCC:60:AT_VAC_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xAT_VAC?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(bi, "EM1K0:GMD:GCC:60:PRESS_OK_RBV") {
@@ -5773,15 +6106,17 @@ record(mbbi, "EM1K0:GMD:GCC:60:STATE_RBV") {
   field(TWVL, "3")
   field(THVL, "4")
   field(FRVL, "6")
-  field(FVVL, "11")
-  field(SXVL, "12")
+  field(FVVL, "10")
+  field(SXVL, "11")
+  field(SVVL, "12")
   field(ZRST, "PressInvalid")
   field(ONST, "GaugeDisconnected")
   field(TWST, "Off")
   field(THST, "Starting")
   field(FRST, "OoR")
-  field(FVST, "ValidHi")
-  field(SXST, "ValidLo")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GCC:60:HV_SW_RBV") {
@@ -5791,16 +6126,16 @@ record(bi, "EM1K0:GMD:GCC:60:HV_SW_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xHV_SW?")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 record(bo, "EM1K0:GMD:GCC:60:HV_SW") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_60.IG.xHV_SW")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xHV_SW=")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
   info(autosaveFields_pass0, "VAL")
 }
 
@@ -5842,8 +6177,8 @@ record(bi, "EM1K0:GMD:GCC:60:HV_DIS_DO_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.q_xHV_DIS?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(ai, "EM1K0:GMD:GCC:60:VAC_SP_RBV") {
@@ -5853,7 +6188,10 @@ record(ai, "EM1K0:GMD:GCC:60:VAC_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rVAC_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5861,7 +6199,10 @@ record(ao, "EM1K0:GMD:GCC:60:VAC_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_60.IG.rVAC_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rVAC_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5872,7 +6213,10 @@ record(ai, "EM1K0:GMD:GCC:60:PRO_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rPRO_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5880,7 +6224,10 @@ record(ao, "EM1K0:GMD:GCC:60:PRO_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_60.IG.rPRO_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rPRO_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5891,7 +6238,10 @@ record(ai, "EM1K0:GMD:GCC:60:SP_HYS_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rHYS_PR?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -5899,7 +6249,10 @@ record(ao, "EM1K0:GMD:GCC:60:SP_HYS") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_60.IG.rHYS_PR")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rHYS_PR=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -5910,8 +6263,8 @@ record(bi, "EM1K0:GMD:GCC:60:ILK_OK_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xILKOk?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
 }
 
 record(ai, "EM1K0:GMD:GCC:70:PRESS_RBV") {
@@ -5935,8 +6288,8 @@ record(bi, "EM1K0:GMD:GCC:70:AT_VAC_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xAT_VAC?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(bi, "EM1K0:GMD:GCC:70:PRESS_OK_RBV") {
@@ -5962,15 +6315,17 @@ record(mbbi, "EM1K0:GMD:GCC:70:STATE_RBV") {
   field(TWVL, "3")
   field(THVL, "4")
   field(FRVL, "6")
-  field(FVVL, "11")
-  field(SXVL, "12")
+  field(FVVL, "10")
+  field(SXVL, "11")
+  field(SVVL, "12")
   field(ZRST, "PressInvalid")
   field(ONST, "GaugeDisconnected")
   field(TWST, "Off")
   field(THST, "Starting")
   field(FRST, "OoR")
-  field(FVST, "ValidHi")
-  field(SXST, "ValidLo")
+  field(FVST, "Valid")
+  field(SXST, "ValidHi")
+  field(SVST, "ValidLo")
 }
 
 record(bi, "EM1K0:GMD:GCC:70:HV_SW_RBV") {
@@ -5980,16 +6335,16 @@ record(bi, "EM1K0:GMD:GCC:70:HV_SW_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xHV_SW?")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 record(bo, "EM1K0:GMD:GCC:70:HV_SW") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0..._GCC_70.IG.xHV_SW")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xHV_SW=")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
   info(autosaveFields_pass0, "VAL")
 }
 
@@ -6031,8 +6386,8 @@ record(bi, "EM1K0:GMD:GCC:70:HV_DIS_DO_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.q_xHV_DIS?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
 }
 
 record(ai, "EM1K0:GMD:GCC:70:VAC_SP_RBV") {
@@ -6042,7 +6397,10 @@ record(ai, "EM1K0:GMD:GCC:70:VAC_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rVAC_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -6050,7 +6408,10 @@ record(ao, "EM1K0:GMD:GCC:70:VAC_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_70.IG.rVAC_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rVAC_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -6061,7 +6422,10 @@ record(ai, "EM1K0:GMD:GCC:70:PRO_SP_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rPRO_SP?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -6069,7 +6433,10 @@ record(ao, "EM1K0:GMD:GCC:70:PRO_SP") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_70.IG.rPRO_SP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rPRO_SP=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -6080,7 +6447,10 @@ record(ai, "EM1K0:GMD:GCC:70:SP_HYS_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rHYS_PR?")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC")
 }
 
@@ -6088,7 +6458,10 @@ record(ao, "EM1K0:GMD:GCC:70:SP_HYS") {
   field(DESC, "ads:GVL_GMD.fb_EM1K0...GCC_70.IG.rHYS_PR")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rHYS_PR=")
-  field(PREC, "3")
+  field(PREC, "2")
+  field(EGU, "TORR")
+  field(HOPR, "1000")
+  field(LOPR, "0")
   info(autosaveFields_pass0, "PREC VAL")
 }
 
@@ -6099,8 +6472,8 @@ record(bi, "EM1K0:GMD:GCC:70:ILK_OK_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xILKOk?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "NOT OK")
+  field(ONAM, "OK")
 }
 
 record(bi, "EM1K0:GMD:PRT:40:RUN_SW_RBV") {
@@ -6189,10 +6562,12 @@ record(mbbi, "EM1K0:GMD:PRT:40:STATE_RBV") {
   field(ONVL, "1")
   field(TWVL, "2")
   field(THVL, "3")
+  field(FRVL, "4")
   field(ZRST, "STOPPED")
   field(ONST, "STARTING")
   field(TWST, "RUNNING")
   field(THST, "FAULT")
+  field(FRST, "pumpSTOPPING")
 }
 
 record(bi, "EM1K0:GMD:PRT:40:REMOTE_RBV") {
@@ -6235,4 +6610,86 @@ record(bi, "EM1K0:GMD:PRT:40:RUN_DI_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_PRT_40.stPump.i_xIsRun?")
   field(ZNAM, "Zero")
   field(ONAM, "One")
+}
+
+record(bi, "EM1K0:GMD:VVC:40:OPN_SW_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0...tValve.pv_xOPN_SW")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_VVC_40.iq_stValve.pv_xOPN_SW?")
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+}
+
+record(bo, "EM1K0:GMD:VVC:40:OPN_SW") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0...tValve.pv_xOPN_SW")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VVC_40.iq_stValve.pv_xOPN_SW=")
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
+  info(autosaveFields_pass0, "VAL")
+}
+
+record(bi, "EM1K0:GMD:VVC:40:FORCE_OPN_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._stValve.xOvrdOpn")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_VVC_40.iq_stValve.xOvrdOpn?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "OPEN")
+}
+
+record(bo, "EM1K0:GMD:VVC:40:FORCE_OPN") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0..._stValve.xOvrdOpn")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VVC_40.iq_stValve.xOvrdOpn=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "OPEN")
+  info(autosaveFields_pass0, "VAL")
+}
+
+record(bi, "EM1K0:GMD:VVC:40:OVRD_ON_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0...lve.xOverrideMode")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_VVC_40.iq_stValve.xOverrideMode?")
+  field(ZNAM, "Override ON")
+  field(ONAM, "Override OFF")
+}
+
+record(bo, "EM1K0:GMD:VVC:40:OVRD_ON") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0...lve.xOverrideMode")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VVC_40.iq_stValve.xOverrideMode=")
+  field(ZNAM, "Override ON")
+  field(ONAM, "Override OFF")
+  info(autosaveFields_pass0, "VAL")
+}
+
+record(bi, "EM1K0:GMD:VVC:40:OPN_OK_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0...q_stValve.xOPN_OK")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_VVC_40.iq_stValve.xOPN_OK?")
+  field(ZNAM, "OPN ILK NOT OK")
+  field(ONAM, "OPN ILK OK")
+}
+
+record(bi, "EM1K0:GMD:VVC:40:OPN_DO_RBV") {
+  field(DESC, "ads:GVL_GMD.fb_EM1K0...stValve.q_xOPN_DO")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_VVC_40.iq_stValve.q_xOPN_DO?")
+  field(ZNAM, "CLOSE")
+  field(ONAM, "OPEN")
 }
