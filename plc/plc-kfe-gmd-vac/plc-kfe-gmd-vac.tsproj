@@ -9480,6 +9480,10 @@ Bit1: Value is greater than or equal to limit 2]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL_INJ.GCM_80.i_iPRESS_R" VarB="AI Inputs Channel 1^Value"/>
 				<Link VarA="PlcTask Outputs^GVL_INJ.VCN_40.q_iRawPosition" VarB="AO Outputs Channel 3^Analog output"/>
 			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^VGP_40">
+				<Link VarA="PlcTask Inputs^GVL_INJ.VGP_40.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL_INJ.VGP_40.Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
 		</OwnerA>
 	</Mappings>
 </TcSmProject>
