@@ -20,7 +20,9 @@ PRG_PressureControl();
 
 // instaniate the RTD and HV
 
-PRG_HV_ILK();]]></ST>
+PRG_HV_ILK();
+
+fbLogHandler();]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="13" Count="0" />
@@ -32,6 +34,8 @@ PRG_HV_ILK();]]></ST>
       <LineId Id="20" Count="0" />
       <LineId Id="36" Count="0" />
       <LineId Id="35" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="41" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

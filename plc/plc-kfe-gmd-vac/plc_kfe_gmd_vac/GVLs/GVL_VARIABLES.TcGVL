@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <GVL Name="GVL_VARIABLES" Id="{f5eb425e-877f-4a98-b4fc-8b7970a753e9}">
     <Declaration><![CDATA[VAR_GLOBAL
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:OVERRIDE_VAC '}
@@ -16,6 +16,8 @@
 	bPurgeActive : BOOL:=false;
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:PurgeDone'}
 	bPurgeDone : BOOL :=false;
+	
+	fbLogHandler : FB_LogHandler;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
