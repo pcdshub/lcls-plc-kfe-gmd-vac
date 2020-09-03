@@ -17,45 +17,51 @@ PLC Project (1): plc_kfe_gmd_vac
         6.) plc_kfe_gmd_vac/DUTs/ST_VGP.TcDUT
         7.) plc_kfe_gmd_vac/GVLs/GVL_INJ.TcGVL
         8.) plc_kfe_gmd_vac/GVLs/GVL_GMD.TcGVL
-        9.) plc_kfe_gmd_vac/GVLs/GVL_VARIABLES.TcGVL
-        10.) plc_kfe_gmd_vac/PlcTask.TcTTO
-        11.) plc_kfe_gmd_vac/POUs/FB_HighVoltage.TcPOU
-        12.) plc_kfe_gmd_vac/POUs/FB_PressureTransducer.TcPOU
-        13.) plc_kfe_gmd_vac/POUs/FB_RTD.TcPOU
-        14.) plc_kfe_gmd_vac/POUs/FB_VGP.TcPOU
-        15.) plc_kfe_gmd_vac/POUs/F_TurboGateValve_Protection_ILK_local.TcPOU
-        16.) plc_kfe_gmd_vac/POUs/F_TURBO_PROT_SLND_ILK.TcPOU
-        17.) plc_kfe_gmd_vac/POUs/MAIN.TcPOU
-        18.) plc_kfe_gmd_vac/POUs/PRG_DIAGNOSTIC.TcPOU
-        19.) plc_kfe_gmd_vac/POUs/PRG_Gas_Selection.TcPOU
-        20.) plc_kfe_gmd_vac/POUs/PRG_GMD.TcPOU
-        21.) plc_kfe_gmd_vac/POUs/PRG_HV_ILK.TcPOU
-        22.) plc_kfe_gmd_vac/POUs/PRG_INJ.TcPOU
-        23.) plc_kfe_gmd_vac/POUs/PRG_PressureControl.TcPOU
-        24.) plc_kfe_gmd_vac/POUs/PRG_Purge.TcPOU
-        25.) plc_kfe_gmd_vac/POUs/PRG_VGP.TcPOU
+        9.) plc_kfe_gmd_vac/GVLs/GVL_VAC_INTF.TcGVL
+        10.) plc_kfe_gmd_vac/GVLs/GVL_VARIABLES.TcGVL
+        11.) plc_kfe_gmd_vac/PlcTask.TcTTO
+        12.) plc_kfe_gmd_vac/POUs/FB_HighVoltage.TcPOU
+        13.) plc_kfe_gmd_vac/POUs/FB_PressureTransducer.TcPOU
+        14.) plc_kfe_gmd_vac/POUs/FB_RTD.TcPOU
+        15.) plc_kfe_gmd_vac/POUs/FB_VGP.TcPOU
+        16.) plc_kfe_gmd_vac/POUs/F_HV_ILK.TcPOU
+        17.) plc_kfe_gmd_vac/POUs/F_TurboGateValve_Protection_ILK_local.TcPOU
+        18.) plc_kfe_gmd_vac/POUs/F_TURBO_PROT_SLND_ILK.TcPOU
+        19.) plc_kfe_gmd_vac/POUs/MAIN.TcPOU
+        20.) plc_kfe_gmd_vac/POUs/PRG_DIAGNOSTIC.TcPOU
+        21.) plc_kfe_gmd_vac/POUs/PRG_Gas_Selection.TcPOU
+        22.) plc_kfe_gmd_vac/POUs/PRG_GMD.TcPOU
+        23.) plc_kfe_gmd_vac/POUs/PRG_HV_ILK.TcPOU
+        24.) plc_kfe_gmd_vac/POUs/PRG_INJ.TcPOU
+        25.) plc_kfe_gmd_vac/POUs/PRG_PressureControl.TcPOU
+        26.) plc_kfe_gmd_vac/POUs/PRG_Purge.TcPOU
+        27.) plc_kfe_gmd_vac/POUs/PRG_VAC_INTF.TcPOU
+        28.) plc_kfe_gmd_vac/POUs/PRG_VGP.TcPOU
 
     POUs:
         1.) FB_HighVoltage
         2.) FB_PressureTransducer
         3.) FB_RTD
         4.) FB_VGP
-        5.) F_TURBO_PROT_SLND_ILK
-        6.) F_TurboGateValve_Protection_ILK_local
-        7.) MAIN
-        8.) PRG_DIAGNOSTIC
-        9.) PRG_GMD
-        10.) PRG_Gas_Selection
-        11.) PRG_HV_ILK
-        12.) PRG_INJ
-        13.) PRG_PressureControl
-        14.) PRG_Purge
-        15.) PRG_VGP
+        5.) F_HV_ILK
+        6.) F_TURBO_PROT_SLND_ILK
+        7.) F_TurboGateValve_Protection_ILK_local
+        8.) MAIN
+        9.) PRG_DIAGNOSTIC
+        10.) PRG_GMD
+        11.) PRG_Gas_Selection
+        12.) PRG_HV_ILK
+        13.) PRG_INJ
+        14.) PRG_PressureControl
+        15.) PRG_Purge
+        16.) PRG_VAC_INTF
+        17.) PRG_VGP
 
     GVLs:
         1.) GVL_GMD
         2.) GVL_INJ
-        3.) GVL_VARIABLES
+        3.) GVL_VAC_INTF
+        4.) GVL_VARIABLES
 
 DUT: E_GasType
 --------------
@@ -141,17 +147,22 @@ STRUCT
     pv: HV_SW;
 	io: io;
     '}
-	HV_sw: BOOL:=false;
+	HV_sw: BOOL:=True; // EPICS control for switching the HV on or off. 
 	{attribute 'pytmc' := '
     pv: HV_DO;
 	io: i;
     '}
-	q_HV_DO: BOOL;
+	q_HV_DO: BOOL; // Readout of the HV's ouput value
 	{attribute 'pytmc' := '
     pv: ILK_OK;
 	io: i;
     '}
 	xIlkOK	:	BOOL := FALSE; // Interlock Bit
+	{attribute 'pytmc' := '
+    pv: PRO_SP;
+	io: io;
+    '}		
+	rPRO_SP: REAL := 0.0001; // Pressure below which the HV signal may turn o
 END_STRUCT
 END_TYPE
 ```
@@ -488,13 +499,25 @@ VAR_GLOBAL
 	GFM_83 :FB_PressureTransducer;	
 
 (*HV*)
-	{attribute 'pytmc' :=' pv: EM1K0:GMD:HV:1 '}
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:PSV:1 '}
 	hv1 : FB_HighVoltage;
-	{attribute 'pytmc' :=' pv: EM1K0:GMD:HV:2 '}
-	hv2 : FB_HighVoltage;
+	// {attribute 'pytmc' :=' pv: EM1K0:GMD:HV:2 '}
+	// hv2 : FB_HighVoltage;
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:RTD:1 '}
 	RTD : FB_RTD;
 
+END_VAR
+```
+
+
+GVL: GVL_VAC_INTF
+-----------------
+
+File: plc_kfe_gmd_vac/GVLs/GVL_VAC_INTF.TcGVL
+
+```vhdl
+VAR_GLOBAL
+	ads_watch_dog	:	FB_ADS_WATCHDOG;
 END_VAR
 ```
 
@@ -520,6 +543,8 @@ VAR_GLOBAL
 	bPurgeActive : BOOL:=false;
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:PurgeDone'}
 	bPurgeDone : BOOL :=false;
+	
+	fbLogHandler : FB_LogHandler;
 END_VAR
 ```
 
@@ -1348,6 +1373,26 @@ END_ACTION
 ```
 
 
+POU: F_HV_ILK
+-------------
+
+File: plc_kfe_gmd_vac/POUs/F_HV_ILK.TcPOU
+
+```vhdl
+FUNCTION F_HV_ILK : BOOL
+VAR_INPUT
+	IG	:	ST_VG; // Gauge used for interlocking the high voltage supply 
+	HV	:	ST_HV; // Structure representing HV control
+END_VAR
+VAR
+END_VAR
+F_HV_ILK := ((IG.xPRESS_OK = TRUE)
+			AND (IG.rPRESS < HV.rPRO_SP));
+
+END_FUNCTION
+```
+
+
 POU: F_TURBO_PROT_SLND_ILK
 --------------------------
 
@@ -1365,7 +1410,8 @@ VAR
 END_VAR
 F_TURBO_PROT_SLND_ILK := (i_stISG.xPRESS_OK AND i_stISG.rPRESS < i_Turbo.rInletPressureSP)
 						    AND (i_stBSG.xPRESS_OK AND i_stBSG.rPRESS < i_Turbo.rBackingPressureSP)
-                            AND (ScrollPump.eState = pumpRUNNING);
+                            AND (ScrollPump.eState = pumpRUNNING)
+							AND (i_Turbo.eState = pumpRUNNING);
 
 END_FUNCTION
 ```
@@ -1412,29 +1458,23 @@ File: plc_kfe_gmd_vac/POUs/MAIN.TcPOU
 ```vhdl
 PROGRAM MAIN
 VAR
-		vgp_debug_mode : BOOL;
-	
-	gas_selection_debug_mode : BOOL := TRUE;
 END_VAR
 PRG_DIAGNOSTIC();
 PRG_GMD();
+PRG_VAC_INTF();
 
 
 (*INJ*)
 PRG_INJ();
 PRG_PressureControl();
-
-IF NOT vgp_debug_mode THEN
-	PRG_VGP(); // Keep commented out, test VGP  through axis until positions are verfified
-END_IF
-
-//TO Be tested
-IF NOT gas_selection_debug_mode THEN
-	PRG_Purge();
-	PRG_Gas_Selection();
-END_IF
+//PRG_Purge();
+//call orther PRG
 
 // instaniate the RTD and HV
+
+PRG_HV_ILK();
+
+fbLogHandler();
 
 END_PROGRAM
 ```
@@ -1506,17 +1546,17 @@ fb_EM1K0_GMD_GPI_70(PG=>);
 fb_EM1K0_GMD_PTM_10(i_xExtILKOk := F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_10.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
-	InletGauge:= fb_EM1K0_GMD_GCC_10.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_10.IG, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
 fb_EM1K0_GMD_PTM_20(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_20.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
-	InletGauge:= fb_EM1K0_GMD_GCC_20.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_20.IG, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
 fb_EM1K0_GMD_PTM_30(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_30.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
-	InletGauge:= fb_EM1K0_GMD_GCC_30.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_30.IG, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
 fb_EM1K0_GMD_PTM_40(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_40.iq_stPtm, 
@@ -1526,17 +1566,17 @@ fb_EM1K0_GMD_PTM_40(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 fb_EM1K0_GMD_PTM_50(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_50.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
-	InletGauge:= fb_EM1K0_GMD_GCC_50.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_50.IG, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
 fb_EM1K0_GMD_PTM_60(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_60.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
-	InletGauge:= fb_EM1K0_GMD_GCC_60.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_60.IG, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
 fb_EM1K0_GMD_PTM_70(i_xExtILKOk :=  F_TurboExtILKLogic_2(
 	Turbo:= fb_EM1K0_GMD_PTM_70.iq_stPtm, 
 	BackingGauge:= fb_EM1K0_GMD_GPI_10.PG, 
-	InletGauge:= fb_EM1K0_GMD_GCC_70.PG, 
+	InletGauge:= fb_EM1K0_GMD_GCC_70.IG, 
 	ScrollPump:= fb_EM1K0_GMD_PRT_40.stPump));
 
 // FB_VRC
@@ -1713,8 +1753,10 @@ END_VAR
 //evaluate the HV ILK_OK bit
 //HV_ILK_OK := GCC_40.IG.xAT_VAC;
 
-hv1(i_xExtIlkOK := HV_ILK_OK);
-hv2(i_xExtIlkOK := HV_ILK_OK);
+hv1(i_xExtIlkOK := F_HV_ILK(
+	IG := fb_EM1K0_GMD_GCC_40.IG,
+	HV := hv1.hv)
+);
 
 END_PROGRAM
 ```
@@ -2136,6 +2178,25 @@ END_PROGRAM
 ```
 
 
+POU: PRG_VAC_INTF
+-----------------
+
+File: plc_kfe_gmd_vac/POUs/PRG_VAC_INTF.TcPOU
+
+```vhdl
+PROGRAM PRG_VAC_INTF
+VAR
+END_VAR
+ads_watch_dog(
+	sNetId := '172.21.92.61.1.1', // AMS NET ID of the PLC reading from this PLC (SXR Vacuum)
+	nPort := 851, // ADS port of the PLC reading from this PLC
+	sVarName := 'GVL_VAC_INTF.n_EM1K0_VAC_counter', // Full name of the UDINT provided to the 'iWatchdog' parameter in the interface functions on the PLC reading from this PLC 
+);
+
+END_PROGRAM
+```
+
+
 POU: PRG_VGP
 ------------
 
@@ -2192,511 +2253,537 @@ END_PROGRAM
 Symbols
 -------
 
-    .TCPADS_MAXUDP_BUFFSIZE : UDINT (3308800 32)
-    Constants.CompilerVersion : VERSION (7695904 64)
-    Constants.CompilerVersionNumeric : DWORD (7696032 32)
-    Constants.RuntimeVersion : VERSION (7695840 64)
-    Constants.RuntimeVersionNumeric : DWORD (7696000 32)
-    Constants.bFPUSupport : BOOL (7695984 8)
-    Constants.bLittleEndian : BOOL (7673208 8)
-    Constants.bMulticoreSupport : BOOL (7695992 8)
-    Constants.bSimulationMode : BOOL (7673448 8)
-    Constants.gc_GaugeValidState : INT (3072016 16)
-    Constants.gc_iSizeOfGGOArray : INT (3072000 16)
-    Constants.nPackMode : UINT (7695968 16)
-    Constants.nRegisterSize : WORD (7673456 16)
-    DefaultGlobals.fTimeStamp : LREAL (3072832 64)
-    DefaultGlobals.stSys : LCLS_General.ST_System (3072704 88)
-    GVL.nLangId_OnlineMonitoring : DINT (3309184 32)
-    GVL_GMD.fake_always_closed_vent_valve : L2SI_Vacuum_Library.ST_VVC (7673408 40)
-    GVL_GMD.fb_EM1K0_GMD_GCC_10 : L2SI_Vacuum_Library.FB_MKS422 (7686912 1152)
-    GVL_GMD.fb_EM1K0_GMD_GCC_10.i_iPRESS_R : INT (7688032 16)
-    GVL_GMD.fb_EM1K0_GMD_GCC_10.q_xHV_DIS : BOOL (7688048 8)
-    GVL_GMD.fb_EM1K0_GMD_GCC_20 : L2SI_Vacuum_Library.FB_MKS422 (7688064 1152)
-    GVL_GMD.fb_EM1K0_GMD_GCC_20.i_iPRESS_R : INT (7689184 16)
-    GVL_GMD.fb_EM1K0_GMD_GCC_20.q_xHV_DIS : BOOL (7689200 8)
-    GVL_GMD.fb_EM1K0_GMD_GCC_30 : L2SI_Vacuum_Library.FB_MKS422 (7689216 1152)
-    GVL_GMD.fb_EM1K0_GMD_GCC_30.i_iPRESS_R : INT (7690336 16)
-    GVL_GMD.fb_EM1K0_GMD_GCC_30.q_xHV_DIS : BOOL (7690352 8)
-    GVL_GMD.fb_EM1K0_GMD_GCC_40 : L2SI_Vacuum_Library.FB_MKS422 (7690368 1152)
-    GVL_GMD.fb_EM1K0_GMD_GCC_40.i_iPRESS_R : INT (7691488 16)
-    GVL_GMD.fb_EM1K0_GMD_GCC_40.q_xHV_DIS : BOOL (7691504 8)
-    GVL_GMD.fb_EM1K0_GMD_GCC_50 : L2SI_Vacuum_Library.FB_MKS422 (7691520 1152)
-    GVL_GMD.fb_EM1K0_GMD_GCC_50.i_iPRESS_R : INT (7692640 16)
-    GVL_GMD.fb_EM1K0_GMD_GCC_50.q_xHV_DIS : BOOL (7692656 8)
-    GVL_GMD.fb_EM1K0_GMD_GCC_60 : L2SI_Vacuum_Library.FB_MKS422 (7692672 1152)
-    GVL_GMD.fb_EM1K0_GMD_GCC_60.i_iPRESS_R : INT (7693792 16)
-    GVL_GMD.fb_EM1K0_GMD_GCC_60.q_xHV_DIS : BOOL (7693808 8)
-    GVL_GMD.fb_EM1K0_GMD_GCC_70 : L2SI_Vacuum_Library.FB_MKS422 (7693824 1152)
-    GVL_GMD.fb_EM1K0_GMD_GCC_70.i_iPRESS_R : INT (7694944 16)
-    GVL_GMD.fb_EM1K0_GMD_GCC_70.q_xHV_DIS : BOOL (7694960 8)
-    GVL_GMD.fb_EM1K0_GMD_GPI_10 : L2SI_Vacuum_Library.FB_MKS317 (7673472 704)
-    GVL_GMD.fb_EM1K0_GMD_GPI_10.i_iPRESS_R : INT (7674144 16)
-    GVL_GMD.fb_EM1K0_GMD_GPI_40 : L2SI_Vacuum_Library.FB_MKS317 (7674176 704)
-    GVL_GMD.fb_EM1K0_GMD_GPI_40.i_iPRESS_R : INT (7674848 16)
-    GVL_GMD.fb_EM1K0_GMD_GPI_70 : L2SI_Vacuum_Library.FB_MKS317 (7674880 704)
-    GVL_GMD.fb_EM1K0_GMD_GPI_70.i_iPRESS_R : INT (7675552 16)
-    GVL_GMD.fb_EM1K0_GMD_PRT_40 : L2SI_Vacuum_Library.FB_EbaraEVA (7694976 224)
-    GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xAlarmOK : BOOL (7695176 8)
-    GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xIsRun : BOOL (7695184 8)
-    GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRemote : BOOL (7695160 8)
-    GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xResetAlarm : BOOL (7695168 8)
-    GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRunDo : BOOL (7695152 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_10 : L2SI_Vacuum_Library.FB_PTM_TwisTorr (7675584 384)
-    GVL_GMD.fb_EM1K0_GMD_PTM_10.i_xAtSpd : BOOL (7675944 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_10.i_xFault : BOOL (7675952 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_10.q_RunDO : BOOL (7675960 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_20 : L2SI_Vacuum_Library.FB_PTM_TwisTorr (7675968 384)
-    GVL_GMD.fb_EM1K0_GMD_PTM_20.i_xAtSpd : BOOL (7676328 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_20.i_xFault : BOOL (7676336 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_20.q_RunDO : BOOL (7676344 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_30 : L2SI_Vacuum_Library.FB_PTM_TwisTorr (7676352 384)
-    GVL_GMD.fb_EM1K0_GMD_PTM_30.i_xAtSpd : BOOL (7676712 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_30.i_xFault : BOOL (7676720 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_30.q_RunDO : BOOL (7676728 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_40 : L2SI_Vacuum_Library.FB_PTM_TwisTorr (7676736 384)
-    GVL_GMD.fb_EM1K0_GMD_PTM_40.i_xAtSpd : BOOL (7677096 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_40.i_xFault : BOOL (7677104 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_40.q_RunDO : BOOL (7677112 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_50 : L2SI_Vacuum_Library.FB_PTM_TwisTorr (7677120 384)
-    GVL_GMD.fb_EM1K0_GMD_PTM_50.i_xAtSpd : BOOL (7677480 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_50.i_xFault : BOOL (7677488 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_50.q_RunDO : BOOL (7677496 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_60 : L2SI_Vacuum_Library.FB_PTM_TwisTorr (7677504 384)
-    GVL_GMD.fb_EM1K0_GMD_PTM_60.i_xAtSpd : BOOL (7677864 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_60.i_xFault : BOOL (7677872 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_60.q_RunDO : BOOL (7677880 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_70 : L2SI_Vacuum_Library.FB_PTM_TwisTorr (7677888 384)
-    GVL_GMD.fb_EM1K0_GMD_PTM_70.i_xAtSpd : BOOL (7678248 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_70.i_xFault : BOOL (7678256 8)
-    GVL_GMD.fb_EM1K0_GMD_PTM_70.q_RunDO : BOOL (7678264 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_10 : L2SI_Vacuum_Library.FB_VRC (7678272 1440)
-    GVL_GMD.fb_EM1K0_GMD_VRC_10.i_xClsLS : BOOL (7679688 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_10.i_xOpnLS : BOOL (7679680 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_10.q_xOPN_DO : BOOL (7679696 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_20 : L2SI_Vacuum_Library.FB_VRC (7679712 1440)
-    GVL_GMD.fb_EM1K0_GMD_VRC_20.i_xClsLS : BOOL (7681128 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_20.i_xOpnLS : BOOL (7681120 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_20.q_xOPN_DO : BOOL (7681136 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_30 : L2SI_Vacuum_Library.FB_VRC (7681152 1440)
-    GVL_GMD.fb_EM1K0_GMD_VRC_30.i_xClsLS : BOOL (7682568 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_30.i_xOpnLS : BOOL (7682560 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_30.q_xOPN_DO : BOOL (7682576 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_50 : L2SI_Vacuum_Library.FB_VRC (7682592 1440)
-    GVL_GMD.fb_EM1K0_GMD_VRC_50.i_xClsLS : BOOL (7684008 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_50.i_xOpnLS : BOOL (7684000 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_50.q_xOPN_DO : BOOL (7684016 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_60 : L2SI_Vacuum_Library.FB_VRC (7684032 1440)
-    GVL_GMD.fb_EM1K0_GMD_VRC_60.i_xClsLS : BOOL (7685448 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_60.i_xOpnLS : BOOL (7685440 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_60.q_xOPN_DO : BOOL (7685456 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_70 : L2SI_Vacuum_Library.FB_VRC (7685472 1440)
-    GVL_GMD.fb_EM1K0_GMD_VRC_70.i_xClsLS : BOOL (7686888 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_70.i_xOpnLS : BOOL (7686880 8)
-    GVL_GMD.fb_EM1K0_GMD_VRC_70.q_xOPN_DO : BOOL (7686896 8)
-    GVL_GMD.fb_EM1K0_GMD_VVC_40 : L2SI_Vacuum_Library.FB_VVC (7695200 640)
-    GVL_GMD.fb_EM1K0_GMD_VVC_40.q_xOPN_DO : BOOL (7695808 8)
-    GVL_INJ.GCM_80 : L2SI_Vacuum_Library.FB_GCM (7669952 608)
-    GVL_INJ.GCM_80.i_iPRESS_R : INT (7670544 16)
-    GVL_INJ.GFM_83 : FB_PressureTransducer (7672384 608)
-    GVL_INJ.GFM_83.iError : BOOL (7672960 8)
-    GVL_INJ.GFM_83.i_iPRESS_R : INT (7672976 16)
-    GVL_INJ.GFM_84 : FB_PressureTransducer (7671776 608)
-    GVL_INJ.GFM_84.iError : BOOL (7672352 8)
-    GVL_INJ.GFM_84.i_iPRESS_R : INT (7672368 16)
-    GVL_INJ.GFM_85 : FB_PressureTransducer (7671168 608)
-    GVL_INJ.GFM_85.iError : BOOL (7671744 8)
-    GVL_INJ.GFM_85.i_iPRESS_R : INT (7671760 16)
-    GVL_INJ.GFM_86 : FB_PressureTransducer (7670560 608)
-    GVL_INJ.GFM_86.iError : BOOL (7671136 8)
-    GVL_INJ.GFM_86.i_iPRESS_R : INT (7671152 16)
-    GVL_INJ.RTD : FB_RTD (7673216 192)
-    GVL_INJ.RTD.bError : BOOL (7673352 8)
-    GVL_INJ.RTD.bOverrange : BOOL (7673368 8)
-    GVL_INJ.RTD.bUnderrange : BOOL (7673360 8)
-    GVL_INJ.RTD.iRaw : INT (7673376 16)
-    GVL_INJ.VCN_40 : L2SI_Vacuum_Library.FB_VCN (7571648 480)
-    GVL_INJ.VCN_40.q_iRawPosition : INT (7572096 16)
-    GVL_INJ.VGP_40 : FB_VGP (7572160 93312)
-    GVL_INJ.VGP_40.Axis.NcToPlc : NCTOPLC_AXIS_REF (7576512 2048)
-    GVL_INJ.VGP_40.Axis.PlcToNc : PLCTONC_AXIS_REF (7575488 1024)
-    GVL_INJ.VGP_40.InfoData_State : UINT (7584448 16)
-    GVL_INJ.VVC_80 : L2SI_Vacuum_Library.FB_VVC (7665472 640)
-    GVL_INJ.VVC_80.q_xOPN_DO : BOOL (7666080 8)
-    GVL_INJ.VVC_81 : L2SI_Vacuum_Library.FB_VVC (7666112 640)
-    GVL_INJ.VVC_81.q_xOPN_DO : BOOL (7666720 8)
-    GVL_INJ.VVC_82 : L2SI_Vacuum_Library.FB_VVC (7666752 640)
-    GVL_INJ.VVC_82.q_xOPN_DO : BOOL (7667360 8)
-    GVL_INJ.VVC_83 : L2SI_Vacuum_Library.FB_VVC (7667392 640)
-    GVL_INJ.VVC_83.q_xOPN_DO : BOOL (7668000 8)
-    GVL_INJ.VVC_84 : L2SI_Vacuum_Library.FB_VVC (7668032 640)
-    GVL_INJ.VVC_84.q_xOPN_DO : BOOL (7668640 8)
-    GVL_INJ.VVC_85 : L2SI_Vacuum_Library.FB_VVC (7668672 640)
-    GVL_INJ.VVC_85.q_xOPN_DO : BOOL (7669280 8)
-    GVL_INJ.VVC_86 : L2SI_Vacuum_Library.FB_VVC (7669312 640)
-    GVL_INJ.VVC_86.q_xOPN_DO : BOOL (7669920 8)
-    GVL_INJ.hv1 : FB_HighVoltage (7672992 96)
-    GVL_INJ.hv1.q_HV_DO : BOOL (7673056 8)
-    GVL_INJ.hv2 : FB_HighVoltage (7673088 96)
-    GVL_INJ.hv2.q_HV_DO : BOOL (7673152 8)
-    GVL_INJ.xOverrideMode : BOOL (7572128 8)
-    GVL_INTERNAL.UNINITIALIZED_CLASS_GUID : GUID (3309536 128)
-    GVL_Logger.TCPADS_MAXUDP_BUFFSIZE : UDINT (3072800 32)
-    GVL_Logger.cLogHost : STRING(15) (3072896 128)
-    GVL_Logger.fbRootLogger : LCLS_General.FB_LogMessage (3073728 26944)
-    GVL_Logger.iLogPort : UINT (3072144 16)
-    GVL_Logger.sIpTidbit : STRING(6) (3073024 56)
-    GVL_Logger.sPlcHostname : STRING(80) (3073080 648)
-    GVL_Param_TcUnit.MaxNumberOfAsserts : UINT (3356352 16)
-    GVL_Param_TcUnit.MaxNumberOfTestSuites : UINT (3356320 16)
-    GVL_Param_TcUnit.MaxNumberOfTestsForEachTestSuite : UINT (3356336 16)
-    GVL_TcUnit.AdsLogger : L2SI_Vacuum_Library.PMPS.TcUnit.FB_ADSLogStringMessageFifoQueue (3375008 4128864)
-    GVL_TcUnit.CurrentTestNameBeingCalled : Tc2_System.T_MaxString (3356928 2048)
-    GVL_TcUnit.CurrentTestSuiteBeingCalled : POINTER TO L2SI_Vacuum_Library.PMPS.TcUnit.FB_TestSuite (3356896 32)
-    GVL_TcUnit.IgnoreCurrentTest : BOOL (3356376 8)
-    GVL_TcUnit.NumberOfInitializedTestSuites : UINT (3358976 16)
-    GVL_TcUnit.TcUnitRunner : L2SI_Vacuum_Library.PMPS.TcUnit.FB_TcUnitRunner (3356384 512)
-    GVL_TcUnit.TestSuiteAddresses : ARRAY[1..500] OF POINTER TO L2SI_Vacuum_Library.PMPS.TcUnit.FB_TestSuite (3359008 16000)
-    GVL_TcUnit.TestSuiteIsRegistered : BOOL (3356368 8)
-    GVL_VARIABLES.bAutoVVC40 : BOOL (7572144 8)
-    GVL_VARIABLES.bPurgeActive : BOOL (7673184 8)
-    GVL_VARIABLES.bPurgeDone : BOOL (7673192 8)
-    GVL_VARIABLES.bStartPurge_sw : BOOL (7572152 8)
-    GVL_VARIABLES.xSystemOverrideMode : BOOL (7572136 8)
-    Global_Constants.EMPTY_EVENT_CLASS : GUID (3308832 128)
-    Global_Constants.EMPTY_EVENT_ID : UDINT (3308960 32)
-    Global_Constants.EMPTY_SEVERITY : TcEventSeverity (3307760 16)
-    Global_Constants.SUCCESS_EVENT : TcEventEntry (3308992 192)
-    Global_Variables.ADSIGRP_DEVICE_DATA : UDINT (3102624 32)
-    Global_Variables.ADSIGRP_IOIMAGE_CLEARI : UDINT (3102528 32)
-    Global_Variables.ADSIGRP_IOIMAGE_CLEARO : UDINT (3102560 32)
-    Global_Variables.ADSIGRP_IOIMAGE_RISIZE : UDINT (3102400 32)
-    Global_Variables.ADSIGRP_IOIMAGE_ROSIZE : UDINT (3102496 32)
-    Global_Variables.ADSIGRP_IOIMAGE_RWIB : UDINT (3102336 32)
-    Global_Variables.ADSIGRP_IOIMAGE_RWIOB : UDINT (3102592 32)
-    Global_Variables.ADSIGRP_IOIMAGE_RWIX : UDINT (3102368 32)
-    Global_Variables.ADSIGRP_IOIMAGE_RWOB : UDINT (3102432 32)
-    Global_Variables.ADSIGRP_IOIMAGE_RWOX : UDINT (3102464 32)
-    Global_Variables.ADSIGRP_SYMNAME : UDINT (3101920 32)
-    Global_Variables.ADSIGRP_SYMNOTE : UDINT (3102304 32)
-    Global_Variables.ADSIGRP_SYMTAB : UDINT (3101888 32)
-    Global_Variables.ADSIGRP_SYMVAL : UDINT (3101952 32)
-    Global_Variables.ADSIGRP_SYM_DOWNLOAD : UDINT (3102208 32)
-    Global_Variables.ADSIGRP_SYM_HNDBYNAME : UDINT (3101984 32)
-    Global_Variables.ADSIGRP_SYM_INFOBYNAME : UDINT (3102112 32)
-    Global_Variables.ADSIGRP_SYM_INFOBYNAMEEX : UDINT (3102176 32)
-    Global_Variables.ADSIGRP_SYM_RELEASEHND : UDINT (3102080 32)
-    Global_Variables.ADSIGRP_SYM_UPLOAD : UDINT (3102240 32)
-    Global_Variables.ADSIGRP_SYM_UPLOADINFO : UDINT (3102272 32)
-    Global_Variables.ADSIGRP_SYM_VALBYHND : UDINT (3102048 32)
-    Global_Variables.ADSIGRP_SYM_VALBYNAME : UDINT (3102016 32)
-    Global_Variables.ADSIGRP_SYM_VERSION : UDINT (3102144 32)
-    Global_Variables.ADSIOFFS_DEVDATA_ADSSTATE : UDINT (3102656 32)
-    Global_Variables.ADSIOFFS_DEVDATA_DEVSTATE : UDINT (3102688 32)
-    Global_Variables.ADSLOG_MSGTYPE_ERROR : DWORD (3103744 32)
-    Global_Variables.ADSLOG_MSGTYPE_HINT : DWORD (3103680 32)
-    Global_Variables.ADSLOG_MSGTYPE_LOG : DWORD (3103776 32)
-    Global_Variables.ADSLOG_MSGTYPE_MSGBOX : DWORD (3103808 32)
-    Global_Variables.ADSLOG_MSGTYPE_RESOURCE : DWORD (3103840 32)
-    Global_Variables.ADSLOG_MSGTYPE_STRING : DWORD (3103872 32)
-    Global_Variables.ADSLOG_MSGTYPE_WARN : DWORD (3103712 32)
-    Global_Variables.ADSSTATE_CONFIG : UINT (3101792 16)
-    Global_Variables.ADSSTATE_ERROR : UINT (3101728 16)
-    Global_Variables.ADSSTATE_EXCEPTION : UINT (3101856 16)
-    Global_Variables.ADSSTATE_IDLE : UINT (3101568 16)
-    Global_Variables.ADSSTATE_INCOMPATIBLE : UINT (3101840 16)
-    Global_Variables.ADSSTATE_INIT : UINT (3101600 16)
-    Global_Variables.ADSSTATE_INVALID : UINT (3101552 16)
-    Global_Variables.ADSSTATE_LOADCFG : UINT (3101680 16)
-    Global_Variables.ADSSTATE_MAXSTATES : UINT (3101872 16)
-    Global_Variables.ADSSTATE_POWERFAILURE : UINT (3101696 16)
-    Global_Variables.ADSSTATE_POWERGOOD : UINT (3101712 16)
-    Global_Variables.ADSSTATE_RECONFIG : UINT (3101808 16)
-    Global_Variables.ADSSTATE_RESET : UINT (3101584 16)
-    Global_Variables.ADSSTATE_RESUME : UINT (3101776 16)
-    Global_Variables.ADSSTATE_RUN : UINT (3101632 16)
-    Global_Variables.ADSSTATE_SAVECFG : UINT (3101664 16)
-    Global_Variables.ADSSTATE_SHUTDOWN : UINT (3101744 16)
-    Global_Variables.ADSSTATE_START : UINT (3101616 16)
-    Global_Variables.ADSSTATE_STOP : UINT (3101648 16)
-    Global_Variables.ADSSTATE_STOPPING : UINT (3101824 16)
-    Global_Variables.ADSSTATE_SUSPEND : UINT (3101760 16)
-    Global_Variables.AMSLOGGER_IGR_GENERAL : UDINT (3169568 32)
-    Global_Variables.AMSLOGGER_IOF_MODE : UDINT (3169600 32)
-    Global_Variables.AMSPORT_AMSLOGGER : UINT (3168304 16)
-    Global_Variables.AMSPORT_EVENTLOG : UINT (3101264 16)
-    Global_Variables.AMSPORT_LOGGER : UINT (3101248 16)
-    Global_Variables.AMSPORT_R0_CAM : UINT (3101488 16)
-    Global_Variables.AMSPORT_R0_CAMTOOL : UINT (3101504 16)
-    Global_Variables.AMSPORT_R0_CNC : UINT (3101376 16)
-    Global_Variables.AMSPORT_R0_IO : UINT (3101296 16)
-    Global_Variables.AMSPORT_R0_ISG : UINT (3101360 16)
-    Global_Variables.AMSPORT_R0_LINE : UINT (3101392 16)
-    Global_Variables.AMSPORT_R0_NC : UINT (3101312 16)
-    Global_Variables.AMSPORT_R0_NCSAF : UINT (3101328 16)
-    Global_Variables.AMSPORT_R0_NCSVB : UINT (3101344 16)
-    Global_Variables.AMSPORT_R0_PLC : UINT (3101408 16)
-    Global_Variables.AMSPORT_R0_PLC_RTS1 : UINT (3101424 16)
-    Global_Variables.AMSPORT_R0_PLC_RTS2 : UINT (3101440 16)
-    Global_Variables.AMSPORT_R0_PLC_RTS3 : UINT (3101456 16)
-    Global_Variables.AMSPORT_R0_PLC_RTS4 : UINT (3101472 16)
-    Global_Variables.AMSPORT_R0_RTIME : UINT (3101280 16)
-    Global_Variables.AMSPORT_R3_SCOPESERVER : UINT (3101536 16)
-    Global_Variables.AMSPORT_R3_SYSSERV : UINT (3101520 16)
-    Global_Variables.BOOTDATAFLAGS_PERSISTENT_INVALID : BYTE (3103920 8)
-    Global_Variables.BOOTDATAFLAGS_PERSISTENT_LOADED : BYTE (3103912 8)
-    Global_Variables.BOOTDATAFLAGS_RETAIN_INVALID : BYTE (3072792 8)
-    Global_Variables.BOOTDATAFLAGS_RETAIN_LOADED : BYTE (3072136 8)
-    Global_Variables.BOOTDATAFLAGS_RETAIN_REQUESTED : BYTE (3103904 8)
-    Global_Variables.DATE_AND_TIME_SECPERDAY : DWORD (3182528 32)
-    Global_Variables.DATE_AND_TIME_SECPERWEEK : DWORD (3182560 32)
-    Global_Variables.DBG_OUTPUT_FILE : DWORD (3188832 32)
-    Global_Variables.DBG_OUTPUT_LOG : DWORD (3188800 32)
-    Global_Variables.DBG_OUTPUT_NONE : DWORD (3188768 32)
-    Global_Variables.DBG_OUTPUT_VISU : DWORD (3188864 32)
-    Global_Variables.DEFAULT_ADS_TIMEOUT : TIME (3104640 32)
-    Global_Variables.DEFAULT_BACKLASHVALUE : LREAL (3355968 64)
-    Global_Variables.DEFAULT_CSV_FIELD_DOUBLE_QUOTE : BYTE (3168296 8)
-    Global_Variables.DEFAULT_CSV_FIELD_SEP : BYTE (3106288 8)
-    Global_Variables.DEFAULT_CSV_RECORD_SEP_CR : BYTE (3306032 8)
-    Global_Variables.DEFAULT_CSV_RECORD_SEP_LF : BYTE (3306040 8)
-    Global_Variables.DEFAULT_HOME_POSITION : LREAL (3355904 64)
-    Global_Variables.EMPTY_ARG_VALUE : Tc2_Utilities.T_Arg (3170176 96)
-    Global_Variables.EMPTY_GUID_REGSTRING : STRING(38) (3308200 312)
-    Global_Variables.EMPTY_GUID_STRING : STRING(36) (3307904 296)
-    Global_Variables.EMPTY_GUID_STRUCT : GUID (3307776 128)
-    Global_Variables.EMPTY_ROUTE_ENTRY : Tc2_Utilities.ST_AmsRouteEntry (3168320 1184)
-    Global_Variables.FLOATREC_EXP_IS_INF : INT (3169664 16)
-    Global_Variables.FLOATREC_EXP_IS_NAN : INT (3169648 16)
-    Global_Variables.FLOATREC_MAX_DIGITS : INT (3169680 16)
-    Global_Variables.FLOATREC_MAX_PRECISION : INT (3169696 16)
-    Global_Variables.FLOATREC_MIN_PRECISION : INT (3169712 16)
-    Global_Variables.FMTERR_ARGTYPEINVALID : DWORD (3170016 32)
-    Global_Variables.FMTERR_ASTERISKPOSITION : DWORD (3169792 32)
-    Global_Variables.FMTERR_DESTBUFFOVERFLOW : DWORD (3170112 32)
-    Global_Variables.FMTERR_FLAGPOSITION : DWORD (3169888 32)
-    Global_Variables.FMTERR_INSUFFICIENTARGS : DWORD (3170080 32)
-    Global_Variables.FMTERR_INVALIDPOINTERINPUT : DWORD (3170144 32)
-    Global_Variables.FMTERR_NOERROR : DWORD (3169728 32)
-    Global_Variables.FMTERR_PERCENTSIGNPOSITION : DWORD (3169760 32)
-    Global_Variables.FMTERR_PRECISIONDOTPOSITION : DWORD (3169952 32)
-    Global_Variables.FMTERR_PRECISIONVALUE : DWORD (3169856 32)
-    Global_Variables.FMTERR_TYPEFIELDVALUE : DWORD (3169984 32)
-    Global_Variables.FMTERR_UNACCEPTEDPARAMETER : DWORD (3170048 32)
-    Global_Variables.FMTERR_WIDTHPRECISIONVALPOS : DWORD (3169920 32)
-    Global_Variables.FMTERR_WIDTHVALUE : DWORD (3169824 32)
-    Global_Variables.FOPEN_MODEAPPEND : DWORD (3104032 32)
-    Global_Variables.FOPEN_MODEBINARY : DWORD (3104096 32)
-    Global_Variables.FOPEN_MODEPLUS : DWORD (3104064 32)
-    Global_Variables.FOPEN_MODEREAD : DWORD (3103968 32)
-    Global_Variables.FOPEN_MODETEXT : DWORD (3104128 32)
-    Global_Variables.FOPEN_MODEWRITE : DWORD (3104000 32)
-    Global_Variables.FORMAT_DECASC_CODES : ARRAY[0..9] OF BYTE (3170528 80)
-    Global_Variables.FORMAT_HEXASC_CODES : ARRAY[0..1] OF BYTE (3170272 256)
-    Global_Variables.FORMAT_MAX_ARGS : INT (3169632 16)
-    Global_Variables.GLOBAL_DCF77_PULSE_SPLIT : TIME (3106304 32)
-    Global_Variables.GLOBAL_DCF77_SEQUENCE_CHECK : BOOL (3106168 8)
-    Global_Variables.GLOBAL_FORMAT_HASH_PREFIX_TYPE : Tc2_Utilities.E_HashPrefixTypes (3106256 16)
-    Global_Variables.GLOBAL_SBCS_TABLE : Tc2_Utilities.E_SBCSType (3106272 16)
-    Global_Variables.HKEY_MAX_BINARY_DATA_SIZE : UDINT (3169536 32)
-    Global_Variables.IPHELPERAPI_ADAPTERSINFO : UDINT (3167968 32)
-    Global_Variables.IPHELPERAPI_IPADDRBYHOSTNAME : UDINT (3168000 32)
-    Global_Variables.MAX_ADAPTER_ADDRESS_LENGTH : UDINT (3167872 32)
-    Global_Variables.MAX_ADAPTER_DESCRIPTION_LENGTH : UDINT (3167840 32)
-    Global_Variables.MAX_ADAPTER_NAME_LENGTH : UDINT (3167808 32)
-    Global_Variables.MAX_AVERAGE_MEASURES : INT (2..100) (3106240 16)
-    Global_Variables.MAX_LOCAL_ADAPTERS : UDINT (3168032 32)
-    Global_Variables.MAX_REMOTE_PCS : INT (3168160 16)
-    Global_Variables.MAX_ROUTE_ADDR_LEN : BYTE (3168176 8)
-    Global_Variables.MAX_ROUTE_NAME_LEN : BYTE (3106296 8)
-    Global_Variables.MAX_ROUTE_TRANSPORT : BYTE (3168288 8)
-    Global_Variables.MAX_STRING_LENGTH : UDINT (3104672 32)
-    Global_Variables.MIN_ROUTE_TRANSPORT : BYTE (3168184 8)
-    Global_Variables.PI : LREAL (3104576 64)
-    Global_Variables.ROUTE_FLAG_DYNAMIC : DWORD (3168224 32)
-    Global_Variables.ROUTE_FLAG_NOOVERRIDE : DWORD (3168256 32)
-    Global_Variables.ROUTE_FLAG_TEMPORARY : DWORD (3168192 32)
-    Global_Variables.SYSTEMSERVICE_ADDREMOTE : UDINT (3168064 32)
-    Global_Variables.SYSTEMSERVICE_CHANGENETID : UDINT (3103488 32)
-    Global_Variables.SYSTEMSERVICE_CLOSEHANDLE : UDINT (3102848 32)
-    Global_Variables.SYSTEMSERVICE_CREATEFILE : UDINT (3102816 32)
-    Global_Variables.SYSTEMSERVICE_DELREMOTE : UDINT (3168096 32)
-    Global_Variables.SYSTEMSERVICE_ENUMREMOTE : UDINT (3168128 32)
-    Global_Variables.SYSTEMSERVICE_FCLOSE : UDINT (3102912 32)
-    Global_Variables.SYSTEMSERVICE_FDELETE : UDINT (3103232 32)
-    Global_Variables.SYSTEMSERVICE_FEOF : UDINT (3103200 32)
-    Global_Variables.SYSTEMSERVICE_FFILEFIND : UDINT (3169504 32)
-    Global_Variables.SYSTEMSERVICE_FGETS : UDINT (3103072 32)
-    Global_Variables.SYSTEMSERVICE_FOPEN : UDINT (3102880 32)
-    Global_Variables.SYSTEMSERVICE_FPRINTF : UDINT (3103168 32)
-    Global_Variables.SYSTEMSERVICE_FPUTS : UDINT (3103104 32)
-    Global_Variables.SYSTEMSERVICE_FREAD : UDINT (3102944 32)
-    Global_Variables.SYSTEMSERVICE_FRENAME : UDINT (3103264 32)
-    Global_Variables.SYSTEMSERVICE_FSCANF : UDINT (3103136 32)
-    Global_Variables.SYSTEMSERVICE_FSEEK : UDINT (3103008 32)
-    Global_Variables.SYSTEMSERVICE_FTELL : UDINT (3103040 32)
-    Global_Variables.SYSTEMSERVICE_FWRITE : UDINT (3102976 32)
-    Global_Variables.SYSTEMSERVICE_IPHELPERAPI : UDINT (3167904 32)
-    Global_Variables.SYSTEMSERVICE_IPHOSTNAME : UDINT (3167936 32)
-    Global_Variables.SYSTEMSERVICE_MKDIR : UDINT (3103296 32)
-    Global_Variables.SYSTEMSERVICE_OPENCREATE : UDINT (3102720 32)
-    Global_Variables.SYSTEMSERVICE_OPENREAD : UDINT (3102752 32)
-    Global_Variables.SYSTEMSERVICE_OPENWRITE : UDINT (3102784 32)
-    Global_Variables.SYSTEMSERVICE_REG_HKEYLOCALMACHINE : UDINT (3103360 32)
-    Global_Variables.SYSTEMSERVICE_RMDIR : UDINT (3103328 32)
-    Global_Variables.SYSTEMSERVICE_SENDEMAIL : UDINT (3103392 32)
-    Global_Variables.SYSTEMSERVICE_STARTPROCESS : UDINT (3103456 32)
-    Global_Variables.SYSTEMSERVICE_TIMESERVICES : UDINT (3103424 32)
-    Global_Variables.SYSTEMSTATEFLAGS_BSOD : BYTE (3103928 8)
-    Global_Variables.SYSTEMSTATEFLAGS_RTVIOLATION : BYTE (3103936 8)
-    Global_Variables.SYSTEMTIME_DATEDELTA_OFFSET : DWORD (3176864 32)
-    Global_Variables.SYSTEMTIME_DATE_AND_TIME_MAX : Tc2_Utilities.T_ULARGE_INTEGER (3177152 64)
-    Global_Variables.SYSTEMTIME_DATE_AND_TIME_MAX64 : ULINT (3177472 64)
-    Global_Variables.SYSTEMTIME_DATE_AND_TIME_MIN : Tc2_Utilities.T_ULARGE_INTEGER (3177088 64)
-    Global_Variables.SYSTEMTIME_DATE_AND_TIME_MIN64 : ULINT (3177408 64)
-    Global_Variables.SYSTEMTIME_MAX_MONTHDAYS : ARRAY[0..1] OF WORD (3176016 384)
-    Global_Variables.SYSTEMTIME_MAX_YEARSDAY : ARRAY[0..1] OF WORD (3176400 448)
-    Global_Variables.SYSTEMTIME_TICKSPERDAY : Tc2_Utilities.T_ULARGE_INTEGER (3177024 64)
-    Global_Variables.SYSTEMTIME_TICKSPERDAY64 : ULINT (3177344 64)
-    Global_Variables.SYSTEMTIME_TICKSPERMSEC : Tc2_Utilities.T_ULARGE_INTEGER (3176896 64)
-    Global_Variables.SYSTEMTIME_TICKSPERMSEC64 : ULINT (3177216 64)
-    Global_Variables.SYSTEMTIME_TICKSPERSEC : Tc2_Utilities.T_ULARGE_INTEGER (3176960 64)
-    Global_Variables.SYSTEMTIME_TICKSPERSEC64 : ULINT (3177280 64)
-    Global_Variables.TCEVENTFLAG_AUTOFMTALL : WORD (3104448 16)
-    Global_Variables.TCEVENTFLAG_FMTSELF : WORD (3104384 16)
-    Global_Variables.TCEVENTFLAG_LOG : WORD (3104400 16)
-    Global_Variables.TCEVENTFLAG_MSGBOX : WORD (3104416 16)
-    Global_Variables.TCEVENTFLAG_PRIOCLASS : WORD (3103952 16)
-    Global_Variables.TCEVENTFLAG_SRCID : WORD (3104432 16)
-    Global_Variables.TCEVENTSTATE_CONFIRMED : WORD (3104512 16)
-    Global_Variables.TCEVENTSTATE_INVALID : WORD (3104464 16)
-    Global_Variables.TCEVENTSTATE_RESET : WORD (3104496 16)
-    Global_Variables.TCEVENTSTATE_RESETCON : WORD (3104528 16)
-    Global_Variables.TCEVENTSTATE_SIGNALED : WORD (3104480 16)
-    Global_Variables.TCEVENT_FMTPRGSIZE : INT (3104560 16)
-    Global_Variables.TCEVENT_SRCNAMESIZE : INT (3104544 16)
-    Global_Variables.TIMESERVICE_ADJUSTTIMETORTC : UDINT (3103616 32)
-    Global_Variables.TIMESERVICE_DATEANDTIME : UDINT (3103520 32)
-    Global_Variables.TIMESERVICE_RTCTIMEDIFF : UDINT (3103584 32)
-    Global_Variables.TIMESERVICE_SYSTEMTIMES : UDINT (3103552 32)
-    Global_Variables.TIMESERVICE_TIMEZONINFORMATION : UDINT (3103648 32)
-    Global_Variables.TcMcGlobal : Tc2_MC2._TCMCGLOBAL (3348928 6976)
-    Global_Variables.WEST_EUROPE_TZI : Tc2_Utilities.ST_TimeZoneInformation (3177536 864)
-    Global_Variables.eWatchdogConfig : Tc2_System.E_WATCHDOG_TIME_CONFIG (3105216 16)
-    Global_Variables.fbGetCurTaskIdx : Tc2_System.GETCURTASKINDEX (3072576 128)
-    Global_Variables.g_DummyVG : L2SI_Vacuum_Library.ST_VG (3072160 416)
-    Global_Variables.g_iSizeOfGGOArray : INT (3072032 16)
-    Global_Variables.g_stSystem : LCLS_General.ST_System (3072048 88)
-    Global_Variables.nCTRL_LOGGER_DATA_ARRAY_SIZE : UINT (3358992 16)
-    Global_Variables.nWatchdogTime : BYTE (3103944 8)
-    Global_Variables.stCtrl_GLOBAL_CycleTimeInterpretation : Tc2_ControllerToolbox.ST_CTRL_CYCLE_TIME_INTERPRETATION (7504768 128)
-    Global_Version.stLibVersion_Tc2_DataExchange : ST_LibVersion (7504448 288)
-    Global_Version.stLibVersion_Tc2_MC2 : ST_LibVersion (3348640 288)
-    Global_Version.stLibVersion_Tc2_Math : ST_LibVersion (3356032 288)
-    Global_Version.stLibVersion_Tc2_ModbusSrv : ST_LibVersion (3308512 288)
-    Global_Version.stLibVersion_Tc2_Standard : ST_LibVersion (3100672 288)
-    Global_Version.stLibVersion_Tc2_System : ST_LibVersion (3100960 288)
-    Global_Version.stLibVersion_Tc2_Utilities : ST_LibVersion (3105856 288)
-    Global_Version.stLibVersion_Tc3_EventLogger : ST_LibVersion (3309248 288)
-    Global_Version.stLibVersion_Tc3_JsonXml : ST_LibVersion (3309664 288)
-    Global_Version.stLibVersion_Tc3_Module : ST_LibVersion (3105248 288)
-    Global_Version.stLibVersion_TcUnit : ST_LibVersion (7503872 288)
-    Global_Version.stLibVersion_UML_Statechart_Types : ST_LibVersion (7504160 288)
-    L2SI_Vacuum_Library.Global_Variables.g_stSystem.I_EcatMaster1 : AMSNETID (3072088 48)
-    LCLS_General.DefaultGlobals.stSys.I_EcatMaster1 : AMSNETID (3072744 48)
-    MAIN.gas_selection_debug_mode : BOOL (7504744 8)
-    MAIN.vgp_debug_mode : BOOL (7504736 8)
-    PMPS_GVL.AUX_ATTENUATORS : INT (3342816 16)
-    PMPS_GVL.AccumulatedFF : ULINT (3342528 64)
-    PMPS_GVL.DUMMY_AUX_ATT_ARRAY : ARRAY[1..32] OF ST_PMPS_Attenuator (3346560 1536)
-    PMPS_GVL.EXCLUDED_ASSERTION_ID : UDINT (3342592 32)
-    PMPS_GVL.FAST_TEST_VELOCITY : LREAL (3342720 64)
-    PMPS_GVL.MAX_ASSERTIONS : UDINT (3348096 32)
-    PMPS_GVL.MAX_DEVICE_STATES : UDINT (3342624 32)
-    PMPS_GVL.MAX_FAST_FAULTS : UINT (3342784 16)
-    PMPS_GVL.SuccessfulPreemption : ULINT (3342464 64)
-    PMPS_GVL.VISIBLE_TEST_VELOCITY : LREAL (3342656 64)
-    PMPS_GVL.cnMaxStateArrayLen : INT (3342800 16)
-    PMPS_GVL.cstFullBeam : PMPS.ST_BeamParams (3342848 1856)
-    PMPS_GVL.cstSafeBeam : PMPS.ST_BeamParams (3344704 1856)
-    PMPS_GVL.fbLog : LCLS_General.FB_LogMessage (3315520 26944)
-    PMPS_GVL.g_areVBoundaries : ARRAY[0..15] OF REAL (3348128 512)
-    PMPS_GVL.g_cBoundaries : INT (3342832 16)
-    PMPS_GVL.stCurrentBeamParameters : PMPS.ST_BeamParams (3313664 1856)
-    PMPS_GVL.stReqFBDBeamParamsSum : PMPS.ST_BeamParams (3309952 1856)
-    PMPS_GVL.stReqMethBeamParamSum : PMPS.ST_BeamParams (3311808 1856)
-    PRG_DIAGNOSTIC.fbTime : Tc2_Utilities.FB_LocalSystemTime (7535552 19040)
-    PRG_DIAGNOSTIC.logTimer : Tc2_Standard.TON (7554592 224)
-    PRG_DIAGNOSTIC.plcHeartbeat : UDINT (7554944 32)
-    PRG_DIAGNOSTIC.plcInfo : STRING(40) (7554976 328)
-    PRG_DIAGNOSTIC.plcLocalTime : STRING(25) (7555304 208)
-    PRG_DIAGNOSTIC.plcName : STRING(15) (7554816 128)
-    PRG_DIAGNOSTIC.simHeartbeat : UINT (7504752 16)
-    PRG_GMD.f_ : INT (7555520 16)
-    PRG_GMD.fb_EM1K0_GMD_PTM_10i_xExtILKOk : BOOL (7555512 8)
-    PRG_Gas_Selection.CurrentGas : E_GasType (7571616 16)
-    PRG_Gas_Selection.SelectedGas : E_GasType (7571632 16)
-    PRG_INJ.DefaultSP : REAL (7555584 32)
-    PRG_INJ.fullScale : REAL (7555552 32)
-    PRG_INJ.i : INT (7555536 16)
-    PRG_INJ.rFULL_SCALE : REAL (7555616 32)
-    PRG_PressureControl.BasicPID : Tc2_Utilities.FB_BasicPID (7564416 1856)
-    PRG_PressureControl.arrTable : ARRAY[1..9] OF Tc2_Utilities.FLOAT (7557632 1152)
-    PRG_PressureControl.bARWactive : BOOL (7557104 8)
-    PRG_PressureControl.bError : BOOL (7557064 8)
-    PRG_PressureControl.bExtrapolate : BOOL (7556592 8)
-    PRG_PressureControl.bHold : BOOL (7557056 8)
-    PRG_PressureControl.bInit : BOOL (7557112 8)
-    PRG_PressureControl.bSync : BOOL (7556600 8)
-    PRG_PressureControl.eErrorId : Tc2_ControllerToolbox.E_CTRL_ERRORCODES (7557088 16)
-    PRG_PressureControl.eMode : Tc2_ControllerToolbox.E_CTRL_MODE (7557072 16)
-    PRG_PressureControl.fActualValue : Tc2_Utilities.FLOAT (7556672 64)
-    PRG_PressureControl.fBasicCtrlOutput : Tc2_Utilities.FLOAT (7556800 64)
-    PRG_PressureControl.fCtrlOutput : Tc2_Utilities.FLOAT (7556736 64)
-    PRG_PressureControl.fManSyncValue : Tc2_Utilities.FLOAT (7556992 64)
-    PRG_PressureControl.fManValue : Tc2_Utilities.FLOAT (7556928 64)
-    PRG_PressureControl.fSetpointValue : Tc2_Utilities.FLOAT (7556608 64)
-    PRG_PressureControl.f_Rep_POS : Tc2_Utilities.FLOAT (7556864 64)
-    PRG_PressureControl.fbCTRL_LIN_INTERPOLATION : Tc2_ControllerToolbox.FB_CTRL_LIN_INTERPOLATION (7562688 1728)
-    PRG_PressureControl.fbCTRL_Normalize : Tc2_ControllerToolbox.FB_CTRL_NORMALIZE (7560960 1728)
-    PRG_PressureControl.fbCTRL_PI : Tc2_ControllerToolbox.FB_CTRL_PI (7558784 2176)
-    PRG_PressureControl.nDataTable_NumberOfRows : INT (7556576 16)
-    PRG_PressureControl.stCTRL_LIN_INTERPOLATION_PARAMS : Tc2_ControllerToolbox.ST_CTRL_LIN_INTERPOLATION_PARAMS (7557504 128)
-    PRG_PressureControl.stCTRL_PI_PARAMS : Tc2_ControllerToolbox.ST_CTRL_PI_PARAMS (7557120 384)
-    PRG_Purge.AllGasVlvCls : BOOL (7569864 8)
-    PRG_Purge.BurpET : TIME (7570560 32)
-    PRG_Purge.CATCH : INT (7570608 16)
-    PRG_Purge.CATCH1 : INT (7571136 16)
-    PRG_Purge.GBA80Time : TIME (7571104 32)
-    PRG_Purge.GBA80Tmr : Tc2_Standard.TON (7570880 224)
-    PRG_Purge.GBATimeDone : BOOL (7569912 8)
-    PRG_Purge.NeedleBurpTime : TIME (7570848 32)
-    PRG_Purge.NeedlePurgeDone : BOOL (7569904 8)
-    PRG_Purge.NeedlePurgeRepeat : INT (7570592 16)
-    PRG_Purge.NeedlePurgeRun : BOOL (7569896 8)
-    PRG_Purge.NeedlePurgeTime : TIME (7570528 32)
-    PRG_Purge.NeedleVlvPurgeTmr : Tc2_Standard.TON (7570304 224)
-    PRG_Purge.StartWatchdogTmr : BOOL (7569888 8)
-    PRG_Purge.VCN_Timer : Tc2_Standard.TON (7570624 224)
-    PRG_Purge.VGP_50 : INT (7571152 16)
-    PRG_Purge.VVC_81_Timer : Tc2_Standard.TON (7571168 224)
-    PRG_Purge.VVC_82_Timer : Tc2_Standard.TON (7571392 224)
-    PRG_Purge.WatchdogPeriod : TIME (7570272 32)
-    PRG_Purge.WatchdogTmr : Tc2_Standard.TON (7570048 224)
-    PRG_Purge.step : INT (7569872 16)
-    PRG_VGP.VGP_OUT_POS : LREAL (7569984 64)
-    PRG_VGP.VGP_REQ_POS : LREAL (7569920 64)
-    PRG_VGP.arrTable : ARRAY[1..14] OF Tc2_Utilities.FLOAT (7566272 1792)
-    PRG_VGP.arrTable_ENC : ARRAY[1..14] OF Tc2_Utilities.FLOAT (7568064 1792)
-    PRG_VGP.bInit : BOOL (7569856 8)
-    ParameterList.cSourceNameSize : UDINT (81..Tc2_Utilities.ParameterList.cMaxCharacters) (3309216 32)
-    TC_EVENTS.LCLSGeneralEventClass : ST_LCLSGeneralEventClass (7747776 960)
-    TwinCAT_LicenseInfoVarList._LicenseInfo : ARRAY[1..3] OF PlcLicenseInfo (7696064 3072)
-    TwinCAT_SystemInfoVarList._AppInfo : PlcAppSystemInfo (7699136 2048)
-    TwinCAT_SystemInfoVarList._TaskInfo : ARRAY[1..1] OF PlcTaskSystemInfo (7701184 1024)
-    TwinCAT_SystemInfoVarList._TaskOid_PlcTask : OTCID (7702240 32)
-    TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask : OTCID (7702208 32)
-    TwinCAT_SystemInfoVarList.__PlcTask : _Implicit_Task_Info (7702272 704)
+    .TCPADS_MAXUDP_BUFFSIZE : UDINT (3363008 32)
+    Constants.CompilerVersion : VERSION (15569280 64)
+    Constants.CompilerVersionNumeric : DWORD (15569408 32)
+    Constants.RuntimeVersion : VERSION (15569216 64)
+    Constants.RuntimeVersionNumeric : DWORD (15569376 32)
+    Constants.bFPUSupport : BOOL (15569344 8)
+    Constants.bLittleEndian : BOOL (9783312 8)
+    Constants.bMulticoreSupport : BOOL (15569352 8)
+    Constants.bSimulationMode : BOOL (9783320 8)
+    Constants.gc_GaugeValidState : INT (7513856 16)
+    Constants.gc_GaugeValidState : INT (7515200 16)
+    Constants.gc_iSizeOfGGOArray : INT (3368688 16)
+    Constants.gc_iSizeOfGGOArray : INT (7515184 16)
+    Constants.nPackMode : UINT (9783344 16)
+    Constants.nRegisterSize : WORD (9783328 16)
+    DefaultGlobals.fTimeStamp : LREAL (3072128 64)
+    DefaultGlobals.stSys : ST_System (3072000 88)
+    GVL.nLangId_OnlineMonitoring : DINT (3365248 32)
+    GVL_GMD.fake_always_closed_vent_valve : ST_VVC (7604888 40)
+    GVL_GMD.fb_EM1K0_GMD_GCC_10 : FB_MKS422 (9099520 85056)
+    GVL_GMD.fb_EM1K0_GMD_GCC_10.i_iPRESS_R : INT (9184480 16)
+    GVL_GMD.fb_EM1K0_GMD_GCC_10.q_xHV_DIS : BOOL (9184496 8)
+    GVL_GMD.fb_EM1K0_GMD_GCC_20 : FB_MKS422 (9184576 85056)
+    GVL_GMD.fb_EM1K0_GMD_GCC_20.i_iPRESS_R : INT (9269536 16)
+    GVL_GMD.fb_EM1K0_GMD_GCC_20.q_xHV_DIS : BOOL (9269552 8)
+    GVL_GMD.fb_EM1K0_GMD_GCC_30 : FB_MKS422 (9269632 85056)
+    GVL_GMD.fb_EM1K0_GMD_GCC_30.i_iPRESS_R : INT (9354592 16)
+    GVL_GMD.fb_EM1K0_GMD_GCC_30.q_xHV_DIS : BOOL (9354608 8)
+    GVL_GMD.fb_EM1K0_GMD_GCC_40 : FB_MKS422 (9354688 85056)
+    GVL_GMD.fb_EM1K0_GMD_GCC_40.i_iPRESS_R : INT (9439648 16)
+    GVL_GMD.fb_EM1K0_GMD_GCC_40.q_xHV_DIS : BOOL (9439664 8)
+    GVL_GMD.fb_EM1K0_GMD_GCC_50 : FB_MKS422 (9439744 85056)
+    GVL_GMD.fb_EM1K0_GMD_GCC_50.i_iPRESS_R : INT (9524704 16)
+    GVL_GMD.fb_EM1K0_GMD_GCC_50.q_xHV_DIS : BOOL (9524720 8)
+    GVL_GMD.fb_EM1K0_GMD_GCC_60 : FB_MKS422 (9524800 85056)
+    GVL_GMD.fb_EM1K0_GMD_GCC_60.i_iPRESS_R : INT (9609760 16)
+    GVL_GMD.fb_EM1K0_GMD_GCC_60.q_xHV_DIS : BOOL (9609776 8)
+    GVL_GMD.fb_EM1K0_GMD_GCC_70 : FB_MKS422 (9609856 85056)
+    GVL_GMD.fb_EM1K0_GMD_GCC_70.i_iPRESS_R : INT (9694816 16)
+    GVL_GMD.fb_EM1K0_GMD_GCC_70.q_xHV_DIS : BOOL (9694832 8)
+    GVL_GMD.fb_EM1K0_GMD_GPI_10 : FB_MKS317 (7763776 83968)
+    GVL_GMD.fb_EM1K0_GMD_GPI_10.i_iPRESS_R : INT (7847456 16)
+    GVL_GMD.fb_EM1K0_GMD_GPI_40 : FB_MKS317 (7847744 83968)
+    GVL_GMD.fb_EM1K0_GMD_GPI_40.i_iPRESS_R : INT (7931424 16)
+    GVL_GMD.fb_EM1K0_GMD_GPI_70 : FB_MKS317 (7931712 83968)
+    GVL_GMD.fb_EM1K0_GMD_GPI_70.i_iPRESS_R : INT (8015392 16)
+    GVL_GMD.fb_EM1K0_GMD_PRT_40 : FB_EbaraEVA (9694912 82112)
+    GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xAlarmOK : BOOL (9777000 8)
+    GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xIsRun : BOOL (9777008 8)
+    GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRemote : BOOL (9776984 8)
+    GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xResetAlarm : BOOL (9776992 8)
+    GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRunDo : BOOL (9776976 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_10 : FB_PTM_TwisTorr (8015680 82368)
+    GVL_GMD.fb_EM1K0_GMD_PTM_10.i_xAtSpd : BOOL (8098024 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_10.i_xFault : BOOL (8098032 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_10.q_RunDO : BOOL (8098040 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_20 : FB_PTM_TwisTorr (8098048 82368)
+    GVL_GMD.fb_EM1K0_GMD_PTM_20.i_xAtSpd : BOOL (8180392 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_20.i_xFault : BOOL (8180400 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_20.q_RunDO : BOOL (8180408 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_30 : FB_PTM_TwisTorr (8180416 82368)
+    GVL_GMD.fb_EM1K0_GMD_PTM_30.i_xAtSpd : BOOL (8262760 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_30.i_xFault : BOOL (8262768 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_30.q_RunDO : BOOL (8262776 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_40 : FB_PTM_TwisTorr (8262784 82368)
+    GVL_GMD.fb_EM1K0_GMD_PTM_40.i_xAtSpd : BOOL (8345128 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_40.i_xFault : BOOL (8345136 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_40.q_RunDO : BOOL (8345144 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_50 : FB_PTM_TwisTorr (8345152 82368)
+    GVL_GMD.fb_EM1K0_GMD_PTM_50.i_xAtSpd : BOOL (8427496 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_50.i_xFault : BOOL (8427504 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_50.q_RunDO : BOOL (8427512 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_60 : FB_PTM_TwisTorr (8427520 82368)
+    GVL_GMD.fb_EM1K0_GMD_PTM_60.i_xAtSpd : BOOL (8509864 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_60.i_xFault : BOOL (8509872 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_60.q_RunDO : BOOL (8509880 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_70 : FB_PTM_TwisTorr (8509888 82368)
+    GVL_GMD.fb_EM1K0_GMD_PTM_70.i_xAtSpd : BOOL (8592232 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_70.i_xFault : BOOL (8592240 8)
+    GVL_GMD.fb_EM1K0_GMD_PTM_70.q_RunDO : BOOL (8592248 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_10 : FB_VRC (8592256 84544)
+    GVL_GMD.fb_EM1K0_GMD_VRC_10.i_xClsLS : BOOL (8676776 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_10.i_xOpnLS : BOOL (8676768 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_10.q_xOPN_DO : BOOL (8676784 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_20 : FB_VRC (8676800 84544)
+    GVL_GMD.fb_EM1K0_GMD_VRC_20.i_xClsLS : BOOL (8761320 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_20.i_xOpnLS : BOOL (8761312 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_20.q_xOPN_DO : BOOL (8761328 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_30 : FB_VRC (8761344 84544)
+    GVL_GMD.fb_EM1K0_GMD_VRC_30.i_xClsLS : BOOL (8845864 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_30.i_xOpnLS : BOOL (8845856 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_30.q_xOPN_DO : BOOL (8845872 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_50 : FB_VRC (8845888 84544)
+    GVL_GMD.fb_EM1K0_GMD_VRC_50.i_xClsLS : BOOL (8930408 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_50.i_xOpnLS : BOOL (8930400 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_50.q_xOPN_DO : BOOL (8930416 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_60 : FB_VRC (8930432 84544)
+    GVL_GMD.fb_EM1K0_GMD_VRC_60.i_xClsLS : BOOL (9014952 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_60.i_xOpnLS : BOOL (9014944 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_60.q_xOPN_DO : BOOL (9014960 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_70 : FB_VRC (9014976 84544)
+    GVL_GMD.fb_EM1K0_GMD_VRC_70.i_xClsLS : BOOL (9099496 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_70.i_xOpnLS : BOOL (9099488 8)
+    GVL_GMD.fb_EM1K0_GMD_VRC_70.q_xOPN_DO : BOOL (9099504 8)
+    GVL_GMD.fb_EM1K0_GMD_VVC_40 : FB_VVC (9777024 640)
+    GVL_GMD.fb_EM1K0_GMD_VVC_40.q_xOPN_DO : BOOL (9777632 8)
+    GVL_INJ.GCM_80 : FB_GCM (7759744 1248)
+    GVL_INJ.GCM_80.i_iPRESS_R : INT (7760976 16)
+    GVL_INJ.GFM_83 : FB_PressureTransducer (7762816 608)
+    GVL_INJ.GFM_83.iError : BOOL (7763392 8)
+    GVL_INJ.GFM_83.i_iPRESS_R : INT (7763408 16)
+    GVL_INJ.GFM_84 : FB_PressureTransducer (7762208 608)
+    GVL_INJ.GFM_84.iError : BOOL (7762784 8)
+    GVL_INJ.GFM_84.i_iPRESS_R : INT (7762800 16)
+    GVL_INJ.GFM_85 : FB_PressureTransducer (7761600 608)
+    GVL_INJ.GFM_85.iError : BOOL (7762176 8)
+    GVL_INJ.GFM_85.i_iPRESS_R : INT (7762192 16)
+    GVL_INJ.GFM_86 : FB_PressureTransducer (7760992 608)
+    GVL_INJ.GFM_86.iError : BOOL (7761568 8)
+    GVL_INJ.GFM_86.i_iPRESS_R : INT (7761584 16)
+    GVL_INJ.RTD : FB_RTD (7763584 192)
+    GVL_INJ.RTD.bError : BOOL (7763720 8)
+    GVL_INJ.RTD.bOverrange : BOOL (7763736 8)
+    GVL_INJ.RTD.bUnderrange : BOOL (7763728 8)
+    GVL_INJ.RTD.iRaw : INT (7763744 16)
+    GVL_INJ.VCN_40 : FB_VCN (7606784 480)
+    GVL_INJ.VCN_40.q_iRawPosition : INT (7607232 16)
+    GVL_INJ.VGP_40 : FB_VGP (7607296 147968)
+    GVL_INJ.VGP_40.Axis.NcToPlc : NCTOPLC_AXIS_REF (7611648 2048)
+    GVL_INJ.VGP_40.Axis.PlcToNc : PLCTONC_AXIS_REF (7610624 1024)
+    GVL_INJ.VGP_40.InfoData_State : UINT (7619584 16)
+    GVL_INJ.VVC_80 : FB_VVC (7755264 640)
+    GVL_INJ.VVC_80.q_xOPN_DO : BOOL (7755872 8)
+    GVL_INJ.VVC_81 : FB_VVC (7755904 640)
+    GVL_INJ.VVC_81.q_xOPN_DO : BOOL (7756512 8)
+    GVL_INJ.VVC_82 : FB_VVC (7756544 640)
+    GVL_INJ.VVC_82.q_xOPN_DO : BOOL (7757152 8)
+    GVL_INJ.VVC_83 : FB_VVC (7757184 640)
+    GVL_INJ.VVC_83.q_xOPN_DO : BOOL (7757792 8)
+    GVL_INJ.VVC_84 : FB_VVC (7757824 640)
+    GVL_INJ.VVC_84.q_xOPN_DO : BOOL (7758432 8)
+    GVL_INJ.VVC_85 : FB_VVC (7758464 640)
+    GVL_INJ.VVC_85.q_xOPN_DO : BOOL (7759072 8)
+    GVL_INJ.VVC_86 : FB_VVC (7759104 640)
+    GVL_INJ.VVC_86.q_xOPN_DO : BOOL (7759712 8)
+    GVL_INJ.hv1 : FB_HighVoltage (7763424 160)
+    GVL_INJ.hv1.q_HV_DO : BOOL (7763552 8)
+    GVL_INJ.xOverrideMode : BOOL (7604880 8)
+    GVL_INTERNAL.UNINITIALIZED_CLASS_GUID : GUID (3365600 128)
+    GVL_Logger.TCPADS_MAXUDP_BUFFSIZE : UDINT (3073184 32)
+    GVL_Logger.bTrickleTripped : BOOL (3072088 8)
+    GVL_Logger.cLogHost : STRING(15) (3072192 128)
+    GVL_Logger.fbRootLogger : FB_LogMessage (3073216 81600)
+    GVL_Logger.iLogPort : UINT (3072096 16)
+    GVL_Logger.nGlobAccEvents : UDINT (3154816 32)
+    GVL_Logger.nLocalTrickleTripThreshold : TIME (3072416 32)
+    GVL_Logger.nLocalTripThreshold : TIME (3072384 32)
+    GVL_Logger.nMinTimeViolationAcceptable : INT (3072112 16)
+    GVL_Logger.nTrickleThreshold : UDINT (3154848 32)
+    GVL_Logger.nTrickleTripTime : TIME (3072448 32)
+    GVL_Logger.nTripResetPeriod : TIME (3072480 32)
+    GVL_Logger.sIpTidbit : STRING(6) (3072320 56)
+    GVL_Logger.sPlcHostname : STRING(80) (3072512 648)
+    GVL_Param_TcUnit.MaxNumberOfAsserts : UINT (3366048 16)
+    GVL_Param_TcUnit.MaxNumberOfTestSuites : UINT (3366016 16)
+    GVL_Param_TcUnit.MaxNumberOfTestsForEachTestSuite : UINT (3366032 16)
+    GVL_PfeifferParameters.gcMaxPfeifferPumps : INT (7515168 16)
+    GVL_TcUnit.AdsLogger : FB_ADSLogStringMessageFifoQueue (3384704 4128864)
+    GVL_TcUnit.CurrentTestIsFinished : BOOL (3366064 8)
+    GVL_TcUnit.CurrentTestNameBeingCalled : STRING(255) (3366624 2048)
+    GVL_TcUnit.CurrentTestSuiteBeingCalled : POINTER TO FB_TestSuite (3366592 32)
+    GVL_TcUnit.IgnoreCurrentTest : BOOL (3366072 8)
+    GVL_TcUnit.NumberOfInitializedTestSuites : UINT (3368672 16)
+    GVL_TcUnit.TcUnitRunner : FB_TcUnitRunner (3366080 512)
+    GVL_TcUnit.TestSuiteAddresses : POINTER TO FB_TestSuite (3368704 16000)
+    GVL_TcUnit.TestSuiteIsRegistered : BOOL (3359976 8)
+    GVL_VAC_INTF.ads_watch_dog : FB_ADS_WATCHDOG (9777664 5632)
+    GVL_VARIABLES.bAutoVVC40 : BOOL (7607272 8)
+    GVL_VARIABLES.bPurgeActive : BOOL (7607288 8)
+    GVL_VARIABLES.bPurgeDone : BOOL (9783296 8)
+    GVL_VARIABLES.bStartPurge_sw : BOOL (7607280 8)
+    GVL_VARIABLES.fbLogHandler : FB_LogHandler (9783360 5785856)
+    GVL_VARIABLES.xSystemOverrideMode : BOOL (7607264 8)
+    Global_Constants.EMPTY_EVENT_CLASS : GUID (3364896 128)
+    Global_Constants.EMPTY_EVENT_ID : UDINT (3365024 32)
+    Global_Constants.EMPTY_SEVERITY : TcEventSeverity (3361680 16)
+    Global_Constants.SUCCESS_EVENT : TcEventEntry (3365056 192)
+    Global_Variables.ADSIGRP_DEVICE_DATA : UDINT (3156544 32)
+    Global_Variables.ADSIGRP_IOIMAGE_CLEARI : UDINT (3156448 32)
+    Global_Variables.ADSIGRP_IOIMAGE_CLEARO : UDINT (3156480 32)
+    Global_Variables.ADSIGRP_IOIMAGE_RISIZE : UDINT (3156320 32)
+    Global_Variables.ADSIGRP_IOIMAGE_ROSIZE : UDINT (3156416 32)
+    Global_Variables.ADSIGRP_IOIMAGE_RWIB : UDINT (3156256 32)
+    Global_Variables.ADSIGRP_IOIMAGE_RWIOB : UDINT (3156512 32)
+    Global_Variables.ADSIGRP_IOIMAGE_RWIX : UDINT (3156288 32)
+    Global_Variables.ADSIGRP_IOIMAGE_RWOB : UDINT (3156352 32)
+    Global_Variables.ADSIGRP_IOIMAGE_RWOX : UDINT (3156384 32)
+    Global_Variables.ADSIGRP_SYMNAME : UDINT (3155840 32)
+    Global_Variables.ADSIGRP_SYMNOTE : UDINT (3156224 32)
+    Global_Variables.ADSIGRP_SYMTAB : UDINT (3155808 32)
+    Global_Variables.ADSIGRP_SYMVAL : UDINT (3155872 32)
+    Global_Variables.ADSIGRP_SYM_DOWNLOAD : UDINT (3156128 32)
+    Global_Variables.ADSIGRP_SYM_HNDBYNAME : UDINT (3155904 32)
+    Global_Variables.ADSIGRP_SYM_INFOBYNAME : UDINT (3156032 32)
+    Global_Variables.ADSIGRP_SYM_INFOBYNAMEEX : UDINT (3156096 32)
+    Global_Variables.ADSIGRP_SYM_RELEASEHND : UDINT (3156000 32)
+    Global_Variables.ADSIGRP_SYM_UPLOAD : UDINT (3156160 32)
+    Global_Variables.ADSIGRP_SYM_UPLOADINFO : UDINT (3156192 32)
+    Global_Variables.ADSIGRP_SYM_VALBYHND : UDINT (3155968 32)
+    Global_Variables.ADSIGRP_SYM_VALBYNAME : UDINT (3155936 32)
+    Global_Variables.ADSIGRP_SYM_VERSION : UDINT (3156064 32)
+    Global_Variables.ADSIOFFS_DEVDATA_ADSSTATE : UDINT (3156576 32)
+    Global_Variables.ADSIOFFS_DEVDATA_DEVSTATE : UDINT (3156608 32)
+    Global_Variables.ADSLOG_MSGTYPE_ERROR : DWORD (3157664 32)
+    Global_Variables.ADSLOG_MSGTYPE_HINT : DWORD (3157600 32)
+    Global_Variables.ADSLOG_MSGTYPE_LOG : DWORD (3157696 32)
+    Global_Variables.ADSLOG_MSGTYPE_MSGBOX : DWORD (3157728 32)
+    Global_Variables.ADSLOG_MSGTYPE_RESOURCE : DWORD (3157760 32)
+    Global_Variables.ADSLOG_MSGTYPE_STRING : DWORD (3157792 32)
+    Global_Variables.ADSLOG_MSGTYPE_WARN : DWORD (3157632 32)
+    Global_Variables.ADSSTATE_CONFIG : UINT (3155696 16)
+    Global_Variables.ADSSTATE_ERROR : UINT (3155632 16)
+    Global_Variables.ADSSTATE_EXCEPTION : UINT (3155760 16)
+    Global_Variables.ADSSTATE_IDLE : UINT (3155472 16)
+    Global_Variables.ADSSTATE_INCOMPATIBLE : UINT (3155744 16)
+    Global_Variables.ADSSTATE_INIT : UINT (3155504 16)
+    Global_Variables.ADSSTATE_INVALID : UINT (3155456 16)
+    Global_Variables.ADSSTATE_LOADCFG : UINT (3155584 16)
+    Global_Variables.ADSSTATE_MAXSTATES : UINT (3155776 16)
+    Global_Variables.ADSSTATE_POWERFAILURE : UINT (3155600 16)
+    Global_Variables.ADSSTATE_POWERGOOD : UINT (3155616 16)
+    Global_Variables.ADSSTATE_RECONFIG : UINT (3155712 16)
+    Global_Variables.ADSSTATE_RESET : UINT (3155488 16)
+    Global_Variables.ADSSTATE_RESUME : UINT (3155680 16)
+    Global_Variables.ADSSTATE_RUN : UINT (3155536 16)
+    Global_Variables.ADSSTATE_SAVECFG : UINT (3155568 16)
+    Global_Variables.ADSSTATE_SHUTDOWN : UINT (3155648 16)
+    Global_Variables.ADSSTATE_START : UINT (3155520 16)
+    Global_Variables.ADSSTATE_STOP : UINT (3155552 16)
+    Global_Variables.ADSSTATE_STOPPING : UINT (3155728 16)
+    Global_Variables.ADSSTATE_SUSPEND : UINT (3155664 16)
+    Global_Variables.AMSLOGGER_IGR_GENERAL : UDINT (3223456 32)
+    Global_Variables.AMSLOGGER_IOF_MODE : UDINT (3223488 32)
+    Global_Variables.AMSPORT_AMSLOGGER : UINT (3223520 16)
+    Global_Variables.AMSPORT_EVENTLOG : UINT (3155168 16)
+    Global_Variables.AMSPORT_LOGGER : UINT (3073168 16)
+    Global_Variables.AMSPORT_R0_CAM : UINT (3155392 16)
+    Global_Variables.AMSPORT_R0_CAMTOOL : UINT (3155408 16)
+    Global_Variables.AMSPORT_R0_CNC : UINT (3155280 16)
+    Global_Variables.AMSPORT_R0_IO : UINT (3155200 16)
+    Global_Variables.AMSPORT_R0_ISG : UINT (3155264 16)
+    Global_Variables.AMSPORT_R0_LINE : UINT (3155296 16)
+    Global_Variables.AMSPORT_R0_NC : UINT (3155216 16)
+    Global_Variables.AMSPORT_R0_NCSAF : UINT (3155232 16)
+    Global_Variables.AMSPORT_R0_NCSVB : UINT (3155248 16)
+    Global_Variables.AMSPORT_R0_PLC : UINT (3155312 16)
+    Global_Variables.AMSPORT_R0_PLC_RTS1 : UINT (3155328 16)
+    Global_Variables.AMSPORT_R0_PLC_RTS2 : UINT (3155344 16)
+    Global_Variables.AMSPORT_R0_PLC_RTS3 : UINT (3155360 16)
+    Global_Variables.AMSPORT_R0_PLC_RTS4 : UINT (3155376 16)
+    Global_Variables.AMSPORT_R0_RTIME : UINT (3155184 16)
+    Global_Variables.AMSPORT_R3_SCOPESERVER : UINT (3155440 16)
+    Global_Variables.AMSPORT_R3_SYSSERV : UINT (3155424 16)
+    Global_Variables.AMSPORT_TCPIPSRV : UINT (3359984 16)
+    Global_Variables.BOOTDATAFLAGS_PERSISTENT_INVALID : BYTE (3157824 8)
+    Global_Variables.BOOTDATAFLAGS_PERSISTENT_LOADED : BYTE (3155800 8)
+    Global_Variables.BOOTDATAFLAGS_RETAIN_INVALID : BYTE (3073160 8)
+    Global_Variables.BOOTDATAFLAGS_RETAIN_LOADED : BYTE (3072376 8)
+    Global_Variables.BOOTDATAFLAGS_RETAIN_REQUESTED : BYTE (3155792 8)
+    Global_Variables.CONNECT_MODE_ENABLEDBG : DWORD (3364000 32)
+    Global_Variables.DATE_AND_TIME_SECPERDAY : DWORD (3231136 32)
+    Global_Variables.DATE_AND_TIME_SECPERWEEK : DWORD (3236448 32)
+    Global_Variables.DBG_OUTPUT_FILE : DWORD (3242720 32)
+    Global_Variables.DBG_OUTPUT_LOG : DWORD (3242688 32)
+    Global_Variables.DBG_OUTPUT_NONE : DWORD (3242656 32)
+    Global_Variables.DBG_OUTPUT_VISU : DWORD (3242752 32)
+    Global_Variables.DEFAULT_ADS_TIMEOUT : TIME (3158496 32)
+    Global_Variables.DEFAULT_BACKLASHVALUE : LREAL (7531072 64)
+    Global_Variables.DEFAULT_CSV_FIELD_DOUBLE_QUOTE : BYTE (3222200 8)
+    Global_Variables.DEFAULT_CSV_FIELD_SEP : BYTE (3160224 8)
+    Global_Variables.DEFAULT_CSV_RECORD_SEP_CR : BYTE (3358992 8)
+    Global_Variables.DEFAULT_CSV_RECORD_SEP_LF : BYTE (3359000 8)
+    Global_Variables.DEFAULT_HOME_POSITION : LREAL (7531008 64)
+    Global_Variables.EMPTY_ARG_VALUE : T_Arg (3224096 96)
+    Global_Variables.EMPTY_GUID_REGSTRING : STRING(38) (3362120 312)
+    Global_Variables.EMPTY_GUID_STRING : STRING(36) (3361824 296)
+    Global_Variables.EMPTY_GUID_STRUCT : GUID (3361696 128)
+    Global_Variables.EMPTY_ROUTE_ENTRY : ST_AmsRouteEntry (3222208 1184)
+    Global_Variables.FLOATREC_EXP_IS_INF : INT (3223568 16)
+    Global_Variables.FLOATREC_EXP_IS_NAN : INT (3223552 16)
+    Global_Variables.FLOATREC_MAX_DIGITS : INT (3223584 16)
+    Global_Variables.FLOATREC_MAX_PRECISION : INT (3223600 16)
+    Global_Variables.FLOATREC_MIN_PRECISION : INT (3223616 16)
+    Global_Variables.FMTERR_ARGTYPEINVALID : DWORD (3223936 32)
+    Global_Variables.FMTERR_ASTERISKPOSITION : DWORD (3223712 32)
+    Global_Variables.FMTERR_DESTBUFFOVERFLOW : DWORD (3224032 32)
+    Global_Variables.FMTERR_FLAGPOSITION : DWORD (3223808 32)
+    Global_Variables.FMTERR_INSUFFICIENTARGS : DWORD (3224000 32)
+    Global_Variables.FMTERR_INVALIDPOINTERINPUT : DWORD (3224064 32)
+    Global_Variables.FMTERR_NOERROR : DWORD (3223648 32)
+    Global_Variables.FMTERR_PERCENTSIGNPOSITION : DWORD (3223680 32)
+    Global_Variables.FMTERR_PRECISIONDOTPOSITION : DWORD (3223872 32)
+    Global_Variables.FMTERR_PRECISIONVALUE : DWORD (3223776 32)
+    Global_Variables.FMTERR_TYPEFIELDVALUE : DWORD (3223904 32)
+    Global_Variables.FMTERR_UNACCEPTEDPARAMETER : DWORD (3223968 32)
+    Global_Variables.FMTERR_WIDTHPRECISIONVALPOS : DWORD (3223840 32)
+    Global_Variables.FMTERR_WIDTHVALUE : DWORD (3223744 32)
+    Global_Variables.FOPEN_MODEAPPEND : DWORD (3157920 32)
+    Global_Variables.FOPEN_MODEBINARY : DWORD (3157984 32)
+    Global_Variables.FOPEN_MODEPLUS : DWORD (3157952 32)
+    Global_Variables.FOPEN_MODEREAD : DWORD (3157856 32)
+    Global_Variables.FOPEN_MODETEXT : DWORD (3158016 32)
+    Global_Variables.FOPEN_MODEWRITE : DWORD (3157888 32)
+    Global_Variables.FORMAT_DECASC_CODES : BYTE (3224448 80)
+    Global_Variables.FORMAT_HEXASC_CODES : BYTE (3224192 256)
+    Global_Variables.FORMAT_MAX_ARGS : INT (3223536 16)
+    Global_Variables.GLOBAL_DCF77_PULSE_SPLIT : TIME (3160192 32)
+    Global_Variables.GLOBAL_DCF77_SEQUENCE_CHECK : BOOL (3160072 8)
+    Global_Variables.GLOBAL_FORMAT_HASH_PREFIX_TYPE : E_HashPrefixTypes (3160160 16)
+    Global_Variables.GLOBAL_SBCS_TABLE : E_SBCSType (3160176 16)
+    Global_Variables.HKEY_MAX_BINARY_DATA_SIZE : UDINT (3223424 32)
+    Global_Variables.IPHELPERAPI_ADAPTERSINFO : UDINT (3221888 32)
+    Global_Variables.IPHELPERAPI_IPADDRBYHOSTNAME : UDINT (3221920 32)
+    Global_Variables.LISTEN_MODE_CLOSEALL : DWORD (3363936 32)
+    Global_Variables.LISTEN_MODE_USEOPENED : DWORD (3363968 32)
+    Global_Variables.MAX_ADAPTER_ADDRESS_LENGTH : UDINT (3221792 32)
+    Global_Variables.MAX_ADAPTER_DESCRIPTION_LENGTH : UDINT (3221760 32)
+    Global_Variables.MAX_ADAPTER_NAME_LENGTH : UDINT (3221728 32)
+    Global_Variables.MAX_AVERAGE_MEASURES : INT (2..100) (3160080 16)
+    Global_Variables.MAX_LOCAL_ADAPTERS : UDINT (3221952 32)
+    Global_Variables.MAX_REMOTE_PCS : INT (3160240 16)
+    Global_Variables.MAX_ROUTE_ADDR_LEN : BYTE (3222176 8)
+    Global_Variables.MAX_ROUTE_NAME_LEN : BYTE (3160232 8)
+    Global_Variables.MAX_ROUTE_TRANSPORT : BYTE (3222192 8)
+    Global_Variables.MAX_STRING_LENGTH : UDINT (3158592 32)
+    Global_Variables.MAX_THROTTLE_MODE : DWORD (3364032 32)
+    Global_Variables.MIN_ROUTE_TRANSPORT : BYTE (3222184 8)
+    Global_Variables.PI : LREAL (3158528 64)
+    Global_Variables.ROUTE_FLAG_DYNAMIC : DWORD (3222112 32)
+    Global_Variables.ROUTE_FLAG_NOOVERRIDE : DWORD (3222144 32)
+    Global_Variables.ROUTE_FLAG_TEMPORARY : DWORD (3222080 32)
+    Global_Variables.SYSTEMSERVICE_ADDREMOTE : UDINT (3221984 32)
+    Global_Variables.SYSTEMSERVICE_CHANGENETID : UDINT (3157408 32)
+    Global_Variables.SYSTEMSERVICE_CLOSEHANDLE : UDINT (3156768 32)
+    Global_Variables.SYSTEMSERVICE_CREATEFILE : UDINT (3156736 32)
+    Global_Variables.SYSTEMSERVICE_DELREMOTE : UDINT (3222016 32)
+    Global_Variables.SYSTEMSERVICE_ENUMREMOTE : UDINT (3222048 32)
+    Global_Variables.SYSTEMSERVICE_FCLOSE : UDINT (3156832 32)
+    Global_Variables.SYSTEMSERVICE_FDELETE : UDINT (3157152 32)
+    Global_Variables.SYSTEMSERVICE_FEOF : UDINT (3157120 32)
+    Global_Variables.SYSTEMSERVICE_FFILEFIND : UDINT (3223392 32)
+    Global_Variables.SYSTEMSERVICE_FGETS : UDINT (3156992 32)
+    Global_Variables.SYSTEMSERVICE_FOPEN : UDINT (3156800 32)
+    Global_Variables.SYSTEMSERVICE_FPRINTF : UDINT (3157088 32)
+    Global_Variables.SYSTEMSERVICE_FPUTS : UDINT (3157024 32)
+    Global_Variables.SYSTEMSERVICE_FREAD : UDINT (3156864 32)
+    Global_Variables.SYSTEMSERVICE_FRENAME : UDINT (3157184 32)
+    Global_Variables.SYSTEMSERVICE_FSCANF : UDINT (3157056 32)
+    Global_Variables.SYSTEMSERVICE_FSEEK : UDINT (3156928 32)
+    Global_Variables.SYSTEMSERVICE_FTELL : UDINT (3156960 32)
+    Global_Variables.SYSTEMSERVICE_FWRITE : UDINT (3156896 32)
+    Global_Variables.SYSTEMSERVICE_IPHELPERAPI : UDINT (3221824 32)
+    Global_Variables.SYSTEMSERVICE_IPHOSTNAME : UDINT (3221856 32)
+    Global_Variables.SYSTEMSERVICE_MKDIR : UDINT (3157216 32)
+    Global_Variables.SYSTEMSERVICE_OPENCREATE : UDINT (3156640 32)
+    Global_Variables.SYSTEMSERVICE_OPENREAD : UDINT (3156672 32)
+    Global_Variables.SYSTEMSERVICE_OPENWRITE : UDINT (3156704 32)
+    Global_Variables.SYSTEMSERVICE_REG_HKEYLOCALMACHINE : UDINT (3157280 32)
+    Global_Variables.SYSTEMSERVICE_RMDIR : UDINT (3157248 32)
+    Global_Variables.SYSTEMSERVICE_SENDEMAIL : UDINT (3157312 32)
+    Global_Variables.SYSTEMSERVICE_STARTPROCESS : UDINT (3157376 32)
+    Global_Variables.SYSTEMSERVICE_TIMESERVICES : UDINT (3157344 32)
+    Global_Variables.SYSTEMSTATEFLAGS_BSOD : BYTE (3157832 8)
+    Global_Variables.SYSTEMSTATEFLAGS_RTVIOLATION : BYTE (3157840 8)
+    Global_Variables.SYSTEMTIME_DATEDELTA_OFFSET : DWORD (3230784 32)
+    Global_Variables.SYSTEMTIME_DATE_AND_TIME_MAX : T_ULARGE_INTEGER (3231072 64)
+    Global_Variables.SYSTEMTIME_DATE_AND_TIME_MAX64 : ULINT (3231424 64)
+    Global_Variables.SYSTEMTIME_DATE_AND_TIME_MIN : T_ULARGE_INTEGER (3231008 64)
+    Global_Variables.SYSTEMTIME_DATE_AND_TIME_MIN64 : ULINT (3231360 64)
+    Global_Variables.SYSTEMTIME_MAX_MONTHDAYS : WORD (3229936 384)
+    Global_Variables.SYSTEMTIME_MAX_YEARSDAY : WORD (3230320 448)
+    Global_Variables.SYSTEMTIME_TICKSPERDAY : T_ULARGE_INTEGER (3230944 64)
+    Global_Variables.SYSTEMTIME_TICKSPERDAY64 : ULINT (3231296 64)
+    Global_Variables.SYSTEMTIME_TICKSPERMSEC : T_ULARGE_INTEGER (3230816 64)
+    Global_Variables.SYSTEMTIME_TICKSPERMSEC64 : ULINT (3231168 64)
+    Global_Variables.SYSTEMTIME_TICKSPERSEC : T_ULARGE_INTEGER (3230880 64)
+    Global_Variables.SYSTEMTIME_TICKSPERSEC64 : ULINT (3231232 64)
+    Global_Variables.TCEVENTFLAG_AUTOFMTALL : WORD (3158352 16)
+    Global_Variables.TCEVENTFLAG_FMTSELF : WORD (3158288 16)
+    Global_Variables.TCEVENTFLAG_LOG : WORD (3158304 16)
+    Global_Variables.TCEVENTFLAG_MSGBOX : WORD (3158320 16)
+    Global_Variables.TCEVENTFLAG_PRIOCLASS : WORD (3158272 16)
+    Global_Variables.TCEVENTFLAG_SRCID : WORD (3158336 16)
+    Global_Variables.TCEVENTSTATE_CONFIRMED : WORD (3158416 16)
+    Global_Variables.TCEVENTSTATE_INVALID : WORD (3158368 16)
+    Global_Variables.TCEVENTSTATE_RESET : WORD (3158400 16)
+    Global_Variables.TCEVENTSTATE_RESETCON : WORD (3158432 16)
+    Global_Variables.TCEVENTSTATE_SIGNALED : WORD (3158384 16)
+    Global_Variables.TCEVENT_FMTPRGSIZE : INT (3158464 16)
+    Global_Variables.TCEVENT_SRCNAMESIZE : INT (3158448 16)
+    Global_Variables.TCPADSCONLST_IOF_ACCEPT : UDINT (3363456 32)
+    Global_Variables.TCPADSCONLST_IOF_CLOSEALL : UDINT (3363424 32)
+    Global_Variables.TCPADSCONLST_IOF_CONNECT : UDINT (3363360 32)
+    Global_Variables.TCPADSCONLST_IOF_GETHNDLBYADDR : UDINT (3363520 32)
+    Global_Variables.TCPADSCONLST_IOF_GETLINKSTATUS : UDINT (3363552 32)
+    Global_Variables.TCPADSCONLST_IOF_LISTEN : UDINT (3363392 32)
+    Global_Variables.TCPADSCONLST_IOF_UDPBIND : UDINT (3363488 32)
+    Global_Variables.TCPADS_IGR_ADAPTER_LINKSTATUS : UDINT (3363328 32)
+    Global_Variables.TCPADS_IGR_CLOSEBYHDL : UDINT (3363072 32)
+    Global_Variables.TCPADS_IGR_CONLIST : UDINT (3363040 32)
+    Global_Variables.TCPADS_IGR_MULTICAST_ADDBYHDL : UDINT (3363264 32)
+    Global_Variables.TCPADS_IGR_MULTICAST_DROPBYHDL : UDINT (3363296 32)
+    Global_Variables.TCPADS_IGR_PEERBYHDL : UDINT (3363136 32)
+    Global_Variables.TCPADS_IGR_RECVBYHDL : UDINT (3363168 32)
+    Global_Variables.TCPADS_IGR_RECVFROMBYHDL : UDINT (3363200 32)
+    Global_Variables.TCPADS_IGR_SENDBYHDL : UDINT (3363104 32)
+    Global_Variables.TCPADS_IGR_SENDTOBYHDL : UDINT (3363232 32)
+    Global_Variables.TCPADS_NULL_HSOCKET : T_HSOCKET (3363584 352)
+    Global_Variables.THROTTLE_MODE_DEFAULT : T_ThrottleTimes (3364480 416)
+    Global_Variables.THROTTLE_MODE_OFF : T_ThrottleTimes (3364064 416)
+    Global_Variables.TIMESERVICE_ADJUSTTIMETORTC : UDINT (3157536 32)
+    Global_Variables.TIMESERVICE_DATEANDTIME : UDINT (3157440 32)
+    Global_Variables.TIMESERVICE_RTCTIMEDIFF : UDINT (3157504 32)
+    Global_Variables.TIMESERVICE_SYSTEMTIMES : UDINT (3157472 32)
+    Global_Variables.TIMESERVICE_TIMEZONINFORMATION : UDINT (3157568 32)
+    Global_Variables.TcMcGlobal : _TCMCGLOBAL (7524032 6976)
+    Global_Variables.WEST_EUROPE_TZI : ST_TimeZoneInformation (3231488 864)
+    Global_Variables.eWatchdogConfig : E_WATCHDOG_TIME_CONFIG (3158480 16)
+    Global_Variables.fbGetCurTaskIdx : GETCURTASKINDEX (7515040 128)
+    Global_Variables.fbGetCurTaskIdx : GETCURTASKINDEX (7515744 128)
+    Global_Variables.g_DummyVG : ST_VG (7513984 1056)
+    Global_Variables.g_DummyVG : ST_VG (7515328 416)
+    Global_Variables.g_iSizeOfGGOArray : INT (7513872 16)
+    Global_Variables.g_iSizeOfGGOArray : INT (7515216 16)
+    Global_Variables.g_stSystem : ST_System (7513888 88)
+    Global_Variables.g_stSystem : ST_System (7515232 88)
+    Global_Variables.nCTRL_LOGGER_DATA_ARRAY_SIZE : UINT (7522160 16)
+    Global_Variables.nWatchdogTime : BYTE (3157848 8)
+    Global_Variables.stCtrl_GLOBAL_CycleTimeInterpretation : ST_CTRL_CYCLE_TIME_INTERPRETATION (7531456 128)
+    Global_Version.stLibVersion_Tc2_IoFunctions : ST_LibVersion (3362432 288)
+    Global_Version.stLibVersion_Tc2_MC2 : ST_LibVersion (7523744 288)
+    Global_Version.stLibVersion_Tc2_Math : ST_LibVersion (7531136 288)
+    Global_Version.stLibVersion_Tc2_ModbusSrv : ST_LibVersion (3362720 288)
+    Global_Version.stLibVersion_Tc2_System : ST_LibVersion (3154880 288)
+    Global_Version.stLibVersion_Tc2_Utilities : ST_LibVersion (3159744 288)
+    Global_Version.stLibVersion_Tc3_EventLogger : ST_LibVersion (3365312 288)
+    Global_Version.stLibVersion_Tc3_JsonXml : ST_LibVersion (3365728 288)
+    Global_Version.stLibVersion_Tc3_Module : ST_LibVersion (3159136 288)
+    Global_Version.stLibVersion_TcUnit : ST_LibVersion (7513568 288)
+    LCLS_General.DefaultGlobals.stSys.I_EcatMaster1 : AMSNETID (3072040 48)
+    LCLS_Vacuum.Global_Variables.g_stSystem.I_EcatMaster1 : AMSNETID (7513928 48)
+    LCLS_Vacuum.LCLSVacuumSerialDriverLib.L2SI_Vacuum_Library.Global_Variables.g_stSystem.I_EcatMaster1 : AMSNETID (7515272 48)
+    PMPS_GVL.AUX_ATTENUATORS : UINT (7521568 16)
+    PMPS_GVL.AccumulatedFF : UDINT (7518848 32)
+    PMPS_GVL.DUMMY_AUX_ATT_ARRAY : ST_PMPS_Attenuator (7521600 512)
+    PMPS_GVL.EXCLUDED_ASSERTION_ID : UDINT (7518912 32)
+    PMPS_GVL.FAST_TEST_VELOCITY : LREAL (7519040 64)
+    PMPS_GVL.MAX_APERTURES : UINT (7521584 16)
+    PMPS_GVL.MAX_ASSERTIONS : UDINT (7522112 32)
+    PMPS_GVL.MAX_DEVICE_STATES : UDINT (7518944 32)
+    PMPS_GVL.MAX_FAST_FAULTS : DINT (7518880 32)
+    PMPS_GVL.MAX_STOPPERS : UINT (7519104 16)
+    PMPS_GVL.SuccessfulPreemption : UDINT (7518816 32)
+    PMPS_GVL.VISIBLE_TEST_VELOCITY : LREAL (7518976 64)
+    PMPS_GVL.cnMaxStateArrayLen : INT (7519120 16)
+    PMPS_GVL.cstFullBeam : ST_BeamParams (7519136 1216)
+    PMPS_GVL.cstSafeBeam : ST_BeamParams (7520352 1216)
+    PMPS_GVL.fHiK_LUnd : LREAL (7522368 64)
+    PMPS_GVL.fLowK_LUnd : LREAL (7522304 64)
+    PMPS_GVL.fPeriod_mm_LUnd : LREAL (7522240 64)
+    PMPS_GVL.g_areVBoundaries : REAL (7518304 512)
+    PMPS_GVL.g_areVBoundariesK : REAL (7522976 512)
+    PMPS_GVL.g_areVBoundariesL : REAL (7522464 512)
+    PMPS_GVL.g_cBoundaries : INT (7522144 16)
+    PMPS_GVL.iHighBound_LUnd : UDINT (7522208 32)
+    PMPS_GVL.iLowBound_LUnd : UDINT (7522176 32)
+    PMPS_GVL.reVHyst : REAL (7522432 32)
+    PMPS_GVL.stCurrentBeamParameters : ST_BeamParams (7517088 1216)
+    PMPS_GVL.stRequestedBeamParameters : ST_BeamParams (7515872 1216)
+    PMPS_TOOLS.fbJson : FB_JsonSaxWriter (7523488 256)
+    PRG_DIAGNOSTIC.fbTime : FB_LocalSystemTime (7576032 19040)
+    PRG_DIAGNOSTIC.logTimer : TON (7595072 224)
+    PRG_DIAGNOSTIC.plcHeartbeat : UDINT (7595424 32)
+    PRG_DIAGNOSTIC.plcInfo : STRING(40) (7595456 328)
+    PRG_DIAGNOSTIC.plcLocalTime : STRING(25) (7595784 208)
+    PRG_DIAGNOSTIC.plcName : STRING(15) (7595296 128)
+    PRG_DIAGNOSTIC.simHeartbeat : UINT (7531424 16)
+    PRG_GMD.f_ : INT (7531440 16)
+    PRG_GMD.fb_EM1K0_GMD_PTM_10i_xExtILKOk : BOOL (7515320 8)
+    PRG_HV_ILK.HV_ILK_OK : BOOL (7604872 8)
+    PRG_INJ.DefaultSP : REAL (7596064 32)
+    PRG_INJ.fullScale : REAL (7596032 32)
+    PRG_INJ.i : INT (7596000 16)
+    PRG_INJ.rFULL_SCALE : REAL (7596096 32)
+    PRG_PressureControl.BasicPID : FB_BasicPID (7604928 1856)
+    PRG_PressureControl.arrTable : FLOAT (7598080 1152)
+    PRG_PressureControl.bARWactive : BOOL (7597560 8)
+    PRG_PressureControl.bError : BOOL (7597552 8)
+    PRG_PressureControl.bExtrapolate : BOOL (7595992 8)
+    PRG_PressureControl.bHold : BOOL (7597512 8)
+    PRG_PressureControl.bInit : BOOL (7604864 8)
+    PRG_PressureControl.bSync : BOOL (7597504 8)
+    PRG_PressureControl.eErrorId : E_CTRL_ERRORCODES (7597536 16)
+    PRG_PressureControl.eMode : E_CTRL_MODE (7597520 16)
+    PRG_PressureControl.fActualValue : FLOAT (7597120 64)
+    PRG_PressureControl.fBasicCtrlOutput : FLOAT (7597248 64)
+    PRG_PressureControl.fCtrlOutput : FLOAT (7597184 64)
+    PRG_PressureControl.fManSyncValue : FLOAT (7597440 64)
+    PRG_PressureControl.fManValue : FLOAT (7597376 64)
+    PRG_PressureControl.fSetpointValue : FLOAT (7597056 64)
+    PRG_PressureControl.f_Rep_POS : FLOAT (7597312 64)
+    PRG_PressureControl.fbCTRL_LIN_INTERPOLATION : FB_CTRL_LIN_INTERPOLATION (7603136 1728)
+    PRG_PressureControl.fbCTRL_Normalize : FB_CTRL_NORMALIZE (7601408 1728)
+    PRG_PressureControl.fbCTRL_PI : FB_CTRL_PI (7599232 2176)
+    PRG_PressureControl.nDataTable_NumberOfRows : INT (7596016 16)
+    PRG_PressureControl.stCTRL_LIN_INTERPOLATION_PARAMS : ST_CTRL_LIN_INTERPOLATION_PARAMS (7597952 128)
+    PRG_PressureControl.stCTRL_PI_PARAMS : ST_CTRL_PI_PARAMS (7597568 384)
+    ParameterList.cSourceNameSize : UDINT (81..Tc2_Utilities.ParameterList.cMaxCharacters) (3365280 32)
+    TC_EVENTS.LCLSGeneralEventClass : LCLSGeneralEventClass (15619488 960)
+    TC_EVENT_CLASSES.LCLSGeneralEventClass : GUID (15589280 128)
+    TC_EVENT_CLASSES.TcGeneralAdsEventClass : GUID (15588768 128)
+    TC_EVENT_CLASSES.TcRTimeEventClass : GUID (15589024 128)
+    TC_EVENT_CLASSES.TcRouterEventClass : GUID (15588896 128)
+    TC_EVENT_CLASSES.TcSystemEventClass : GUID (15588640 128)
+    TC_EVENT_CLASSES.Win32EventClass : GUID (15589152 128)
+    TwinCAT_LicenseInfoVarList._LicenseInfo : PlcLicenseInfo (15569440 2048)
+    TwinCAT_SystemInfoVarList._AppInfo : PlcAppSystemInfo (15571488 2048)
+    TwinCAT_SystemInfoVarList._TaskInfo : PlcTaskSystemInfo (15573568 1024)
+    TwinCAT_SystemInfoVarList._TaskOid_PlcTask : OTCID (15574592 32)
+    TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask : OTCID (15573536 32)
+    TwinCAT_SystemInfoVarList.__PlcTask : _Implicit_Task_Info (15574624 704)
 
 PLC Project (2): plc_kfe_gmd_vac_sim
 ====================================
@@ -3180,132 +3267,132 @@ Links
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1004_02_06', 'Channel 1^Input')
     66.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_10.i_xAtSpd')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_08', 'Channel 1^Input')
-    67.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_20.i_xAtSpd')
+    67.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_10.i_xFault')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_08', 'Channel 2^Input')
+    68.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_20.i_xAtSpd')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_08', 'Channel 3^Input')
-    68.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_30.i_xAtSpd')
+    69.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_20.i_xFault')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_08', 'Channel 4^Input')
+    70.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_30.i_xAtSpd')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_11', 'Channel 1^Input')
-    69.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_40.i_xAtSpd')
+    71.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_30.i_xFault')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_11', 'Channel 2^Input')
+    72.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_40.i_xAtSpd')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_11', 'Channel 3^Input')
-    70.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_50.i_xAtSpd')
+    73.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_40.i_xFault')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_11', 'Channel 4^Input')
+    74.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_50.i_xAtSpd')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_12', 'Channel 1^Input')
-    71.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_60.i_xAtSpd')
+    75.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_50.i_xFault')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_12', 'Channel 2^Input')
+    76.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_60.i_xAtSpd')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_12', 'Channel 3^Input')
-    72.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_70.i_xAtSpd')
+    77.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_60.i_xFault')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_12', 'Channel 4^Input')
+    78.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_70.i_xAtSpd')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_15', 'Channel 1^Input')
-    73.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_10.q_xOPN_DO')
+    79.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_70.i_xFault')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL1088_02_15', 'Channel 2^Input')
+    80.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_10.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_02', 'Channel 1^Output')
-    74.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_20.q_xOPN_DO')
+    81.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_20.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_02', 'Channel 3^Output')
-    75.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_30.q_xOPN_DO')
+    82.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_30.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_02', 'Channel 2^Output')
-    76.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_30.q_xOPN_DO')
+    83.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_30.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_02', 'Channel 4^Output')
-    77.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_50.q_xOPN_DO')
+    84.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_50.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_05', 'Channel 1^Output')
-    78.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_60.q_xOPN_DO')
+    85.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_60.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_05', 'Channel 3^Output')
-    79.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_70.q_xOPN_DO')
+    86.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_70.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_05', 'Channel 2^Output')
-    80.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_70.q_xOPN_DO')
+    87.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_70.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_05', 'Channel 4^Output')
-    81.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_10.q_xOPN_DO')
+    88.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_10.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_16', 'Channel 1^Output')
-    82.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_20.q_xOPN_DO')
+    89.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_20.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_16', 'Channel 3^Output')
-    83.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_50.q_xOPN_DO')
+    90.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_50.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_16', 'Channel 2^Output')
-    84.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_60.q_xOPN_DO')
+    91.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_60.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_16', 'Channel 4^Output')
-    85.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_10.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_10', 'Channel 1^Output')
-    86.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_20.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_10', 'Channel 2^Output')
-    87.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_30.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_10', 'Channel 3^Output')
-    88.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_40.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_10', 'Channel 4^Output')
-    89.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_50.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_14', 'Channel 1^Output')
-    90.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_60.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_14', 'Channel 2^Output')
-    91.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_70.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_14', 'Channel 3^Output')
     92.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_10.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_10', 'Channel 1^Output')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_10', 'Channel 1^Output')
     93.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_20.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_10', 'Channel 2^Output')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_10', 'Channel 2^Output')
     94.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_30.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_10', 'Channel 3^Output')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_10', 'Channel 3^Output')
     95.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_40.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_10', 'Channel 4^Output')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_10', 'Channel 4^Output')
     96.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_50.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_14', 'Channel 1^Output')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_14', 'Channel 1^Output')
     97.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_60.q_RunDO')
-          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_14', 'Channel 2^Output')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_14', 'Channel 2^Output')
     98.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_70.q_RunDO')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2008_02_14', 'Channel 3^Output')
+    99.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_10.q_RunDO')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_10', 'Channel 1^Output')
+    100.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_20.q_RunDO')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_10', 'Channel 2^Output')
+    101.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_30.q_RunDO')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_10', 'Channel 3^Output')
+    102.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_40.q_RunDO')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_10', 'Channel 4^Output')
+    103.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_50.q_RunDO')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_14', 'Channel 1^Output')
+    104.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_60.q_RunDO')
+          B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_14', 'Channel 2^Output')
+    105.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_70.q_RunDO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2088_02_14', 'Channel 3^Output')
-    99.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xAlarmOK')
+    106.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xAlarmOK')
           B ('TIID^Device 1 (EtherCAT)^EK1100_03_00^EL1004_03_07', 'Channel 2^Input')
-    100.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xIsRun')
+    107.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xIsRun')
           B ('TIID^Device 1 (EtherCAT)^EK1100_03_00^EL1004_03_07', 'Channel 1^Input')
-    101.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VVC_40.q_xOPN_DO')
+    108.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VVC_40.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_03_00^EL2212_03_09', 'DOX Control Channel 1^Control^Output')
-    102.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_GCC_40.q_xHV_DIS')
+    109.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_GCC_40.q_xHV_DIS')
           B ('TIID^Device 1 (EtherCAT)^EK1100_03_00^EL2794_03_01', 'Channel 2^Output')
-    103.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRemote')
+    110.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRemote')
           B ('TIID^Device 1 (EtherCAT)^EK1100_03_00^EL2794_03_06', 'Channel 2^Output')
-    104.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRunDo')
+    111.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRunDo')
           B ('TIID^Device 1 (EtherCAT)^EK1100_03_00^EL2794_03_06', 'Channel 1^Output')
-    105.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_GCC_40.i_iPRESS_R')
+    112.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_GCC_40.i_iPRESS_R')
           B ('TIID^Device 1 (EtherCAT)^EK1100_03_00^EL3068_03_02', 'AI Standard Channel 3^Value')
-    106.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_GPI_10.i_iPRESS_R')
+    113.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_GPI_10.i_iPRESS_R')
           B ('TIID^Device 1 (EtherCAT)^EK1100_03_00^EL3068_03_02', 'AI Standard Channel 6^Value')
-    107.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_GPI_40.i_iPRESS_R')
+    114.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_GPI_40.i_iPRESS_R')
           B ('TIID^Device 1 (EtherCAT)^EK1100_03_00^EL3068_03_02', 'AI Standard Channel 5^Value')
-    108.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.GFM_83.i_iPRESS_R')
+    115.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.GFM_83.i_iPRESS_R')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^EL3054_04_06', 'AI Standard Channel 1^Value')
-    109.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.GFM_84.i_iPRESS_R')
+    116.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.GFM_84.i_iPRESS_R')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^EL3054_04_06', 'AI Standard Channel 2^Value')
-    110.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.GFM_85.i_iPRESS_R')
+    117.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.GFM_85.i_iPRESS_R')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^EL3054_04_06', 'AI Standard Channel 3^Value')
-    111.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.GFM_86.i_iPRESS_R')
+    118.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.GFM_86.i_iPRESS_R')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^EL3054_04_06', 'AI Standard Channel 4^Value')
-    112.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_80.q_xOPN_DO')
+    119.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_80.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^ES2004_04_01', 'Channel 1^Output')
-    113.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_81.q_xOPN_DO')
+    120.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_81.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^ES2004_04_01', 'Channel 3^Output')
-    114.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_82.q_xOPN_DO')
+    121.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_82.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^ES2004_04_01', 'Channel 4^Output')
-    115.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_83.q_xOPN_DO')
+    122.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_83.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^ES2004_04_02', 'Channel 1^Output')
-    116.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_84.q_xOPN_DO')
+    123.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_84.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^ES2004_04_02', 'Channel 2^Output')
-    117.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_85.q_xOPN_DO')
+    124.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_85.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^ES2004_04_02', 'Channel 3^Output')
-    118.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_86.q_xOPN_DO')
+    125.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VVC_86.q_xOPN_DO')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^ES2004_04_02', 'Channel 4^Output')
-    119.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.RTD.bError')
+    126.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.RTD.bError')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^ES3202_04_05', 'RTD Inputs Channel 1^Status^Error')
-    120.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.RTD.bOverrange')
+    127.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.RTD.bOverrange')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^ES3202_04_05', 'RTD Inputs Channel 1^Status^Overrange')
-    121.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.RTD.bUnderrange')
+    128.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.RTD.bUnderrange')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^ES3202_04_05', 'RTD Inputs Channel 1^Status^Underrange')
-    122.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.RTD.iRaw')
+    129.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.RTD.iRaw')
           B ('TIID^Device 1 (EtherCAT)^EK1100_04_00^ES3202_04_05', 'RTD Inputs Channel 1^Value')
-    123.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_10.i_xFault')
-          B ('TIID^Device 1 (EtherCAT)^EK1200_00_00^EL1008_00_03', 'Channel 1^Input')
-    124.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_20.i_xFault')
-          B ('TIID^Device 1 (EtherCAT)^EK1200_00_00^EL1008_00_03', 'Channel 2^Input')
-    125.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_30.i_xFault')
-          B ('TIID^Device 1 (EtherCAT)^EK1200_00_00^EL1008_00_03', 'Channel 3^Input')
-    126.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_40.i_xFault')
-          B ('TIID^Device 1 (EtherCAT)^EK1200_00_00^EL1008_00_03', 'Channel 4^Input')
-    127.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_50.i_xFault')
-          B ('TIID^Device 1 (EtherCAT)^EK1200_00_00^EL1008_00_03', 'Channel 5^Input')
-    128.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_60.i_xFault')
-          B ('TIID^Device 1 (EtherCAT)^EK1200_00_00^EL1008_00_03', 'Channel 6^Input')
-    129.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PTM_70.i_xFault')
-          B ('TIID^Device 1 (EtherCAT)^EK1200_00_00^EL1008_00_03', 'Channel 7^Input')
     130.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_10.q_RunDO')
           B ('TIID^Device 1 (EtherCAT)^EK1200_00_00^EL2008_00_05', 'Channel 1^Output')
     131.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_20.q_RunDO')
@@ -3320,15 +3407,29 @@ Links
           B ('TIID^Device 1 (EtherCAT)^EK1200_00_00^EL2008_00_05', 'Channel 6^Output')
     136.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_PTM_70.q_RunDO')
           B ('TIID^Device 1 (EtherCAT)^EK1200_00_00^EL2008_00_05', 'Channel 7^Output')
-    137.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.GCM_80.i_iPRESS_R')
+    137.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.hv1.q_HV_DO')
+          B ('TIID^Device 1 (EtherCAT)^EK1200_00_00^EL2794_00_06', 'Channel 1^GVL_INJ.hv1.q_HV_DO')
+    138.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.GCM_80.i_iPRESS_R')
           B ('TIID^Device 1 (EtherCAT)^EP4374-0002_05_00', 'AI Inputs Channel 1^Value')
-    138.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VCN_40.q_iRawPosition')
+    139.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VCN_40.q_iRawPosition')
           B ('TIID^Device 1 (EtherCAT)^EP4374-0002_05_00', 'AO Outputs Channel 3^Analog output')
+    140.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Inputs^GVL_INJ.VGP_40.Axis.NcToPlc')
+          B ('TINC^NC-Task 1 SAF^Axes^VGP_40', 'Outputs^ToPlc')
+    141.) A ('TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance', 'PlcTask Outputs^GVL_INJ.VGP_40.Axis.PlcToNc')
+          B ('TINC^NC-Task 1 SAF^Axes^VGP_40', 'Inputs^FromPlc')
 
 Pragma lint results
 -------------------
 ```
-INFO:pytmc.bin.pragmalint:Total pragmas found: 87 Total linter errors: 0
+WARNING:pytmc.parser:(Pre-loading XTI file) Failed: EK1200_00_00.xti ([Errno 2] No such file or directory: '/home/travis/build/pcdshub/lcls-plc-kfe-gmd-vac/plc/plc-kfe-gmd-vac/_Config/IO/Device 1 (EtherCAT)/EK1200_00_00.xti'). If this file is referenced in the project, this may cause the project to fail loading.  If not, this can be ignored.
+WARNING:pytmc.parser:(Pre-loading XTI file) Failed: EP5101-0011_05_01.xti ([Errno 2] No such file or directory: '/home/travis/build/pcdshub/lcls-plc-kfe-gmd-vac/plc/plc-kfe-gmd-vac/_Config/IO/Device 1 (EtherCAT)/EP5101-0011_05_01.xti'). If this file is referenced in the project, this may cause the project to fail loading.  If not, this can be ignored.
+WARNING:pytmc.parser:(Pre-loading XTI file) Failed: EP4374-0002_05_00.xti ([Errno 2] No such file or directory: '/home/travis/build/pcdshub/lcls-plc-kfe-gmd-vac/plc/plc-kfe-gmd-vac/_Config/IO/Device 1 (EtherCAT)/EP4374-0002_05_00.xti'). If this file is referenced in the project, this may cause the project to fail loading.  If not, this can be ignored.
+WARNING:pytmc.parser:(Pre-loading XTI file) Failed: EK1100_04_00.xti ([Errno 2] No such file or directory: '/home/travis/build/pcdshub/lcls-plc-kfe-gmd-vac/plc/plc-kfe-gmd-vac/_Config/IO/Device 1 (EtherCAT)/EK1100_04_00.xti'). If this file is referenced in the project, this may cause the project to fail loading.  If not, this can be ignored.
+WARNING:pytmc.parser:(Pre-loading XTI file) Failed: EP7041-0002_05_02.xti ([Errno 2] No such file or directory: '/home/travis/build/pcdshub/lcls-plc-kfe-gmd-vac/plc/plc-kfe-gmd-vac/_Config/IO/Device 1 (EtherCAT)/EP7041-0002_05_02.xti'). If this file is referenced in the project, this may cause the project to fail loading.  If not, this can be ignored.
+WARNING:pytmc.parser:(Pre-loading XTI file) Failed: EK1100_01_00.xti ([Errno 2] No such file or directory: '/home/travis/build/pcdshub/lcls-plc-kfe-gmd-vac/plc/plc-kfe-gmd-vac/_Config/IO/Device 1 (EtherCAT)/EK1100_01_00.xti'). If this file is referenced in the project, this may cause the project to fail loading.  If not, this can be ignored.
+WARNING:pytmc.parser:(Pre-loading XTI file) Failed: EK1100_02_00.xti ([Errno 2] No such file or directory: '/home/travis/build/pcdshub/lcls-plc-kfe-gmd-vac/plc/plc-kfe-gmd-vac/_Config/IO/Device 1 (EtherCAT)/EK1100_02_00.xti'). If this file is referenced in the project, this may cause the project to fail loading.  If not, this can be ignored.
+WARNING:pytmc.parser:(Pre-loading XTI file) Failed: EK1100_03_00.xti ([Errno 2] No such file or directory: '/home/travis/build/pcdshub/lcls-plc-kfe-gmd-vac/plc/plc-kfe-gmd-vac/_Config/IO/Device 1 (EtherCAT)/EK1100_03_00.xti'). If this file is referenced in the project, this may cause the project to fail loading.  If not, this can be ignored.
+INFO:pytmc.bin.pragmalint:Total pragmas found: 88 Total linter errors: 0
 PLC Project (1): plc_kfe_gmd_vac
 ================================
 
@@ -3336,7 +3437,7 @@ PLC Project (1): plc_kfe_gmd_vac
 DUTs/ST_HV.TcDUT (TcPlcObject)
 ------------------------------
 
-    - ST_HV: Declaration - 3 pragmas
+    - ST_HV: Declaration - 4 pragmas
 
 
 DUTs/ST_PressureSensor.TcDUT (TcPlcObject)
