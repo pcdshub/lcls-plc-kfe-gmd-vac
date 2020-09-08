@@ -44,10 +44,7 @@ VVC_84(i_xExtILK_OK:= , i_xOverrideMode:= xOverrideMode, iq_stValve=> );
 VVC_85(i_xExtILK_OK:= , i_xOverrideMode:= xOverrideMode, iq_stValve=> );
 VVC_86(i_xExtILK_OK:= , i_xOverrideMode:= xOverrideMode, iq_stValve=> );
 
-RTD();
-
-VGP_40();
-]]></ST>
+RTD();]]></ST>
     </Implementation>
     <LineIds Name="PRG_INJ">
       <LineId Id="96" Count="0" />
@@ -70,9 +67,6 @@ VGP_40();
       <LineId Id="53" Count="0" />
       <LineId Id="61" Count="2" />
       <LineId Id="91" Count="1" />
-      <LineId Id="108" Count="0" />
-      <LineId Id="107" Count="0" />
-      <LineId Id="95" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

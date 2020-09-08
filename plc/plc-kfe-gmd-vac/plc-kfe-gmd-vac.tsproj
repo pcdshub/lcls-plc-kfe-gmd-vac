@@ -2030,12 +2030,12 @@ External Setpoint Generation:
 				<Target BkhfOrder="00359199">
 					<ManualSelect>{3EBB9639-5FF3-42B6-8847-35C70DC013C8}</ManualSelect>
 					<ManualSelect>{E008E3C8-6BD9-491C-B673-DC45CC7AA4F1}</ManualSelect>
-					<TargetSelect TargetId="2">{BCA6EE0A-9CE1-4D3F-98CA-413ABC0D94FD}</TargetSelect>
 					<TargetSelect TargetId="2">{66689887-CCBD-452C-AC9A-039D997C6E66}</TargetSelect>
+					<TargetSelect TargetId="2">{BCA6EE0A-9CE1-4D3F-98CA-413ABC0D94FD}</TargetSelect>
 					<TargetSelect TargetId="2">{3EBB9639-5FF3-42B6-8847-35C70DC013C8}</TargetSelect>
 					<TargetSelect TargetId="2">{777F1598-583B-4503-99BB-7C02E0ABD97E}</TargetSelect>
-					<TargetSelect TargetId="2">{E008E3C8-6BD9-491C-B673-DC45CC7AA4F1}</TargetSelect>
 					<TargetSelect TargetId="2">{520DE751-9DB6-47CB-8240-BD5C466E7E64}</TargetSelect>
+					<TargetSelect TargetId="2">{E008E3C8-6BD9-491C-B673-DC45CC7AA4F1}</TargetSelect>
 					<LicenseDevice DongleHardwareId="2" DongleDevice="#x03020044" DongleLevel="40" DongleSystemId="{C923F825-6CF5-4E40-7409-AC17FD6F8165}" DongleSerialNumber="100062637"/>
 				</Target>
 			</Licenses>
