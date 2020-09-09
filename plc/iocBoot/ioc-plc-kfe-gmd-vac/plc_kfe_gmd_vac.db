@@ -436,6 +436,19 @@ record(longin, "$(PREFIX)L:UND:LastSegment_RBV") {
   info(archive, "VAL")
 }
 
+record(ai, "$(PREFIX)eVRangeHyst_RBV") {
+  field(DESC, "eV Range hystersis")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PMPS_GVL.reVHyst?")
+  field(PREC, "3")
+  field(EGU, "eV")
+  info(autosaveFields_pass0, "PREC")
+  info(archive, "monitor 1: VAL")
+}
+
 record(ai, "Period_RBV") {
   field(DESC, "PMPS_GVL.fPeriod_mm_LUnd")
   field(SCAN, "I/O Intr")
@@ -471,19 +484,6 @@ record(ai, "$(PREFIX)L:UND:HiK_RBV") {
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
   info(archive, "VAL")
-}
-
-record(ai, "$(PREFIX)eVRangeHyst_RBV") {
-  field(DESC, "eV Range hystersis")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynFloat64")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PMPS_GVL.reVHyst?")
-  field(PREC, "3")
-  field(EGU, "eV")
-  info(autosaveFields_pass0, "PREC")
-  info(archive, "monitor 1: VAL")
 }
 
 record(waveform, "$(PREFIX)L:eVRangeCnst_RBV") {
@@ -590,6 +590,72 @@ record(bo, "EM1K0:GMD:INJ_Override") {
   field(DESC, "GVL_INJ.xOverrideMode")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_INJ.xOverrideMode=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "EM1K0:GMD:OVERRIDE_VAC_RBV") {
+  field(DESC, "GVL_VARIABLES.xSystemOverrideMode")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.xSystemOverrideMode?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "EM1K0:GMD:OVERRIDE_VAC") {
+  field(DESC, "GVL_VARIABLES.xSystemOverrideMode")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.xSystemOverrideMode=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "EM1K0:GMD:AUTO_VVC_40_RBV") {
+  field(DESC, "GVL_VARIABLES.bAutoVVC40")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.bAutoVVC40?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "EM1K0:GMD:AUTO_VVC_40") {
+  field(DESC, "GVL_VARIABLES.bAutoVVC40")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bAutoVVC40=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "EM1K0:GMD:Purge_SW_RBV") {
+  field(DESC, "GVL_VARIABLES.bStartPurge_sw")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.bStartPurge_sw?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "EM1K0:GMD:Purge_SW") {
+  field(DESC, "GVL_VARIABLES.bStartPurge_sw")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bStartPurge_sw=")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
@@ -719,72 +785,6 @@ record(ai, "EM1K0:GMD:VCN:40:POS_AO_RBV") {
   info(archive, "VAL")
 }
 
-record(bi, "EM1K0:GMD:OVERRIDE_VAC_RBV") {
-  field(DESC, "GVL_VARIABLES.xSystemOverrideMode")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.xSystemOverrideMode?")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(archive, "VAL")
-}
-
-record(bo, "EM1K0:GMD:OVERRIDE_VAC") {
-  field(DESC, "GVL_VARIABLES.xSystemOverrideMode")
-  field(DTYP, "asynInt32")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.xSystemOverrideMode=")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "VAL")
-  info(archive, "VAL")
-}
-
-record(bi, "EM1K0:GMD:AUTO_VVC_40_RBV") {
-  field(DESC, "GVL_VARIABLES.bAutoVVC40")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.bAutoVVC40?")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(archive, "VAL")
-}
-
-record(bo, "EM1K0:GMD:AUTO_VVC_40") {
-  field(DESC, "GVL_VARIABLES.bAutoVVC40")
-  field(DTYP, "asynInt32")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bAutoVVC40=")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "VAL")
-  info(archive, "VAL")
-}
-
-record(bi, "EM1K0:GMD:Purge_SW_RBV") {
-  field(DESC, "GVL_VARIABLES.bStartPurge_sw")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.bStartPurge_sw?")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(archive, "VAL")
-}
-
-record(bo, "EM1K0:GMD:Purge_SW") {
-  field(DESC, "GVL_VARIABLES.bStartPurge_sw")
-  field(DTYP, "asynInt32")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bStartPurge_sw=")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "VAL")
-  info(archive, "VAL")
-}
-
 record(bi, "EM1K0:GMD:Purge_Active_RBV") {
   field(DESC, "GVL_VARIABLES.bPurgeActive")
   field(SCAN, "I/O Intr")
@@ -801,6 +801,28 @@ record(bo, "EM1K0:GMD:Purge_Active") {
   field(DESC, "GVL_VARIABLES.bPurgeActive")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bPurgeActive=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "EM1K0:GMD:PurgeDone_RBV") {
+  field(DESC, "GVL_VARIABLES.bPurgeDone")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.bPurgeDone?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "EM1K0:GMD:PurgeDone") {
+  field(DESC, "GVL_VARIABLES.bPurgeDone")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bPurgeDone=")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
@@ -2038,6 +2060,16 @@ record(bi, "EM1K0:GMD:GCM:80:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
+record(bo, "EM1K0:GMD:GCM:80:LOGGER") {
+  field(DESC, "GVL_INJ.GCM_80.PG.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_INJ.GCM_80.PG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(ai, "EM1K0:GMD:GFM:86:PRESS_RBV") {
   field(DESC, "GVL_INJ.GFM_86.Sensor.rPRESS")
   field(SCAN, "I/O Intr")
@@ -2859,6 +2891,16 @@ record(bi, "EM1K0:GMD:GPI:10:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
+record(bo, "EM1K0:GMD:GPI:10:LOGGER") {
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(ai, "EM1K0:GMD:GPI:40:PRESS_RBV") {
   field(DESC, "GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.rPRESS")
   field(SCAN, "I/O Intr")
@@ -3105,6 +3147,16 @@ record(bi, "EM1K0:GMD:GPI:40:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
+record(bo, "EM1K0:GMD:GPI:40:LOGGER") {
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(ai, "EM1K0:GMD:GPI:70:PRESS_RBV") {
   field(DESC, "GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.rPRESS")
   field(SCAN, "I/O Intr")
@@ -3348,6 +3400,16 @@ record(bi, "EM1K0:GMD:GPI:70:LOGGER_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xLog?")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
+  info(archive, "VAL")
+}
+
+record(bo, "EM1K0:GMD:GPI:70:LOGGER") {
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
   info(archive, "VAL")
 }
 
@@ -5550,6 +5612,17 @@ record(bi, "EM1K0:GMD:VRC:10:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
+record(bo, "EM1K0:GMD:VRC:10:LOGGER") {
+  # GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.xLog
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD...0.iq_stValve.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(bi, "EM1K0:GMD:VRC:10:CLS_OK_RBV") {
   # GVL_GMD.fb_EM1K0_GMD_VRC_10.iq_stValve.xCLS_OK
   field(DESC, "GVL_GMD.fb_EM1K0_GMD...q_stValve.xCLS_OK")
@@ -5834,6 +5907,17 @@ record(bi, "EM1K0:GMD:VRC:20:LOGGER_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.xLog?")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
+  info(archive, "VAL")
+}
+
+record(bo, "EM1K0:GMD:VRC:20:LOGGER") {
+  # GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.xLog
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD...0.iq_stValve.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_20.iq_stValve.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
   info(archive, "VAL")
 }
 
@@ -6124,6 +6208,17 @@ record(bi, "EM1K0:GMD:VRC:30:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
+record(bo, "EM1K0:GMD:VRC:30:LOGGER") {
+  # GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.xLog
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD...0.iq_stValve.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(bi, "EM1K0:GMD:VRC:30:CLS_OK_RBV") {
   # GVL_GMD.fb_EM1K0_GMD_VRC_30.iq_stValve.xCLS_OK
   field(DESC, "GVL_GMD.fb_EM1K0_GMD...q_stValve.xCLS_OK")
@@ -6408,6 +6503,17 @@ record(bi, "EM1K0:GMD:VRC:50:LOGGER_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.xLog?")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
+  info(archive, "VAL")
+}
+
+record(bo, "EM1K0:GMD:VRC:50:LOGGER") {
+  # GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.xLog
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD...0.iq_stValve.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_50.iq_stValve.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
   info(archive, "VAL")
 }
 
@@ -6698,6 +6804,17 @@ record(bi, "EM1K0:GMD:VRC:60:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
+record(bo, "EM1K0:GMD:VRC:60:LOGGER") {
+  # GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.xLog
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD...0.iq_stValve.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(bi, "EM1K0:GMD:VRC:60:CLS_OK_RBV") {
   # GVL_GMD.fb_EM1K0_GMD_VRC_60.iq_stValve.xCLS_OK
   field(DESC, "GVL_GMD.fb_EM1K0_GMD...q_stValve.xCLS_OK")
@@ -6985,6 +7102,17 @@ record(bi, "EM1K0:GMD:VRC:70:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
+record(bo, "EM1K0:GMD:VRC:70:LOGGER") {
+  # GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.xLog
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD...0.iq_stValve.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(bi, "EM1K0:GMD:VRC:70:CLS_OK_RBV") {
   # GVL_GMD.fb_EM1K0_GMD_VRC_70.iq_stValve.xCLS_OK
   field(DESC, "GVL_GMD.fb_EM1K0_GMD...q_stValve.xCLS_OK")
@@ -7244,6 +7372,16 @@ record(bi, "EM1K0:GMD:GCC:10:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
+record(bo, "EM1K0:GMD:GCC:10:LOGGER") {
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(ai, "EM1K0:GMD:GCC:20:PRESS_RBV") {
   field(DESC, "GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.rPRESS")
   field(SCAN, "I/O Intr")
@@ -7487,6 +7625,16 @@ record(bi, "EM1K0:GMD:GCC:20:LOGGER_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xLog?")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
+  info(archive, "VAL")
+}
+
+record(bo, "EM1K0:GMD:GCC:20:LOGGER") {
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
   info(archive, "VAL")
 }
 
@@ -7736,6 +7884,16 @@ record(bi, "EM1K0:GMD:GCC:30:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
+record(bo, "EM1K0:GMD:GCC:30:LOGGER") {
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(ai, "EM1K0:GMD:GCC:40:PRESS_RBV") {
   field(DESC, "GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.rPRESS")
   field(SCAN, "I/O Intr")
@@ -7979,6 +8137,16 @@ record(bi, "EM1K0:GMD:GCC:40:LOGGER_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xLog?")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
+  info(archive, "VAL")
+}
+
+record(bo, "EM1K0:GMD:GCC:40:LOGGER") {
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
   info(archive, "VAL")
 }
 
@@ -8228,6 +8396,16 @@ record(bi, "EM1K0:GMD:GCC:50:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
+record(bo, "EM1K0:GMD:GCC:50:LOGGER") {
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(ai, "EM1K0:GMD:GCC:60:PRESS_RBV") {
   field(DESC, "GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.rPRESS")
   field(SCAN, "I/O Intr")
@@ -8474,6 +8652,16 @@ record(bi, "EM1K0:GMD:GCC:60:LOGGER_RBV") {
   info(archive, "VAL")
 }
 
+record(bo, "EM1K0:GMD:GCC:60:LOGGER") {
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(ai, "EM1K0:GMD:GCC:70:PRESS_RBV") {
   field(DESC, "GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.rPRESS")
   field(SCAN, "I/O Intr")
@@ -8717,6 +8905,16 @@ record(bi, "EM1K0:GMD:GCC:70:LOGGER_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xLog?")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
+  info(archive, "VAL")
+}
+
+record(bo, "EM1K0:GMD:GCC:70:LOGGER") {
+  field(DESC, "GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xLog")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xLog=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "VAL")
   info(archive, "VAL")
 }
 
@@ -8973,28 +9171,6 @@ record(bi, "EM1K0:GMD:VVC:40:OPN_DO_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_GMD.fb_EM1K0_GMD_VVC_40.iq_stValve.q_xOPN_DO?")
   field(ZNAM, "CLOSE")
   field(ONAM, "OPEN")
-  info(archive, "VAL")
-}
-
-record(bi, "EM1K0:GMD:PurgeDone_RBV") {
-  field(DESC, "GVL_VARIABLES.bPurgeDone")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_VARIABLES.bPurgeDone?")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(archive, "VAL")
-}
-
-record(bo, "EM1K0:GMD:PurgeDone") {
-  field(DESC, "GVL_VARIABLES.bPurgeDone")
-  field(DTYP, "asynInt32")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_VARIABLES.bPurgeDone=")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "VAL")
   info(archive, "VAL")
 }
 
