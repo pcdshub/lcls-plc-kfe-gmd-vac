@@ -286,21 +286,32 @@ PneumaticValve[error=&quot;Ext Fault&quot;] #icon {
 
 }
 
+ControlOnlyValveNC[interlocked=&quot;true&quot;] #icon {
+    border: 2px solid black;
+	border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+	border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    qproperty-interlockBrush: black;
+
+}
+ControlOnlyValveNC[interlocked=&quot;false&quot;] #icon {
+    border: 0px;
+    qproperty-interlockBrush: #00FF00;
+
+}
 ControlOnlyValveNC[state=&quot;CLOSE&quot;] #icon {
     qproperty-penStyle: &quot;QT::SolidLine&quot;;
     qproperty-penColor: gray;
     qproperty-penWidth: 2;
 	qproperty-brush: black;
 }
-
 ControlOnlyValveNC[state=&quot;OPEN&quot;] #icon {
     qproperty-penStyle: &quot;QT::SolidLine&quot;;
     qproperty-penColor: gray;
     qproperty-penWidth: 2;
 	qproperty-brush: #00FF00;
 }
-
-
 
 NeedleValve[interlocked=&quot;true&quot;] #icon{
     border: 2px solid black;
@@ -1033,7 +1044,7 @@ IonPump[state=&quot;On&quot;] #icon {
     <string/>
    </property>
    <property name="text">
-    <string>0.000</string>
+    <string>0.013</string>
    </property>
    <property name="channel" stdset="0">
     <string>ca://EM1K0:GMD:VGP:40:POS_RBV</string>

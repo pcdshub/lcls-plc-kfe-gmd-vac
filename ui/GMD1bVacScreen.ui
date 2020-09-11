@@ -337,35 +337,30 @@ ScrollPump[error=&quot;true&quot;] #icon {
 
 ControlOnlyValveNC[interlocked=&quot;true&quot;] #icon {
     border: 2px solid black;
-border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+	border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+	border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    qproperty-interlockBrush: black;
+
 }
 ControlOnlyValveNC[interlocked=&quot;false&quot;] #icon {
     border: 0px;
-}
-ControlOnlyValveNC[interlocked=&quot;true&quot;] #icon {
-    qproperty-interlockBrush: black;
-}
-ControlOnlyValveNC[interlocked=&quot;false&quot;] #icon {
     qproperty-interlockBrush: #00FF00;
-}
 
-ControlOnlyValveNC[state=&quot;Open&quot;] #icon {
-    qproperty-penColor: black;
-	qproperty-brush:#00FF00;
 }
-ControlOnlyValveNC[state=&quot;Zero&quot;] #icon {
-    qproperty-penColor: Black;
- qproperty-brush: black;
-}
-
-ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
+ControlOnlyValveNC[state=&quot;CLOSE&quot;] #icon {
+    qproperty-penStyle: &quot;QT::SolidLine&quot;;
     qproperty-penColor: gray;
-  qproperty-brush: black;
+    qproperty-penWidth: 2;
+	qproperty-brush: black;
 }
-</string>
+ControlOnlyValveNC[state=&quot;OPEN&quot;] #icon {
+    qproperty-penStyle: &quot;QT::SolidLine&quot;;
+    qproperty-penColor: gray;
+    qproperty-penWidth: 2;
+	qproperty-brush: #00FF00;
+}</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
