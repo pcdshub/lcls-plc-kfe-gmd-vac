@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1717</width>
+    <width>1745</width>
     <height>693</height>
    </rect>
   </property>
@@ -375,7 +375,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1697</width>
+        <width>1716</width>
         <height>673</height>
        </rect>
       </property>
