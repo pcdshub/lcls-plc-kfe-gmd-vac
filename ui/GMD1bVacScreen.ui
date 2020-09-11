@@ -969,7 +969,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="macros" stdset="0">
-        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:40&quot;, &quot;GPI&quot;: &quot;EM1K0:GMD:GPI:40&quot;, &quot;VCN&quot;: &quot;EM1K0:GMD:VCN:40&quot;, &quot;VGP&quot;: &quot;EM1K0:GMD:VGP:40&quot;, &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:40&quot;, &quot;VVC&quot;: &quot;EM1K0:GMD:VVC:40&quot;, &quot;GHC&quot;: &quot;EM1K0:GMD:GHC:40&quot;, &quot;NUMBER&quot;: &quot;40&quot;, &quot;VVC_NUMBER&quot;: &quot;41&quot;}</string>
+        <string>{&quot;GCC&quot;: &quot;EM1K0:GMD:GCC:40&quot;, &quot;GPI&quot;: &quot;EM1K0:GMD:GPI:40&quot;, &quot;VCN&quot;: &quot;EM1K0:GMD:VCN:40&quot;, &quot;VGP&quot;: &quot;EM1K0:GMD:VGP:40&quot;, &quot;PTM&quot;: &quot;EM1K0:GMD:PTM:40&quot;, &quot;VVC&quot;: &quot;EM1K0:GMD:VVC:40&quot;, &quot;GHC&quot;: &quot;EM1K0:GMD:GHC:40&quot;, &quot;NUMBER&quot;: &quot;40&quot;, &quot;VVC_NUMBER&quot;: &quot;40&quot;}</string>
        </property>
        <property name="filename" stdset="0">
         <string>GasInjectorInterface.ui</string>
@@ -1234,7 +1234,7 @@ ControlOnlyValveNC[state=&quot;Close&quot;] #icon {
         <string/>
        </property>
        <property name="checked">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="alarmSensitiveContent" stdset="0">
         <bool>false</bool>
