@@ -4,7 +4,7 @@ major 4
 minor 0
 release 1
 x 685
-y 51
+y 73
 w 520
 h 950
 font "helvetica-medium-r-18.0"
@@ -95,8 +95,8 @@ minor 1
 release 1
 x 180
 y 735
-w 102
-h 13
+w 86
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -115,8 +115,8 @@ minor 1
 release 1
 x 180
 y 780
-w 102
-h 13
+w 86
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -135,8 +135,8 @@ minor 1
 release 1
 x 20
 y 735
-w 96
-h 13
+w 79
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -247,8 +247,8 @@ minor 1
 release 1
 x 15
 y 687
-w 78
-h 13
+w 68
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -293,8 +293,8 @@ minor 1
 release 1
 x 10
 y 125
-w 72
-h 13
+w 55
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -313,8 +313,8 @@ minor 1
 release 1
 x 9
 y 163
-w 66
-h 13
+w 56
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -384,8 +384,8 @@ minor 1
 release 1
 x 309
 y 88
-w 96
-h 13
+w 81
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -472,8 +472,8 @@ minor 1
 release 1
 x 16
 y 16
-w 126
-h 13
+w 106
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 54
@@ -1261,7 +1261,7 @@ major 4
 minor 7
 release 0
 x 310
-y 453
+y 495
 w 136
 h 20
 controlPv "$(P):PreCalc:1"
@@ -1286,8 +1286,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 46
-y 463
+x 45
+y 505
 w 123
 h 20
 font "helvetica-medium-r-10.0"
@@ -1306,7 +1306,7 @@ major 4
 minor 7
 release 0
 x 310
-y 478
+y 520
 w 136
 h 20
 controlPv "$(P):PreCalc:2"
@@ -1331,8 +1331,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 42
-y 483
+x 40
+y 525
 w 194
 h 20
 font "helvetica-medium-r-10.0"
@@ -1351,7 +1351,7 @@ major 4
 minor 1
 release 1
 x 40
-y 505
+y 545
 w 100
 h 20
 font "helvetica-medium-r-10.0"
@@ -1371,7 +1371,7 @@ major 4
 minor 7
 release 0
 x 310
-y 501
+y 540
 w 136
 h 20
 controlPv "$(P):Calib:K:Calc"
@@ -1813,8 +1813,8 @@ minor 1
 release 1
 x 475
 y 275
-w 24
-h 26
+w 22
+h 24
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -1834,8 +1834,8 @@ minor 1
 release 1
 x 20
 y 795
-w 134
-h 21
+w 88
+h 14
 font "helvetica-medium-r-12.0"
 fgColor index 20
 bgColor index 0
@@ -1970,8 +1970,8 @@ minor 1
 release 1
 x 455
 y 90
-w 36
-h 13
+w 31
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -1990,8 +1990,8 @@ minor 1
 release 1
 x 455
 y 105
-w 45
-h 15
+w 34
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -2010,8 +2010,8 @@ minor 1
 release 1
 x 455
 y 120
-w 36
-h 13
+w 28
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -2030,8 +2030,8 @@ minor 1
 release 1
 x 455
 y 135
-w 42
-h 13
+w 36
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -2050,8 +2050,8 @@ minor 1
 release 1
 x 455
 y 150
-w 42
-h 13
+w 35
+h 12
 font "helvetica-medium-r-10.0"
 fgColor index 14
 bgColor index 0
@@ -2064,5 +2064,140 @@ endObjectProperties
 
 endGroup
 
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 310
+y 430
+w 135
+h 20
+controlPv "$(P):GetMeasureTime"
+format "exponential"
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 15
+fgAlarm
+bgColor index 11
+limitsFromDb
+nullColor index 40
+smartRefresh
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 25
+y 430
+w 123
+h 20
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Measurement Time"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 165
+y 430
+w 107
+h 20
+controlPv "$(P):SetMeasureTime"
+format "exponential"
+font "helvetica-medium-r-12.0"
+fgColor index 25
+fgAlarm
+bgColor index 5
+editable
+motifWidget
+limitsFromDb
+nullColor index 40
+smartRefresh
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 310
+y 455
+w 135
+h 20
+controlPv "$(P):GetSpeedCtlMode"
+format "exponential"
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 15
+fgAlarm
+bgColor index 11
+limitsFromDb
+nullColor index 40
+smartRefresh
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 25
+y 455
+w 123
+h 20
+font "helvetica-medium-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Speed Control Mode"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 165
+y 455
+w 108
+h 20
+fgColor index 14
+bgColor index 5
+inconsistentColor index 12
+topShadowColor index 1
+botShadowColor index 14
+controlPv "$(P):SetSpeedCtlMode"
+font "helvetica-medium-r-10.0"
 endObjectProperties
 
