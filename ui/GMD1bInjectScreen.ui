@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>EM1K0-GMD-INJ</string>
   </property>
   <property name="styleSheet">
    <string notr="true">RoughGauge[state=&quot;FALSE&quot;] #icon{
@@ -1474,6 +1474,25 @@ IonPump[state=&quot;On&quot;] #icon {
     <enum>PyDMLineEdit::Exponential</enum>
    </property>
   </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>650</y>
+     <width>180</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>EBD - EM1K0-GMD</string>
+   </property>
+  </widget>
   <zorder>line_18</zorder>
   <zorder>PyDMDrawingRectangle_2</zorder>
   <zorder>line_5</zorder>
@@ -1527,6 +1546,7 @@ IonPump[state=&quot;On&quot;] #icon {
   <zorder>PyDMRelatedDisplayButton_2</zorder>
   <zorder>PyDMTimePlot</zorder>
   <zorder>PyDMLineEdit_3</zorder>
+  <zorder>label_15</zorder>
  </widget>
  <customwidgets>
   <customwidget>
