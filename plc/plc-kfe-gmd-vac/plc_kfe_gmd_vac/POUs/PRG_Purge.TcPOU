@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="PRG_Purge" Id="{b3577731-6d92-475a-8fcb-3a6fc19b49ca}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_Purge
 VAR
@@ -14,7 +14,7 @@ VAR
 	WatchdogPeriod 		: TIME;
 
 	NeedleVlvPurgeTmr	: TON;	(* Declaration for the needle valve Purge timer *)
-	NeedlePurgeTime		: TIME:=T#30S;
+	NeedlePurgeTime		: TIME:=T#15S;
 	BurpET				: TIME;
 	NeedlePurgeRun		: BOOL;
 	NeedlePurgeDone		: BOOL;
@@ -36,8 +36,9 @@ VAR
 	VVC_81_Timer : TON;
 	VVC_82_Timer : TON;
 	
-	
-	
+	VVC_81_Time : TIME := T#60s;
+	VVC_82_Time : TIME := T#360s;
+	VCN_Time : TIME := T#20S;
 	
 
 	VGP_50: INT;
@@ -51,7 +52,9 @@ END_VAR
 	2. Close Needle valve 
 	3. Fully open VGP:40
 	4. PUMP DOWN MANIFOLD: Open VIC82 for a certain peroid of time or till cetrain pressure
+	4.1 Open VVC-80 (if not open) and wait a certain period of or certain pressure on panel baratron xxxxx
 	5. Open VIC:81 and keep it open while the manifold pumps down to pressure set point
+	5a. Close VVC-80
 	6. BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
 	7. Close needle valve
 	8. Close VIC:81 and VIC:82
@@ -70,6 +73,8 @@ CASE step OF
 
 10: // start purge sequence by closing all gas valves
 	VVC_80.M_Set_OPN_SW(FALSE);
+	VVC_81.M_Set_OPN_SW(FALSE);
+	VVC_82.M_Set_OPN_SW(FALSE);
 	VVC_83.M_Set_OPN_SW(FALSE);
 	VVC_84.M_Set_OPN_SW(FALSE);
 	VVC_85.M_Set_OPN_SW(FALSE);
@@ -109,7 +114,7 @@ CASE step OF
 		step:=41;
 	END_IF
 	
-41: //PUMP DOWN MANIFOLD: Open VIC82 for a certain peroid of time or till cetrain pressure
+41: //PUMP DOWN MANIFOLD: Open VIC82 for a certain peroid of time or till certain pressure
 	VVC_82.M_Set_OPN_SW(TRUE);
 	if (VVC_82.iq_stValve.q_xOPN_DO ) AND (VVC_82_Timer.Q) THEN
 		step:=50;
@@ -130,9 +135,26 @@ CASE step OF
 	END_IF
 
 60: //BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
-	VCN_40.M_ValveControl(E_VCN.OpenValve);
+	VCN_40.M_ValveControl(E_VCN.PressureControl);
+	VCN_40.i_ReqPos := 20;
+	// wait for a period of time to ensure that the Valve is fully closed
+	IF (NeedleVlvPurgeTmr.Q) THEN
+		step:=61;
+	END_IF
+	
+61: //BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
+	VCN_40.M_ValveControl(E_VCN.PressureControl);
+	VCN_40.i_ReqPos := 40;
 	// wait for a period of time to ensure that the Valve is fully closed
 	IF (VCN_Timer.Q) THEN
+		step:=62;
+	END_IF
+	
+62: //BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
+	VCN_40.M_ValveControl(E_VCN.OpenValve);
+	VCN_40.i_ReqPos := 0;
+	// wait for a period of time to ensure that the Valve is fully closed
+	IF (NeedleVlvPurgeTmr.Q) THEN
 		step:=70;
 	END_IF
 	
@@ -152,14 +174,12 @@ CASE step OF
 		step:=90;				
 	END_IF
 	
-	
-
-
 
 90: //Release VGP:40
 	VGP_40.M_ValveControl(E_VCN.PressureControl);
 	VGP_40.i_ReqPos:= 50; //50% open
 	IF NOT(VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP encoder reads Open //use motion ready
+		VGP_40.M_ValveControl(E_VCN.ManualControl);
 		step:=91;
 	END_IF
 	if (VGP_40.q_stVGP.pv_xError )then
@@ -180,6 +200,8 @@ CASE step OF
 	bPurgeDone := TRUE;
 	
 900: //Error
+    bStartPurge_sw := false;
+	bPurgeActive := false;
 	VVC_80.M_Set_OPN_SW(false);
 	VVC_81.M_Set_OPN_SW(false);
 	VVC_82.M_Set_OPN_SW(false);
@@ -208,10 +230,10 @@ END_IF
 
 
 //Timers
-VVC_81_Timer(IN:= (step = 50), PT:=t#60s);
-VVC_82_Timer(IN:= (step = 40), PT:=T#360S);
-VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
-
+VVC_81_Timer(IN:= (step = 50), PT:=VVC_81_Time);
+VVC_82_Timer(IN:= (step = 41), PT:=VVC_82_Time);
+VCN_Timer(IN:= (step = 20) OR (step = 61) OR (step = 70), PT:=VCN_Time);
+NeedleVlvPurgeTmr(IN:= (step = 60) OR (step = 62), PT:=NeedlePurgeTime );
 
 /// vcn and vgp on manual or auto?? manual, until the Go or auto button is pressed??]]></ST>
     </Implementation>

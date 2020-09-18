@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="MAIN" Id="{80634dbc-d649-47af-a183-d3f1342ca1c9}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	vgp_debug_mode	:BOOL	:= False;
+	gas_selection_debug_mode : BOOL := TRUE;
+	press_cntrl :BOOL := FALSE;
 END_VAR
 
     ]]></Declaration>
@@ -19,35 +21,19 @@ PRG_INJ();
 IF NOT vgp_debug_mode THEN
 	PRG_VGP();
 END_IF
-
-PRG_PressureControl();
-//PRG_Purge();
-//call orther PRG
-
+IF (press_cntrl) THEN
+	PRG_PressureControl();
+END_IF
+//TO Be tested
+IF NOT gas_selection_debug_mode THEN
+	PRG_Purge();
+	PRG_Gas_Selection();
+END_IF
 // instaniate the RTD and HV
 
 PRG_HV_ILK();
 
 fbLogHandler();]]></ST>
     </Implementation>
-    <LineIds Name="MAIN">
-      <LineId Id="13" Count="0" />
-      <LineId Id="7" Count="0" />
-      <LineId Id="30" Count="0" />
-      <LineId Id="18" Count="1" />
-      <LineId Id="8" Count="0" />
-      <LineId Id="21" Count="0" />
-      <LineId Id="52" Count="0" />
-      <LineId Id="48" Count="0" />
-      <LineId Id="47" Count="0" />
-      <LineId Id="49" Count="0" />
-      <LineId Id="51" Count="0" />
-      <LineId Id="22" Count="3" />
-      <LineId Id="20" Count="0" />
-      <LineId Id="36" Count="0" />
-      <LineId Id="35" Count="0" />
-      <LineId Id="42" Count="0" />
-      <LineId Id="41" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

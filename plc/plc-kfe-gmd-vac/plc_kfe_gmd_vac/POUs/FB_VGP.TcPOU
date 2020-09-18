@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="FB_VGP" Id="{7843698b-889d-4cb9-a659-0a84e4308c25}" SpecialFunc="None">
     <Declaration><![CDATA[(* This function implements the Basic functions for the Vat Motorized valve*)
 {attribute 'no_check'}
@@ -106,7 +106,7 @@ ACT_INIT();
 // Interlocking
 q_stVGP.xIlkOK := i_xExtIlkOK;
 (*Checking which Control mode is selected*)
-IF q_stVGP.xIlkOK AND NOT (q_stVGP.pv_xError) THEN
+IF q_stVGP.pv_xHomed AND NOT (q_stVGP.pv_xError) THEN
 	IF q_stVGP.eValveControl = OpenValve THEN
 		q_stVGP.rReqPosition := rUpperLimit;
 	ELSIF q_stVGP.eValveControl = CloseValve THEN
@@ -115,6 +115,7 @@ IF q_stVGP.xIlkOK AND NOT (q_stVGP.pv_xError) THEN
 		q_stVGP.rReqPosition := LIMIT(0, q_stVGP.rReqPosition, rUpperLimit);
 	ELSIF q_stVGP.eValveControl = PressureControl THEN
 		 q_stVGP.rReqPosition := LIMIT(0, i_ReqPos, rUpperLimit);
+		 bGo := TRUE;
 	END_IF
 ELSE
 	q_stVGP.rReqPosition := 0;
@@ -156,10 +157,10 @@ ACT_MONITOR();
 AXIS();
 q_stVGP.rEnoder_Position := LREAL_TO_REAL(Axis.NcToPlc.ActPos); // encoder position
 
-
+(*
 IF NOT (i_xExtIlkOK) THEN
 	q_stVGP.eState := NEWTARGETPOSITION;
-END_IF
+END_IF*)
 //Homing STATE is missing
 
 // state machine for axis motion

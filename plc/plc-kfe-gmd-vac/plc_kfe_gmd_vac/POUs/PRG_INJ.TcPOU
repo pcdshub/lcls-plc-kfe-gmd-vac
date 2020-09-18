@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="PRG_INJ" Id="{4779f673-b478-4793-9f51-1eb8b319837c}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_INJ
 VAR
@@ -19,8 +19,8 @@ i:=i+1;
 // Vent Valves
 // interlock evaluation
 
-VVC_80.i_xExtILK_OK := (NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO); // Or we need to purge all the way up to the VCN
-VVC_81.i_xExtILK_OK := (NOT VVC_83.iq_stValve.q_xOPN_DO) AND(NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO);// AND (NOT VVC_80.iq_stValve.q_xOPN_DO);
+VVC_80.i_xExtILK_OK := TRUE;//(NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO); // Or we need to purge all the way up to the VCN
+VVC_81.i_xExtILK_OK := (VVC_82.iq_stValve.q_xOPN_DO) AND (NOT VVC_83.iq_stValve.q_xOPN_DO) AND(NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO);// AND (NOT VVC_80.iq_stValve.q_xOPN_DO);
 VVC_82.i_xExtILK_OK := (NOT VVC_83.iq_stValve.q_xOPN_DO) AND(NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO);// AND (NOT VVC_80.iq_stValve.q_xOPN_DO);
 
 // instanitation
@@ -46,27 +46,5 @@ VVC_86(i_xExtILK_OK:= , i_xOverrideMode:= xOverrideMode, iq_stValve=> );
 
 RTD();]]></ST>
     </Implementation>
-    <LineIds Name="PRG_INJ">
-      <LineId Id="96" Count="0" />
-      <LineId Id="98" Count="0" />
-      <LineId Id="97" Count="0" />
-      <LineId Id="90" Count="0" />
-      <LineId Id="68" Count="1" />
-      <LineId Id="75" Count="0" />
-      <LineId Id="79" Count="2" />
-      <LineId Id="83" Count="0" />
-      <LineId Id="82" Count="0" />
-      <LineId Id="78" Count="0" />
-      <LineId Id="76" Count="1" />
-      <LineId Id="74" Count="0" />
-      <LineId Id="70" Count="3" />
-      <LineId Id="49" Count="1" />
-      <LineId Id="58" Count="2" />
-      <LineId Id="51" Count="1" />
-      <LineId Id="5" Count="0" />
-      <LineId Id="53" Count="0" />
-      <LineId Id="61" Count="2" />
-      <LineId Id="91" Count="1" />
-    </LineIds>
   </POU>
 </TcPlcObject>
