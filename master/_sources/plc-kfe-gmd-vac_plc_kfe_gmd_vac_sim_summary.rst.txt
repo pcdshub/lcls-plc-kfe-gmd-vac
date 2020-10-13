@@ -1,0 +1,55 @@
+
+Settings
+--------
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Setting
+      - Value
+      - Description
+    * - AMS Net ID
+      - 172.21.92.59.1.1
+      -
+    * - Target IP address
+      - 172.21.92.59
+      - Based on AMS Net ID by convention
+    * - AMS Port
+      - 852
+      -
+
+.. _plc_kfe_gmd_vac_sim_pragmas:
+
+Pragmas
+-------
+
+Total pragmas found: 1
+Total linter errors: 0
+
+
+
+Libraries
+---------
+
+.. csv-table::
+    :header: Library, Vendor, Default, Version
+    :align: center
+
+        LCLS General, SLAC, Unset, Unset
+        Tc2_Standard, Beckhoff Automation GmbH, Unset, 
+        Tc2_System, Beckhoff Automation GmbH, Unset, 
+        Tc2_Utilities, Beckhoff Automation GmbH, Unset, 
+        Tc3_Module, Beckhoff Automation GmbH, Unset, 
+        Vacuum System Simulator Library, SLAC, Unset, Unset
+        VisuElemMeter, System, , Unset
+        VisuElems, System, , Unset
+        VisuElemsSpecialControls, System, , Unset
+        VisuElemsWinControls, System, , Unset
+        VisuElemTextEditor, System, , Unset
+        VisuNativeControl, System, , Unset
+
+Symbols
+-------
+
+
