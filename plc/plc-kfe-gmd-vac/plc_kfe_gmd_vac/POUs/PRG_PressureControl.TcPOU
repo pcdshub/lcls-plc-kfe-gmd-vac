@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="PRG_PressureControl" Id="{8ef02f00-e542-4b0e-902f-3d7061b2691f}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_PressureControl
 VAR CONSTANT
 		nDataTable_NumberOfRows : INT:=9;
 END_VAR
 VAR
-
-	fSetpointValue				: FLOAT;
-	fActualValue				: FLOAT;
+	
 	fCtrlOutput						: FLOAT;
 	fBasicCtrlOutput						: FLOAT;
 	f_Rep_POS: Float;
@@ -27,21 +25,21 @@ VAR
 	bHold						: BOOL;
 
 	eMode						: E_CTRL_MODE;
-	stCTRL_PI_PARAMS		: ST_CTRL_PI_PARAMS;
+	stCTRL_PID_PARAMS		: ST_CTRL_PID_PARAMS;
 	stCTRL_LIN_INTERPOLATION_PARAMS		: ST_CTRL_LIN_INTERPOLATION_PARAMS;
 
 	eErrorId					: E_CTRL_ERRORCODES;
-	bError						: BOOL;
+
 	bARWactive				: BOOL;
 	
 	arrTable											: ARRAY[1..nDataTable_NumberOfRows,1..2] OF FLOAT;
 	(* controller  *)
-	fbCTRL_PI				: FB_CTRL_PI;
+	fbCTRL_PID					: FB_CTRL_PID;
 	fbCTRL_Normalize 	: FB_CTRL_NORMALIZE;
 	fbCTRL_LIN_INTERPOLATION					: FB_CTRL_LIN_INTERPOLATION;
 
 	bInit						: BOOL		:= TRUE;
-	BasicPID: FB_BasicPID;
+		FTrig: F_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -49,9 +47,16 @@ END_VAR
 
 
 //VCN
-VCN_40(i_xExtIlkOK := true(*GCC_40.IG.xAT_VAC*), i_ReqPos:= );
-//VGP_40(i_xExtIlkOK := true(*GCC_40.IG.xAT_VAC*), i_ReqPos:= );
-f_Rep_POS := VCN_40.iq_stVCN.rReqPosition;
+VCN_40(i_xExtIlkOK := fb_EM1K0_GMD_GPI_40.PG.xAT_VAC, i_ReqPos:= fCtrlOutput);
+
+fCtrlOutput := fbCTRL_PID.fOut + fbCTRL_LIN_INTERPOLATION.fOut;
+
+
+(* Gauge selection *)
+(*Assign reading to psuedo gauge*)
+IF (fb_EM1K0_GMD_GCC_40.IG.rPRESS <=0.0001) AND (fb_EM1K0_GMD_GCC_40.IG.rPRESS >0) THEN GCP := fb_EM1K0_GMD_GCC_40.IG;
+			ElSE GCP := fb_EM1K0_GMD_GPI_40.PG;
+END_IF
 
 (*-------------------------------------------------------------------*)
 (*             PI CONTROL          *)
@@ -61,24 +66,26 @@ f_Rep_POS := VCN_40.iq_stVCN.rReqPosition;
 IF bInit
 THEN
 	(* init parameter struct *)
-	stCTRL_PI_PARAMS.tCtrlCycleTime		:= T#10ms;
-	stCTRL_PI_PARAMS.tTaskCycleTime	:= T#10ms;
-	stCTRL_PI_PARAMS.tTn					:= T#0S;//T#2s;		(* derivative gain Tv					*)
-	stCTRL_PI_PARAMS.fKp					:= 2;			(* proportional gain Kp				*)
-	stCTRL_PI_PARAMS.fOutMaxLimit		:=  100;  			(* maximum output limit				*)
-	stCTRL_PI_PARAMS.fOutMinLimit		:= 0;			(* minimum output limit				*)
+	stCTRL_PID_PARAMS.tCtrlCycleTime		:= T#10ms;
+	stCTRL_PID_PARAMS.tTaskCycleTime		:= T#10ms;
+	stCTRL_PID_PARAMS.fKp					:= fKp1;			(* proportional gain Kp				*)
+	stCTRL_PID_PARAMS.tTn					:= T#500ms;		(*  Tn									*)
+	stCTRL_PID_PARAMS.tTv					:= T#200ms;	(*  Tv									*)
+	stCTRL_PID_PARAMS.tTd					:= T#100ms;	(*  Td									*)
+	stCTRL_PID_PARAMS.fOutMaxLimit			:=  20;			(* maximum output limit				*)
+	stCTRL_PID_PARAMS.fOutMinLimit			:=  -100;			(* minimum output limit				*)
 
 	
 	(* init array with the interpolation points  *)
 	(* 	fIn					 |		fOut		*)
-	arrTable[1,1] := 0;			arrTable[1,2] := 0;
-	arrTable[2,1] := 0.001;		arrTable[1,2] := 20;
-	arrTable[3,1] := 0.005;		arrTable[3,2] := 30;
-	arrTable[4,1] :=  0.089;	arrTable[4,2] := 40;
-	arrTable[5,1] :=  0.276;	arrTable[5,2] := 50;
-	arrTable[6,1] := 2.299;		arrTable[6,2] := 60;
-	arrTable[7,1] := 9.522;		arrTable[7,2] := 70;
-	arrTable[8,1] := 13.815;	arrTable[8,2] := 75;
+	arrTable[1,1] := 0;			arrTable[1,2] := 5;
+	arrTable[2,1] := 0.000000265;		arrTable[1,2] := 10;
+	arrTable[3,1] := 0.00000319;		arrTable[3,2] := 15;
+	arrTable[4,1] :=  0.0000036;	arrTable[4,2] := 17;
+	arrTable[5,1] :=  0.276;	arrTable[5,2] := 20;
+	arrTable[6,1] := 2.299;		arrTable[6,2] := 30;
+	arrTable[7,1] := 9.522;		arrTable[7,2] := 40;
+	arrTable[8,1] := 13.815;	arrTable[8,2] := 55;
 	arrTable[9,1] := 24.019;	arrTable[8,2] := 80;
 	
 	
@@ -87,34 +94,46 @@ THEN
 	stCTRL_LIN_INTERPOLATION_PARAMS.tTaskCycleTime					:= T#10ms;
 	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_NumberOfRows		:= INT_TO_UINT(nDataTable_NumberOfRows);
 
-	(* set the addresses *)
-	stCTRL_LIN_INTERPOLATION_PARAMS.pDataTable_ADR			:= ADR(arrTable);
-	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_SIZEOF		:= SIZEOF(arrTable);
 
-	
 	(* set the mode to ACTIVE --> normal operation *)
-	eMode							:= eCTRL_MODE_ACTIVE;
+	eMode							:= eCTRL_MODE_PASSIVE;
 	
 	(* reset the init flag *)
 	bInit							:= FALSE;
 END_IF
 
+	(* set the addresses *)
+	stCTRL_LIN_INTERPOLATION_PARAMS.pDataTable_ADR			:= ADR(arrTable);
+	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_SIZEOF		:= SIZEOF(arrTable);
+	 
+	   fSetpointValue:= LIMIT(0,fSetpointValue,0.001);
 
-(* call controller *)
-fbCTRL_PI(		fSetpointValue		:= fSetpointValue,
-					fActualValue		:= fActualValue,
-					fManSyncValue	:= fManSyncValue,
-					bSync				:= bSync,
-					eMode				:= eMode,
-					bHold				:= bHold,
-					stParams			:= stCTRL_PI_PARAMS,
-					fOut				=> fCtrlOutput,
-					bARWactive		=> bARWactive,
-					eErrorId			=> eErrorId,
-					bError				=> bError
-				);
+if (VVC_80.M_IsClosed() ) THEN 
+		//eMode	:= eCTRL_MODE_PASSIVE;
+		fSetpointValue :=0; 
+END_IF 	
+
+if (bGo) THEN
+	IF (bReset) THEN
+	(* set the mode to RESET*)
+	eMode							:= eCTRL_MODE_RESET   ;
+	VCN_40.M_ValveControl(CloseValve);
+	//bReset := False;
+	ELSE
+		(* set the mode to ACTIVE --> normal operation *)
+	eMode							:= eCTRL_MODE_ACTIVE   ;
+ 	VCN_40.M_ValveControl(PressureControl);
+	END_IF
+END_IF
+FTRIG(CLK := bGo);
+IF(FTrig.Q)THEN
+		eMode							:= eCTRL_MODE_PASSIVE;
+		VCN_40.M_ValveControl(CloseValve);
+		fSetpointValue :=0;
+END_IF
+
+
 (* call interpolation fb *)
-(*
 fbCTRL_LIN_INTERPOLATION		(	fIn						:= fSetpointValue,
 									fManValue				:= fManValue,
 									bExtrapolate				:= bExtrapolate,
@@ -126,35 +145,26 @@ fbCTRL_LIN_INTERPOLATION		(	fIn						:= fSetpointValue,
 									bError					=> bError
 								);
 
-fCtrlOutput := fbCTRL_PI.fOut + fbCTRL_LIN_INTERPOLATION.fOut;
-*)BasicPID(
-	fSetpointValue:= fSetpointValue,
-	fActualValue:= fActualValue , 
-	bReset:= FALSE , 
-	fCtrlCycleTime:= 10, 
-	fKp:= stCTRL_PI_PARAMS.fKp, 
-	fTn:= 0, 
-	fTv:= 0, 
-	fTd:= 0, 
-	fCtrlOutput=> fBasicCtrlOutput, 
-	nErrorStatus=> );
+(* call controller *)
+fbCTRL_PID(		fSetpointValue		:= fSetpointValue,
+					fActualValue		:= GCP.rPRESS ,
+					fManSyncValue	:= ,
+					bSync				:= bSync,
+					eMode				:= eMode,
+					bHold				:= bHold,
+					stParams			:= stCTRL_PID_PARAMS,
+					fOut				=> ,
+					bARWactive		=> bARWactive,
+					eErrorId			=> eErrorId,
+					bError				=> 
+				);
+				
+				
+bError := fbCTRL_PID.bError OR fbCTRL_LIN_INTERPOLATION.bError;
+
+
 
 ]]></ST>
     </Implementation>
-    <LineIds Name="PRG_PressureControl">
-      <LineId Id="125" Count="1" />
-      <LineId Id="120" Count="2" />
-      <LineId Id="118" Count="0" />
-      <LineId Id="127" Count="0" />
-      <LineId Id="119" Count="0" />
-      <LineId Id="6" Count="60" />
-      <LineId Id="116" Count="0" />
-      <LineId Id="67" Count="10" />
-      <LineId Id="5" Count="0" />
-      <LineId Id="136" Count="9" />
-      <LineId Id="117" Count="0" />
-      <LineId Id="134" Count="0" />
-      <LineId Id="133" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

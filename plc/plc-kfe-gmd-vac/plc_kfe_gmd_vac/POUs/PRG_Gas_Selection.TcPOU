@@ -20,20 +20,20 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[(* Gas selection includes a purge and checks interlocks*)
-
+// Initialize the selected gas
 if ( VVC_83.iq_stValve.q_xOPN_DO) then
-	CurrentGas := E_GasType.Neon;
+	SelectedGas := E_GasType.Neon;
 	elsif ( VVC_84.iq_stValve.q_xOPN_DO) then
-		CurrentGas := E_GasType.Argon;
+		SelectedGas := E_GasType.Argon;
 		elsif ( VVC_85.iq_stValve.q_xOPN_DO) then
-		CurrentGas := E_GasType.Krypton;
+		SelectedGas := E_GasType.Krypton;
 			elsif ( VVC_86.iq_stValve.q_xOPN_DO) then
-			CurrentGas := E_GasType.Xenon;
+			SelectedGas := E_GasType.Xenon;
 			 else 
-				 CurrentGas := E_GasType.none;
+				 SelectedGas := E_GasType.none;
 END_IF
 
-
+(*
 If( CurrentGas <> SelectedGas) AND NOT (CurrentGas=E_GasType.none) then
 	bStartPurge_sw := true;
 END_IF
@@ -67,7 +67,7 @@ if NOT(bStartPurge_sw) AND(bPurgeDone) then
 		VVC_86.M_Set_OPN_SW(TRUE);
 	END_CASE
 END_IF
-
+*)
 
 /// vcn and vgp on manual or auto??]]></ST>
     </Implementation>

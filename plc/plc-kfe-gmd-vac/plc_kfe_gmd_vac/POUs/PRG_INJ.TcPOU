@@ -19,7 +19,7 @@ i:=i+1;
 // Vent Valves
 // interlock evaluation
 
-VVC_80.i_xExtILK_OK := TRUE;//(NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO); // Or we need to purge all the way up to the VCN
+VVC_80.i_xExtILK_OK := (VCN_40.iq_stVCN.eValveControl = E_VCN.CloseValve) OR( (NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO)); // we need to purge all the way up to the VCN
 VVC_81.i_xExtILK_OK := (VVC_82.iq_stValve.q_xOPN_DO) AND (NOT VVC_83.iq_stValve.q_xOPN_DO) AND(NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO);// AND (NOT VVC_80.iq_stValve.q_xOPN_DO);
 VVC_82.i_xExtILK_OK := (NOT VVC_83.iq_stValve.q_xOPN_DO) AND(NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO);// AND (NOT VVC_80.iq_stValve.q_xOPN_DO);
 
