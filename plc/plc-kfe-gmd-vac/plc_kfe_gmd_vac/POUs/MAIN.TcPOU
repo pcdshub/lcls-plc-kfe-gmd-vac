@@ -4,7 +4,7 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	vgp_debug_mode	:BOOL	:= False;
-	gas_selection_debug_mode : BOOL := TRUE;
+	gas_selection_debug_mode : BOOL := FALSE;
 	press_cntrl :BOOL := FALSE;
 END_VAR
 
@@ -17,18 +17,14 @@ PRG_VAC_INTF();
 
 (*INJ*)
 PRG_INJ();
-
+PRG_PressureControl();
+PRG_Gas_Selection();
+PRG_Purge();
 IF NOT vgp_debug_mode THEN
 	PRG_VGP();
 END_IF
-IF (press_cntrl) THEN
-	PRG_PressureControl();
-END_IF
-//TO Be tested
-IF NOT gas_selection_debug_mode THEN
-	PRG_Purge();
-	PRG_Gas_Selection();
-END_IF
+
+
 // instaniate the RTD and HV
 
 PRG_HV_ILK();

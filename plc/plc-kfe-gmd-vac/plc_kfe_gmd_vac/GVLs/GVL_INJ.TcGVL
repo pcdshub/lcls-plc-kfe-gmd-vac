@@ -29,8 +29,15 @@
 	GCM_80: FB_GCM;
 	
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:INJ_Override '}
-	
 	xOverrideMode : BOOL:= false;
+	
+	(*Additional VCN Interlock*)
+	{attribute 'pytmc' :=' pv:  EM1K0:GMD:VCN_ILK;
+    field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
+	 io: io;
+	 '}
+	bAdditionalVCNIlk : BOOL; 
 		
 //GVL_Sensors
 

@@ -30,7 +30,7 @@ VAR CONSTANT
 END_VAR
 
 VAR
-	rOpenPosition: REAL:=1645; // Encoder MAX. Fully Open
+	rOpenPosition: REAL:=1660; // Encoder MAX. Fully Open
 	rTargetPosition : REAL;
 	rTargetVelocity: REAL:=30;
 	rHomingVelocity: REAL:=10;
@@ -97,6 +97,8 @@ VAR
     tErrorPresent : R_TRIG;
     tAction : R_TRIG; // Primary action of this device (OPN_DO, PUMP_RUN, etc.)
     
+	rt_close :R_TRIG;
+	rt_Open :R_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -106,26 +108,27 @@ ACT_INIT();
 // Interlocking
 q_stVGP.xIlkOK := i_xExtIlkOK;
 (*Checking which Control mode is selected*)
-IF q_stVGP.pv_xHomed AND NOT (q_stVGP.pv_xError) THEN
+IF i_xExtIlkOK AND NOT (q_stVGP.pv_xError) THEN
 	IF q_stVGP.eValveControl = OpenValve THEN
 		q_stVGP.rReqPosition := rUpperLimit;
-		q_stVGP.pv_xGo_SW:=TRUE;
 	ELSIF q_stVGP.eValveControl = CloseValve THEN
 		q_stVGP.rReqPosition := 0;
-		q_stVGP.pv_xGo_SW:=TRUE;
 	ELSIF q_stVGP.eValveControl = ManualControl THEN
 		q_stVGP.rReqPosition := LIMIT(0, q_stVGP.rReqPosition, rUpperLimit);
 	ELSIF q_stVGP.eValveControl = PressureControl THEN
 		 q_stVGP.rReqPosition := LIMIT(0, i_ReqPos, rUpperLimit);
-		q_stVGP.pv_xGo_SW:=TRUE;
 	END_IF
-ELSE
+ELSIF NOT i_xExtIlkOK THEN
 	q_stVGP.rReqPosition := 0;
 	q_stVGP.eValveControl := CloseValve;//CloseValve;
-	q_stVGP.pv_xGo_SW:=TRUE;
 END_IF
 
+rt_close (CLK:= q_stVGP.eValveControl = CloseValve);
+rt_Open (CLK:= q_stVGP.eValveControl = OpenValve);
 
+IF (rt_close.Q) OR (rt_Open.Q) THEN
+	q_stVGP.pv_xGo_SW:=TRUE;
+END_IF
 //Check the Drive State
 
 IF (*(InfoData_State<>16#8) OR*) (q_stVGP.eState = ERROR) THEN
@@ -201,9 +204,10 @@ END_IF*)
 					ELSE 
 					q_stVGP.eState := READY;
 				END_IF
-			IF (q_stVGP.pv_xGo_SW) AND i_xExtIlkOK(* AND( rOldTargetPosition <> rTargetPosition) *) THEN
+			IF (q_stVGP.pv_xGo_SW) AND q_stVGP.pv_xHomed(* AND( rOldTargetPosition <> rTargetPosition) *) THEN
 				q_stVGP.pv_xGo_SW := false;
 				q_stVGP.eState := NEWTARGETPOSITION;	
+				rOldTargetPosition := rTargetPosition;
 			END_IF
 
 			

@@ -45,11 +45,18 @@ END_VAR
     <Implementation>
       <ST><![CDATA[
 
+//VCN //bAdditionalVCNIlk
+IF (bAdditionalVCNIlk) THEN
+	VCN_40.i_xExtIlkOK := ( fb_EM1K0_GMD_GCC_10.IG.xAT_VAC AND  fb_EM1K0_GMD_GCC_20.IG.xAT_VAC AND fb_EM1K0_GMD_GCC_30.IG.xAT_VAC
+							AND  fb_EM1K0_GMD_GCC_50.IG.xAT_VAC AND  fb_EM1K0_GMD_GCC_60.IG.xAT_VAC AND fb_EM1K0_GMD_GCC_70.IG.xAT_VAC)
+								AND  fb_EM1K0_GMD_GPI_40.PG.xAT_VAC AND (NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO);
+	ELSE
+		
+		VCN_40.i_xExtIlkOK := fb_EM1K0_GMD_GPI_40.PG.xAT_VAC AND (NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO);
+END_IF
 
 //VCN
-VCN_40(i_xExtIlkOK := fb_EM1K0_GMD_GPI_40.PG.xAT_VAC, i_ReqPos:= fCtrlOutput);
-
-fCtrlOutput := fbCTRL_PID.fOut + fbCTRL_LIN_INTERPOLATION.fOut;
+VCN_40(i_xExtIlkOK :=, i_ReqPos:= );
 
 
 (* Gauge selection *)
@@ -114,6 +121,7 @@ if (VVC_80.M_IsClosed() ) THEN
 END_IF 	
 
 if (bGo) THEN
+	VCN_40.i_ReqPos:= fbCTRL_PID.fOut + fbCTRL_LIN_INTERPOLATION.fOut;
 	IF (bReset) THEN
 	(* set the mode to RESET*)
 	eMode							:= eCTRL_MODE_RESET   ;

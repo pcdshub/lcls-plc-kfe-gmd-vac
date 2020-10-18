@@ -5,17 +5,7 @@
 VAR
 	
 	CurrentGas: E_GasType;
-	{attribute 'pytmc' := '
-	pv: EM1K0:GMD:GAS_TYPE ;
-	type: mbbi ;
-	field: ZRST none ;
-	field: ONST Neon;
-	field: TWST Argon ;
-	field: THST Krypton ;
-	field: FRST Xenon ;
-	io: i
-	'}
-	SelectedGas: E_GasType;
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
