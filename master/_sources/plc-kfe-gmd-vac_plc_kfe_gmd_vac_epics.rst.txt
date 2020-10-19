@@ -8434,6 +8434,18 @@ Database Records
       - | io: output
 
 
+    * - EM1K0:GMD:PurgeError
+      - bo
+      - PRG_Purge.bError
+      - | io: output
+
+
+    * - EM1K0:GMD:PurgeError_RBV
+      - bi
+      - PRG_Purge.bError
+      - | io: output
+
+
     * - EM1K0:GMD:RESET
       - bo
       - PRG_Purge.bReset
@@ -10348,18 +10360,6 @@ Database Records
       - | field: ONAM Override OFF
         | field: ZNAM Override ON
         | io: output
-
-
-    * - EM2K0:XGMD:PurgeError
-      - bo
-      - PRG_Purge.bError
-      - | io: output
-
-
-    * - EM2K0:XGMD:PurgeError_RBV
-      - bi
-      - PRG_Purge.bError
-      - | io: output
 
 
     * - plcHeartbeat
