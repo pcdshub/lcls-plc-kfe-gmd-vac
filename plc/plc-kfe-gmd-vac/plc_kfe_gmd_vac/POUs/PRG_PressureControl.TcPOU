@@ -47,7 +47,7 @@ END_VAR
 
 //VCN //bAdditionalVCNIlk
 IF (bAdditionalVCNIlk) THEN
-	VCN_40.i_xExtIlkOK := ( fb_EM1K0_GMD_GCC_10.IG.xAT_VAC AND  fb_EM1K0_GMD_GCC_20.IG.xAT_VAC AND fb_EM1K0_GMD_GCC_30.IG.xAT_VAC
+	VCN_40.i_xExtIlkOK := ( fb_EM1K0_GMD_GCC_10.IG.xAT_VAC AND  fb_EM1K0_GMD_GCC_20.IG.xAT_VAC AND fb_EM1K0_GMD_GCC_30.IG.xAT_VAC AND fb_EM1K0_GMD_GCC_40.IG.xAT_VAC
 							AND  fb_EM1K0_GMD_GCC_50.IG.xAT_VAC AND  fb_EM1K0_GMD_GCC_60.IG.xAT_VAC AND fb_EM1K0_GMD_GCC_70.IG.xAT_VAC)
 								AND  fb_EM1K0_GMD_GPI_40.PG.xAT_VAC AND (NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO);
 	ELSE
@@ -89,11 +89,11 @@ THEN
 	arrTable[2,1] := 0.000000265;		arrTable[1,2] := 10;
 	arrTable[3,1] := 0.00000319;		arrTable[3,2] := 15;
 	arrTable[4,1] :=  0.0000036;	arrTable[4,2] := 17;
-	arrTable[5,1] :=  0.276;	arrTable[5,2] := 20;
-	arrTable[6,1] := 2.299;		arrTable[6,2] := 30;
-	arrTable[7,1] := 9.522;		arrTable[7,2] := 40;
-	arrTable[8,1] := 13.815;	arrTable[8,2] := 55;
-	arrTable[9,1] := 24.019;	arrTable[8,2] := 80;
+	arrTable[5,1] :=  0000412;	arrTable[5,2] := 20;
+	arrTable[6,1] := 0.001282;		arrTable[6,2] := 31;
+	arrTable[7,1] := 0.002136;		arrTable[7,2] := 39;
+	arrTable[8,1] := 0.0417;	arrTable[8,2] := 49;
+	arrTable[9,1] := 0.1929;	arrTable[8,2] := 62;
 	
 	
 	(* init parameter struct *)
