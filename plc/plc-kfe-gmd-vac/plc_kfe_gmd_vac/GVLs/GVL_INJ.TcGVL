@@ -37,7 +37,7 @@
 	 field: ONAM TRUE; 
 	 io: io;
 	 '}
-	bAdditionalVCNIlk : BOOL; 
+	bAdditionalVCNIlk : BOOL:=TRUE; 
 		
 //GVL_Sensors
 
