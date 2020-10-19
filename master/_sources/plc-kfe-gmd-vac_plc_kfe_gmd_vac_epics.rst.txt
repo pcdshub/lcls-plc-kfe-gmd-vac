@@ -2497,156 +2497,6 @@ LCLS_Vacuum.FB_VVC
 
 
  
-LCLS_Vacuum.LCLSVacuumSerialDriverLib.L2SI_Vacuum_Library.ST_VG
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-    :header-rows: 1
-    :align: center
-
-    * - Record
-      - Type
-      - Description
-      - Pragma
-    * - $(PREFIX):AT_VAC_RBV
-      - bi
-      - $(SYMBOL).xAT_VAC
-      - | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):DISC_ACTIVE_RBV
-      - bi
-      - $(SYMBOL).i_xDisc_Active
-      - | field: ONAM DISC ACTIVE
-        | field: ZNAM NO DISC
-        | io: input
-
-
-    * - $(PREFIX):HV_DIS_DO_RBV
-      - bi
-      - $(SYMBOL).q_xHV_DIS
-      - | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):HV_ON_RBV
-      - bi
-      - $(SYMBOL).i_xHV_ON
-      - | io: input
-
-
-    * - $(PREFIX):HV_SW
-      - bo
-      - $(SYMBOL).xHV_SW
-      - | field: ONAM ON
-        | field: ZNAM OFF
-        | io: output
-
-
-    * - $(PREFIX):HV_SW_RBV
-      - bi
-      - $(SYMBOL).xHV_SW
-      - | field: ONAM ON
-        | field: ZNAM OFF
-        | io: output
-
-
-    * - $(PREFIX):ILK_OK_RBV
-      - bi
-      - $(SYMBOL).xILKOk
-      - | field: ONAM OK
-        | field: ZNAM NOT OK
-        | io: input
-
-
-    * - $(PREFIX):PRESS_AI_RBV
-      - longin
-      - $(SYMBOL).i_iPRESS_R
-      - | io: input
-
-
-    * - $(PREFIX):PRESS_OK_RBV
-      - bi
-      - $(SYMBOL).xPRESS_OK
-      - | field: ONAM ON
-        | field: ZNAM OFF
-        | io: input
-
-
-    * - $(PREFIX):PRESS_RBV
-      - ai
-      - $(SYMBOL).rPRESS
-      - | field: EGU "TORR"
-        | field: HOPR 1000
-        | field: LOPR 0
-        | field: PREC 2
-        | io: input
-
-
-    * - $(PREFIX):PRO_SP
-      - ao
-      - $(SYMBOL).rPRO_SP
-      - | field: EGU "TORR"
-        | field: HOPR 1000
-        | field: LOPR 0
-        | field: PREC 2
-        | io: output
-
-
-    * - $(PREFIX):PRO_SP_RBV
-      - ai
-      - $(SYMBOL).rPRO_SP
-      - | field: EGU "TORR"
-        | field: HOPR 1000
-        | field: LOPR 0
-        | field: PREC 2
-        | io: output
-
-
-    * - $(PREFIX):SP_HYS
-      - ao
-      - $(SYMBOL).rHYS_PR
-      - | field: EGU "TORR"
-        | field: HOPR 1000
-        | field: LOPR 0
-        | field: PREC 2
-        | io: output
-
-
-    * - $(PREFIX):SP_HYS_RBV
-      - ai
-      - $(SYMBOL).rHYS_PR
-      - | field: EGU "TORR"
-        | field: HOPR 1000
-        | field: LOPR 0
-        | field: PREC 2
-        | io: output
-
-
-    * - $(PREFIX):VAC_SP
-      - ao
-      - $(SYMBOL).rVAC_SP
-      - | field: EGU "TORR"
-        | field: HOPR 1000
-        | field: LOPR 0
-        | field: PREC 2
-        | io: output
-
-
-    * - $(PREFIX):VAC_SP_RBV
-      - ai
-      - $(SYMBOL).rVAC_SP
-      - | field: EGU "TORR"
-        | field: HOPR 1000
-        | field: LOPR 0
-        | field: PREC 2
-        | io: output
-
-
- 
 LCLS_Vacuum.ST_EbaraEVA
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -3736,7 +3586,7 @@ LCLS_Vacuum.ST_VVC
         | io: output
 
 
-                            
+                           
 PMPS.ST_BeamParams
 ^^^^^^^^^^^^^^^^^^
 
@@ -4276,7 +4126,7 @@ ST_VGP
         | type: mbbi
 
 
-                                                                                             
+                                                                                            
 Database Records
 ----------------
 
@@ -4288,6 +4138,59 @@ Database Records
       - Type
       - Description
       - Pragma
+    * - $(PREFIX)0RateBeamCnst:Cohort_RBV
+      - longin
+      - Cohort inc on each arb cycle
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:PhotonEnergyRanges_RBV
+      - longin
+      - 0-rate beam constant
+      - | archive: 1s monitor
+        | field: EGU eV
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:PulseEnergy_RBV
+      - ai
+      - This beam parameter is non-op for now.
+      - | archive: 1s monitor
+        | field: EGU mJ
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:Rate_RBV
+      - longin
+      - 0-rate beam constant
+      - | archive: 1s monitor
+        | field: EGU Hz
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:ST_RBV
+      - waveform
+      - 0-rate beam constant
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:Transmission_RBV
+      - longin
+      - 0-rate beam constant
+      - | archive: 1s monitor
+        | field: EGU %
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:Valid_RBV
+      - bi
+      - 0-rate beam constant
+      - | archive: 1s monitor
+        | io: input
+
+
     * - $(PREFIX)AccumulatedFastFaults_RBV
       - longin
       - PMPS_GVL.AccumulatedFF
@@ -4430,30 +4333,6 @@ Database Records
       - | archive: 1s monitor
         | field: EGU eV
         | io: input
-
-
-    * - $(PREFIX)L:UND:FirstSegment_RBV
-      - longin
-      - PMPS_GVL.iLowBound_LUnd
-      - | io: input
-
-
-    * - $(PREFIX)L:UND:HiK_RBV
-      - ai
-      - PMPS_GVL.fHiK_LUnd
-      - | io: input
-
-
-    * - $(PREFIX)L:UND:LastSegment_RBV
-      - longin
-      - PMPS_GVL.iHighBound_LUnd
-      - | io: input
-
-
-    * - $(PREFIX)L:UND:LowK_RBV
-      - ai
-      - PMPS_GVL.fLowK_LUnd
-      - | io: input
 
 
     * - $(PREFIX)LCLSGeneral:GlobalLogTrickleTrip_RBV
@@ -4614,6 +4493,134 @@ Database Records
       - bi
       - GVL_VARIABLES.bAutoVVC40
       - | io: output
+
+
+    * - EM1K0:GMD:CNTRL:ERROR
+      - bo
+      - GVL_INJ.bError
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:CNTRL:ERROR_RBV
+      - bi
+      - GVL_INJ.bError
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:CNTRL:GO
+      - bo
+      - GVL_INJ.bGo
+      - | field: ONAM START
+        | field: ZNAM STOP
+        | io: output
+
+
+    * - EM1K0:GMD:CNTRL:GO_RBV
+      - bi
+      - GVL_INJ.bGo
+      - | field: ONAM START
+        | field: ZNAM STOP
+        | io: output
+
+
+    * - EM1K0:GMD:CNTRL:Kp1
+      - ao
+      - GVL_INJ.fKp1
+      - | io: output
+
+
+    * - EM1K0:GMD:CNTRL:Kp1_RBV
+      - ai
+      - GVL_INJ.fKp1
+      - | io: output
+
+
+    * - EM1K0:GMD:CNTRL:Kp2
+      - ao
+      - GVL_INJ.fKp2
+      - | io: output
+
+
+    * - EM1K0:GMD:CNTRL:Kp2_RBV
+      - ai
+      - GVL_INJ.fKp2
+      - | io: output
+
+
+    * - EM1K0:GMD:CNTRL:RESET
+      - bo
+      - GVL_INJ.bReset
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:CNTRL:RESET_RBV
+      - bi
+      - GVL_INJ.bReset
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:CNTRL:SP
+      - ao
+      - GVL_INJ.fSetpointValue
+      - | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
+    * - EM1K0:GMD:CNTRL:SP_RBV
+      - ai
+      - GVL_INJ.fSetpointValue
+      - | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
+    * - EM1K0:GMD:CNTRL:Tn1
+      - ao
+      - GVL_INJ.fTn1
+      - | io: output
+
+
+    * - EM1K0:GMD:CNTRL:Tn1_RBV
+      - ai
+      - GVL_INJ.fTn1
+      - | io: output
+
+
+    * - EM1K0:GMD:CNTRL:Tn2
+      - ao
+      - GVL_INJ.fTn2
+      - | io: output
+
+
+    * - EM1K0:GMD:CNTRL:Tn2_RBV
+      - ai
+      - GVL_INJ.fTn2
+      - | io: output
+
+
+    * - EM1K0:GMD:GAS_TYPE_RBV
+      - mbbi
+      - GVL_VARIABLES.SelectedGas
+      - | field: FRST Xenon
+        | field: ONST Neon
+        | field: THST Krypton
+        | field: TWST Argon
+        | field: ZRST none
+        | io: input
+        | type: mbbi
 
 
     * - EM1K0:GMD:GCC:10:AT_VAC_RBV
@@ -6000,6 +6007,180 @@ Database Records
     * - EM1K0:GMD:GCM:80:VAC_SP_RBV
       - ai
       - GVL_INJ.GCM_80.PG.rVAC_SP
+      - | autosave_pass1: VAL DESC
+        | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:AT_VAC_RBV
+      - bi
+      - GVL_INJ.GCP.xAT_VAC
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - EM1K0:GMD:GCP:40:DISC_ACTIVE_RBV
+      - bi
+      - GVL_INJ.GCP.i_xDisc_Active
+      - | field: ONAM DISC ACTIVE
+        | field: ZNAM NO DISC
+        | io: input
+
+
+    * - EM1K0:GMD:GCP:40:HV_DIS_DO_RBV
+      - bi
+      - GVL_INJ.GCP.q_xHV_DIS
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - EM1K0:GMD:GCP:40:HV_ON_RBV
+      - bi
+      - GVL_INJ.GCP.i_xHV_ON
+      - | io: input
+
+
+    * - EM1K0:GMD:GCP:40:HV_SW
+      - bo
+      - GVL_INJ.GCP.xHV_SW
+      - | field: ONAM ON
+        | field: ZNAM OFF
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:HV_SW_RBV
+      - bi
+      - GVL_INJ.GCP.xHV_SW
+      - | field: ONAM ON
+        | field: ZNAM OFF
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:ILK_OK_RBV
+      - bi
+      - GVL_INJ.GCP.xILKOk
+      - | field: ONAM OK
+        | field: ZNAM NOT OK
+        | io: input
+
+
+    * - EM1K0:GMD:GCP:40:LOGGER
+      - bo
+      - GVL_INJ.GCP.xLog
+      - | field: ONAM ON
+        | field: ZNAM OFF
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:LOGGER_RBV
+      - bi
+      - GVL_INJ.GCP.xLog
+      - | field: ONAM ON
+        | field: ZNAM OFF
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:PRESS_AI_RBV
+      - longin
+      - GVL_INJ.GCP.i_iPRESS_R
+      - | io: input
+
+
+    * - EM1K0:GMD:GCP:40:PRESS_OK_RBV
+      - bi
+      - GVL_INJ.GCP.xPRESS_OK
+      - | field: ONAM ON
+        | field: ZNAM OFF
+        | io: input
+
+
+    * - EM1K0:GMD:GCP:40:PRESS_RBV
+      - ai
+      - GVL_INJ.GCP.rPRESS
+      - | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: input
+
+
+    * - EM1K0:GMD:GCP:40:PRO_SP
+      - ao
+      - GVL_INJ.GCP.rPRO_SP
+      - | autosave_pass1: VAL DESC
+        | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:PRO_SP_RBV
+      - ai
+      - GVL_INJ.GCP.rPRO_SP
+      - | autosave_pass1: VAL DESC
+        | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:SP_HYS
+      - ao
+      - GVL_INJ.GCP.rHYS_PR
+      - | autosave_pass1: VAL DESC
+        | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:SP_HYS_RBV
+      - ai
+      - GVL_INJ.GCP.rHYS_PR
+      - | autosave_pass1: VAL DESC
+        | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:STATE_RBV
+      - mbbi
+      - GVL_INJ.GCP.eState
+      - | field: FRST Starting
+        | field: FVST Valid
+        | field: ONST GaugeDisconnected
+        | field: SVST ValidLo
+        | field: SXST ValidHi
+        | field: THST Off
+        | field: TWST OoR
+        | field: ZRST PressInvalid
+        | io: input
+
+
+    * - EM1K0:GMD:GCP:40:VAC_SP
+      - ao
+      - GVL_INJ.GCP.rVAC_SP
+      - | autosave_pass1: VAL DESC
+        | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:VAC_SP_RBV
+      - ai
+      - GVL_INJ.GCP.rVAC_SP
       - | autosave_pass1: VAL DESC
         | field: EGU "TORR"
         | field: HOPR 1000
@@ -8165,6 +8346,58 @@ Database Records
         | io: input
 
 
+    * - EM1K0:GMD:PURGE:REPEAT
+      - longout
+      - PRG_Purge.NeedlePurgeRepeat
+      - | io: output
+
+
+    * - EM1K0:GMD:PURGE:REPEAT_RBV
+      - longin
+      - PRG_Purge.NeedlePurgeRepeat
+      - | io: output
+
+
+    * - EM1K0:GMD:PURGE:SP1
+      - ao
+      - PRG_Purge.rPurge_SP1
+      - | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
+    * - EM1K0:GMD:PURGE:SP1_RBV
+      - ai
+      - PRG_Purge.rPurge_SP1
+      - | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
+    * - EM1K0:GMD:PURGE:SP2
+      - ao
+      - PRG_Purge.rPurge_SP2
+      - | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
+    * - EM1K0:GMD:PURGE:SP2_RBV
+      - ai
+      - PRG_Purge.rPurge_SP2
+      - | field: EGU "TORR"
+        | field: HOPR 1000
+        | field: LOPR 0
+        | field: PREC 2
+        | io: output
+
+
     * - EM1K0:GMD:Purge_Active
       - bo
       - GVL_VARIABLES.bPurgeActive
@@ -8201,6 +8434,18 @@ Database Records
       - | io: output
 
 
+    * - EM1K0:GMD:RESET
+      - bo
+      - PRG_Purge.bReset
+      - | io: output
+
+
+    * - EM1K0:GMD:RESET_RBV
+      - bi
+      - PRG_Purge.bReset
+      - | io: output
+
+
     * - EM1K0:GMD:RTD:1:CONN_RBV
       - bi
       - GVL_INJ.RTD.bConnected
@@ -8219,6 +8464,18 @@ Database Records
       - ai
       - GVL_INJ.RTD.fTemp
       - | io: input
+
+
+    * - EM1K0:GMD:sPURGE
+      - waveform
+      - PRG_Purge.sMessage
+      - | io: output
+
+
+    * - EM1K0:GMD:sPURGE_RBV
+      - waveform
+      - PRG_Purge.sMessage
+      - | io: output
 
 
     * - EM1K0:GMD:VCN:40:ILK_OK_RBV
@@ -8292,6 +8549,22 @@ Database Records
         | field: THST ManualControl
         | field: TWST PressureControl
         | field: ZRST Close
+        | io: output
+
+
+    * - EM1K0:GMD:VCN_ILK
+      - bo
+      - GVL_INJ.bAdditionalVCNIlk
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:VCN_ILK_RBV
+      - bi
+      - GVL_INJ.bAdditionalVCNIlk
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
         | io: output
 
 
@@ -10077,11 +10350,16 @@ Database Records
         | io: output
 
 
-    * - Period_RBV
-      - ai
-      - PMPS_GVL.fPeriod_mm_LUnd
-      - | field: EGU mm
-        | io: input
+    * - EM2K0:XGMD:PurgeError
+      - bo
+      - PRG_Purge.bError
+      - | io: output
+
+
+    * - EM2K0:XGMD:PurgeError_RBV
+      - bi
+      - PRG_Purge.bError
+      - | io: output
 
 
     * - plcHeartbeat

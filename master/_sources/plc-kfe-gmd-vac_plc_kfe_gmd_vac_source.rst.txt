@@ -413,8 +413,15 @@ GVL_INJ
     	GCM_80: FB_GCM;
     	
     	{attribute 'pytmc' :=' pv: EM1K0:GMD:INJ_Override '}
-    	
     	xOverrideMode : BOOL:= false;
+    	
+    	(*Additional VCN Interlock*)
+    	{attribute 'pytmc' :=' pv:  EM1K0:GMD:VCN_ILK;
+        field: ZNAM FALSE; 
+    	 field: ONAM TRUE; 
+    	 io: io;
+    	 '}
+    	bAdditionalVCNIlk : BOOL; 
     		
     //GVL_Sensors
 
@@ -435,6 +442,45 @@ GVL_INJ
     	// hv2 : FB_HighVoltage;
     	{attribute 'pytmc' :=' pv: EM1K0:GMD:RTD:1 '}
     	RTD : FB_RTD;
+    	
+    	
+    (* Pressure Control*)
+    {attribute 'pytmc' := ' pv: EM1K0:GMD:GCP:40 '}
+    	GCP: ST_VG;
+    {attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:SP;
+    	field: HOPR 1000;
+    	field: LOPR 0;
+    	field: PREC 2;
+    	field: EGU "TORR";
+    	'}
+    	fSetpointValue :REAL; 
+    	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:GO;
+    	 field: ZNAM STOP; 
+    	 field: ONAM START; 
+    	 io: io;
+    	'}
+    	bGo: BOOL:=FALSE; 
+     	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:RESET;
+    	 field: ZNAM FALSE; 
+    	 field: ONAM TRUE; 
+    	 io: io;
+    	 '}
+    	bReset : BOOL; 
+    	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:ERROR;
+        field: ZNAM FALSE; 
+    	 field: ONAM TRUE; 
+    	 io: io;
+    	 '}
+    	bError : BOOL; 
+    	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:Kp1 '}
+    	fKp1 : REAL:= 0.5; 
+    	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:Tn1 '}
+    	fTn1 : REAL:= 0.5; 
+    	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:Kp2 '}
+    	fKp2 : REAL:= 0.01; 
+    	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:Tn2 '}
+    	fTn2 : REAL:= 0.5; 
+    	
 
     END_VAR
 
@@ -460,6 +506,18 @@ GVL_VARIABLES
     	
     	{attribute 'pytmc' :=' pv: EM1K0:GMD:AUTO_VVC_40 '}
     	bAutoVVC40 : BOOL := False;
+    	
+    	{attribute 'pytmc' := '
+    	pv: EM1K0:GMD:GAS_TYPE ;
+    	type: mbbi ;
+    	field: ZRST none ;
+    	field: ONST Neon;
+    	field: TWST Argon ;
+    	field: THST Krypton ;
+    	field: FRST Xenon ;
+    	io: i
+    	'}
+    	SelectedGas: E_GasType;
     	
     		// Purge COMMANDS FROM epics
     	//pragma
@@ -712,7 +770,7 @@ FB_VGP
     END_VAR
 
     VAR
-    	rOpenPosition: REAL:=1645; // Encoder MAX. Fully Open
+    	rOpenPosition: REAL:=1660; // Encoder MAX. Fully Open
     	rTargetPosition : REAL;
     	rTargetVelocity: REAL:=30;
     	rHomingVelocity: REAL:=10;
@@ -779,6 +837,8 @@ FB_VGP
         tErrorPresent : R_TRIG;
         tAction : R_TRIG; // Primary action of this device (OPN_DO, PUMP_RUN, etc.)
         
+    	rt_close :R_TRIG;
+    	rt_Open :R_TRIG;
     END_VAR
     /// Interpolation  function initialization
     ACT_INIT();
@@ -786,7 +846,7 @@ FB_VGP
     // Interlocking
     q_stVGP.xIlkOK := i_xExtIlkOK;
     (*Checking which Control mode is selected*)
-    IF q_stVGP.xIlkOK AND NOT (q_stVGP.pv_xError) THEN
+    IF i_xExtIlkOK AND NOT (q_stVGP.pv_xError) THEN
     	IF q_stVGP.eValveControl = OpenValve THEN
     		q_stVGP.rReqPosition := rUpperLimit;
     	ELSIF q_stVGP.eValveControl = CloseValve THEN
@@ -796,13 +856,17 @@ FB_VGP
     	ELSIF q_stVGP.eValveControl = PressureControl THEN
     		 q_stVGP.rReqPosition := LIMIT(0, i_ReqPos, rUpperLimit);
     	END_IF
-    ELSE
+    ELSIF NOT i_xExtIlkOK THEN
     	q_stVGP.rReqPosition := 0;
     	q_stVGP.eValveControl := CloseValve;//CloseValve;
-    	bGo:=FALSE;
     END_IF
 
+    rt_close (CLK:= q_stVGP.eValveControl = CloseValve);
+    rt_Open (CLK:= q_stVGP.eValveControl = OpenValve);
 
+    IF (rt_close.Q) OR (rt_Open.Q) THEN
+    	q_stVGP.pv_xGo_SW:=TRUE;
+    END_IF
     //Check the Drive State
 
     IF (*(InfoData_State<>16#8) OR*) (q_stVGP.eState = ERROR) THEN
@@ -832,10 +896,10 @@ FB_VGP
     AXIS();
     q_stVGP.rEnoder_Position := LREAL_TO_REAL(Axis.NcToPlc.ActPos); // encoder position
 
-
+    (*
     IF NOT (i_xExtIlkOK) THEN
     	q_stVGP.eState := NEWTARGETPOSITION;
-    END_IF
+    END_IF*)
     //Homing STATE is missing
 
     // state machine for axis motion
@@ -874,9 +938,10 @@ FB_VGP
     					ELSE 
     					q_stVGP.eState := READY;
     				END_IF
-    			IF (q_stVGP.pv_xGo_SW) AND i_xExtIlkOK(* AND( rOldTargetPosition <> rTargetPosition) *) THEN
+    			IF (q_stVGP.pv_xGo_SW) AND q_stVGP.pv_xHomed(* AND( rOldTargetPosition <> rTargetPosition) *) THEN
     				q_stVGP.pv_xGo_SW := false;
     				q_stVGP.eState := NEWTARGETPOSITION;	
+    				rOldTargetPosition := rTargetPosition;
     			END_IF
 
     			
@@ -1373,6 +1438,8 @@ MAIN
     PROGRAM MAIN
     VAR
     	vgp_debug_mode	:BOOL	:= False;
+    	gas_selection_debug_mode : BOOL := FALSE;
+    	press_cntrl :BOOL := FALSE;
     END_VAR
     PRG_DIAGNOSTIC();
     PRG_GMD();
@@ -1381,14 +1448,13 @@ MAIN
 
     (*INJ*)
     PRG_INJ();
-
+    PRG_PressureControl();
+    PRG_Gas_Selection();
+    PRG_Purge();
     IF NOT vgp_debug_mode THEN
     	PRG_VGP();
     END_IF
 
-    PRG_PressureControl();
-    //PRG_Purge();
-    //call orther PRG
 
     // instaniate the RTD and HV
 
@@ -1448,24 +1514,26 @@ PRG_Gas_Selection
 
     PROGRAM PRG_Gas_Selection
     VAR
+    	
     	CurrentGas: E_GasType;
-    	//pragma
-    	SelectedGas: E_GasType;
+    	
     END_VAR
     (* Gas selection includes a purge and checks interlocks*)
-
+    // Initialize the selected gas
     if ( VVC_83.iq_stValve.q_xOPN_DO) then
-    	CurrentGas := E_GasType.Neon;
+    	SelectedGas := E_GasType.Neon;
     	elsif ( VVC_84.iq_stValve.q_xOPN_DO) then
-    		CurrentGas := E_GasType.Argon;
+    		SelectedGas := E_GasType.Argon;
     		elsif ( VVC_85.iq_stValve.q_xOPN_DO) then
-    		CurrentGas := E_GasType.Krypton;
+    		SelectedGas := E_GasType.Krypton;
     			elsif ( VVC_86.iq_stValve.q_xOPN_DO) then
-    			CurrentGas := E_GasType.Xenon;
+    			SelectedGas := E_GasType.Xenon;
+    			 else 
+    				 SelectedGas := E_GasType.none;
     END_IF
 
-
-    If( CurrentGas <> SelectedGas) then
+    (*
+    If( CurrentGas <> SelectedGas) AND NOT (CurrentGas=E_GasType.none) then
     	bStartPurge_sw := true;
     END_IF
 
@@ -1498,7 +1566,7 @@ PRG_Gas_Selection
     		VVC_86.M_Set_OPN_SW(TRUE);
     	END_CASE
     END_IF
-
+    *)
 
     /// vcn and vgp on manual or auto??
 
@@ -1693,8 +1761,8 @@ PRG_INJ
     // Vent Valves
     // interlock evaluation
 
-    VVC_80.i_xExtILK_OK := (NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO); // Or we need to purge all the way up to the VCN
-    VVC_81.i_xExtILK_OK := (NOT VVC_83.iq_stValve.q_xOPN_DO) AND(NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO);// AND (NOT VVC_80.iq_stValve.q_xOPN_DO);
+    VVC_80.i_xExtILK_OK := (VCN_40.iq_stVCN.eValveControl = E_VCN.CloseValve) OR( (NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO)); // we need to purge all the way up to the VCN
+    VVC_81.i_xExtILK_OK := (VVC_82.iq_stValve.q_xOPN_DO) AND (NOT VVC_83.iq_stValve.q_xOPN_DO) AND(NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO);// AND (NOT VVC_80.iq_stValve.q_xOPN_DO);
     VVC_82.i_xExtILK_OK := (NOT VVC_83.iq_stValve.q_xOPN_DO) AND(NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO);// AND (NOT VVC_80.iq_stValve.q_xOPN_DO);
 
     // instanitation
@@ -1733,9 +1801,7 @@ PRG_PressureControl
     		nDataTable_NumberOfRows : INT:=9;
     END_VAR
     VAR
-
-    	fSetpointValue				: FLOAT;
-    	fActualValue				: FLOAT;
+    	
     	fCtrlOutput						: FLOAT;
     	fBasicCtrlOutput						: FLOAT;
     	f_Rep_POS: Float;
@@ -1754,26 +1820,41 @@ PRG_PressureControl
     	bHold						: BOOL;
 
     	eMode						: E_CTRL_MODE;
-    	stCTRL_PI_PARAMS		: ST_CTRL_PI_PARAMS;
+    	stCTRL_PID_PARAMS		: ST_CTRL_PID_PARAMS;
     	stCTRL_LIN_INTERPOLATION_PARAMS		: ST_CTRL_LIN_INTERPOLATION_PARAMS;
 
     	eErrorId					: E_CTRL_ERRORCODES;
-    	bError						: BOOL;
+
     	bARWactive				: BOOL;
     	
     	arrTable											: ARRAY[1..nDataTable_NumberOfRows,1..2] OF FLOAT;
     	(* controller  *)
-    	fbCTRL_PI				: FB_CTRL_PI;
+    	fbCTRL_PID					: FB_CTRL_PID;
     	fbCTRL_Normalize 	: FB_CTRL_NORMALIZE;
     	fbCTRL_LIN_INTERPOLATION					: FB_CTRL_LIN_INTERPOLATION;
 
     	bInit						: BOOL		:= TRUE;
-    	BasicPID: FB_BasicPID;
+    		FTrig: F_TRIG;
     END_VAR
+    //VCN //bAdditionalVCNIlk
+    IF (bAdditionalVCNIlk) THEN
+    	VCN_40.i_xExtIlkOK := ( fb_EM1K0_GMD_GCC_10.IG.xAT_VAC AND  fb_EM1K0_GMD_GCC_20.IG.xAT_VAC AND fb_EM1K0_GMD_GCC_30.IG.xAT_VAC
+    							AND  fb_EM1K0_GMD_GCC_50.IG.xAT_VAC AND  fb_EM1K0_GMD_GCC_60.IG.xAT_VAC AND fb_EM1K0_GMD_GCC_70.IG.xAT_VAC)
+    								AND  fb_EM1K0_GMD_GPI_40.PG.xAT_VAC AND (NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO);
+    	ELSE
+    		
+    		VCN_40.i_xExtIlkOK := fb_EM1K0_GMD_GPI_40.PG.xAT_VAC AND (NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO);
+    END_IF
+
     //VCN
-    VCN_40(i_xExtIlkOK := true(*GCC_40.IG.xAT_VAC*), i_ReqPos:= );
-    //VGP_40(i_xExtIlkOK := true(*GCC_40.IG.xAT_VAC*), i_ReqPos:= );
-    f_Rep_POS := VCN_40.iq_stVCN.rReqPosition;
+    VCN_40(i_xExtIlkOK :=, i_ReqPos:= );
+
+
+    (* Gauge selection *)
+    (*Assign reading to psuedo gauge*)
+    IF (fb_EM1K0_GMD_GCC_40.IG.rPRESS <=0.0001) AND (fb_EM1K0_GMD_GCC_40.IG.rPRESS >0) THEN GCP := fb_EM1K0_GMD_GCC_40.IG;
+    			ElSE GCP := fb_EM1K0_GMD_GPI_40.PG;
+    END_IF
 
     (*-------------------------------------------------------------------*)
     (*             PI CONTROL          *)
@@ -1783,24 +1864,26 @@ PRG_PressureControl
     IF bInit
     THEN
     	(* init parameter struct *)
-    	stCTRL_PI_PARAMS.tCtrlCycleTime		:= T#10ms;
-    	stCTRL_PI_PARAMS.tTaskCycleTime	:= T#10ms;
-    	stCTRL_PI_PARAMS.tTn					:= T#0S;//T#2s;		(* derivative gain Tv					*)
-    	stCTRL_PI_PARAMS.fKp					:= 2;			(* proportional gain Kp				*)
-    	stCTRL_PI_PARAMS.fOutMaxLimit		:=  100;  			(* maximum output limit				*)
-    	stCTRL_PI_PARAMS.fOutMinLimit		:= 0;			(* minimum output limit				*)
+    	stCTRL_PID_PARAMS.tCtrlCycleTime		:= T#10ms;
+    	stCTRL_PID_PARAMS.tTaskCycleTime		:= T#10ms;
+    	stCTRL_PID_PARAMS.fKp					:= fKp1;			(* proportional gain Kp				*)
+    	stCTRL_PID_PARAMS.tTn					:= T#500ms;		(*  Tn									*)
+    	stCTRL_PID_PARAMS.tTv					:= T#200ms;	(*  Tv									*)
+    	stCTRL_PID_PARAMS.tTd					:= T#100ms;	(*  Td									*)
+    	stCTRL_PID_PARAMS.fOutMaxLimit			:=  20;			(* maximum output limit				*)
+    	stCTRL_PID_PARAMS.fOutMinLimit			:=  -100;			(* minimum output limit				*)
 
     	
     	(* init array with the interpolation points  *)
     	(* 	fIn					 |		fOut		*)
-    	arrTable[1,1] := 0;			arrTable[1,2] := 0;
-    	arrTable[2,1] := 0.001;		arrTable[1,2] := 20;
-    	arrTable[3,1] := 0.005;		arrTable[3,2] := 30;
-    	arrTable[4,1] :=  0.089;	arrTable[4,2] := 40;
-    	arrTable[5,1] :=  0.276;	arrTable[5,2] := 50;
-    	arrTable[6,1] := 2.299;		arrTable[6,2] := 60;
-    	arrTable[7,1] := 9.522;		arrTable[7,2] := 70;
-    	arrTable[8,1] := 13.815;	arrTable[8,2] := 75;
+    	arrTable[1,1] := 0;			arrTable[1,2] := 5;
+    	arrTable[2,1] := 0.000000265;		arrTable[1,2] := 10;
+    	arrTable[3,1] := 0.00000319;		arrTable[3,2] := 15;
+    	arrTable[4,1] :=  0.0000036;	arrTable[4,2] := 17;
+    	arrTable[5,1] :=  0.276;	arrTable[5,2] := 20;
+    	arrTable[6,1] := 2.299;		arrTable[6,2] := 30;
+    	arrTable[7,1] := 9.522;		arrTable[7,2] := 40;
+    	arrTable[8,1] := 13.815;	arrTable[8,2] := 55;
     	arrTable[9,1] := 24.019;	arrTable[8,2] := 80;
     	
     	
@@ -1809,34 +1892,47 @@ PRG_PressureControl
     	stCTRL_LIN_INTERPOLATION_PARAMS.tTaskCycleTime					:= T#10ms;
     	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_NumberOfRows		:= INT_TO_UINT(nDataTable_NumberOfRows);
 
-    	(* set the addresses *)
-    	stCTRL_LIN_INTERPOLATION_PARAMS.pDataTable_ADR			:= ADR(arrTable);
-    	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_SIZEOF		:= SIZEOF(arrTable);
 
-    	
     	(* set the mode to ACTIVE --> normal operation *)
-    	eMode							:= eCTRL_MODE_ACTIVE;
+    	eMode							:= eCTRL_MODE_PASSIVE;
     	
     	(* reset the init flag *)
     	bInit							:= FALSE;
     END_IF
 
+    	(* set the addresses *)
+    	stCTRL_LIN_INTERPOLATION_PARAMS.pDataTable_ADR			:= ADR(arrTable);
+    	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_SIZEOF		:= SIZEOF(arrTable);
+    	 
+    	   fSetpointValue:= LIMIT(0,fSetpointValue,0.001);
 
-    (* call controller *)
-    fbCTRL_PI(		fSetpointValue		:= fSetpointValue,
-    					fActualValue		:= fActualValue,
-    					fManSyncValue	:= fManSyncValue,
-    					bSync				:= bSync,
-    					eMode				:= eMode,
-    					bHold				:= bHold,
-    					stParams			:= stCTRL_PI_PARAMS,
-    					fOut				=> fCtrlOutput,
-    					bARWactive		=> bARWactive,
-    					eErrorId			=> eErrorId,
-    					bError				=> bError
-    				);
+    if (VVC_80.M_IsClosed() ) THEN 
+    		//eMode	:= eCTRL_MODE_PASSIVE;
+    		fSetpointValue :=0; 
+    END_IF 	
+
+    if (bGo) THEN
+    	VCN_40.i_ReqPos:= fbCTRL_PID.fOut + fbCTRL_LIN_INTERPOLATION.fOut;
+    	IF (bReset) THEN
+    	(* set the mode to RESET*)
+    	eMode							:= eCTRL_MODE_RESET   ;
+    	VCN_40.M_ValveControl(CloseValve);
+    	//bReset := False;
+    	ELSE
+    		(* set the mode to ACTIVE --> normal operation *)
+    	eMode							:= eCTRL_MODE_ACTIVE   ;
+     	VCN_40.M_ValveControl(PressureControl);
+    	END_IF
+    END_IF
+    FTRIG(CLK := bGo);
+    IF(FTrig.Q)THEN
+    		eMode							:= eCTRL_MODE_PASSIVE;
+    		VCN_40.M_ValveControl(CloseValve);
+    		fSetpointValue :=0;
+    END_IF
+
+
     (* call interpolation fb *)
-    (*
     fbCTRL_LIN_INTERPOLATION		(	fIn						:= fSetpointValue,
     									fManValue				:= fManValue,
     									bExtrapolate				:= bExtrapolate,
@@ -1848,18 +1944,22 @@ PRG_PressureControl
     									bError					=> bError
     								);
 
-    fCtrlOutput := fbCTRL_PI.fOut + fbCTRL_LIN_INTERPOLATION.fOut;
-    *)BasicPID(
-    	fSetpointValue:= fSetpointValue,
-    	fActualValue:= fActualValue , 
-    	bReset:= FALSE , 
-    	fCtrlCycleTime:= 10, 
-    	fKp:= stCTRL_PI_PARAMS.fKp, 
-    	fTn:= 0, 
-    	fTv:= 0, 
-    	fTd:= 0, 
-    	fCtrlOutput=> fBasicCtrlOutput, 
-    	nErrorStatus=> );
+    (* call controller *)
+    fbCTRL_PID(		fSetpointValue		:= fSetpointValue,
+    					fActualValue		:= GCP.rPRESS ,
+    					fManSyncValue	:= ,
+    					bSync				:= bSync,
+    					eMode				:= eMode,
+    					bHold				:= bHold,
+    					stParams			:= stCTRL_PID_PARAMS,
+    					fOut				=> ,
+    					bARWactive		=> bARWactive,
+    					eErrorId			=> eErrorId,
+    					bError				=> 
+    				);
+    				
+    				
+    bError := fbCTRL_PID.bError OR fbCTRL_LIN_INTERPOLATION.bError;
 
     END_PROGRAM
 
@@ -1872,76 +1972,106 @@ PRG_Purge
     PROGRAM PRG_Purge
     VAR
     	step: INT:=0;
+    	{attribute 'pytmc' := '
+        pv: EM1K0:GMD:sPURGE
+    	'}
+    	sMessage : STRING;
+    	
+    	{attribute 'pytmc' := '
+        pv: EM1K0:GMD:RESET
+    	'}
+    	bReset:BOOL := False;
+    	{attribute 'pytmc' := '
+        pv: EM2K0:XGMD:PurgeError
+    	'}
+    	bError:BOOL := False;
+    	
+    	{attribute 'pytmc' :=' pv: EM1K0:GMD:PURGE:SP1;
+    	field: HOPR 1000;
+    	field: LOPR 0;
+    	field: PREC 2;
+    	field: EGU "TORR";
+    	'}
+    	rPurge_SP1 :REAL :=0.01; 
+    	
+    	{attribute 'pytmc' :=' pv: EM1K0:GMD:PURGE:SP2;
+    	field: HOPR 1000;
+    	field: LOPR 0;
+    	field: PREC 2;
+    	field: EGU "TORR";
+    	'}
+    	rPurge_SP2 :REAL :=0.1; 
 
-    //ADD PRAGMAS
-
-    	AllGasVlvCls 		: BOOL; (* All Gas Manifold Valves are closed when True, not including VIC80, 81 or VGP40 *)
-    	WatchdogTmr			: TON;  (* Purge Watchdog Timer*)
-
-    	StartWatchdogTmr 	: BOOL;
-    	WatchdogPeriod 		: TIME;
-
+    	
+    	{attribute 'pytmc' :=' pv: EM1K0:GMD:PURGE:REPEAT;
+    	'}
+    	NeedlePurgeRepeat	: INT:= 1;
     	NeedleVlvPurgeTmr	: TON;	(* Declaration for the needle valve Purge timer *)
-    	NeedlePurgeTime		: TIME:=T#30S;
+    	tNeedlePurgeTime		: TIME:=T#5S;
+    	NeedlePurgeTime		: TIME:=T#5S;
     	BurpET				: TIME;
     	NeedlePurgeRun		: BOOL;
     	NeedlePurgeDone		: BOOL;
-    	NeedlePurgeRepeat	: INT:= 2;
+    	
     	VCN_Timer	:TON;
-    	//PRAGMA
-    	NeedleBurpTime		: TIME;
+    	
 
-
-    	//PRAGMA
-    	GBA80Tmr			: TON;
-    	GBA80Time			: TIME:=T#20S;
-    	GBATimeDone			: BOOL;
-
-    	CATCH : INT;
-    	CATCH1 : INT;
+    	rt_reset: R_TRIG;
     	
     	// Timers
     	VVC_81_Timer : TON;
     	VVC_82_Timer : TON;
+    	VVC_81_Time			: TIME:=T#5S;
+    	VVC_82_Time			: TIME:=T#5S;
+    	VCN_Time : TIME := T#5S;
     	
-    	
-    	
+    	iVGP_POS: REAL:=0;
     	
 
-    	VGP_50: INT;
     END_VAR
-    (* 		PURGE CYCLE
-    	The purge cycle cosists of the following steps;	
-    	1. Close all gas valves 83-86
-    	2. Close Needle valve 
-    	3. Fully open VGP:40
-    	4. PUMP DOWN MANIFOLD: Open VIC82 for a certain peroid of time or till cetrain pressure
-    	5. Open VIC:81 and keep it open while the manifold pumps down to pressure set point
-    	6. BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
-    	7. Close needle valve
-    	8. Close VIC:81 and VIC:82
-    	9. Release VGP:40
+    (* 
+    PURGE CYCLE
+    The purge cycle consists of the following steps;
+    1. Close all gas valves 83-86 and Close Needle valve and switch off PID control
+    2. Wait till needle valve closes
+    3. Close VGP, to protect the Detector chamber in case a pressure spike on the roughing line stops the turbo.
+    4. PUMP DOWN MANIFOLD: Open VVC-80  then Open VVC82 for certain pressure on the baratron
+    5. Open VIC:81 and keep it open while the manifold pumps down to pressure set point for a certain time to avoid flukes then close VVC-80
+     - THEN Fully open VGP:40
+    6. BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
+    - this step is done gradually to avoid sending pressure spike into the detector
+    7. Close needle valve
+    8. Release VGP:40
 
     *)
 
 
     CASE step OF
     		0: // READY STATE
+    		sMessage:= 'Purge Ready';
+    		bError:=FALSE;
     		IF (bStartPurge_sw) Then
     			step:=10;
+    			bGo :=FALSE;
     			bPurgeActive := true;
     			bPurgeDone := false;
+    			iVGP_POS := VGP_40.q_stVGP.rReqPosition;
+    			sMessage:= 'Purge Start';		
     		END_IF
 
-    10: // start purge sequence by closing all gas valves
+    10: // start purge sequence by closing all gas valves and needle valve
     	VVC_80.M_Set_OPN_SW(FALSE);
+    	VVC_81.M_Set_OPN_SW(FALSE);
+    	VVC_82.M_Set_OPN_SW(FALSE);
     	VVC_83.M_Set_OPN_SW(FALSE);
     	VVC_84.M_Set_OPN_SW(FALSE);
     	VVC_85.M_Set_OPN_SW(FALSE);
     	VVC_86.M_Set_OPN_SW(FALSE);
-    	
-    	if  (NOT VVC_83.iq_stValve.q_xOPN_DO) AND(NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO) then
+    	VCN_40.M_ValveControl(E_VCN.CloseValve);
+    	IF   (NOT VVC_80.iq_stValve.q_xOPN_DO) AND (NOT VVC_81.iq_stValve.q_xOPN_DO)  AND (NOT VVC_82.iq_stValve.q_xOPN_DO)
+    			AND (NOT VVC_83.iq_stValve.q_xOPN_DO) AND (NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO) THEN
     		step:= 20;
+    		sMessage:= 'Prep: All valves are closed';
     	END_IF
     	
     20: //Close Needle valve 
@@ -1949,20 +2079,24 @@ PRG_Purge
     	// wait for a period of time to ensure that the Valve is fully closed
     	IF (VCN_Timer.Q) THEN
     		step:=30;
+    		sMessage:= 'Prep: Needle Valve is closed';
     	END_IF
     	
     	
-    30: //Fully open VGP:40
-    	VGP_40.M_ValveControl(E_VCN.OpenValve);
-    	IF NOT(VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP encoder reads Open
+    30: //Fully close VGP:40
+    	VGP_40.M_ValveControl(E_VCN.CloseValve);
+    	VGP_40.M_SetGoSw(TRUE);
+    	IF NOT(VGP_40.q_stVGP.eState = E_MoveState.READY)THEN // wait until the VGP Starts moving
     		step:=31;
+    		sMessage:= 'Prep: VGP to fully closed';
     	END_IF
-    	if (VGP_40.q_stVGP.pv_xError )then
+    	if (VGP_40.q_stVGP.pv_xError ) OR NOT (VGP_40.i_xExtIlkOK) OR NOT (VGP_40.q_stVGP.pv_xHomed) THEN
     		step:=900+step;
     	END_IF
     31: 
-    	IF (VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP encoder reads Open //use motion ready
+    	IF (VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP motion is done
     		step:=40;
+    		sMessage:= 'Prep: VGP is closed';
     	END_IF
     	if (VGP_40.q_stVGP.pv_xError )then
     		step:=900+step;
@@ -1974,15 +2108,17 @@ PRG_Purge
     		step:=41;
     	END_IF
     	
-    41: //PUMP DOWN MANIFOLD: Open VIC82 for a certain peroid of time or till cetrain pressure
+    41: //PUMP DOWN MANIFOLD: Open VIC82 for a certain peroid of time or till certain pressure
     	VVC_82.M_Set_OPN_SW(TRUE);
-    	if (VVC_82.iq_stValve.q_xOPN_DO ) AND (VVC_82_Timer.Q) THEN
+    	sMessage:= 'Pumping down: VVC80 and VVC82 are open';
+    	if (VVC_82.iq_stValve.q_xOPN_DO) AND (VVC_82_Timer.Q) AND (GCM_80.PG.rPRESS <= rPurge_SP1) THEN
     		step:=50;
     	END_IF
 
     50:// Open VIC:81 and keep it open while the manifold pumps down to pressure set point
     	VVC_81.M_Set_OPN_SW(TRUE);
-    	IF (VVC_81.iq_stValve.q_xOPN_DO ) AND (VVC_81_Timer.Q) THEN // or a certain pressure reading and check timeouts
+    	sMessage:= 'Pumping down: VVC80, VVC81 and VVC82 are open';
+    	IF (VVC_81.iq_stValve.q_xOPN_DO ) AND (VVC_81_Timer.Q) AND (GCM_80.PG.rPRESS <= rPurge_SP2) THEN // or a certain pressure reading and check timeouts
     		step:=51;
     	END_IF
     	
@@ -1990,40 +2126,118 @@ PRG_Purge
     	VVC_80.M_Set_OPN_SW(false);
     	VVC_81.M_Set_OPN_SW(false);
     	VVC_82.M_Set_OPN_SW(false);
+    	sMessage:= 'Pumping down complete: valves are closed';
     	IF (NOT VVC_80.iq_stValve.q_xOPN_DO) AND(NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO) THEN
+    		step:=55;
+    	END_IF
+
+    55: //Fully close VGP
+    	VGP_40.M_ValveControl(E_VCN.OpenValve);
+    	IF NOT(VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP Starts moving
+    		step:=56;
+    		sMessage:= 'Prep: VGP to fully open';
+    	END_IF
+    	if (VGP_40.q_stVGP.pv_xError ) OR NOT (VGP_40.i_xExtIlkOK) OR NOT (VGP_40.q_stVGP.pv_xHomed) THEN
+    		step:=900+step;
+    	END_IF
+    56: 
+    	IF (VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP motion is done
     		step:=60;
+    		sMessage:= 'Prep: VGP is Open';
+    	END_IF
+    	if (VGP_40.q_stVGP.pv_xError )then
+    		step:=900+step;
     	END_IF
 
     60: //BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
-    	VCN_40.M_ValveControl(E_VCN.OpenValve);
+    	VCN_40.M_ValveControl(E_VCN.PressureControl);
+    	VCN_40.i_ReqPos := 15;
+    	sMessage:= 'VCN Burp: VCN to 15%';
     	// wait for a period of time to ensure that the Valve is fully closed
+    	IF (NeedleVlvPurgeTmr.Q) THEN
+    		step:=61;
+    	END_IF
+    	
+    61:
+    	VCN_40.i_ReqPos := 19; 
+    	sMessage:= 'VCN Burp: VCN to 19%';
     	IF (VCN_Timer.Q) THEN
+    		step:=62;
+    	END_IF
+    	
+    62:	//BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
+    	VCN_40.i_ReqPos := 25;
+    	sMessage:= 'VCN Burp: VCN to 25%';
+    	// wait for a period of time to ensure that the Valve is fully closed
+    	IF (NeedleVlvPurgeTmr.Q) THEN
+    		step:=63;
+    	END_IF
+    	
+    63:
+    	VCN_40.i_ReqPos := 31; 
+    	sMessage:= 'VCN Burp: VCN to 31%';
+    	IF (VCN_Timer.Q) THEN
+    		step:=64;
+    	END_IF	
+    	
+    64: 
+    	VCN_40.i_ReqPos := 39; 
+    	sMessage:= 'VCN Burp: VCN to 39%';
+    	IF (NeedleVlvPurgeTmr.Q) THEN
+    		step:=65;
+    	END_IF
+    	
+    65: 
+    	VCN_40.i_ReqPos := 49; 
+    	sMessage:= 'VCN Burp: VCN to 49%';
+    	IF (VCN_Timer.Q) THEN
+    		step:=66;
+    	END_IF
+    	
+    66: 
+    	VCN_40.i_ReqPos := 62; 
+    	sMessage:= 'VCN Burp: VCN to 62%';
+    	IF (NeedleVlvPurgeTmr.Q) THEN
+    		step:=67;
+    	END_IF
+    	
+    67: 
+    	VCN_40.i_ReqPos := 78; 
+    	sMessage:= 'VCN Burp: VCN to 78%';
+    	IF (VCN_Timer.Q) THEN
+    		step:=68;
+    	END_IF
+
+    68: 
+    	VCN_40.i_ReqPos := 100; 
+    	sMessage:= 'VCN Burp: VCN to 100%';
+    	IF (NeedleVlvPurgeTmr.Q) THEN
     		step:=70;
     	END_IF
     	
     70: //Close Needle valve 
     	VCN_40.M_ValveControl(E_VCN.CloseValve);
+    	sMessage:= 'VCN Burp Complete: VCN to 0%';
     	// wait for a period of time to ensure that the Valve is fully closed
     	IF (VCN_Timer.Q) THEN
     		step:=80;
     	END_IF
 
-    80: // Repeat
+    80: // Repeat 
     	IF (NeedlePurgeRepeat > 0) THEN
     		NeedlePurgeRepeat := NeedlePurgeRepeat-1;
     		step:= 60;
     	ELSE
-    		NeedlePurgeRepeat := 2;
+    		NeedlePurgeRepeat := 1;
     		step:=90;				
     	END_IF
     	
-    	
-
-
 
     90: //Release VGP:40
-    	VGP_40.M_ValveControl(E_VCN.PressureControl);
-    	VGP_40.i_ReqPos:= 50; //50% open
+    	VGP_40.M_ValveControl(E_VCN.ManualControl);
+    	VGP_40.i_ReqPos:= iVGP_POS; //50% open
+    	VGP_40.M_SetGoSw(TRUE);
+    	sMessage:= 'Post: VGP to previous position';
     	IF NOT(VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP encoder reads Open //use motion ready
     		step:=91;
     	END_IF
@@ -2033,7 +2247,11 @@ PRG_Purge
     	
     91: 
     	IF (VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP encoder reads Open //use motion ready
+    		VGP_40.M_ValveControl(E_VCN.ManualControl);
+    		VGP_40.i_ReqPos:= 0;
+    		VGP_40.M_SetGoSw(FALSE);
     		step:=100;
+    		sMessage:= 'Purge Complete';
     	END_IF
     	if (VGP_40.q_stVGP.pv_xError )then
     		step:=900+step;
@@ -2043,8 +2261,24 @@ PRG_Purge
     	bStartPurge_sw := false;
     	bPurgeActive := false;
     	bPurgeDone := TRUE;
+    	VVC_80.M_Set_OPN_SW(false);
+    	VVC_81.M_Set_OPN_SW(false);
+    	VVC_82.M_Set_OPN_SW(false);
+    	VVC_83.M_Set_OPN_SW(false);
+    	VVC_84.M_Set_OPN_SW(false);
+    	VVC_85.M_Set_OPN_SW(false);
+    	VVC_86.M_Set_OPN_SW(false);
+    	VCN_40.M_ValveControl(E_VCN.CloseValve);
+    	VGP_40.M_ValveControl(E_VCN.ManualControl); 
+    	// reset selected gas to none
+    	SelectedGas := E_GasType.none;
+    	step :=0;
     	
     900: //Error
+        bStartPurge_sw := false;
+    	bPurgeActive := false;
+    	bPurgeDone := FALSE;
+    	bError:=TRUE;
     	VVC_80.M_Set_OPN_SW(false);
     	VVC_81.M_Set_OPN_SW(false);
     	VVC_82.M_Set_OPN_SW(false);
@@ -2054,8 +2288,7 @@ PRG_Purge
     	VVC_86.M_Set_OPN_SW(false);
     	VCN_40.M_ValveControl(E_VCN.CloseValve);
     	VGP_40.M_ValveControl(E_VCN.ManualControl); // CLOSE or OPEN to pump down
-
-
+    	sMessage:= 'Purge Error: Interlock';
     END_CASE
 
 
@@ -2068,17 +2301,42 @@ PRG_Purge
 
     //Errors
     if (step >900 ) Then
-    	// show error and step
+    	//Error
+        bStartPurge_sw := false;
+    	bPurgeActive := false;
+    	bPurgeDone := false;
+    	bError:=TRUE;
+    	VVC_80.M_Set_OPN_SW(false);
+    	VVC_81.M_Set_OPN_SW(false);
+    	VVC_82.M_Set_OPN_SW(false);
+    	VVC_83.M_Set_OPN_SW(false);
+    	VVC_84.M_Set_OPN_SW(false);
+    	VVC_85.M_Set_OPN_SW(false);
+    	VVC_86.M_Set_OPN_SW(false);
+    	VCN_40.M_ValveControl(E_VCN.CloseValve);
+    	VGP_40.M_ValveControl(E_VCN.ManualControl);
+    	sMessage:= CONCAT('Purge Error: ',TO_STRING(step));
     END_IF
 
+    rt_reset(CLK:= bReset);
+    IF rt_reset.Q THEN Step:=100; bReset:=False; bPurgeDone:=False; END_IF
 
     //Timers
-    VVC_81_Timer(IN:= (step = 50), PT:=t#60s);
-    VVC_82_Timer(IN:= (step = 40), PT:=T#360S);
-    VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
+    VVC_81_Timer(IN:= (step = 50), PT:=VVC_81_Time);
+    VVC_82_Timer(IN:= (step = 41), PT:=VVC_82_Time);
+    VCN_Timer(IN:= (step = 20) OR (step = 61)  OR (step = 63)  OR (step = 65)  OR (step = 67) OR (step = 70), PT:=VCN_Time);
+    NeedleVlvPurgeTmr(IN:= (step = 60) OR (step = 62)  OR (step = 64)  OR (step = 66)  OR (step = 68), PT:=NeedlePurgeTime );
 
+    //
+    IF (bStartPurge_sw) THEN bGo :=FALSE; END_IF
+    /// If at any point the VGP interlocked or in an error state, we stop purge.
 
-    /// vcn and vgp on manual or auto?? manual, until the Go or auto button is pressed??
+    IF (VGP_40.q_stVGP.pv_xError ) OR NOT (VGP_40.i_xExtIlkOK) AND (bPurgeActive)  AND (step >=55) AND (step <=70) THEN
+    		step:=900;
+    END_IF
+    IF NOT (VCN_40.i_xExtIlkOK) AND (bPurgeActive) AND (step >=60) AND (step <=70) THEN
+    		step:=900;
+    END_IF
 
     END_PROGRAM
 
@@ -2143,7 +2401,7 @@ PRG_VGP
 
     VGP_40.i_xOpenIlkOK := (fb_EM1K0_GMD_PTM_40.iq_stPtm.eState = pumpRUNNING) ;
     VGP_40(
-    	i_xExtIlkOK:= (fb_EM1K0_GMD_PTM_40.iq_stPtm.eState = pumpRUNNING), 
+    	i_xExtIlkOK:= TRUE,//(fb_EM1K0_GMD_PTM_40.iq_stPtm.eState = pumpRUNNING), 
     	i_ReqPos:= , 
     	arrTable:= arrTable , 
     	q_stVGP=> );

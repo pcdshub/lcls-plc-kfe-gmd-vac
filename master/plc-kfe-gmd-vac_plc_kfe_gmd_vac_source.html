@@ -604,8 +604,15 @@
     <span class="n">GCM_80</span><span class="p">:</span> <span class="n">FB_GCM</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:INJ_Override &#39;</span><span class="p">}</span>
-
     <span class="n">xOverrideMode</span> <span class="p">:</span> <span class="n">BOOL</span><span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+
+    <span class="p">(</span><span class="o">*</span><span class="n">Additional</span> <span class="n">VCN</span> <span class="n">Interlock</span><span class="o">*</span><span class="p">)</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv:  EM1K0:GMD:VCN_ILK;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">FALSE</span><span class="p">;</span>
+     <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">TRUE</span><span class="p">;</span>
+     <span class="n">io</span><span class="p">:</span> <span class="n">io</span><span class="p">;</span>
+     <span class="s1">&#39;}</span>
+    <span class="n">bAdditionalVCNIlk</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
 <span class="o">//</span><span class="n">GVL_Sensors</span>
 
@@ -627,6 +634,45 @@
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:RTD:1 &#39;</span><span class="p">}</span>
     <span class="n">RTD</span> <span class="p">:</span> <span class="n">FB_RTD</span><span class="p">;</span>
 
+
+<span class="p">(</span><span class="o">*</span> <span class="n">Pressure</span> <span class="n">Control</span><span class="o">*</span><span class="p">)</span>
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: EM1K0:GMD:GCP:40 &#39;</span><span class="p">}</span>
+    <span class="n">GCP</span><span class="p">:</span> <span class="n">ST_VG</span><span class="p">;</span>
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:CNTRL:SP;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">HOPR</span> <span class="mi">1000</span><span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">LOPR</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">PREC</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="s2">&quot;TORR&quot;</span><span class="p">;</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fSetpointValue</span> <span class="p">:</span><span class="n">REAL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:CNTRL:GO;</span>
+     <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">STOP</span><span class="p">;</span>
+     <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">START</span><span class="p">;</span>
+     <span class="n">io</span><span class="p">:</span> <span class="n">io</span><span class="p">;</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">bGo</span><span class="p">:</span> <span class="n">BOOL</span><span class="o">:=</span><span class="n">FALSE</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:CNTRL:RESET;</span>
+     <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">FALSE</span><span class="p">;</span>
+     <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">TRUE</span><span class="p">;</span>
+     <span class="n">io</span><span class="p">:</span> <span class="n">io</span><span class="p">;</span>
+     <span class="s1">&#39;}</span>
+    <span class="n">bReset</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:CNTRL:ERROR;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">FALSE</span><span class="p">;</span>
+     <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">TRUE</span><span class="p">;</span>
+     <span class="n">io</span><span class="p">:</span> <span class="n">io</span><span class="p">;</span>
+     <span class="s1">&#39;}</span>
+    <span class="n">bError</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:CNTRL:Kp1 &#39;</span><span class="p">}</span>
+    <span class="n">fKp1</span> <span class="p">:</span> <span class="n">REAL</span><span class="o">:=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:CNTRL:Tn1 &#39;</span><span class="p">}</span>
+    <span class="n">fTn1</span> <span class="p">:</span> <span class="n">REAL</span><span class="o">:=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:CNTRL:Kp2 &#39;</span><span class="p">}</span>
+    <span class="n">fKp2</span> <span class="p">:</span> <span class="n">REAL</span><span class="o">:=</span> <span class="mf">0.01</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:CNTRL:Tn2 &#39;</span><span class="p">}</span>
+    <span class="n">fTn2</span> <span class="p">:</span> <span class="n">REAL</span><span class="o">:=</span> <span class="mf">0.5</span><span class="p">;</span>
+
+
 <span class="n">END_VAR</span>
 </pre></div>
 </div>
@@ -647,6 +693,18 @@
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:AUTO_VVC_40 &#39;</span><span class="p">}</span>
     <span class="n">bAutoVVC40</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+    <span class="n">pv</span><span class="p">:</span> <span class="n">EM1K0</span><span class="p">:</span><span class="n">GMD</span><span class="p">:</span><span class="n">GAS_TYPE</span> <span class="p">;</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">mbbi</span> <span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">ZRST</span> <span class="n">none</span> <span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">ONST</span> <span class="n">Neon</span><span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">TWST</span> <span class="n">Argon</span> <span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">THST</span> <span class="n">Krypton</span> <span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">FRST</span> <span class="n">Xenon</span> <span class="p">;</span>
+    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">SelectedGas</span><span class="p">:</span> <span class="n">E_GasType</span><span class="p">;</span>
 
             <span class="o">//</span> <span class="n">Purge</span> <span class="n">COMMANDS</span> <span class="n">FROM</span> <span class="n">epics</span>
     <span class="o">//</span><span class="n">pragma</span>
@@ -884,7 +942,7 @@ VAR CONSTANT
 END_VAR
 
 VAR
-    rOpenPosition: REAL:=1645; // Encoder MAX. Fully Open
+    rOpenPosition: REAL:=1660; // Encoder MAX. Fully Open
     rTargetPosition : REAL;
     rTargetVelocity: REAL:=30;
     rHomingVelocity: REAL:=10;
@@ -951,6 +1009,8 @@ VAR
     tErrorPresent : R_TRIG;
     tAction : R_TRIG; // Primary action of this device (OPN_DO, PUMP_RUN, etc.)
 
+    rt_close :R_TRIG;
+    rt_Open :R_TRIG;
 END_VAR
 /// Interpolation  function initialization
 ACT_INIT();
@@ -958,7 +1018,7 @@ ACT_INIT();
 // Interlocking
 q_stVGP.xIlkOK := i_xExtIlkOK;
 (*Checking which Control mode is selected*)
-IF q_stVGP.xIlkOK AND NOT (q_stVGP.pv_xError) THEN
+IF i_xExtIlkOK AND NOT (q_stVGP.pv_xError) THEN
     IF q_stVGP.eValveControl = OpenValve THEN
             q_stVGP.rReqPosition := rUpperLimit;
     ELSIF q_stVGP.eValveControl = CloseValve THEN
@@ -968,13 +1028,17 @@ IF q_stVGP.xIlkOK AND NOT (q_stVGP.pv_xError) THEN
     ELSIF q_stVGP.eValveControl = PressureControl THEN
              q_stVGP.rReqPosition := LIMIT(0, i_ReqPos, rUpperLimit);
     END_IF
-ELSE
+ELSIF NOT i_xExtIlkOK THEN
     q_stVGP.rReqPosition := 0;
     q_stVGP.eValveControl := CloseValve;//CloseValve;
-    bGo:=FALSE;
 END_IF
 
+rt_close (CLK:= q_stVGP.eValveControl = CloseValve);
+rt_Open (CLK:= q_stVGP.eValveControl = OpenValve);
 
+IF (rt_close.Q) OR (rt_Open.Q) THEN
+    q_stVGP.pv_xGo_SW:=TRUE;
+END_IF
 //Check the Drive State
 
 IF (*(InfoData_State&lt;&gt;16#8) OR*) (q_stVGP.eState = ERROR) THEN
@@ -1004,10 +1068,10 @@ ACTION ACT_AXIS:
 AXIS();
 q_stVGP.rEnoder_Position := LREAL_TO_REAL(Axis.NcToPlc.ActPos); // encoder position
 
-
+(*
 IF NOT (i_xExtIlkOK) THEN
     q_stVGP.eState := NEWTARGETPOSITION;
-END_IF
+END_IF*)
 //Homing STATE is missing
 
 // state machine for axis motion
@@ -1046,9 +1110,10 @@ END_IF
                                     ELSE
                                     q_stVGP.eState := READY;
                             END_IF
-                    IF (q_stVGP.pv_xGo_SW) AND i_xExtIlkOK(* AND( rOldTargetPosition &lt;&gt; rTargetPosition) *) THEN
+                    IF (q_stVGP.pv_xGo_SW) AND q_stVGP.pv_xHomed(* AND( rOldTargetPosition &lt;&gt; rTargetPosition) *) THEN
                             q_stVGP.pv_xGo_SW := false;
                             q_stVGP.eState := NEWTARGETPOSITION;
+                            rOldTargetPosition := rTargetPosition;
                     END_IF
 
 
@@ -1543,6 +1608,8 @@ END_ACTION
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">MAIN</span>
 <span class="n">VAR</span>
     <span class="n">vgp_debug_mode</span>  <span class="p">:</span><span class="n">BOOL</span>   <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+    <span class="n">gas_selection_debug_mode</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="n">press_cntrl</span> <span class="p">:</span><span class="n">BOOL</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">PRG_DIAGNOSTIC</span><span class="p">();</span>
 <span class="n">PRG_GMD</span><span class="p">();</span>
@@ -1551,14 +1618,13 @@ END_ACTION
 
 <span class="p">(</span><span class="o">*</span><span class="n">INJ</span><span class="o">*</span><span class="p">)</span>
 <span class="n">PRG_INJ</span><span class="p">();</span>
-
+<span class="n">PRG_PressureControl</span><span class="p">();</span>
+<span class="n">PRG_Gas_Selection</span><span class="p">();</span>
+<span class="n">PRG_Purge</span><span class="p">();</span>
 <span class="n">IF</span> <span class="n">NOT</span> <span class="n">vgp_debug_mode</span> <span class="n">THEN</span>
     <span class="n">PRG_VGP</span><span class="p">();</span>
 <span class="n">END_IF</span>
 
-<span class="n">PRG_PressureControl</span><span class="p">();</span>
-<span class="o">//</span><span class="n">PRG_Purge</span><span class="p">();</span>
-<span class="o">//</span><span class="n">call</span> <span class="n">orther</span> <span class="n">PRG</span>
 
 <span class="o">//</span> <span class="n">instaniate</span> <span class="n">the</span> <span class="n">RTD</span> <span class="ow">and</span> <span class="n">HV</span>
 
@@ -1614,24 +1680,26 @@ END_ACTION
 <h2>PRG_Gas_Selection<a class="headerlink" href="#prg-gas-selection" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROGRAM PRG_Gas_Selection
 VAR
+
     CurrentGas: E_GasType;
-    //pragma
-    SelectedGas: E_GasType;
+
 END_VAR
 (* Gas selection includes a purge and checks interlocks*)
-
+// Initialize the selected gas
 if ( VVC_83.iq_stValve.q_xOPN_DO) then
-    CurrentGas := E_GasType.Neon;
+    SelectedGas := E_GasType.Neon;
     elsif ( VVC_84.iq_stValve.q_xOPN_DO) then
-            CurrentGas := E_GasType.Argon;
+            SelectedGas := E_GasType.Argon;
             elsif ( VVC_85.iq_stValve.q_xOPN_DO) then
-            CurrentGas := E_GasType.Krypton;
+            SelectedGas := E_GasType.Krypton;
                     elsif ( VVC_86.iq_stValve.q_xOPN_DO) then
-                    CurrentGas := E_GasType.Xenon;
+                    SelectedGas := E_GasType.Xenon;
+                     else
+                             SelectedGas := E_GasType.none;
 END_IF
 
-
-If( CurrentGas &lt;&gt; SelectedGas) then
+(*
+If( CurrentGas &lt;&gt; SelectedGas) AND NOT (CurrentGas=E_GasType.none) then
     bStartPurge_sw := true;
 END_IF
 
@@ -1664,7 +1732,7 @@ if NOT(bStartPurge_sw) AND(bPurgeDone) then
             VVC_86.M_Set_OPN_SW(TRUE);
     END_CASE
 END_IF
-
+*)
 
 /// vcn and vgp on manual or auto??
 
@@ -1853,8 +1921,8 @@ END_PROGRAM
 <span class="o">//</span> <span class="n">Vent</span> <span class="n">Valves</span>
 <span class="o">//</span> <span class="n">interlock</span> <span class="n">evaluation</span>
 
-<span class="n">VVC_80</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_81</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span><span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_82</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">);</span> <span class="o">//</span> <span class="n">Or</span> <span class="n">we</span> <span class="n">need</span> <span class="n">to</span> <span class="n">purge</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">way</span> <span class="n">up</span> <span class="n">to</span> <span class="n">the</span> <span class="n">VCN</span>
-<span class="n">VVC_81</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_83</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span><span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_84</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_85</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_86</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">);</span><span class="o">//</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_80</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">);</span>
+<span class="n">VVC_80</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="p">(</span><span class="n">VCN_40</span><span class="o">.</span><span class="n">iq_stVCN</span><span class="o">.</span><span class="n">eValveControl</span> <span class="o">=</span> <span class="n">E_VCN</span><span class="o">.</span><span class="n">CloseValve</span><span class="p">)</span> <span class="n">OR</span><span class="p">(</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_81</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span><span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_82</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">));</span> <span class="o">//</span> <span class="n">we</span> <span class="n">need</span> <span class="n">to</span> <span class="n">purge</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">way</span> <span class="n">up</span> <span class="n">to</span> <span class="n">the</span> <span class="n">VCN</span>
+<span class="n">VVC_81</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="p">(</span><span class="n">VVC_82</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_83</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span><span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_84</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_85</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_86</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">);</span><span class="o">//</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_80</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">);</span>
 <span class="n">VVC_82</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_83</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span><span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_84</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_85</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_86</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">);</span><span class="o">//</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_80</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">);</span>
 
 <span class="o">//</span> <span class="n">instanitation</span>
@@ -1892,8 +1960,6 @@ END_PROGRAM
 <span class="n">END_VAR</span>
 <span class="n">VAR</span>
 
-    <span class="n">fSetpointValue</span>                          <span class="p">:</span> <span class="n">FLOAT</span><span class="p">;</span>
-    <span class="n">fActualValue</span>                            <span class="p">:</span> <span class="n">FLOAT</span><span class="p">;</span>
     <span class="n">fCtrlOutput</span>                                             <span class="p">:</span> <span class="n">FLOAT</span><span class="p">;</span>
     <span class="n">fBasicCtrlOutput</span>                                                <span class="p">:</span> <span class="n">FLOAT</span><span class="p">;</span>
     <span class="n">f_Rep_POS</span><span class="p">:</span> <span class="n">Float</span><span class="p">;</span>
@@ -1912,26 +1978,41 @@ END_PROGRAM
     <span class="n">bHold</span>                                           <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
     <span class="n">eMode</span>                                           <span class="p">:</span> <span class="n">E_CTRL_MODE</span><span class="p">;</span>
-    <span class="n">stCTRL_PI_PARAMS</span>                <span class="p">:</span> <span class="n">ST_CTRL_PI_PARAMS</span><span class="p">;</span>
+    <span class="n">stCTRL_PID_PARAMS</span>               <span class="p">:</span> <span class="n">ST_CTRL_PID_PARAMS</span><span class="p">;</span>
     <span class="n">stCTRL_LIN_INTERPOLATION_PARAMS</span>         <span class="p">:</span> <span class="n">ST_CTRL_LIN_INTERPOLATION_PARAMS</span><span class="p">;</span>
 
     <span class="n">eErrorId</span>                                        <span class="p">:</span> <span class="n">E_CTRL_ERRORCODES</span><span class="p">;</span>
-    <span class="n">bError</span>                                          <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
     <span class="n">bARWactive</span>                              <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
     <span class="n">arrTable</span>                                                                                        <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="n">nDataTable_NumberOfRows</span><span class="p">,</span><span class="mf">1.</span><span class="o">.</span><span class="mi">2</span><span class="p">]</span> <span class="n">OF</span> <span class="n">FLOAT</span><span class="p">;</span>
     <span class="p">(</span><span class="o">*</span> <span class="n">controller</span>  <span class="o">*</span><span class="p">)</span>
-    <span class="n">fbCTRL_PI</span>                               <span class="p">:</span> <span class="n">FB_CTRL_PI</span><span class="p">;</span>
+    <span class="n">fbCTRL_PID</span>                                      <span class="p">:</span> <span class="n">FB_CTRL_PID</span><span class="p">;</span>
     <span class="n">fbCTRL_Normalize</span>        <span class="p">:</span> <span class="n">FB_CTRL_NORMALIZE</span><span class="p">;</span>
     <span class="n">fbCTRL_LIN_INTERPOLATION</span>                                        <span class="p">:</span> <span class="n">FB_CTRL_LIN_INTERPOLATION</span><span class="p">;</span>
 
     <span class="n">bInit</span>                                           <span class="p">:</span> <span class="n">BOOL</span>          <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-    <span class="n">BasicPID</span><span class="p">:</span> <span class="n">FB_BasicPID</span><span class="p">;</span>
+            <span class="n">FTrig</span><span class="p">:</span> <span class="n">F_TRIG</span><span class="p">;</span>
 <span class="n">END_VAR</span>
+<span class="o">//</span><span class="n">VCN</span> <span class="o">//</span><span class="n">bAdditionalVCNIlk</span>
+<span class="n">IF</span> <span class="p">(</span><span class="n">bAdditionalVCNIlk</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_xExtIlkOK</span> <span class="o">:=</span> <span class="p">(</span> <span class="n">fb_EM1K0_GMD_GCC_10</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">xAT_VAC</span> <span class="n">AND</span>  <span class="n">fb_EM1K0_GMD_GCC_20</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">xAT_VAC</span> <span class="n">AND</span> <span class="n">fb_EM1K0_GMD_GCC_30</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">xAT_VAC</span>
+                                                    <span class="n">AND</span>  <span class="n">fb_EM1K0_GMD_GCC_50</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">xAT_VAC</span> <span class="n">AND</span>  <span class="n">fb_EM1K0_GMD_GCC_60</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">xAT_VAC</span> <span class="n">AND</span> <span class="n">fb_EM1K0_GMD_GCC_70</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">xAT_VAC</span><span class="p">)</span>
+                                                            <span class="n">AND</span>  <span class="n">fb_EM1K0_GMD_GPI_40</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">xAT_VAC</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_81</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span><span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_82</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">);</span>
+    <span class="n">ELSE</span>
+
+            <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_xExtIlkOK</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_40</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">xAT_VAC</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_81</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span><span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_82</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">);</span>
+<span class="n">END_IF</span>
+
 <span class="o">//</span><span class="n">VCN</span>
-<span class="n">VCN_40</span><span class="p">(</span><span class="n">i_xExtIlkOK</span> <span class="o">:=</span> <span class="n">true</span><span class="p">(</span><span class="o">*</span><span class="n">GCC_40</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">xAT_VAC</span><span class="o">*</span><span class="p">),</span> <span class="n">i_ReqPos</span><span class="o">:=</span> <span class="p">);</span>
-<span class="o">//</span><span class="n">VGP_40</span><span class="p">(</span><span class="n">i_xExtIlkOK</span> <span class="o">:=</span> <span class="n">true</span><span class="p">(</span><span class="o">*</span><span class="n">GCC_40</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">xAT_VAC</span><span class="o">*</span><span class="p">),</span> <span class="n">i_ReqPos</span><span class="o">:=</span> <span class="p">);</span>
-<span class="n">f_Rep_POS</span> <span class="o">:=</span> <span class="n">VCN_40</span><span class="o">.</span><span class="n">iq_stVCN</span><span class="o">.</span><span class="n">rReqPosition</span><span class="p">;</span>
+<span class="n">VCN_40</span><span class="p">(</span><span class="n">i_xExtIlkOK</span> <span class="o">:=</span><span class="p">,</span> <span class="n">i_ReqPos</span><span class="o">:=</span> <span class="p">);</span>
+
+
+<span class="p">(</span><span class="o">*</span> <span class="n">Gauge</span> <span class="n">selection</span> <span class="o">*</span><span class="p">)</span>
+<span class="p">(</span><span class="o">*</span><span class="n">Assign</span> <span class="n">reading</span> <span class="n">to</span> <span class="n">psuedo</span> <span class="n">gauge</span><span class="o">*</span><span class="p">)</span>
+<span class="n">IF</span> <span class="p">(</span><span class="n">fb_EM1K0_GMD_GCC_40</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">rPRESS</span> <span class="o">&lt;=</span><span class="mf">0.0001</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">fb_EM1K0_GMD_GCC_40</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">rPRESS</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="n">THEN</span> <span class="n">GCP</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GCC_40</span><span class="o">.</span><span class="n">IG</span><span class="p">;</span>
+                    <span class="n">ElSE</span> <span class="n">GCP</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_40</span><span class="o">.</span><span class="n">PG</span><span class="p">;</span>
+<span class="n">END_IF</span>
 
 <span class="p">(</span><span class="o">*-------------------------------------------------------------------*</span><span class="p">)</span>
 <span class="p">(</span><span class="o">*</span>             <span class="n">PI</span> <span class="n">CONTROL</span>          <span class="o">*</span><span class="p">)</span>
@@ -1941,24 +2022,26 @@ END_PROGRAM
 <span class="n">IF</span> <span class="n">bInit</span>
 <span class="n">THEN</span>
     <span class="p">(</span><span class="o">*</span> <span class="n">init</span> <span class="n">parameter</span> <span class="n">struct</span> <span class="o">*</span><span class="p">)</span>
-    <span class="n">stCTRL_PI_PARAMS</span><span class="o">.</span><span class="n">tCtrlCycleTime</span>         <span class="o">:=</span> <span class="n">T</span><span class="c1">#10ms;</span>
-    <span class="n">stCTRL_PI_PARAMS</span><span class="o">.</span><span class="n">tTaskCycleTime</span> <span class="o">:=</span> <span class="n">T</span><span class="c1">#10ms;</span>
-    <span class="n">stCTRL_PI_PARAMS</span><span class="o">.</span><span class="n">tTn</span>                                    <span class="o">:=</span> <span class="n">T</span><span class="c1">#0S;//T#2s;         (* derivative gain Tv                                   *)</span>
-    <span class="n">stCTRL_PI_PARAMS</span><span class="o">.</span><span class="n">fKp</span>                                    <span class="o">:=</span> <span class="mi">2</span><span class="p">;</span>                   <span class="p">(</span><span class="o">*</span> <span class="n">proportional</span> <span class="n">gain</span> <span class="n">Kp</span>                         <span class="o">*</span><span class="p">)</span>
-    <span class="n">stCTRL_PI_PARAMS</span><span class="o">.</span><span class="n">fOutMaxLimit</span>           <span class="o">:=</span>  <span class="mi">100</span><span class="p">;</span>                        <span class="p">(</span><span class="o">*</span> <span class="n">maximum</span> <span class="n">output</span> <span class="n">limit</span>                         <span class="o">*</span><span class="p">)</span>
-    <span class="n">stCTRL_PI_PARAMS</span><span class="o">.</span><span class="n">fOutMinLimit</span>           <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>                   <span class="p">(</span><span class="o">*</span> <span class="n">minimum</span> <span class="n">output</span> <span class="n">limit</span>                         <span class="o">*</span><span class="p">)</span>
+    <span class="n">stCTRL_PID_PARAMS</span><span class="o">.</span><span class="n">tCtrlCycleTime</span>                <span class="o">:=</span> <span class="n">T</span><span class="c1">#10ms;</span>
+    <span class="n">stCTRL_PID_PARAMS</span><span class="o">.</span><span class="n">tTaskCycleTime</span>                <span class="o">:=</span> <span class="n">T</span><span class="c1">#10ms;</span>
+    <span class="n">stCTRL_PID_PARAMS</span><span class="o">.</span><span class="n">fKp</span>                                   <span class="o">:=</span> <span class="n">fKp1</span><span class="p">;</span>                        <span class="p">(</span><span class="o">*</span> <span class="n">proportional</span> <span class="n">gain</span> <span class="n">Kp</span>                         <span class="o">*</span><span class="p">)</span>
+    <span class="n">stCTRL_PID_PARAMS</span><span class="o">.</span><span class="n">tTn</span>                                   <span class="o">:=</span> <span class="n">T</span><span class="c1">#500ms;             (*  Tn                                                                  *)</span>
+    <span class="n">stCTRL_PID_PARAMS</span><span class="o">.</span><span class="n">tTv</span>                                   <span class="o">:=</span> <span class="n">T</span><span class="c1">#200ms;     (*  Tv                                                                  *)</span>
+    <span class="n">stCTRL_PID_PARAMS</span><span class="o">.</span><span class="n">tTd</span>                                   <span class="o">:=</span> <span class="n">T</span><span class="c1">#100ms;     (*  Td                                                                  *)</span>
+    <span class="n">stCTRL_PID_PARAMS</span><span class="o">.</span><span class="n">fOutMaxLimit</span>                  <span class="o">:=</span>  <span class="mi">20</span><span class="p">;</span>                 <span class="p">(</span><span class="o">*</span> <span class="n">maximum</span> <span class="n">output</span> <span class="n">limit</span>                         <span class="o">*</span><span class="p">)</span>
+    <span class="n">stCTRL_PID_PARAMS</span><span class="o">.</span><span class="n">fOutMinLimit</span>                  <span class="o">:=</span>  <span class="o">-</span><span class="mi">100</span><span class="p">;</span>                       <span class="p">(</span><span class="o">*</span> <span class="n">minimum</span> <span class="n">output</span> <span class="n">limit</span>                         <span class="o">*</span><span class="p">)</span>
 
 
     <span class="p">(</span><span class="o">*</span> <span class="n">init</span> <span class="n">array</span> <span class="k">with</span> <span class="n">the</span> <span class="n">interpolation</span> <span class="n">points</span>  <span class="o">*</span><span class="p">)</span>
     <span class="p">(</span><span class="o">*</span>      <span class="n">fIn</span>                                      <span class="o">|</span>              <span class="n">fOut</span>            <span class="o">*</span><span class="p">)</span>
-    <span class="n">arrTable</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>                     <span class="n">arrTable</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">arrTable</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mf">0.001</span><span class="p">;</span>         <span class="n">arrTable</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">20</span><span class="p">;</span>
-    <span class="n">arrTable</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mf">0.005</span><span class="p">;</span>         <span class="n">arrTable</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">30</span><span class="p">;</span>
-    <span class="n">arrTable</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span>  <span class="mf">0.089</span><span class="p">;</span>        <span class="n">arrTable</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">40</span><span class="p">;</span>
-    <span class="n">arrTable</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span>  <span class="mf">0.276</span><span class="p">;</span>        <span class="n">arrTable</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">50</span><span class="p">;</span>
-    <span class="n">arrTable</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mf">2.299</span><span class="p">;</span>         <span class="n">arrTable</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">60</span><span class="p">;</span>
-    <span class="n">arrTable</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mf">9.522</span><span class="p">;</span>         <span class="n">arrTable</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">70</span><span class="p">;</span>
-    <span class="n">arrTable</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mf">13.815</span><span class="p">;</span>        <span class="n">arrTable</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">75</span><span class="p">;</span>
+    <span class="n">arrTable</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>                     <span class="n">arrTable</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="n">arrTable</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mf">0.000000265</span><span class="p">;</span>           <span class="n">arrTable</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">arrTable</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mf">0.00000319</span><span class="p">;</span>            <span class="n">arrTable</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">15</span><span class="p">;</span>
+    <span class="n">arrTable</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span>  <span class="mf">0.0000036</span><span class="p">;</span>    <span class="n">arrTable</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">17</span><span class="p">;</span>
+    <span class="n">arrTable</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span>  <span class="mf">0.276</span><span class="p">;</span>        <span class="n">arrTable</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="n">arrTable</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mf">2.299</span><span class="p">;</span>         <span class="n">arrTable</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="n">arrTable</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mf">9.522</span><span class="p">;</span>         <span class="n">arrTable</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">40</span><span class="p">;</span>
+    <span class="n">arrTable</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mf">13.815</span><span class="p">;</span>        <span class="n">arrTable</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">55</span><span class="p">;</span>
     <span class="n">arrTable</span><span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="mf">24.019</span><span class="p">;</span>        <span class="n">arrTable</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">80</span><span class="p">;</span>
 
 
@@ -1967,34 +2050,47 @@ END_PROGRAM
     <span class="n">stCTRL_LIN_INTERPOLATION_PARAMS</span><span class="o">.</span><span class="n">tTaskCycleTime</span>                                  <span class="o">:=</span> <span class="n">T</span><span class="c1">#10ms;</span>
     <span class="n">stCTRL_LIN_INTERPOLATION_PARAMS</span><span class="o">.</span><span class="n">nDataTable_NumberOfRows</span>         <span class="o">:=</span> <span class="n">INT_TO_UINT</span><span class="p">(</span><span class="n">nDataTable_NumberOfRows</span><span class="p">);</span>
 
-    <span class="p">(</span><span class="o">*</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">addresses</span> <span class="o">*</span><span class="p">)</span>
-    <span class="n">stCTRL_LIN_INTERPOLATION_PARAMS</span><span class="o">.</span><span class="n">pDataTable_ADR</span>                  <span class="o">:=</span> <span class="n">ADR</span><span class="p">(</span><span class="n">arrTable</span><span class="p">);</span>
-    <span class="n">stCTRL_LIN_INTERPOLATION_PARAMS</span><span class="o">.</span><span class="n">nDataTable_SIZEOF</span>               <span class="o">:=</span> <span class="n">SIZEOF</span><span class="p">(</span><span class="n">arrTable</span><span class="p">);</span>
-
 
     <span class="p">(</span><span class="o">*</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">mode</span> <span class="n">to</span> <span class="n">ACTIVE</span> <span class="o">--&gt;</span> <span class="n">normal</span> <span class="n">operation</span> <span class="o">*</span><span class="p">)</span>
-    <span class="n">eMode</span>                                                   <span class="o">:=</span> <span class="n">eCTRL_MODE_ACTIVE</span><span class="p">;</span>
+    <span class="n">eMode</span>                                                   <span class="o">:=</span> <span class="n">eCTRL_MODE_PASSIVE</span><span class="p">;</span>
 
     <span class="p">(</span><span class="o">*</span> <span class="n">reset</span> <span class="n">the</span> <span class="n">init</span> <span class="n">flag</span> <span class="o">*</span><span class="p">)</span>
     <span class="n">bInit</span>                                                   <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
 <span class="n">END_IF</span>
 
+    <span class="p">(</span><span class="o">*</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">addresses</span> <span class="o">*</span><span class="p">)</span>
+    <span class="n">stCTRL_LIN_INTERPOLATION_PARAMS</span><span class="o">.</span><span class="n">pDataTable_ADR</span>                  <span class="o">:=</span> <span class="n">ADR</span><span class="p">(</span><span class="n">arrTable</span><span class="p">);</span>
+    <span class="n">stCTRL_LIN_INTERPOLATION_PARAMS</span><span class="o">.</span><span class="n">nDataTable_SIZEOF</span>               <span class="o">:=</span> <span class="n">SIZEOF</span><span class="p">(</span><span class="n">arrTable</span><span class="p">);</span>
 
-<span class="p">(</span><span class="o">*</span> <span class="n">call</span> <span class="n">controller</span> <span class="o">*</span><span class="p">)</span>
-<span class="n">fbCTRL_PI</span><span class="p">(</span>          <span class="n">fSetpointValue</span>          <span class="o">:=</span> <span class="n">fSetpointValue</span><span class="p">,</span>
-                                    <span class="n">fActualValue</span>            <span class="o">:=</span> <span class="n">fActualValue</span><span class="p">,</span>
-                                    <span class="n">fManSyncValue</span>   <span class="o">:=</span> <span class="n">fManSyncValue</span><span class="p">,</span>
-                                    <span class="n">bSync</span>                           <span class="o">:=</span> <span class="n">bSync</span><span class="p">,</span>
-                                    <span class="n">eMode</span>                           <span class="o">:=</span> <span class="n">eMode</span><span class="p">,</span>
-                                    <span class="n">bHold</span>                           <span class="o">:=</span> <span class="n">bHold</span><span class="p">,</span>
-                                    <span class="n">stParams</span>                        <span class="o">:=</span> <span class="n">stCTRL_PI_PARAMS</span><span class="p">,</span>
-                                    <span class="n">fOut</span>                            <span class="o">=&gt;</span> <span class="n">fCtrlOutput</span><span class="p">,</span>
-                                    <span class="n">bARWactive</span>              <span class="o">=&gt;</span> <span class="n">bARWactive</span><span class="p">,</span>
-                                    <span class="n">eErrorId</span>                        <span class="o">=&gt;</span> <span class="n">eErrorId</span><span class="p">,</span>
-                                    <span class="n">bError</span>                          <span class="o">=&gt;</span> <span class="n">bError</span>
-                            <span class="p">);</span>
+       <span class="n">fSetpointValue</span><span class="o">:=</span> <span class="n">LIMIT</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">fSetpointValue</span><span class="p">,</span><span class="mf">0.001</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">VVC_80</span><span class="o">.</span><span class="n">M_IsClosed</span><span class="p">()</span> <span class="p">)</span> <span class="n">THEN</span>
+            <span class="o">//</span><span class="n">eMode</span> <span class="o">:=</span> <span class="n">eCTRL_MODE_PASSIVE</span><span class="p">;</span>
+            <span class="n">fSetpointValue</span> <span class="o">:=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">bGo</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_ReqPos</span><span class="o">:=</span> <span class="n">fbCTRL_PID</span><span class="o">.</span><span class="n">fOut</span> <span class="o">+</span> <span class="n">fbCTRL_LIN_INTERPOLATION</span><span class="o">.</span><span class="n">fOut</span><span class="p">;</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">bReset</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="p">(</span><span class="o">*</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">mode</span> <span class="n">to</span> <span class="n">RESET</span><span class="o">*</span><span class="p">)</span>
+    <span class="n">eMode</span>                                                   <span class="o">:=</span> <span class="n">eCTRL_MODE_RESET</span>   <span class="p">;</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">CloseValve</span><span class="p">);</span>
+    <span class="o">//</span><span class="n">bReset</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+    <span class="n">ELSE</span>
+            <span class="p">(</span><span class="o">*</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">mode</span> <span class="n">to</span> <span class="n">ACTIVE</span> <span class="o">--&gt;</span> <span class="n">normal</span> <span class="n">operation</span> <span class="o">*</span><span class="p">)</span>
+    <span class="n">eMode</span>                                                   <span class="o">:=</span> <span class="n">eCTRL_MODE_ACTIVE</span>   <span class="p">;</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">PressureControl</span><span class="p">);</span>
+    <span class="n">END_IF</span>
+<span class="n">END_IF</span>
+<span class="n">FTRIG</span><span class="p">(</span><span class="n">CLK</span> <span class="o">:=</span> <span class="n">bGo</span><span class="p">);</span>
+<span class="n">IF</span><span class="p">(</span><span class="n">FTrig</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span><span class="n">THEN</span>
+            <span class="n">eMode</span>                                                   <span class="o">:=</span> <span class="n">eCTRL_MODE_PASSIVE</span><span class="p">;</span>
+            <span class="n">VCN_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">CloseValve</span><span class="p">);</span>
+            <span class="n">fSetpointValue</span> <span class="o">:=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+
 <span class="p">(</span><span class="o">*</span> <span class="n">call</span> <span class="n">interpolation</span> <span class="n">fb</span> <span class="o">*</span><span class="p">)</span>
-<span class="p">(</span><span class="o">*</span>
 <span class="n">fbCTRL_LIN_INTERPOLATION</span>            <span class="p">(</span>       <span class="n">fIn</span>                                             <span class="o">:=</span> <span class="n">fSetpointValue</span><span class="p">,</span>
                                                                     <span class="n">fManValue</span>                               <span class="o">:=</span> <span class="n">fManValue</span><span class="p">,</span>
                                                                     <span class="n">bExtrapolate</span>                            <span class="o">:=</span> <span class="n">bExtrapolate</span><span class="p">,</span>
@@ -2006,18 +2102,22 @@ END_PROGRAM
                                                                     <span class="n">bError</span>                                  <span class="o">=&gt;</span> <span class="n">bError</span>
                                                             <span class="p">);</span>
 
-<span class="n">fCtrlOutput</span> <span class="o">:=</span> <span class="n">fbCTRL_PI</span><span class="o">.</span><span class="n">fOut</span> <span class="o">+</span> <span class="n">fbCTRL_LIN_INTERPOLATION</span><span class="o">.</span><span class="n">fOut</span><span class="p">;</span>
-<span class="o">*</span><span class="p">)</span><span class="n">BasicPID</span><span class="p">(</span>
-    <span class="n">fSetpointValue</span><span class="o">:=</span> <span class="n">fSetpointValue</span><span class="p">,</span>
-    <span class="n">fActualValue</span><span class="o">:=</span> <span class="n">fActualValue</span> <span class="p">,</span>
-    <span class="n">bReset</span><span class="o">:=</span> <span class="n">FALSE</span> <span class="p">,</span>
-    <span class="n">fCtrlCycleTime</span><span class="o">:=</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="n">fKp</span><span class="o">:=</span> <span class="n">stCTRL_PI_PARAMS</span><span class="o">.</span><span class="n">fKp</span><span class="p">,</span>
-    <span class="n">fTn</span><span class="o">:=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">fTv</span><span class="o">:=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">fTd</span><span class="o">:=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">fCtrlOutput</span><span class="o">=&gt;</span> <span class="n">fBasicCtrlOutput</span><span class="p">,</span>
-    <span class="n">nErrorStatus</span><span class="o">=&gt;</span> <span class="p">);</span>
+<span class="p">(</span><span class="o">*</span> <span class="n">call</span> <span class="n">controller</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">fbCTRL_PID</span><span class="p">(</span>         <span class="n">fSetpointValue</span>          <span class="o">:=</span> <span class="n">fSetpointValue</span><span class="p">,</span>
+                                    <span class="n">fActualValue</span>            <span class="o">:=</span> <span class="n">GCP</span><span class="o">.</span><span class="n">rPRESS</span> <span class="p">,</span>
+                                    <span class="n">fManSyncValue</span>   <span class="o">:=</span> <span class="p">,</span>
+                                    <span class="n">bSync</span>                           <span class="o">:=</span> <span class="n">bSync</span><span class="p">,</span>
+                                    <span class="n">eMode</span>                           <span class="o">:=</span> <span class="n">eMode</span><span class="p">,</span>
+                                    <span class="n">bHold</span>                           <span class="o">:=</span> <span class="n">bHold</span><span class="p">,</span>
+                                    <span class="n">stParams</span>                        <span class="o">:=</span> <span class="n">stCTRL_PID_PARAMS</span><span class="p">,</span>
+                                    <span class="n">fOut</span>                            <span class="o">=&gt;</span> <span class="p">,</span>
+                                    <span class="n">bARWactive</span>              <span class="o">=&gt;</span> <span class="n">bARWactive</span><span class="p">,</span>
+                                    <span class="n">eErrorId</span>                        <span class="o">=&gt;</span> <span class="n">eErrorId</span><span class="p">,</span>
+                                    <span class="n">bError</span>                          <span class="o">=&gt;</span>
+                            <span class="p">);</span>
+
+
+<span class="n">bError</span> <span class="o">:=</span> <span class="n">fbCTRL_PID</span><span class="o">.</span><span class="n">bError</span> <span class="n">OR</span> <span class="n">fbCTRL_LIN_INTERPOLATION</span><span class="o">.</span><span class="n">bError</span><span class="p">;</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
@@ -2025,218 +2125,376 @@ END_PROGRAM
 </div>
 <div class="section" id="prg-purge">
 <h2>PRG_Purge<a class="headerlink" href="#prg-purge" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROGRAM PRG_Purge
-VAR
-    step: INT:=0;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_Purge</span>
+<span class="n">VAR</span>
+    <span class="n">step</span><span class="p">:</span> <span class="n">INT</span><span class="o">:=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+    <span class="n">pv</span><span class="p">:</span> <span class="n">EM1K0</span><span class="p">:</span><span class="n">GMD</span><span class="p">:</span><span class="n">sPURGE</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">sMessage</span> <span class="p">:</span> <span class="n">STRING</span><span class="p">;</span>
 
-//ADD PRAGMAS
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+    <span class="n">pv</span><span class="p">:</span> <span class="n">EM1K0</span><span class="p">:</span><span class="n">GMD</span><span class="p">:</span><span class="n">RESET</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">bReset</span><span class="p">:</span><span class="n">BOOL</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+    <span class="n">pv</span><span class="p">:</span> <span class="n">EM2K0</span><span class="p">:</span><span class="n">XGMD</span><span class="p">:</span><span class="n">PurgeError</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">bError</span><span class="p">:</span><span class="n">BOOL</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
 
-    AllGasVlvCls            : BOOL; (* All Gas Manifold Valves are closed when True, not including VIC80, 81 or VGP40 *)
-    WatchdogTmr                     : TON;  (* Purge Watchdog Timer*)
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:PURGE:SP1;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">HOPR</span> <span class="mi">1000</span><span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">LOPR</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">PREC</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="s2">&quot;TORR&quot;</span><span class="p">;</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">rPurge_SP1</span> <span class="p">:</span><span class="n">REAL</span> <span class="o">:=</span><span class="mf">0.01</span><span class="p">;</span>
 
-    StartWatchdogTmr        : BOOL;
-    WatchdogPeriod          : TIME;
-
-    NeedleVlvPurgeTmr       : TON;  (* Declaration for the needle valve Purge timer *)
-    NeedlePurgeTime         : TIME:=T#30S;
-    BurpET                          : TIME;
-    NeedlePurgeRun          : BOOL;
-    NeedlePurgeDone         : BOOL;
-    NeedlePurgeRepeat       : INT:= 2;
-    VCN_Timer       :TON;
-    //PRAGMA
-    NeedleBurpTime          : TIME;
-
-
-    //PRAGMA
-    GBA80Tmr                        : TON;
-    GBA80Time                       : TIME:=T#20S;
-    GBATimeDone                     : BOOL;
-
-    CATCH : INT;
-    CATCH1 : INT;
-
-    // Timers
-    VVC_81_Timer : TON;
-    VVC_82_Timer : TON;
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:PURGE:SP2;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">HOPR</span> <span class="mi">1000</span><span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">LOPR</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">PREC</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="s2">&quot;TORR&quot;</span><span class="p">;</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">rPurge_SP2</span> <span class="p">:</span><span class="n">REAL</span> <span class="o">:=</span><span class="mf">0.1</span><span class="p">;</span>
 
 
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:PURGE:REPEAT;</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">NeedlePurgeRepeat</span>       <span class="p">:</span> <span class="n">INT</span><span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">NeedleVlvPurgeTmr</span>       <span class="p">:</span> <span class="n">TON</span><span class="p">;</span>  <span class="p">(</span><span class="o">*</span> <span class="n">Declaration</span> <span class="k">for</span> <span class="n">the</span> <span class="n">needle</span> <span class="n">valve</span> <span class="n">Purge</span> <span class="n">timer</span> <span class="o">*</span><span class="p">)</span>
+    <span class="n">tNeedlePurgeTime</span>                <span class="p">:</span> <span class="n">TIME</span><span class="o">:=</span><span class="n">T</span><span class="c1">#5S;</span>
+    <span class="n">NeedlePurgeTime</span>         <span class="p">:</span> <span class="n">TIME</span><span class="o">:=</span><span class="n">T</span><span class="c1">#5S;</span>
+    <span class="n">BurpET</span>                          <span class="p">:</span> <span class="n">TIME</span><span class="p">;</span>
+    <span class="n">NeedlePurgeRun</span>          <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+    <span class="n">NeedlePurgeDone</span>         <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="n">VCN_Timer</span>       <span class="p">:</span><span class="n">TON</span><span class="p">;</span>
 
 
+    <span class="n">rt_reset</span><span class="p">:</span> <span class="n">R_TRIG</span><span class="p">;</span>
 
-    VGP_50: INT;
-END_VAR
-(*          PURGE CYCLE
-    The purge cycle cosists of the following steps;
-    1. Close all gas valves 83-86
-    2. Close Needle valve
-    3. Fully open VGP:40
-    4. PUMP DOWN MANIFOLD: Open VIC82 for a certain peroid of time or till cetrain pressure
-    5. Open VIC:81 and keep it open while the manifold pumps down to pressure set point
-    6. BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
-    7. Close needle valve
-    8. Close VIC:81 and VIC:82
-    9. Release VGP:40
+    <span class="o">//</span> <span class="n">Timers</span>
+    <span class="n">VVC_81_Timer</span> <span class="p">:</span> <span class="n">TON</span><span class="p">;</span>
+    <span class="n">VVC_82_Timer</span> <span class="p">:</span> <span class="n">TON</span><span class="p">;</span>
+    <span class="n">VVC_81_Time</span>                     <span class="p">:</span> <span class="n">TIME</span><span class="o">:=</span><span class="n">T</span><span class="c1">#5S;</span>
+    <span class="n">VVC_82_Time</span>                     <span class="p">:</span> <span class="n">TIME</span><span class="o">:=</span><span class="n">T</span><span class="c1">#5S;</span>
+    <span class="n">VCN_Time</span> <span class="p">:</span> <span class="n">TIME</span> <span class="o">:=</span> <span class="n">T</span><span class="c1">#5S;</span>
 
-*)
+    <span class="n">iVGP_POS</span><span class="p">:</span> <span class="n">REAL</span><span class="o">:=</span><span class="mi">0</span><span class="p">;</span>
 
 
-CASE step OF
-            0: // READY STATE
-            IF (bStartPurge_sw) Then
-                    step:=10;
-                    bPurgeActive := true;
-                    bPurgeDone := false;
-            END_IF
+<span class="n">END_VAR</span>
+<span class="p">(</span><span class="o">*</span>
+<span class="n">PURGE</span> <span class="n">CYCLE</span>
+<span class="n">The</span> <span class="n">purge</span> <span class="n">cycle</span> <span class="n">consists</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">steps</span><span class="p">;</span>
+<span class="mf">1.</span> <span class="n">Close</span> <span class="nb">all</span> <span class="n">gas</span> <span class="n">valves</span> <span class="mi">83</span><span class="o">-</span><span class="mi">86</span> <span class="ow">and</span> <span class="n">Close</span> <span class="n">Needle</span> <span class="n">valve</span> <span class="ow">and</span> <span class="n">switch</span> <span class="n">off</span> <span class="n">PID</span> <span class="n">control</span>
+<span class="mf">2.</span> <span class="n">Wait</span> <span class="n">till</span> <span class="n">needle</span> <span class="n">valve</span> <span class="n">closes</span>
+<span class="mf">3.</span> <span class="n">Close</span> <span class="n">VGP</span><span class="p">,</span> <span class="n">to</span> <span class="n">protect</span> <span class="n">the</span> <span class="n">Detector</span> <span class="n">chamber</span> <span class="ow">in</span> <span class="n">case</span> <span class="n">a</span> <span class="n">pressure</span> <span class="n">spike</span> <span class="n">on</span> <span class="n">the</span> <span class="n">roughing</span> <span class="n">line</span> <span class="n">stops</span> <span class="n">the</span> <span class="n">turbo</span><span class="o">.</span>
+<span class="mf">4.</span> <span class="n">PUMP</span> <span class="n">DOWN</span> <span class="n">MANIFOLD</span><span class="p">:</span> <span class="n">Open</span> <span class="n">VVC</span><span class="o">-</span><span class="mi">80</span>  <span class="n">then</span> <span class="n">Open</span> <span class="n">VVC82</span> <span class="k">for</span> <span class="n">certain</span> <span class="n">pressure</span> <span class="n">on</span> <span class="n">the</span> <span class="n">baratron</span>
+<span class="mf">5.</span> <span class="n">Open</span> <span class="n">VIC</span><span class="p">:</span><span class="mi">81</span> <span class="ow">and</span> <span class="n">keep</span> <span class="n">it</span> <span class="nb">open</span> <span class="k">while</span> <span class="n">the</span> <span class="n">manifold</span> <span class="n">pumps</span> <span class="n">down</span> <span class="n">to</span> <span class="n">pressure</span> <span class="nb">set</span> <span class="n">point</span> <span class="k">for</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">time</span> <span class="n">to</span> <span class="n">avoid</span> <span class="n">flukes</span> <span class="n">then</span> <span class="n">close</span> <span class="n">VVC</span><span class="o">-</span><span class="mi">80</span>
+ <span class="o">-</span> <span class="n">THEN</span> <span class="n">Fully</span> <span class="nb">open</span> <span class="n">VGP</span><span class="p">:</span><span class="mi">40</span>
+<span class="mf">6.</span> <span class="n">BURP</span> <span class="n">NEEDLE</span> <span class="n">VALVE</span><span class="p">:</span> <span class="n">Once</span> <span class="n">the</span> <span class="n">manifold</span> <span class="ow">is</span> <span class="n">pumped</span> <span class="n">down</span><span class="p">,</span> <span class="nb">open</span> <span class="n">the</span> <span class="n">needle</span> <span class="n">valve</span> <span class="p">(</span><span class="n">burp</span><span class="p">)</span> <span class="n">to</span> <span class="n">evacuate</span> <span class="n">gases</span> <span class="n">that</span> <span class="n">may</span> <span class="n">be</span> <span class="n">trapped</span> <span class="ow">in</span> <span class="n">its</span> <span class="n">mechanism</span>
+<span class="o">-</span> <span class="n">this</span> <span class="n">step</span> <span class="ow">is</span> <span class="n">done</span> <span class="n">gradually</span> <span class="n">to</span> <span class="n">avoid</span> <span class="n">sending</span> <span class="n">pressure</span> <span class="n">spike</span> <span class="n">into</span> <span class="n">the</span> <span class="n">detector</span>
+<span class="mf">7.</span> <span class="n">Close</span> <span class="n">needle</span> <span class="n">valve</span>
+<span class="mf">8.</span> <span class="n">Release</span> <span class="n">VGP</span><span class="p">:</span><span class="mi">40</span>
 
-10: // start purge sequence by closing all gas valves
-    VVC_80.M_Set_OPN_SW(FALSE);
-    VVC_83.M_Set_OPN_SW(FALSE);
-    VVC_84.M_Set_OPN_SW(FALSE);
-    VVC_85.M_Set_OPN_SW(FALSE);
-    VVC_86.M_Set_OPN_SW(FALSE);
-
-    if  (NOT VVC_83.iq_stValve.q_xOPN_DO) AND(NOT VVC_84.iq_stValve.q_xOPN_DO) AND (NOT VVC_85.iq_stValve.q_xOPN_DO) AND (NOT VVC_86.iq_stValve.q_xOPN_DO) then
-            step:= 20;
-    END_IF
-
-20: //Close Needle valve
-    VCN_40.M_ValveControl( E_VCN.CloseValve);
-    // wait for a period of time to ensure that the Valve is fully closed
-    IF (VCN_Timer.Q) THEN
-            step:=30;
-    END_IF
+<span class="o">*</span><span class="p">)</span>
 
 
-30: //Fully open VGP:40
-    VGP_40.M_ValveControl(E_VCN.OpenValve);
-    IF NOT(VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP encoder reads Open
-            step:=31;
-    END_IF
-    if (VGP_40.q_stVGP.pv_xError )then
-            step:=900+step;
-    END_IF
-31:
-    IF (VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP encoder reads Open //use motion ready
-            step:=40;
-    END_IF
-    if (VGP_40.q_stVGP.pv_xError )then
-            step:=900+step;
-    END_IF
+<span class="n">CASE</span> <span class="n">step</span> <span class="n">OF</span>
+            <span class="mi">0</span><span class="p">:</span> <span class="o">//</span> <span class="n">READY</span> <span class="n">STATE</span>
+            <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Purge Ready&#39;</span><span class="p">;</span>
+            <span class="n">bError</span><span class="o">:=</span><span class="n">FALSE</span><span class="p">;</span>
+            <span class="n">IF</span> <span class="p">(</span><span class="n">bStartPurge_sw</span><span class="p">)</span> <span class="n">Then</span>
+                    <span class="n">step</span><span class="o">:=</span><span class="mi">10</span><span class="p">;</span>
+                    <span class="n">bGo</span> <span class="o">:=</span><span class="n">FALSE</span><span class="p">;</span>
+                    <span class="n">bPurgeActive</span> <span class="o">:=</span> <span class="n">true</span><span class="p">;</span>
+                    <span class="n">bPurgeDone</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+                    <span class="n">iVGP_POS</span> <span class="o">:=</span> <span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">rReqPosition</span><span class="p">;</span>
+                    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Purge Start&#39;</span><span class="p">;</span>
+            <span class="n">END_IF</span>
 
-40: // open vavle 80 to pump down all the way to the needle valve
-    VVC_80.M_Set_OPN_SW(TRUE);
-    if (VVC_80.iq_stValve.q_xOPN_DO ) THEN
-            step:=41;
-    END_IF
+<span class="mi">10</span><span class="p">:</span> <span class="o">//</span> <span class="n">start</span> <span class="n">purge</span> <span class="n">sequence</span> <span class="n">by</span> <span class="n">closing</span> <span class="nb">all</span> <span class="n">gas</span> <span class="n">valves</span> <span class="ow">and</span> <span class="n">needle</span> <span class="n">valve</span>
+    <span class="n">VVC_80</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>
+    <span class="n">VVC_81</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>
+    <span class="n">VVC_82</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>
+    <span class="n">VVC_83</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>
+    <span class="n">VVC_84</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>
+    <span class="n">VVC_85</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>
+    <span class="n">VVC_86</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">CloseValve</span><span class="p">);</span>
+    <span class="n">IF</span>   <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_80</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_81</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span>  <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_82</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span>
+                    <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_83</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_84</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_85</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_86</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span> <span class="mi">20</span><span class="p">;</span>
+            <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Prep: All valves are closed&#39;</span><span class="p">;</span>
+    <span class="n">END_IF</span>
 
-41: //PUMP DOWN MANIFOLD: Open VIC82 for a certain peroid of time or till cetrain pressure
-    VVC_82.M_Set_OPN_SW(TRUE);
-    if (VVC_82.iq_stValve.q_xOPN_DO ) AND (VVC_82_Timer.Q) THEN
-            step:=50;
-    END_IF
-
-50:// Open VIC:81 and keep it open while the manifold pumps down to pressure set point
-    VVC_81.M_Set_OPN_SW(TRUE);
-    IF (VVC_81.iq_stValve.q_xOPN_DO ) AND (VVC_81_Timer.Q) THEN // or a certain pressure reading and check timeouts
-            step:=51;
-    END_IF
-
-51: //Close VIC:81 and VIC:82
-    VVC_80.M_Set_OPN_SW(false);
-    VVC_81.M_Set_OPN_SW(false);
-    VVC_82.M_Set_OPN_SW(false);
-    IF (NOT VVC_80.iq_stValve.q_xOPN_DO) AND(NOT VVC_81.iq_stValve.q_xOPN_DO) AND(NOT VVC_82.iq_stValve.q_xOPN_DO) THEN
-            step:=60;
-    END_IF
-
-60: //BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
-    VCN_40.M_ValveControl(E_VCN.OpenValve);
-    // wait for a period of time to ensure that the Valve is fully closed
-    IF (VCN_Timer.Q) THEN
-            step:=70;
-    END_IF
-
-70: //Close Needle valve
-    VCN_40.M_ValveControl(E_VCN.CloseValve);
-    // wait for a period of time to ensure that the Valve is fully closed
-    IF (VCN_Timer.Q) THEN
-            step:=80;
-    END_IF
-
-80: // Repeat
-    IF (NeedlePurgeRepeat &gt; 0) THEN
-            NeedlePurgeRepeat := NeedlePurgeRepeat-1;
-            step:= 60;
-    ELSE
-            NeedlePurgeRepeat := 2;
-            step:=90;
-    END_IF
+<span class="mi">20</span><span class="p">:</span> <span class="o">//</span><span class="n">Close</span> <span class="n">Needle</span> <span class="n">valve</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span> <span class="n">E_VCN</span><span class="o">.</span><span class="n">CloseValve</span><span class="p">);</span>
+    <span class="o">//</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">a</span> <span class="n">period</span> <span class="n">of</span> <span class="n">time</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">the</span> <span class="n">Valve</span> <span class="ow">is</span> <span class="n">fully</span> <span class="n">closed</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">VCN_Timer</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">30</span><span class="p">;</span>
+            <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Prep: Needle Valve is closed&#39;</span><span class="p">;</span>
+    <span class="n">END_IF</span>
 
 
+<span class="mi">30</span><span class="p">:</span> <span class="o">//</span><span class="n">Fully</span> <span class="n">close</span> <span class="n">VGP</span><span class="p">:</span><span class="mi">40</span>
+    <span class="n">VGP_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">CloseValve</span><span class="p">);</span>
+    <span class="n">VGP_40</span><span class="o">.</span><span class="n">M_SetGoSw</span><span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
+    <span class="n">IF</span> <span class="n">NOT</span><span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_MoveState</span><span class="o">.</span><span class="n">READY</span><span class="p">)</span><span class="n">THEN</span> <span class="o">//</span> <span class="n">wait</span> <span class="n">until</span> <span class="n">the</span> <span class="n">VGP</span> <span class="n">Starts</span> <span class="n">moving</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">31</span><span class="p">;</span>
+            <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Prep: VGP to fully closed&#39;</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">pv_xError</span> <span class="p">)</span> <span class="n">OR</span> <span class="n">NOT</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">i_xExtIlkOK</span><span class="p">)</span> <span class="n">OR</span> <span class="n">NOT</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">pv_xHomed</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">900</span><span class="o">+</span><span class="n">step</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+<span class="mi">31</span><span class="p">:</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_MoveState</span><span class="o">.</span><span class="n">READY</span> <span class="p">)</span> <span class="n">THEN</span> <span class="o">//</span> <span class="n">wait</span> <span class="n">until</span> <span class="n">the</span> <span class="n">VGP</span> <span class="n">motion</span> <span class="ow">is</span> <span class="n">done</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">40</span><span class="p">;</span>
+            <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Prep: VGP is closed&#39;</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">pv_xError</span> <span class="p">)</span><span class="n">then</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">900</span><span class="o">+</span><span class="n">step</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">40</span><span class="p">:</span> <span class="o">//</span> <span class="nb">open</span> <span class="n">vavle</span> <span class="mi">80</span> <span class="n">to</span> <span class="n">pump</span> <span class="n">down</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">way</span> <span class="n">to</span> <span class="n">the</span> <span class="n">needle</span> <span class="n">valve</span>
+    <span class="n">VVC_80</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">VVC_80</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span> <span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">41</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">41</span><span class="p">:</span> <span class="o">//</span><span class="n">PUMP</span> <span class="n">DOWN</span> <span class="n">MANIFOLD</span><span class="p">:</span> <span class="n">Open</span> <span class="n">VIC82</span> <span class="k">for</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">peroid</span> <span class="n">of</span> <span class="n">time</span> <span class="ow">or</span> <span class="n">till</span> <span class="n">certain</span> <span class="n">pressure</span>
+    <span class="n">VVC_82</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Pumping down: VVC80 and VVC82 are open&#39;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">VVC_82</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">VVC_82_Timer</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">GCM_80</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">rPRESS</span> <span class="o">&lt;=</span> <span class="n">rPurge_SP1</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">50</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">50</span><span class="p">:</span><span class="o">//</span> <span class="n">Open</span> <span class="n">VIC</span><span class="p">:</span><span class="mi">81</span> <span class="ow">and</span> <span class="n">keep</span> <span class="n">it</span> <span class="nb">open</span> <span class="k">while</span> <span class="n">the</span> <span class="n">manifold</span> <span class="n">pumps</span> <span class="n">down</span> <span class="n">to</span> <span class="n">pressure</span> <span class="nb">set</span> <span class="n">point</span>
+    <span class="n">VVC_81</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Pumping down: VVC80, VVC81 and VVC82 are open&#39;</span><span class="p">;</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">VVC_81</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span> <span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">VVC_81_Timer</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">GCM_80</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">rPRESS</span> <span class="o">&lt;=</span> <span class="n">rPurge_SP2</span><span class="p">)</span> <span class="n">THEN</span> <span class="o">//</span> <span class="ow">or</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">pressure</span> <span class="n">reading</span> <span class="ow">and</span> <span class="n">check</span> <span class="n">timeouts</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">51</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">51</span><span class="p">:</span> <span class="o">//</span><span class="n">Close</span> <span class="n">VIC</span><span class="p">:</span><span class="mi">81</span> <span class="ow">and</span> <span class="n">VIC</span><span class="p">:</span><span class="mi">82</span>
+    <span class="n">VVC_80</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_81</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_82</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Pumping down complete: valves are closed&#39;</span><span class="p">;</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_80</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span><span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_81</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">AND</span><span class="p">(</span><span class="n">NOT</span> <span class="n">VVC_82</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">q_xOPN_DO</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">55</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">55</span><span class="p">:</span> <span class="o">//</span><span class="n">Fully</span> <span class="n">close</span> <span class="n">VGP</span>
+    <span class="n">VGP_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">OpenValve</span><span class="p">);</span>
+    <span class="n">IF</span> <span class="n">NOT</span><span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_MoveState</span><span class="o">.</span><span class="n">READY</span> <span class="p">)</span> <span class="n">THEN</span> <span class="o">//</span> <span class="n">wait</span> <span class="n">until</span> <span class="n">the</span> <span class="n">VGP</span> <span class="n">Starts</span> <span class="n">moving</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">56</span><span class="p">;</span>
+            <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Prep: VGP to fully open&#39;</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">pv_xError</span> <span class="p">)</span> <span class="n">OR</span> <span class="n">NOT</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">i_xExtIlkOK</span><span class="p">)</span> <span class="n">OR</span> <span class="n">NOT</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">pv_xHomed</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">900</span><span class="o">+</span><span class="n">step</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+<span class="mi">56</span><span class="p">:</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_MoveState</span><span class="o">.</span><span class="n">READY</span> <span class="p">)</span> <span class="n">THEN</span> <span class="o">//</span> <span class="n">wait</span> <span class="n">until</span> <span class="n">the</span> <span class="n">VGP</span> <span class="n">motion</span> <span class="ow">is</span> <span class="n">done</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">60</span><span class="p">;</span>
+            <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Prep: VGP is Open&#39;</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">pv_xError</span> <span class="p">)</span><span class="n">then</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">900</span><span class="o">+</span><span class="n">step</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">60</span><span class="p">:</span> <span class="o">//</span><span class="n">BURP</span> <span class="n">NEEDLE</span> <span class="n">VALVE</span><span class="p">:</span> <span class="n">Once</span> <span class="n">the</span> <span class="n">manifold</span> <span class="ow">is</span> <span class="n">pumped</span> <span class="n">down</span><span class="p">,</span> <span class="nb">open</span> <span class="n">the</span> <span class="n">needle</span> <span class="n">valve</span> <span class="p">(</span><span class="n">burp</span><span class="p">)</span> <span class="n">to</span> <span class="n">evacuate</span> <span class="n">gases</span> <span class="n">that</span> <span class="n">may</span> <span class="n">be</span> <span class="n">trapped</span> <span class="ow">in</span> <span class="n">its</span> <span class="n">mechanism</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">PressureControl</span><span class="p">);</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_ReqPos</span> <span class="o">:=</span> <span class="mi">15</span><span class="p">;</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;VCN Burp: VCN to 15%&#39;</span><span class="p">;</span>
+    <span class="o">//</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">a</span> <span class="n">period</span> <span class="n">of</span> <span class="n">time</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">the</span> <span class="n">Valve</span> <span class="ow">is</span> <span class="n">fully</span> <span class="n">closed</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">NeedleVlvPurgeTmr</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">61</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">61</span><span class="p">:</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_ReqPos</span> <span class="o">:=</span> <span class="mi">19</span><span class="p">;</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;VCN Burp: VCN to 19%&#39;</span><span class="p">;</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">VCN_Timer</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">62</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">62</span><span class="p">:</span> <span class="o">//</span><span class="n">BURP</span> <span class="n">NEEDLE</span> <span class="n">VALVE</span><span class="p">:</span> <span class="n">Once</span> <span class="n">the</span> <span class="n">manifold</span> <span class="ow">is</span> <span class="n">pumped</span> <span class="n">down</span><span class="p">,</span> <span class="nb">open</span> <span class="n">the</span> <span class="n">needle</span> <span class="n">valve</span> <span class="p">(</span><span class="n">burp</span><span class="p">)</span> <span class="n">to</span> <span class="n">evacuate</span> <span class="n">gases</span> <span class="n">that</span> <span class="n">may</span> <span class="n">be</span> <span class="n">trapped</span> <span class="ow">in</span> <span class="n">its</span> <span class="n">mechanism</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_ReqPos</span> <span class="o">:=</span> <span class="mi">25</span><span class="p">;</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;VCN Burp: VCN to 25%&#39;</span><span class="p">;</span>
+    <span class="o">//</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">a</span> <span class="n">period</span> <span class="n">of</span> <span class="n">time</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">the</span> <span class="n">Valve</span> <span class="ow">is</span> <span class="n">fully</span> <span class="n">closed</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">NeedleVlvPurgeTmr</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">63</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">63</span><span class="p">:</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_ReqPos</span> <span class="o">:=</span> <span class="mi">31</span><span class="p">;</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;VCN Burp: VCN to 31%&#39;</span><span class="p">;</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">VCN_Timer</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">64</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">64</span><span class="p">:</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_ReqPos</span> <span class="o">:=</span> <span class="mi">39</span><span class="p">;</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;VCN Burp: VCN to 39%&#39;</span><span class="p">;</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">NeedleVlvPurgeTmr</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">65</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">65</span><span class="p">:</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_ReqPos</span> <span class="o">:=</span> <span class="mi">49</span><span class="p">;</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;VCN Burp: VCN to 49%&#39;</span><span class="p">;</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">VCN_Timer</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">66</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">66</span><span class="p">:</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_ReqPos</span> <span class="o">:=</span> <span class="mi">62</span><span class="p">;</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;VCN Burp: VCN to 62%&#39;</span><span class="p">;</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">NeedleVlvPurgeTmr</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">67</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">67</span><span class="p">:</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_ReqPos</span> <span class="o">:=</span> <span class="mi">78</span><span class="p">;</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;VCN Burp: VCN to 78%&#39;</span><span class="p">;</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">VCN_Timer</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">68</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">68</span><span class="p">:</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">i_ReqPos</span> <span class="o">:=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;VCN Burp: VCN to 100%&#39;</span><span class="p">;</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">NeedleVlvPurgeTmr</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">70</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">70</span><span class="p">:</span> <span class="o">//</span><span class="n">Close</span> <span class="n">Needle</span> <span class="n">valve</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">CloseValve</span><span class="p">);</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;VCN Burp Complete: VCN to 0%&#39;</span><span class="p">;</span>
+    <span class="o">//</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">a</span> <span class="n">period</span> <span class="n">of</span> <span class="n">time</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">the</span> <span class="n">Valve</span> <span class="ow">is</span> <span class="n">fully</span> <span class="n">closed</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">VCN_Timer</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">80</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+
+<span class="mi">80</span><span class="p">:</span> <span class="o">//</span> <span class="n">Repeat</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">NeedlePurgeRepeat</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">NeedlePurgeRepeat</span> <span class="o">:=</span> <span class="n">NeedlePurgeRepeat</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+            <span class="n">step</span><span class="o">:=</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="n">ELSE</span>
+            <span class="n">NeedlePurgeRepeat</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">90</span><span class="p">;</span>
+    <span class="n">END_IF</span>
 
 
+<span class="mi">90</span><span class="p">:</span> <span class="o">//</span><span class="n">Release</span> <span class="n">VGP</span><span class="p">:</span><span class="mi">40</span>
+    <span class="n">VGP_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">ManualControl</span><span class="p">);</span>
+    <span class="n">VGP_40</span><span class="o">.</span><span class="n">i_ReqPos</span><span class="o">:=</span> <span class="n">iVGP_POS</span><span class="p">;</span> <span class="o">//</span><span class="mi">50</span><span class="o">%</span> <span class="nb">open</span>
+    <span class="n">VGP_40</span><span class="o">.</span><span class="n">M_SetGoSw</span><span class="p">(</span><span class="n">TRUE</span><span class="p">);</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Post: VGP to previous position&#39;</span><span class="p">;</span>
+    <span class="n">IF</span> <span class="n">NOT</span><span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_MoveState</span><span class="o">.</span><span class="n">READY</span> <span class="p">)</span> <span class="n">THEN</span> <span class="o">//</span> <span class="n">wait</span> <span class="n">until</span> <span class="n">the</span> <span class="n">VGP</span> <span class="n">encoder</span> <span class="n">reads</span> <span class="n">Open</span> <span class="o">//</span><span class="n">use</span> <span class="n">motion</span> <span class="n">ready</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">91</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">pv_xError</span> <span class="p">)</span><span class="n">then</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">900</span><span class="o">+</span><span class="n">step</span><span class="p">;</span>
+    <span class="n">END_IF</span>
 
-90: //Release VGP:40
-    VGP_40.M_ValveControl(E_VCN.PressureControl);
-    VGP_40.i_ReqPos:= 50; //50% open
-    IF NOT(VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP encoder reads Open //use motion ready
-            step:=91;
-    END_IF
-    if (VGP_40.q_stVGP.pv_xError )then
-            step:=900+step;
-    END_IF
+<span class="mi">91</span><span class="p">:</span>
+    <span class="n">IF</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_MoveState</span><span class="o">.</span><span class="n">READY</span> <span class="p">)</span> <span class="n">THEN</span> <span class="o">//</span> <span class="n">wait</span> <span class="n">until</span> <span class="n">the</span> <span class="n">VGP</span> <span class="n">encoder</span> <span class="n">reads</span> <span class="n">Open</span> <span class="o">//</span><span class="n">use</span> <span class="n">motion</span> <span class="n">ready</span>
+            <span class="n">VGP_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">ManualControl</span><span class="p">);</span>
+            <span class="n">VGP_40</span><span class="o">.</span><span class="n">i_ReqPos</span><span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">VGP_40</span><span class="o">.</span><span class="n">M_SetGoSw</span><span class="p">(</span><span class="n">FALSE</span><span class="p">);</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">100</span><span class="p">;</span>
+            <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Purge Complete&#39;</span><span class="p">;</span>
+    <span class="n">END_IF</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">pv_xError</span> <span class="p">)</span><span class="n">then</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">900</span><span class="o">+</span><span class="n">step</span><span class="p">;</span>
+    <span class="n">END_IF</span>
 
-91:
-    IF (VGP_40.q_stVGP.eState = E_MoveState.READY ) THEN // wait until the VGP encoder reads Open //use motion ready
-            step:=100;
-    END_IF
-    if (VGP_40.q_stVGP.pv_xError )then
-            step:=900+step;
-    END_IF
+<span class="mi">100</span><span class="p">:</span> <span class="o">//</span> <span class="n">DONE</span>
+    <span class="n">bStartPurge_sw</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="n">bPurgeActive</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="n">bPurgeDone</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">VVC_80</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_81</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_82</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_83</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_84</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_85</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_86</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">CloseValve</span><span class="p">);</span>
+    <span class="n">VGP_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">ManualControl</span><span class="p">);</span>
+    <span class="o">//</span> <span class="n">reset</span> <span class="n">selected</span> <span class="n">gas</span> <span class="n">to</span> <span class="n">none</span>
+    <span class="n">SelectedGas</span> <span class="o">:=</span> <span class="n">E_GasType</span><span class="o">.</span><span class="n">none</span><span class="p">;</span>
+    <span class="n">step</span> <span class="o">:=</span><span class="mi">0</span><span class="p">;</span>
 
-100: // DONE
-    bStartPurge_sw := false;
-    bPurgeActive := false;
-    bPurgeDone := TRUE;
-
-900: //Error
-    VVC_80.M_Set_OPN_SW(false);
-    VVC_81.M_Set_OPN_SW(false);
-    VVC_82.M_Set_OPN_SW(false);
-    VVC_83.M_Set_OPN_SW(false);
-    VVC_84.M_Set_OPN_SW(false);
-    VVC_85.M_Set_OPN_SW(false);
-    VVC_86.M_Set_OPN_SW(false);
-    VCN_40.M_ValveControl(E_VCN.CloseValve);
-    VGP_40.M_ValveControl(E_VCN.ManualControl); // CLOSE or OPEN to pump down
-
-
-END_CASE
-
-
-//shouldn&#39;t be here
-(*
-if (bPurgeActive) then
-    VVC_83.i_xExtILK_OK := VVC_84.i_xExtILK_OK := VVC_85.i_xExtILK_OK := VVC_86.i_xExtILK_OK := false;
-END_IF
-*)
-
-//Errors
-if (step &gt;900 ) Then
-    // show error and step
-END_IF
+<span class="mi">900</span><span class="p">:</span> <span class="o">//</span><span class="n">Error</span>
+    <span class="n">bStartPurge_sw</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="n">bPurgeActive</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="n">bPurgeDone</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="n">bError</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">VVC_80</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_81</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_82</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_83</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_84</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_85</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_86</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">CloseValve</span><span class="p">);</span>
+    <span class="n">VGP_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">ManualControl</span><span class="p">);</span> <span class="o">//</span> <span class="n">CLOSE</span> <span class="ow">or</span> <span class="n">OPEN</span> <span class="n">to</span> <span class="n">pump</span> <span class="n">down</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="s1">&#39;Purge Error: Interlock&#39;</span><span class="p">;</span>
+<span class="n">END_CASE</span>
 
 
-//Timers
-VVC_81_Timer(IN:= (step = 50), PT:=t#60s);
-VVC_82_Timer(IN:= (step = 40), PT:=T#360S);
-VCN_Timer(IN:= (step = 20) OR (step = 60) OR (step = 70), PT:=T#60S);
+<span class="o">//</span><span class="n">shouldn</span><span class="s1">&#39;t be here</span>
+<span class="p">(</span><span class="o">*</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">bPurgeActive</span><span class="p">)</span> <span class="n">then</span>
+    <span class="n">VVC_83</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">VVC_84</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">VVC_85</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">VVC_86</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+<span class="n">END_IF</span>
+<span class="o">*</span><span class="p">)</span>
 
+<span class="o">//</span><span class="n">Errors</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">&gt;</span><span class="mi">900</span> <span class="p">)</span> <span class="n">Then</span>
+    <span class="o">//</span><span class="n">Error</span>
+    <span class="n">bStartPurge_sw</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="n">bPurgeActive</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="n">bPurgeDone</span> <span class="o">:=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="n">bError</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">VVC_80</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_81</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_82</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_83</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_84</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_85</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VVC_86</span><span class="o">.</span><span class="n">M_Set_OPN_SW</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
+    <span class="n">VCN_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">CloseValve</span><span class="p">);</span>
+    <span class="n">VGP_40</span><span class="o">.</span><span class="n">M_ValveControl</span><span class="p">(</span><span class="n">E_VCN</span><span class="o">.</span><span class="n">ManualControl</span><span class="p">);</span>
+    <span class="n">sMessage</span><span class="o">:=</span> <span class="n">CONCAT</span><span class="p">(</span><span class="s1">&#39;Purge Error: &#39;</span><span class="p">,</span><span class="n">TO_STRING</span><span class="p">(</span><span class="n">step</span><span class="p">));</span>
+<span class="n">END_IF</span>
 
-/// vcn and vgp on manual or auto?? manual, until the Go or auto button is pressed??
+<span class="n">rt_reset</span><span class="p">(</span><span class="n">CLK</span><span class="o">:=</span> <span class="n">bReset</span><span class="p">);</span>
+<span class="n">IF</span> <span class="n">rt_reset</span><span class="o">.</span><span class="n">Q</span> <span class="n">THEN</span> <span class="n">Step</span><span class="o">:=</span><span class="mi">100</span><span class="p">;</span> <span class="n">bReset</span><span class="o">:=</span><span class="kc">False</span><span class="p">;</span> <span class="n">bPurgeDone</span><span class="o">:=</span><span class="kc">False</span><span class="p">;</span> <span class="n">END_IF</span>
 
-END_PROGRAM
+<span class="o">//</span><span class="n">Timers</span>
+<span class="n">VVC_81_Timer</span><span class="p">(</span><span class="n">IN</span><span class="o">:=</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">50</span><span class="p">),</span> <span class="n">PT</span><span class="o">:=</span><span class="n">VVC_81_Time</span><span class="p">);</span>
+<span class="n">VVC_82_Timer</span><span class="p">(</span><span class="n">IN</span><span class="o">:=</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">41</span><span class="p">),</span> <span class="n">PT</span><span class="o">:=</span><span class="n">VVC_82_Time</span><span class="p">);</span>
+<span class="n">VCN_Timer</span><span class="p">(</span><span class="n">IN</span><span class="o">:=</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> <span class="n">OR</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">61</span><span class="p">)</span>  <span class="n">OR</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">63</span><span class="p">)</span>  <span class="n">OR</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>  <span class="n">OR</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">67</span><span class="p">)</span> <span class="n">OR</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">70</span><span class="p">),</span> <span class="n">PT</span><span class="o">:=</span><span class="n">VCN_Time</span><span class="p">);</span>
+<span class="n">NeedleVlvPurgeTmr</span><span class="p">(</span><span class="n">IN</span><span class="o">:=</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">60</span><span class="p">)</span> <span class="n">OR</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">62</span><span class="p">)</span>  <span class="n">OR</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">64</span><span class="p">)</span>  <span class="n">OR</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">66</span><span class="p">)</span>  <span class="n">OR</span> <span class="p">(</span><span class="n">step</span> <span class="o">=</span> <span class="mi">68</span><span class="p">),</span> <span class="n">PT</span><span class="o">:=</span><span class="n">NeedlePurgeTime</span> <span class="p">);</span>
+
+<span class="o">//</span>
+<span class="n">IF</span> <span class="p">(</span><span class="n">bStartPurge_sw</span><span class="p">)</span> <span class="n">THEN</span> <span class="n">bGo</span> <span class="o">:=</span><span class="n">FALSE</span><span class="p">;</span> <span class="n">END_IF</span>
+<span class="o">///</span> <span class="n">If</span> <span class="n">at</span> <span class="nb">any</span> <span class="n">point</span> <span class="n">the</span> <span class="n">VGP</span> <span class="n">interlocked</span> <span class="ow">or</span> <span class="ow">in</span> <span class="n">an</span> <span class="n">error</span> <span class="n">state</span><span class="p">,</span> <span class="n">we</span> <span class="n">stop</span> <span class="n">purge</span><span class="o">.</span>
+
+<span class="n">IF</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">q_stVGP</span><span class="o">.</span><span class="n">pv_xError</span> <span class="p">)</span> <span class="n">OR</span> <span class="n">NOT</span> <span class="p">(</span><span class="n">VGP_40</span><span class="o">.</span><span class="n">i_xExtIlkOK</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">bPurgeActive</span><span class="p">)</span>  <span class="n">AND</span> <span class="p">(</span><span class="n">step</span> <span class="o">&gt;=</span><span class="mi">55</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">step</span> <span class="o">&lt;=</span><span class="mi">70</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">900</span><span class="p">;</span>
+<span class="n">END_IF</span>
+<span class="n">IF</span> <span class="n">NOT</span> <span class="p">(</span><span class="n">VCN_40</span><span class="o">.</span><span class="n">i_xExtIlkOK</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">bPurgeActive</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">step</span> <span class="o">&gt;=</span><span class="mi">60</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">step</span> <span class="o">&lt;=</span><span class="mi">70</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">step</span><span class="o">:=</span><span class="mi">900</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 </div>
@@ -2295,7 +2553,7 @@ END_PROGRAM
 
 <span class="n">VGP_40</span><span class="o">.</span><span class="n">i_xOpenIlkOK</span> <span class="o">:=</span> <span class="p">(</span><span class="n">fb_EM1K0_GMD_PTM_40</span><span class="o">.</span><span class="n">iq_stPtm</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">pumpRUNNING</span><span class="p">)</span> <span class="p">;</span>
 <span class="n">VGP_40</span><span class="p">(</span>
-    <span class="n">i_xExtIlkOK</span><span class="o">:=</span> <span class="p">(</span><span class="n">fb_EM1K0_GMD_PTM_40</span><span class="o">.</span><span class="n">iq_stPtm</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">pumpRUNNING</span><span class="p">),</span>
+    <span class="n">i_xExtIlkOK</span><span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span><span class="o">//</span><span class="p">(</span><span class="n">fb_EM1K0_GMD_PTM_40</span><span class="o">.</span><span class="n">iq_stPtm</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">pumpRUNNING</span><span class="p">),</span>
     <span class="n">i_ReqPos</span><span class="o">:=</span> <span class="p">,</span>
     <span class="n">arrTable</span><span class="o">:=</span> <span class="n">arrTable</span> <span class="p">,</span>
     <span class="n">q_stVGP</span><span class="o">=&gt;</span> <span class="p">);</span>
