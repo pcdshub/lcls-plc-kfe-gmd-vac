@@ -13,6 +13,10 @@ VAR
     pv: EM1K0:GMD:RESET
 	'}
 	bReset:BOOL := False;
+	{attribute 'pytmc' := '
+    pv: EM2K0:XGMD:PurgeError
+	'}
+	bError:BOOL := False;
 	
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:PURGE:SP1;
 	field: HOPR 1000;
@@ -79,6 +83,7 @@ The purge cycle consists of the following steps;
 CASE step OF
 		0: // READY STATE
 		sMessage:= 'Purge Ready';
+		bError:=FALSE;
 		IF (bStartPurge_sw) Then
 			step:=10;
 			bGo :=FALSE;
@@ -307,6 +312,7 @@ CASE step OF
     bStartPurge_sw := false;
 	bPurgeActive := false;
 	bPurgeDone := FALSE;
+	bError:=TRUE;
 	VVC_80.M_Set_OPN_SW(false);
 	VVC_81.M_Set_OPN_SW(false);
 	VVC_82.M_Set_OPN_SW(false);
@@ -333,6 +339,7 @@ if (step >900 ) Then
     bStartPurge_sw := false;
 	bPurgeActive := false;
 	bPurgeDone := false;
+	bError:=TRUE;
 	VVC_80.M_Set_OPN_SW(false);
 	VVC_81.M_Set_OPN_SW(false);
 	VVC_82.M_Set_OPN_SW(false);
