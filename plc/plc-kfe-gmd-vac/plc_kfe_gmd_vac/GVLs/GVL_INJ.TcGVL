@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="GVL_INJ" Id="{b0e309d1-2282-43cb-a77d-1c68f1ea549b}">
     <Declaration><![CDATA[	VAR_GLOBAL
 		
@@ -29,8 +29,15 @@
 	GCM_80: FB_GCM;
 	
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:INJ_Override '}
-	
 	xOverrideMode : BOOL:= false;
+	
+	(*Additional VCN Interlock*)
+	{attribute 'pytmc' :=' pv:  EM1K0:GMD:VCN_ILK;
+    field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
+	 io: io;
+	 '}
+	bAdditionalVCNIlk : BOOL; 
 		
 //GVL_Sensors
 
@@ -51,6 +58,45 @@
 	// hv2 : FB_HighVoltage;
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:RTD:1 '}
 	RTD : FB_RTD;
+	
+	
+(* Pressure Control*)
+{attribute 'pytmc' := ' pv: EM1K0:GMD:GCP:40 '}
+	GCP: ST_VG;
+{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:SP;
+	field: HOPR 1000;
+	field: LOPR 0;
+	field: PREC 2;
+	field: EGU "TORR";
+	'}
+	fSetpointValue :REAL; 
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:GO;
+	 field: ZNAM STOP; 
+	 field: ONAM START; 
+	 io: io;
+	'}
+	bGo: BOOL:=FALSE; 
+ 	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:RESET;
+	 field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
+	 io: io;
+	 '}
+	bReset : BOOL; 
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:ERROR;
+    field: ZNAM FALSE; 
+	 field: ONAM TRUE; 
+	 io: io;
+	 '}
+	bError : BOOL; 
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:Kp1 '}
+	fKp1 : REAL:= 0.5; 
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:Tn1 '}
+	fTn1 : REAL:= 0.5; 
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:Kp2 '}
+	fKp2 : REAL:= 0.01; 
+	{attribute 'pytmc' :=' pv: EM1K0:GMD:CNTRL:Tn2 '}
+	fTn2 : REAL:= 0.5; 
+	
 
 END_VAR]]></Declaration>
   </GVL>

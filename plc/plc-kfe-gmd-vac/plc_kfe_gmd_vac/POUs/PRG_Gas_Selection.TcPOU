@@ -1,28 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="PRG_Gas_Selection" Id="{f65eb335-21e5-43a7-a5c6-4b463c324e82}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_Gas_Selection
 VAR
+	
 	CurrentGas: E_GasType;
-	//pragma
-	SelectedGas: E_GasType;
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[(* Gas selection includes a purge and checks interlocks*)
-
+// Initialize the selected gas
 if ( VVC_83.iq_stValve.q_xOPN_DO) then
-	CurrentGas := E_GasType.Neon;
+	SelectedGas := E_GasType.Neon;
 	elsif ( VVC_84.iq_stValve.q_xOPN_DO) then
-		CurrentGas := E_GasType.Argon;
+		SelectedGas := E_GasType.Argon;
 		elsif ( VVC_85.iq_stValve.q_xOPN_DO) then
-		CurrentGas := E_GasType.Krypton;
+		SelectedGas := E_GasType.Krypton;
 			elsif ( VVC_86.iq_stValve.q_xOPN_DO) then
-			CurrentGas := E_GasType.Xenon;
+			SelectedGas := E_GasType.Xenon;
+			 else 
+				 SelectedGas := E_GasType.none;
 END_IF
 
-
-If( CurrentGas <> SelectedGas) then
+(*
+If( CurrentGas <> SelectedGas) AND NOT (CurrentGas=E_GasType.none) then
 	bStartPurge_sw := true;
 END_IF
 
@@ -55,7 +57,7 @@ if NOT(bStartPurge_sw) AND(bPurgeDone) then
 		VVC_86.M_Set_OPN_SW(TRUE);
 	END_CASE
 END_IF
-
+*)
 
 /// vcn and vgp on manual or auto??]]></ST>
     </Implementation>

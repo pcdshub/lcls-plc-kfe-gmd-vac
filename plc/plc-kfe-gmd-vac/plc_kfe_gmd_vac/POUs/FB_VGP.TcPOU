@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="FB_VGP" Id="{7843698b-889d-4cb9-a659-0a84e4308c25}" SpecialFunc="None">
     <Declaration><![CDATA[(* This function implements the Basic functions for the Vat Motorized valve*)
 {attribute 'no_check'}
@@ -30,7 +30,7 @@ VAR CONSTANT
 END_VAR
 
 VAR
-	rOpenPosition: REAL:=1645; // Encoder MAX. Fully Open
+	rOpenPosition: REAL:=1660; // Encoder MAX. Fully Open
 	rTargetPosition : REAL;
 	rTargetVelocity: REAL:=30;
 	rHomingVelocity: REAL:=10;
@@ -97,6 +97,8 @@ VAR
     tErrorPresent : R_TRIG;
     tAction : R_TRIG; // Primary action of this device (OPN_DO, PUMP_RUN, etc.)
     
+	rt_close :R_TRIG;
+	rt_Open :R_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -106,7 +108,7 @@ ACT_INIT();
 // Interlocking
 q_stVGP.xIlkOK := i_xExtIlkOK;
 (*Checking which Control mode is selected*)
-IF q_stVGP.xIlkOK AND NOT (q_stVGP.pv_xError) THEN
+IF i_xExtIlkOK AND NOT (q_stVGP.pv_xError) THEN
 	IF q_stVGP.eValveControl = OpenValve THEN
 		q_stVGP.rReqPosition := rUpperLimit;
 	ELSIF q_stVGP.eValveControl = CloseValve THEN
@@ -116,13 +118,17 @@ IF q_stVGP.xIlkOK AND NOT (q_stVGP.pv_xError) THEN
 	ELSIF q_stVGP.eValveControl = PressureControl THEN
 		 q_stVGP.rReqPosition := LIMIT(0, i_ReqPos, rUpperLimit);
 	END_IF
-ELSE
+ELSIF NOT i_xExtIlkOK THEN
 	q_stVGP.rReqPosition := 0;
 	q_stVGP.eValveControl := CloseValve;//CloseValve;
-	bGo:=FALSE;
 END_IF
 
+rt_close (CLK:= q_stVGP.eValveControl = CloseValve);
+rt_Open (CLK:= q_stVGP.eValveControl = OpenValve);
 
+IF (rt_close.Q) OR (rt_Open.Q) THEN
+	q_stVGP.pv_xGo_SW:=TRUE;
+END_IF
 //Check the Drive State
 
 IF (*(InfoData_State<>16#8) OR*) (q_stVGP.eState = ERROR) THEN
@@ -156,10 +162,10 @@ ACT_MONITOR();
 AXIS();
 q_stVGP.rEnoder_Position := LREAL_TO_REAL(Axis.NcToPlc.ActPos); // encoder position
 
-
+(*
 IF NOT (i_xExtIlkOK) THEN
 	q_stVGP.eState := NEWTARGETPOSITION;
-END_IF
+END_IF*)
 //Homing STATE is missing
 
 // state machine for axis motion
@@ -198,9 +204,10 @@ END_IF
 					ELSE 
 					q_stVGP.eState := READY;
 				END_IF
-			IF (q_stVGP.pv_xGo_SW) AND i_xExtIlkOK(* AND( rOldTargetPosition <> rTargetPosition) *) THEN
+			IF (q_stVGP.pv_xGo_SW) AND q_stVGP.pv_xHomed(* AND( rOldTargetPosition <> rTargetPosition) *) THEN
 				q_stVGP.pv_xGo_SW := false;
 				q_stVGP.eState := NEWTARGETPOSITION;	
+				rOldTargetPosition := rTargetPosition;
 			END_IF
 
 			
@@ -804,6 +811,16 @@ END_VAR
 	(* set the addresses *)
 	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.pDataTable_ADR			:= ADR(arrTable_ENC);
 	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.nDataTable_SIZEOF		:= SIZEOF(arrTable_ENC);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_SetGoSw" Id="{629e01f5-cead-485f-aa3f-4f90865eaa39}">
+      <Declaration><![CDATA[METHOD M_SetGoSw : BOOL
+VAR_INPUT
+	bGo:BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[q_stVGP.pv_xGo_SW:=bGo;]]></ST>
       </Implementation>
     </Method>
     <Method Name="M_ValveControl" Id="{d751bf76-146a-4941-88f4-7263885a64c0}">
