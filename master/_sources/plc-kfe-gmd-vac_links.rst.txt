@@ -136,6 +136,7 @@ Links
         TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance, PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_60.q_xOPN_DO, TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_16, Channel 4^Output
         TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance, PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_70.q_xOPN_DO, TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_05, Channel 2^Output
         TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance, PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRC_70.q_xOPN_DO, TIID^Device 1 (EtherCAT)^EK1100_02_00^EL2004_02_05, Channel 4^Output
+        TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance, PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRO_40.q_xOPN_DO, TIID^Device 1 (EtherCAT)^EK1100_03_00^EL2212_03_09, DOX Control Channel 2^Control^Output
         TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance, PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VVC_40.q_xOPN_DO, TIID^Device 1 (EtherCAT)^EK1100_03_00^EL2212_03_09, DOX Control Channel 1^Control^Output
         TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance, PlcTask Outputs^GVL_INJ.VCN_40.q_iRawPosition, TIID^Device 1 (EtherCAT)^EP4374-0002_05_00, AO Outputs Channel 3^Analog output
         TIPC^plc_kfe_gmd_vac^plc_kfe_gmd_vac Instance, PlcTask Outputs^GVL_INJ.VGP_40.Axis.PlcToNc, TINC^NC-Task 1 SAF^Axes^VGP_40, Inputs^FromPlc
