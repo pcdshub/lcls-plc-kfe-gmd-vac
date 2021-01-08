@@ -43,7 +43,11 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
+      <ST><![CDATA[//Set VRC upper limit
+IF bInit
+THEN
+	VCN_40.M_SetThrottle(30); // default at start up, should be overridedn through epics pv
+END_IF
 
 //VCN //bAdditionalVCNIlk
 IF (bAdditionalVCNIlk) THEN

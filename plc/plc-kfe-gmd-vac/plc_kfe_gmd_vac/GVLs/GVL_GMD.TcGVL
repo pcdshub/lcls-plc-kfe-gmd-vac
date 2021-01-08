@@ -78,9 +78,9 @@ fb_EM1K0_GMD_PRT_40 : FB_EbaraEVA;
 fb_EM1K0_GMD_VVC_40 : FB_VVC;
 
 //Roughing DC Valves
-{attribute 'pytmc' := ' pv: AT1K0:GAS:VCP:110 '}
-{attribute 'TcLinkTo' := 	'.q_xOPN_DO	:=	TIIB[=+-EL2212_03_09]^DOX Control Channel 2^Control^Output'}
-fb_EM1K0_GMD_VCP_40 : FB_VVC;
+{attribute 'pytmc' := ' pv:  EM1K0:GMD:VRO:40 '}
+{attribute 'TcLinkTo' := 	'.q_xOPN_DO	:=	TIIB[EL2212_03_09]^DOX Control Channel 2^Control^Output'}
+fb_EM1K0_GMD_VRO_40 : FB_VVC;
 
 END_VAR]]></Declaration>
   </GVL>
