@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="PRG_GMD" Id="{febc07a9-f1e9-4dc5-b21e-96967800d0f7}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_GMD
 VAR
@@ -143,48 +143,12 @@ fb_EM1K0_GMD_VVC_40(
     ),
 	i_xOverrideMode := xSystemOverrideMode,
 );
+
+// Roughing valve
+IF( fb_EM1K0_GMD_PRT_40.stPump.eState = pumpSTARTING ) OR ( fb_EM1K0_GMD_PRT_40.stPump.eState = pumpRUNNING ) THEN fb_EM1K0_GMD_VRO_40.M_Open(TRUE); END_IF
+fb_EM1K0_GMD_VRO_40(i_xExtILK_OK:= (fb_EM1K0_GMD_PRT_40.stPump.eState = pumpRUNNING  OR  fb_EM1K0_GMD_PRT_40.stPump.eState = pumpSTARTING ), i_xOverrideMode:= , iq_stValve=> );
+
 ]]></ST>
     </Implementation>
-    <LineIds Name="PRG_GMD">
-      <LineId Id="6" Count="8" />
-      <LineId Id="51" Count="3" />
-      <LineId Id="15" Count="0" />
-      <LineId Id="67" Count="3" />
-      <LineId Id="16" Count="0" />
-      <LineId Id="72" Count="3" />
-      <LineId Id="17" Count="0" />
-      <LineId Id="77" Count="3" />
-      <LineId Id="18" Count="0" />
-      <LineId Id="82" Count="3" />
-      <LineId Id="19" Count="0" />
-      <LineId Id="87" Count="3" />
-      <LineId Id="20" Count="0" />
-      <LineId Id="92" Count="3" />
-      <LineId Id="21" Count="4" />
-      <LineId Id="111" Count="2" />
-      <LineId Id="115" Count="1" />
-      <LineId Id="114" Count="0" />
-      <LineId Id="109" Count="1" />
-      <LineId Id="118" Count="7" />
-      <LineId Id="117" Count="0" />
-      <LineId Id="127" Count="7" />
-      <LineId Id="126" Count="0" />
-      <LineId Id="136" Count="7" />
-      <LineId Id="135" Count="0" />
-      <LineId Id="145" Count="8" />
-      <LineId Id="161" Count="0" />
-      <LineId Id="154" Count="6" />
-      <LineId Id="144" Count="0" />
-      <LineId Id="31" Count="0" />
-      <LineId Id="108" Count="0" />
-      <LineId Id="32" Count="12" />
-      <LineId Id="168" Count="11" />
-      <LineId Id="189" Count="1" />
-      <LineId Id="188" Count="0" />
-      <LineId Id="186" Count="1" />
-      <LineId Id="180" Count="0" />
-      <LineId Id="167" Count="0" />
-      <LineId Id="5" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

@@ -2421,6 +2421,13 @@ IO]]>
 							</Comment>
 							<Type>BOOL</Type>
 						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_VRO_40.q_xOPN_DO</Name>
+							<Comment>
+								<![CDATA[IO]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="8">
 						<Name>PlcTask Retains</Name>
@@ -7544,7 +7551,7 @@ Bit1: Value bigger/equal Limit2]]>
 								<Entry Name="Control__">
 									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
-								<Entry Name="Control__Output" Index="#x7010" Sub="#x02">
+								<Entry Name="Control__Output" Index="#x7010" Sub="#x02" Flags="#x00008020">
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Control__Tristate" Index="#x7010" Sub="#x03">
@@ -10159,6 +10166,7 @@ Bit1: Value is greater than or equal to limit 2]]>
 				<Link VarA="PlcTask Inputs^GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xIsRun" VarB="Channel 1^Input"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100_03_00^EL2212_03_09">
+				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VRO_40.q_xOPN_DO" VarB="DOX Control Channel 2^Control^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_GMD.fb_EM1K0_GMD_VVC_40.q_xOPN_DO" VarB="DOX Control Channel 1^Control^Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1100_03_00^EL2794_03_01">

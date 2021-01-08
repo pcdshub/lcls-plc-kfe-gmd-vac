@@ -84,6 +84,7 @@ CASE step OF
 		0: // READY STATE
 		sMessage:= 'Purge Ready';
 		bError:=FALSE;
+		bPurgeActive := FALSE;
 		IF (bStartPurge_sw) Then
 			step:=10;
 			bGo :=FALSE;
@@ -365,7 +366,7 @@ NeedleVlvPurgeTmr(IN:= (step = 60) OR (step = 62)  OR (step = 64)  OR (step = 66
 IF (bStartPurge_sw) THEN bGo :=FALSE; END_IF
 /// If at any point the VGP interlocked or in an error state, we stop purge.
 
-IF (VGP_40.q_stVGP.pv_xError ) OR NOT (VGP_40.i_xExtIlkOK) AND (bPurgeActive)  AND (step >=55) AND (step <=70) THEN
+IF ((VGP_40.q_stVGP.pv_xError ) OR NOT (VGP_40.i_xExtIlkOK)) AND (bPurgeActive)  AND (step >=55) AND (step <=70) THEN
 		step:=900;
 END_IF
 IF NOT (VCN_40.i_xExtIlkOK) AND (bPurgeActive) AND (step >=60) AND (step <=70) THEN

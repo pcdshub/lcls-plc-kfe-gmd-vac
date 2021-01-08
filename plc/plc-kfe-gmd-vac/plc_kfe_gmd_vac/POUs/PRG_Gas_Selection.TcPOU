@@ -19,8 +19,8 @@ if ( VVC_83.iq_stValve.q_xOPN_DO) then
 		SelectedGas := E_GasType.Krypton;
 			elsif ( VVC_86.iq_stValve.q_xOPN_DO) then
 			SelectedGas := E_GasType.Xenon;
-			 else 
-				 SelectedGas := E_GasType.none;
+			// else 
+			//	 SelectedGas := E_GasType.none;
 END_IF
 
 (*
