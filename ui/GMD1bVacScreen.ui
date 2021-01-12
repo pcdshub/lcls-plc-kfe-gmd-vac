@@ -1390,6 +1390,34 @@ ControlOnlyValveNC[state=&quot;OPEN&quot;] #icon {
         <string>GPI-70</string>
        </property>
       </widget>
+      <widget class="ControlOnlyValveNC" name="ControlOnlyValveNC_6">
+       <property name="geometry">
+        <rect>
+         <x>1192</x>
+         <y>638</y>
+         <width>20</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="controlsLocation" stdset="0">
+        <enum>PCDSSymbolBase::Hidden</enum>
+       </property>
+       <property name="channelsPrefix" stdset="0">
+        <string>ca://EM1K0:GMD:VRO:40</string>
+       </property>
+       <property name="iconSize" stdset="0">
+        <number>15</number>
+       </property>
+       <property name="rotateIcon" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="controlButtonHorizontal" stdset="0">
+        <bool>false</bool>
+       </property>
+      </widget>
      </widget>
     </widget>
    </item>
@@ -1433,6 +1461,11 @@ ControlOnlyValveNC[state=&quot;OPEN&quot;] #icon {
   </customwidget>
   <customwidget>
    <class>PneumaticValve</class>
+   <extends>PCDSSymbolBase</extends>
+   <header>pcdswidgets.vacuum.valves</header>
+  </customwidget>
+  <customwidget>
+   <class>ControlOnlyValveNC</class>
    <extends>PCDSSymbolBase</extends>
    <header>pcdswidgets.vacuum.valves</header>
   </customwidget>
