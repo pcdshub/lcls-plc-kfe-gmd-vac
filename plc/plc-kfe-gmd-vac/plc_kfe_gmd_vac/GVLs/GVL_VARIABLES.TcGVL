@@ -6,7 +6,7 @@
 	xSystemOverrideMode : BOOL; (* Global system override for the prototype section*)
 	
 	{attribute 'pytmc' :=' pv: EM1K0:GMD:AUTO_VVC_40 '}
-	bAutoVVC40 : BOOL := False;
+	bAutoVVC40 : BOOL := TRUE;
 	
 	{attribute 'pytmc' := '
 	pv: EM1K0:GMD:GAS_TYPE ;
