@@ -367,6 +367,28 @@ NeedleValve[state=&quot;ManualControl&quot;] #icon {
 }
 
 
+NeedleValve[state=&quot;MANUAL CNTRL&quot;] #icon {
+   qproperty-penStyle: &quot;QT::SolidLine&quot;;
+    qproperty-penColor: black;
+    qproperty-penWidth: 2;
+	qproperty-brush: orange;
+}
+
+NeedleValve[state=&quot;PRESS CNTRL&quot;] #icon {
+   qproperty-penStyle: &quot;QT::SolidLine&quot;;
+    qproperty-penColor: black;
+    qproperty-penWidth: 2;
+	qproperty-brush: orange;
+}
+
+NeedleValve[state=&quot;OPEN&quot;] #icon {
+   qproperty-penStyle: &quot;QT::SolidLine&quot;;
+    qproperty-penColor: black;
+    qproperty-penWidth: 2;
+	qproperty-brush: orange;
+}
+
+
 
 
 ScrollPump[state=&quot;RUNNING&quot;] #icon {
@@ -521,7 +543,7 @@ IonPump[state=&quot;On&quot;] #icon {
     <string/>
    </property>
    <property name="text">
-    <string>0.000</string>
+    <string>17.500</string>
    </property>
    <property name="channel" stdset="0">
     <string>ca://EM1K0:GMD:VCN:40:POS_REQ_RBV</string>
@@ -544,22 +566,6 @@ IonPump[state=&quot;On&quot;] #icon {
    </property>
    <property name="channelsPrefix" stdset="0">
     <string>ca://EM1K0:GMD:GPI:40</string>
-   </property>
-  </widget>
-  <widget class="PyDMEnumButton" name="PyDMEnumButton">
-   <property name="geometry">
-    <rect>
-     <x>15</x>
-     <y>230</y>
-     <width>150</width>
-     <height>100</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string/>
-   </property>
-   <property name="channel" stdset="0">
-    <string>ca://EM1K0:GMD:VCN:40:STATE</string>
    </property>
   </widget>
   <widget class="PyDMLineEdit" name="PyDMLineEdit_2">
@@ -1044,7 +1050,7 @@ IonPump[state=&quot;On&quot;] #icon {
     <string/>
    </property>
    <property name="text">
-    <string>0.013</string>
+    <string>20.000</string>
    </property>
    <property name="channel" stdset="0">
     <string>ca://EM1K0:GMD:VGP:40:POS_RBV</string>
@@ -1478,19 +1484,205 @@ IonPump[state=&quot;On&quot;] #icon {
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>650</y>
-     <width>180</width>
-     <height>20</height>
+     <y>619</y>
+     <width>551</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <weight>75</weight>
-     <bold>true</bold>
+     <pointsize>36</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
     <string>EBD - EM1K0-GMD</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_8">
+   <property name="geometry">
+    <rect>
+     <x>23</x>
+     <y>397</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Gas Type</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_9">
+   <property name="geometry">
+    <rect>
+     <x>84</x>
+     <y>400</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://EM1K0:GMD:GAS_TYPE_RBV</string>
+   </property>
+  </widget>
+  <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_3">
+   <property name="geometry">
+    <rect>
+     <x>24</x>
+     <y>430</y>
+     <width>131</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Purge Controls</string>
+   </property>
+   <property name="filenames" stdset="0">
+    <stringlist>
+     <string>EM1K0-Purge.ui</string>
+    </stringlist>
+   </property>
+   <property name="openInNewWindow" stdset="0">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>990</x>
+     <y>350</y>
+     <width>59</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>GPI-10</string>
+   </property>
+  </widget>
+  <widget class="RoughGauge" name="RoughGauge">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>350</y>
+     <width>70</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="channelsPrefix" stdset="0">
+    <string>ca://EM1K0:GMD:GPI:10</string>
+   </property>
+  </widget>
+  <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_4">
+   <property name="geometry">
+    <rect>
+     <x>24</x>
+     <y>460</y>
+     <width>131</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Override</string>
+   </property>
+   <property name="filenames" stdset="0">
+    <stringlist>
+     <string>EM1K0-Override.ui</string>
+    </stringlist>
+   </property>
+   <property name="openInNewWindow" stdset="0">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_10">
+   <property name="geometry">
+    <rect>
+     <x>57</x>
+     <y>232</y>
+     <width>101</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://EM1K0:GMD:VCN:40:STATE_RBV</string>
+   </property>
+  </widget>
+  <widget class="PyDMPushButton" name="PyDMPushButton">
+   <property name="geometry">
+    <rect>
+     <x>31</x>
+     <y>256</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://EM1K0:GMD:VCN:40:STATE</string>
+   </property>
+   <property name="pressValue" stdset="0">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="PyDMPushButton" name="PyDMPushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>31</x>
+     <y>279</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Manual Control</string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://EM1K0:GMD:VCN:40:STATE</string>
+   </property>
+   <property name="pressValue" stdset="0">
+    <string>3</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_11">
+   <property name="geometry">
+    <rect>
+     <x>8</x>
+     <y>232</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>STATE:</string>
    </property>
   </widget>
   <zorder>line_18</zorder>
@@ -1501,7 +1693,6 @@ IonPump[state=&quot;On&quot;] #icon {
   <zorder>NeedleValve</zorder>
   <zorder>PyDMLabel_3</zorder>
   <zorder>GMP_2</zorder>
-  <zorder>PyDMEnumButton</zorder>
   <zorder>PyDMLineEdit_2</zorder>
   <zorder>line_6</zorder>
   <zorder>ControlOnlyValveNC</zorder>
@@ -1547,6 +1738,16 @@ IonPump[state=&quot;On&quot;] #icon {
   <zorder>PyDMTimePlot</zorder>
   <zorder>PyDMLineEdit_3</zorder>
   <zorder>label_15</zorder>
+  <zorder>PyDMLabel_8</zorder>
+  <zorder>PyDMLabel_9</zorder>
+  <zorder>PyDMRelatedDisplayButton_3</zorder>
+  <zorder>label_16</zorder>
+  <zorder>RoughGauge</zorder>
+  <zorder>PyDMRelatedDisplayButton_4</zorder>
+  <zorder>PyDMLabel_10</zorder>
+  <zorder>PyDMPushButton</zorder>
+  <zorder>PyDMPushButton_2</zorder>
+  <zorder>PyDMLabel_11</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -1570,14 +1771,14 @@ IonPump[state=&quot;On&quot;] #icon {
    <header>pydm.widgets.drawing</header>
   </customwidget>
   <customwidget>
-   <class>PyDMEnumButton</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.enum_button</header>
-  </customwidget>
-  <customwidget>
    <class>PyDMLineEdit</class>
    <extends>QLineEdit</extends>
    <header>pydm.widgets.line_edit</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMPushButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.pushbutton</header>
   </customwidget>
   <customwidget>
    <class>PyDMRelatedDisplayButton</class>
