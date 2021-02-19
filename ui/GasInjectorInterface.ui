@@ -16,17 +16,17 @@
   <widget class="NeedleValve" name="NeedleValve">
    <property name="geometry">
     <rect>
-     <x>277</x>
-     <y>-4</y>
-     <width>180</width>
-     <height>121</height>
+     <x>387</x>
+     <y>30</y>
+     <width>70</width>
+     <height>50</height>
     </rect>
    </property>
    <property name="toolTip">
     <string/>
    </property>
    <property name="controlsLocation" stdset="0">
-    <enum>PCDSSymbolBase::Left</enum>
+    <enum>PCDSSymbolBase::Hidden</enum>
    </property>
    <property name="channelsPrefix" stdset="0">
     <string>ca://${VGP}</string>
@@ -88,9 +88,9 @@
   <widget class="ColdCathodeGauge" name="ColdCathodeGauge">
    <property name="geometry">
     <rect>
-     <x>-46</x>
+     <x>-20</x>
      <y>44</y>
-     <width>180</width>
+     <width>120</width>
      <height>151</height>
     </rect>
    </property>
@@ -123,14 +123,17 @@
   <widget class="NeedleValve" name="NeedleValve_2">
    <property name="geometry">
     <rect>
-     <x>146</x>
-     <y>41</y>
-     <width>180</width>
-     <height>141</height>
+     <x>193</x>
+     <y>20</y>
+     <width>80</width>
+     <height>80</height>
     </rect>
    </property>
    <property name="toolTip">
     <string/>
+   </property>
+   <property name="controlsLocation" stdset="0">
+    <enum>PCDSSymbolBase::Hidden</enum>
    </property>
    <property name="channelsPrefix" stdset="0">
     <string>ca://${VCN}</string>
@@ -308,7 +311,7 @@
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>190</y>
+     <y>100</y>
      <width>59</width>
      <height>15</height>
     </rect>
@@ -320,8 +323,8 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>110</y>
+     <x>350</x>
+     <y>70</y>
      <width>59</width>
      <height>15</height>
     </rect>
@@ -369,8 +372,51 @@
     <string>GHC-${NUMBER}</string>
    </property>
   </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_7">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>80</y>
+     <width>40</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>0.000</string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://EM1K0:GMD:VCN:40:POS_REQ_RBV</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_6">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>50</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>0.000</string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://EM1K0:GMD:VGP:40:POS_RBV</string>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
   <customwidget>
    <class>PCDSSymbolBase</class>
    <extends>QWidget</extends>
