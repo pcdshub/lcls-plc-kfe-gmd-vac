@@ -701,7 +701,7 @@
     <span class="n">xSystemOverrideMode</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span> <span class="p">(</span><span class="o">*</span> <span class="n">Global</span> <span class="n">system</span> <span class="n">override</span> <span class="k">for</span> <span class="n">the</span> <span class="n">prototype</span> <span class="n">section</span><span class="o">*</span><span class="p">)</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39; pv: EM1K0:GMD:AUTO_VVC_40 &#39;</span><span class="p">}</span>
-    <span class="n">bAutoVVC40</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+    <span class="n">bAutoVVC40</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
     <span class="n">pv</span><span class="p">:</span> <span class="n">EM1K0</span><span class="p">:</span><span class="n">GMD</span><span class="p">:</span><span class="n">GAS_TYPE</span> <span class="p">;</span>
@@ -1874,7 +1874,7 @@ END_PROGRAM
 
 <span class="o">//</span> <span class="n">FB_VVC</span>
 <span class="n">IF</span> <span class="n">bAutoVVC40</span> <span class="n">THEN</span>
-    <span class="n">IF</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="o">.</span><span class="n">stPump</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">pumpRUNNING</span> <span class="n">THEN</span>
+    <span class="n">IF</span> <span class="n">fb_EM1K0_GMD_PTM_40</span><span class="o">.</span><span class="n">iq_stPtm</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">pumpRUNNING</span> <span class="n">OR</span> <span class="n">fb_EM1K0_GMD_PTM_40</span><span class="o">.</span><span class="n">iq_stPtm</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">pumpSTARTING</span> <span class="n">THEN</span>
             <span class="n">fb_EM1K0_GMD_VVC_40</span><span class="o">.</span><span class="n">M_Open</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span>
     <span class="n">ELSE</span>
             <span class="n">fb_EM1K0_GMD_VVC_40</span><span class="o">.</span><span class="n">M_Open</span><span class="p">(</span><span class="kc">False</span><span class="p">);</span>
@@ -1882,12 +1882,12 @@ END_PROGRAM
 <span class="n">END_IF</span>
 
 <span class="n">fb_EM1K0_GMD_VVC_40</span><span class="p">(</span>
-    <span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">F_TURBO_PROT_SLND_ILK</span><span class="p">(</span>
+    <span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_40</span><span class="o">.</span><span class="n">iq_stPtm</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">pumpRUNNING</span> <span class="n">OR</span> <span class="n">fb_EM1K0_GMD_PTM_40</span><span class="o">.</span><span class="n">iq_stPtm</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">pumpSTARTING</span><span class="p">,(</span><span class="o">*</span><span class="n">F_TURBO_PROT_SLND_ILK</span><span class="p">(</span>
         <span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PTM_40</span><span class="o">.</span><span class="n">iq_stPtm</span><span class="p">,</span>
         <span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_40</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span>
         <span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_GPI_10</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span>
         <span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">fb_EM1K0_GMD_PRT_40</span><span class="o">.</span><span class="n">stPump</span>
-    <span class="p">),</span>
+    <span class="p">),</span><span class="o">*</span><span class="p">)</span>
     <span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">,</span>
 <span class="p">);</span>
 

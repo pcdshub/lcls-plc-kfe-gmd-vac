@@ -510,7 +510,7 @@ GVL_VARIABLES
     	xSystemOverrideMode : BOOL; (* Global system override for the prototype section*)
     	
     	{attribute 'pytmc' :=' pv: EM1K0:GMD:AUTO_VVC_40 '}
-    	bAutoVVC40 : BOOL := False;
+    	bAutoVVC40 : BOOL := TRUE;
     	
     	{attribute 'pytmc' := '
     	pv: EM1K0:GMD:GAS_TYPE ;
@@ -1706,7 +1706,7 @@ PRG_GMD
 
     // FB_VVC
     IF bAutoVVC40 THEN
-    	IF fb_EM1K0_GMD_PRT_40.stPump.eState = pumpRUNNING THEN
+    	IF fb_EM1K0_GMD_PTM_40.iq_stPtm.eState = pumpRUNNING OR fb_EM1K0_GMD_PTM_40.iq_stPtm.eState = pumpSTARTING THEN
     		fb_EM1K0_GMD_VVC_40.M_Open(True);
     	ELSE 
     		fb_EM1K0_GMD_VVC_40.M_Open(False);
@@ -1714,12 +1714,12 @@ PRG_GMD
     END_IF
 
     fb_EM1K0_GMD_VVC_40(
-    	i_xExtILK_OK := F_TURBO_PROT_SLND_ILK(
+    	i_xExtILK_OK := fb_EM1K0_GMD_PTM_40.iq_stPtm.eState = pumpRUNNING OR fb_EM1K0_GMD_PTM_40.iq_stPtm.eState = pumpSTARTING,(*F_TURBO_PROT_SLND_ILK(
             i_Turbo := fb_EM1K0_GMD_PTM_40.iq_stPtm,
     	    i_stISG := fb_EM1K0_GMD_GPI_40.PG,
     	    i_stBSG := fb_EM1K0_GMD_GPI_10.PG,
             ScrollPump := fb_EM1K0_GMD_PRT_40.stPump
-        ),
+        ),*)
     	i_xOverrideMode := xSystemOverrideMode,
     );
 
