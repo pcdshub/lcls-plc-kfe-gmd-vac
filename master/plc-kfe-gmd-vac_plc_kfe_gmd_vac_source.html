@@ -890,6 +890,8 @@ END_ACTION
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
             <span class="n">pv</span><span class="p">:</span> <span class="n">TEMP</span>
             <span class="n">io</span><span class="p">:</span> <span class="nb">input</span>
+            <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">PREC</span> <span class="mi">2</span>
     <span class="s1">&#39;}</span>
     <span class="n">fTemp</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
 
@@ -914,7 +916,7 @@ END_ACTION
     <span class="n">iRaw</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">INT</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">bConnected</span> <span class="o">:=</span> <span class="n">NOT</span> <span class="p">(</span><span class="n">bOverrange</span> <span class="n">AND</span> <span class="n">bError</span><span class="p">);</span>
-<span class="n">fTemp</span> <span class="o">:=</span> <span class="n">iRaw</span> <span class="o">/</span> <span class="n">iScale</span><span class="p">;</span>
+<span class="n">fTemp</span> <span class="o">:=</span> <span class="n">INT_TO_LREAL</span><span class="p">(</span><span class="n">iRaw</span><span class="p">)</span> <span class="o">/</span> <span class="n">iScale</span><span class="p">;</span>
 
 <span class="n">END_FUNCTION_BLOCK</span>
 </pre></div>

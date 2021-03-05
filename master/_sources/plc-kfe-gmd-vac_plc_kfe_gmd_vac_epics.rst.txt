@@ -160,7 +160,9 @@ FB_RTD
     * - $(PREFIX):TEMP_RBV
       - ai
       - $(SYMBOL).fTemp
-      - | io: input
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
 
 
  
@@ -8547,7 +8549,9 @@ Database Records
     * - EM1K0:GMD:RTD:1:TEMP_RBV
       - ai
       - GVL_INJ.RTD.fTemp
-      - | io: input
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
 
 
     * - EM1K0:GMD:sPURGE

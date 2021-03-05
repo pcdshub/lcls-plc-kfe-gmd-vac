@@ -712,6 +712,8 @@ FB_RTD
     	{attribute 'pytmc' := '
     		pv: TEMP
     		io: input
+    		field: EGU C
+            field: PREC 2
     	'}
     	fTemp: LREAL;
     	
@@ -736,7 +738,7 @@ FB_RTD
     	iRaw AT %I*: INT;
     END_VAR
     bConnected := NOT (bOverrange AND bError);
-    fTemp := iRaw / iScale;
+    fTemp := INT_TO_LREAL(iRaw) / iScale;
 
     END_FUNCTION_BLOCK
 
