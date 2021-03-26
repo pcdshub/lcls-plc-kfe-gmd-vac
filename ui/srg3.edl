@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 685
-y 73
+x 411
+y 110
 w 520
 h 950
 font "helvetica-medium-r-18.0"
@@ -172,9 +172,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 200
-y 760
-w 110
+x 190
+y 755
+w 55
 h 20
 controlPv "$(P):SetUpperSpeedLimit"
 font "helvetica-medium-r-10.0"
@@ -196,9 +196,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 200
-y 805
-w 110
+x 190
+y 800
+w 55
 h 20
 controlPv "$(P):SetLowerSpeedLimit"
 font "helvetica-medium-r-10.0"
@@ -707,8 +707,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 402
-y 49
+x 400
+y 45
 w 108
 h 20
 fgColor index 14
@@ -726,9 +726,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 250
-y 49
-w 148
+x 265
+y 45
+w 130
 h 20
 font "helvetica-medium-r-10.0"
 fontAlign "right"
@@ -736,7 +736,7 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Measurement SCAN Rate"
+  "Measurement SCAN Rate:"
 }
 endObjectProperties
 
@@ -1924,7 +1924,7 @@ major 4
 minor 0
 release 0
 x 450
-y 86
+y 105
 w 56
 h 97
 
@@ -1937,7 +1937,7 @@ major 4
 minor 0
 release 0
 x 450
-y 86
+y 106
 w 56
 h 97
 
@@ -1950,7 +1950,7 @@ major 4
 minor 0
 release 0
 x 450
-y 86
+y 106
 w 56
 h 97
 lineColor index 14
@@ -1969,7 +1969,7 @@ major 4
 minor 1
 release 1
 x 455
-y 90
+y 110
 w 31
 h 12
 font "helvetica-medium-r-10.0"
@@ -1989,7 +1989,7 @@ major 4
 minor 1
 release 1
 x 455
-y 105
+y 125
 w 34
 h 12
 font "helvetica-medium-r-10.0"
@@ -2009,7 +2009,7 @@ major 4
 minor 1
 release 1
 x 455
-y 120
+y 140
 w 28
 h 12
 font "helvetica-medium-r-10.0"
@@ -2029,7 +2029,7 @@ major 4
 minor 1
 release 1
 x 455
-y 135
+y 155
 w 36
 h 12
 font "helvetica-medium-r-10.0"
@@ -2049,7 +2049,7 @@ major 4
 minor 1
 release 1
 x 455
-y 150
+y 170
 w 35
 h 12
 font "helvetica-medium-r-10.0"
@@ -2199,5 +2199,94 @@ topShadowColor index 1
 botShadowColor index 14
 controlPv "$(P):SetSpeedCtlMode"
 font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 255
+y 755
+w 80
+h 20
+controlPv "$(P):GetUpperSpeedLimit"
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 15
+bgColor index 11
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 255
+y 800
+w 80
+h 20
+controlPv "$(P):GetLowerSpeedLimit"
+font "helvetica-medium-r-10.0"
+fontAlign "center"
+fgColor index 15
+bgColor index 11
+limitsFromDb
+nullColor index 40
+smartRefresh
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 400
+y 65
+w 108
+h 20
+fgColor index 14
+bgColor index 5
+inconsistentColor index 12
+topShadowColor index 1
+botShadowColor index 14
+controlPv "$(P):UpdateAll.SCAN"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 265
+y 65
+w 130
+h 20
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Cfg. SCAN Rate:"
+}
 endObjectProperties
 
