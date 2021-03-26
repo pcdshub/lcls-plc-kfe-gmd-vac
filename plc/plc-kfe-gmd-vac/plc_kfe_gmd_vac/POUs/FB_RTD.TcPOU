@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="FB_RTD" Id="{9e160950-0cf3-4e96-b8ef-8d4cb7865f39}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_RTD
 VAR_INPUT
@@ -9,6 +9,8 @@ VAR_OUTPUT
 	{attribute 'pytmc' := '
 		pv: TEMP
 		io: input
+		field: EGU C
+        field: PREC 2
 	'}
 	fTemp: LREAL;
 	
@@ -34,11 +36,7 @@ VAR
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[bConnected := NOT (bOverrange AND bError);
-fTemp := iRaw / iScale;]]></ST>
+fTemp := INT_TO_LREAL(iRaw) / iScale;]]></ST>
     </Implementation>
-    <LineIds Name="FB_RTD">
-      <LineId Id="39" Count="0" />
-      <LineId Id="9" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
