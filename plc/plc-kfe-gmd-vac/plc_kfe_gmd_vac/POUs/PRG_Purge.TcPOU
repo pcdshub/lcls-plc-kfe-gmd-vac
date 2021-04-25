@@ -85,6 +85,7 @@ CASE step OF
 		sMessage:= 'Purge Ready';
 		bError:=FALSE;
 		bPurgeActive := FALSE;
+		VCN_40.i_xPurge := FALSE;
 		IF (bStartPurge_sw) Then
 			step:=10;
 			bGo :=FALSE;
@@ -186,6 +187,7 @@ CASE step OF
 
 60: //BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
 	VCN_40.M_ValveControl(E_VCN.PressureControl);
+	VCN_40.i_xPurge := TRUE;
 	VCN_40.i_ReqPos := 15;
 	sMessage:= 'VCN Burp: VCN to 15%';
 	// wait for a period of time to ensure that the Valve is fully closed
@@ -194,6 +196,7 @@ CASE step OF
 	END_IF
 	
 61:
+	VCN_40.i_xPurge := TRUE;
 	VCN_40.i_ReqPos := 19; 
 	sMessage:= 'VCN Burp: VCN to 19%';
 	IF (VCN_Timer.Q) THEN
@@ -201,6 +204,7 @@ CASE step OF
 	END_IF
 	
 62:	//BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
+	VCN_40.i_xPurge := TRUE;
 	VCN_40.i_ReqPos := 25;
 	sMessage:= 'VCN Burp: VCN to 25%';
 	// wait for a period of time to ensure that the Valve is fully closed
@@ -209,6 +213,7 @@ CASE step OF
 	END_IF
 	
 63:
+	VCN_40.i_xPurge := TRUE;
 	VCN_40.i_ReqPos := 31; 
 	sMessage:= 'VCN Burp: VCN to 31%';
 	IF (VCN_Timer.Q) THEN
@@ -216,6 +221,7 @@ CASE step OF
 	END_IF	
 	
 64: 
+	VCN_40.i_xPurge := TRUE;
 	VCN_40.i_ReqPos := 39; 
 	sMessage:= 'VCN Burp: VCN to 39%';
 	IF (NeedleVlvPurgeTmr.Q) THEN
@@ -223,6 +229,7 @@ CASE step OF
 	END_IF
 	
 65: 
+	VCN_40.i_xPurge := TRUE;
 	VCN_40.i_ReqPos := 49; 
 	sMessage:= 'VCN Burp: VCN to 49%';
 	IF (VCN_Timer.Q) THEN
@@ -230,6 +237,7 @@ CASE step OF
 	END_IF
 	
 66: 
+	VCN_40.i_xPurge := TRUE;
 	VCN_40.i_ReqPos := 62; 
 	sMessage:= 'VCN Burp: VCN to 62%';
 	IF (NeedleVlvPurgeTmr.Q) THEN
@@ -237,6 +245,7 @@ CASE step OF
 	END_IF
 	
 67: 
+	VCN_40.i_xPurge := TRUE;
 	VCN_40.i_ReqPos := 78; 
 	sMessage:= 'VCN Burp: VCN to 78%';
 	IF (VCN_Timer.Q) THEN
@@ -244,6 +253,7 @@ CASE step OF
 	END_IF
 
 68: 
+	VCN_40.i_xPurge := TRUE;
 	VCN_40.i_ReqPos := 100; 
 	sMessage:= 'VCN Burp: VCN to 100%';
 	IF (NeedleVlvPurgeTmr.Q) THEN
@@ -303,6 +313,7 @@ CASE step OF
 	VVC_84.M_Set_OPN_SW(false);
 	VVC_85.M_Set_OPN_SW(false);
 	VVC_86.M_Set_OPN_SW(false);
+	VCN_40.i_xPurge := FALSE;
 	VCN_40.M_ValveControl(E_VCN.CloseValve);
 	VGP_40.M_ValveControl(E_VCN.ManualControl); 
 	// reset selected gas to none
@@ -321,6 +332,7 @@ CASE step OF
 	VVC_84.M_Set_OPN_SW(false);
 	VVC_85.M_Set_OPN_SW(false);
 	VVC_86.M_Set_OPN_SW(false);
+	VCN_40.i_xPurge := FALSE;
 	VCN_40.M_ValveControl(E_VCN.CloseValve);
 	VGP_40.M_ValveControl(E_VCN.ManualControl); // CLOSE or OPEN to pump down
 	sMessage:= 'Purge Error: Interlock';
