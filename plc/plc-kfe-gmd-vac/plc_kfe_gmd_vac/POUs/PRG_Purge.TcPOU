@@ -386,7 +386,13 @@ IF NOT (VCN_40.i_xExtIlkOK) AND (bPurgeActive) AND (step >=60) AND (step <=70) T
 END_IF
 IF (NOT (fb_EM1K0_GMD_PRT_40.stPump.eState = E_PumpState.pumpRUNNING)) AND (bPurgeActive) THEN
 		step:=900;
-END_IF]]></ST>
+END_IF
+
+//Extra purge interlock
+IF (VVC_83.M_IsOpen()) OR  (VVC_84.M_IsOpen()) OR (VVC_85.M_IsOpen()) OR  (VVC_86.M_IsOpen()) THEN
+	VCN_40.i_xPurge := FALSE;
+END_IF
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
