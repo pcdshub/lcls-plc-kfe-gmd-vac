@@ -20,6 +20,10 @@ E_GasType
     END_TYPE
 
 
+Related:
+    * `E_GasType`_
+
+
 E_HomeState
 ^^^^^^^^^^^
 
@@ -46,6 +50,8 @@ E_HomeState
     END_TYPE
 
 
+
+
 E_MoveState
 ^^^^^^^^^^^
 
@@ -68,6 +74,8 @@ E_MoveState
     	HOME
     ) UDINT;
     END_TYPE
+
+
 
 
 ST_HV
@@ -99,6 +107,8 @@ ST_HV
     	rPRO_SP: REAL := 0.0001; // Pressure below which the HV signal may turn o
     END_STRUCT
     END_TYPE
+
+
 
 
 ST_PressureSensor
@@ -149,6 +159,8 @@ ST_PressureSensor
 
     END_STRUCT
     END_TYPE
+
+
 
 
 ST_VGP
@@ -292,6 +304,10 @@ ST_VGP
     END_TYPE
 
 
+Related:
+    * `E_MoveState`_
+
+
 GVLs
 ----
 
@@ -383,6 +399,8 @@ GVL_GMD
     fb_EM1K0_GMD_VRO_40 : FB_VVC;
 
     END_VAR
+
+
 
 
 GVL_INJ
@@ -490,6 +508,13 @@ GVL_INJ
     END_VAR
 
 
+Related:
+    * `FB_HighVoltage`_
+    * `FB_PressureTransducer`_
+    * `FB_RTD`_
+    * `FB_VGP`_
+
+
 GVL_VAC_INTF
 ^^^^^^^^^^^^
 
@@ -498,6 +523,8 @@ GVL_VAC_INTF
     VAR_GLOBAL
     	ads_watch_dog	:	FB_ADS_WATCHDOG;
     END_VAR
+
+
 
 
 GVL_VARIABLES
@@ -537,6 +564,10 @@ GVL_VARIABLES
     END_VAR
 
 
+Related:
+    * `E_GasType`_
+
+
 POUs
 ----
 
@@ -559,6 +590,10 @@ F_HV_ILK
     END_FUNCTION
 
 
+Related:
+    * `ST_HV`_
+
+
 F_TURBO_PROT_SLND_ILK
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -579,6 +614,8 @@ F_TURBO_PROT_SLND_ILK
     							AND (i_Turbo.eState = pumpRUNNING);
 
     END_FUNCTION
+
+
 
 
 F_TurboGateValve_Protection_ILK_local
@@ -612,6 +649,8 @@ F_TurboGateValve_Protection_ILK_local
     END_FUNCTION
 
 
+
+
 FB_HighVoltage
 ^^^^^^^^^^^^^^
 
@@ -639,6 +678,10 @@ FB_HighVoltage
     hv.q_HV_DO := q_HV_DO;
 
     END_FUNCTION_BLOCK
+
+
+Related:
+    * `ST_HV`_
 
 
 FB_PressureTransducer
@@ -699,6 +742,10 @@ FB_PressureTransducer
     END_ACTION
 
 
+Related:
+    * `ST_PressureSensor`_
+
+
 FB_RTD
 ^^^^^^
 
@@ -741,6 +788,8 @@ FB_RTD
     fTemp := INT_TO_LREAL(iRaw) / iScale;
 
     END_FUNCTION_BLOCK
+
+
 
 
 FB_VGP
@@ -1437,6 +1486,11 @@ FB_VGP
     END_ACTION
 
 
+Related:
+    * `E_HomeState`_
+    * `ST_VGP`_
+
+
 MAIN
 ^^^^
 
@@ -1470,6 +1524,18 @@ MAIN
     fbLogHandler();
 
     END_PROGRAM
+
+
+Related:
+    * `PRG_DIAGNOSTIC`_
+    * `PRG_GMD`_
+    * `PRG_Gas_Selection`_
+    * `PRG_HV_ILK`_
+    * `PRG_INJ`_
+    * `PRG_PressureControl`_
+    * `PRG_Purge`_
+    * `PRG_VAC_INTF`_
+    * `PRG_VGP`_
 
 
 PRG_DIAGNOSTIC
@@ -1512,6 +1578,8 @@ PRG_DIAGNOSTIC
     plcInfo := CONCAT(plcName, plcLocalTime);
 
     END_PROGRAM
+
+
 
 
 PRG_Gas_Selection
@@ -1578,6 +1646,10 @@ PRG_Gas_Selection
     /// vcn and vgp on manual or auto??
 
     END_PROGRAM
+
+
+Related:
+    * `E_GasType`_
 
 
 PRG_GMD
@@ -1732,6 +1804,11 @@ PRG_GMD
     END_PROGRAM
 
 
+Related:
+    * `F_TURBO_PROT_SLND_ILK`_
+    * `F_TurboGateValve_Protection_ILK_local`_
+
+
 PRG_HV_ILK
 ^^^^^^^^^^
 
@@ -1750,6 +1827,10 @@ PRG_HV_ILK
     );
 
     END_PROGRAM
+
+
+Related:
+    * `F_HV_ILK`_
 
 
 PRG_INJ
@@ -1800,6 +1881,8 @@ PRG_INJ
     RTD();
 
     END_PROGRAM
+
+
 
 
 PRG_PressureControl
@@ -1981,6 +2064,8 @@ PRG_PressureControl
     END_PROGRAM
 
 
+
+
 PRG_Purge
 ^^^^^^^^^
 
@@ -2068,6 +2153,7 @@ PRG_Purge
     		sMessage:= 'Purge Ready';
     		bError:=FALSE;
     		bPurgeActive := FALSE;
+    		VCN_40.i_xPurge := FALSE;
     		IF (bStartPurge_sw) Then
     			step:=10;
     			bGo :=FALSE;
@@ -2169,6 +2255,7 @@ PRG_Purge
 
     60: //BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
     	VCN_40.M_ValveControl(E_VCN.PressureControl);
+    	VCN_40.i_xPurge := TRUE;
     	VCN_40.i_ReqPos := 15;
     	sMessage:= 'VCN Burp: VCN to 15%';
     	// wait for a period of time to ensure that the Valve is fully closed
@@ -2177,6 +2264,7 @@ PRG_Purge
     	END_IF
     	
     61:
+    	VCN_40.i_xPurge := TRUE;
     	VCN_40.i_ReqPos := 19; 
     	sMessage:= 'VCN Burp: VCN to 19%';
     	IF (VCN_Timer.Q) THEN
@@ -2184,6 +2272,7 @@ PRG_Purge
     	END_IF
     	
     62:	//BURP NEEDLE VALVE: Once the manifold is pumped down, open the needle valve (burp) to evacuate gases that may be trapped in its mechanism
+    	VCN_40.i_xPurge := TRUE;
     	VCN_40.i_ReqPos := 25;
     	sMessage:= 'VCN Burp: VCN to 25%';
     	// wait for a period of time to ensure that the Valve is fully closed
@@ -2192,6 +2281,7 @@ PRG_Purge
     	END_IF
     	
     63:
+    	VCN_40.i_xPurge := TRUE;
     	VCN_40.i_ReqPos := 31; 
     	sMessage:= 'VCN Burp: VCN to 31%';
     	IF (VCN_Timer.Q) THEN
@@ -2199,6 +2289,7 @@ PRG_Purge
     	END_IF	
     	
     64: 
+    	VCN_40.i_xPurge := TRUE;
     	VCN_40.i_ReqPos := 39; 
     	sMessage:= 'VCN Burp: VCN to 39%';
     	IF (NeedleVlvPurgeTmr.Q) THEN
@@ -2206,6 +2297,7 @@ PRG_Purge
     	END_IF
     	
     65: 
+    	VCN_40.i_xPurge := TRUE;
     	VCN_40.i_ReqPos := 49; 
     	sMessage:= 'VCN Burp: VCN to 49%';
     	IF (VCN_Timer.Q) THEN
@@ -2213,6 +2305,7 @@ PRG_Purge
     	END_IF
     	
     66: 
+    	VCN_40.i_xPurge := TRUE;
     	VCN_40.i_ReqPos := 62; 
     	sMessage:= 'VCN Burp: VCN to 62%';
     	IF (NeedleVlvPurgeTmr.Q) THEN
@@ -2220,6 +2313,7 @@ PRG_Purge
     	END_IF
     	
     67: 
+    	VCN_40.i_xPurge := TRUE;
     	VCN_40.i_ReqPos := 78; 
     	sMessage:= 'VCN Burp: VCN to 78%';
     	IF (VCN_Timer.Q) THEN
@@ -2227,6 +2321,7 @@ PRG_Purge
     	END_IF
 
     68: 
+    	VCN_40.i_xPurge := TRUE;
     	VCN_40.i_ReqPos := 100; 
     	sMessage:= 'VCN Burp: VCN to 100%';
     	IF (NeedleVlvPurgeTmr.Q) THEN
@@ -2286,6 +2381,7 @@ PRG_Purge
     	VVC_84.M_Set_OPN_SW(false);
     	VVC_85.M_Set_OPN_SW(false);
     	VVC_86.M_Set_OPN_SW(false);
+    	VCN_40.i_xPurge := FALSE;
     	VCN_40.M_ValveControl(E_VCN.CloseValve);
     	VGP_40.M_ValveControl(E_VCN.ManualControl); 
     	// reset selected gas to none
@@ -2304,6 +2400,7 @@ PRG_Purge
     	VVC_84.M_Set_OPN_SW(false);
     	VVC_85.M_Set_OPN_SW(false);
     	VVC_86.M_Set_OPN_SW(false);
+    	VCN_40.i_xPurge := FALSE;
     	VCN_40.M_ValveControl(E_VCN.CloseValve);
     	VGP_40.M_ValveControl(E_VCN.ManualControl); // CLOSE or OPEN to pump down
     	sMessage:= 'Purge Error: Interlock';
@@ -2359,7 +2456,17 @@ PRG_Purge
     		step:=900;
     END_IF
 
+    //Extra purge interlock
+    IF (VVC_83.M_IsOpen()) OR  (VVC_84.M_IsOpen()) OR (VVC_85.M_IsOpen()) OR  (VVC_86.M_IsOpen()) THEN
+    	VCN_40.i_xPurge := FALSE;
+    END_IF
+
     END_PROGRAM
+
+
+Related:
+    * `E_GasType`_
+    * `E_MoveState`_
 
 
 PRG_VAC_INTF
@@ -2377,6 +2484,10 @@ PRG_VAC_INTF
     );
 
     END_PROGRAM
+
+
+Related:
+    * `GVL_VAC_INTF`_
 
 
 PRG_VGP
@@ -2428,4 +2539,6 @@ PRG_VGP
     	q_stVGP=> );
 
     END_PROGRAM
+
+
 

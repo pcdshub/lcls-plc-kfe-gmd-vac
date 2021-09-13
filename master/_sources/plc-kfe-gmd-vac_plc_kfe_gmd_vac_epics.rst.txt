@@ -1293,7 +1293,7 @@ LCLS_General.ST_PendingEvent
       - | io: input
 
 
-                                        
+                                                
 LCLS_Vacuum.FB_EbaraEVA
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1424,6 +1424,28 @@ LCLS_Vacuum.FB_GCM
         | io: input
 
 
+    * - $(PREFIX):Auto_On
+      - bo
+      - $(SYMBOL).PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX):Auto_On_RBV
+      - bi
+      - $(SYMBOL).PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX):AutoOn_timer_RBV
+      - longin
+      - $(SYMBOL).PG.iAutoOnTimer
+      - | io: input
+
+
     * - $(PREFIX):DISC_ACTIVE_RBV
       - bi
       - $(SYMBOL).PG.i_xDisc_Active
@@ -1562,9 +1584,9 @@ LCLS_Vacuum.FB_GCM
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -1610,6 +1632,28 @@ LCLS_Vacuum.FB_MKS317
         | io: input
 
 
+    * - $(PREFIX):Auto_On
+      - bo
+      - $(SYMBOL).PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX):Auto_On_RBV
+      - bi
+      - $(SYMBOL).PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX):AutoOn_timer_RBV
+      - longin
+      - $(SYMBOL).PG.iAutoOnTimer
+      - | io: input
+
+
     * - $(PREFIX):DISC_ACTIVE_RBV
       - bi
       - $(SYMBOL).PG.i_xDisc_Active
@@ -1748,9 +1792,9 @@ LCLS_Vacuum.FB_MKS317
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -1794,6 +1838,28 @@ LCLS_Vacuum.FB_MKS422
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - $(PREFIX):Auto_On
+      - bo
+      - $(SYMBOL).IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX):Auto_On_RBV
+      - bi
+      - $(SYMBOL).IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX):AutoOn_timer_RBV
+      - longin
+      - $(SYMBOL).IG.iAutoOnTimer
+      - | io: input
 
 
     * - $(PREFIX):DISC_ACTIVE_RBV
@@ -1934,9 +2000,9 @@ LCLS_Vacuum.FB_MKS422
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -3228,6 +3294,28 @@ LCLS_Vacuum.ST_VG
         | io: input
 
 
+    * - $(PREFIX):Auto_On
+      - bo
+      - $(SYMBOL).xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX):Auto_On_RBV
+      - bi
+      - $(SYMBOL).xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX):AutoOn_timer_RBV
+      - longin
+      - $(SYMBOL).iAutoOnTimer
+      - | io: input
+
+
     * - $(PREFIX):DISC_ACTIVE_RBV
       - bi
       - $(SYMBOL).i_xDisc_Active
@@ -3366,9 +3454,9 @@ LCLS_Vacuum.ST_VG
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -3685,13 +3773,6 @@ PMPS.ST_BeamParams
         | io: input
 
 
-    * - $(PREFIX):PulseEnergy_RBV
-      - ai
-      - This beam parameter is non-op for now.
-      - | field: EGU mJ
-        | io: input
-
-
     * - $(PREFIX):Rate_RBV
       - longin
       - $(SYMBOL).nRate
@@ -3699,22 +3780,24 @@ PMPS.ST_BeamParams
         | io: input
 
 
-    * - $(PREFIX):ST_RBV
-      - waveform
-      - $(SYMBOL).aStoppers
-      - | io: input
-
-
     * - $(PREFIX):Transmission_RBV
-      - longin
+      - ai
       - $(SYMBOL).nTran
-      - | field: EGU %
+      - | field: HOPR 1
+        | field: LOPR 0
+        | field: PREC 2
         | io: input
 
 
     * - $(PREFIX):Valid_RBV
       - bi
       - $(SYMBOL).xValid
+      - | io: input
+
+
+    * - $(PREFIX):Veto_RBV
+      - waveform
+      - $(SYMBOL).aVetoDevices
       - | io: input
 
 
@@ -4200,7 +4283,7 @@ ST_VGP
         | type: mbbi
 
 
-                                                                                            
+                                                                                               
 Database Records
 ----------------
 
@@ -4227,14 +4310,6 @@ Database Records
         | io: input
 
 
-    * - $(PREFIX)0RateBeamCnst:PulseEnergy_RBV
-      - ai
-      - This beam parameter is non-op for now.
-      - | archive: 1s monitor
-        | field: EGU mJ
-        | io: input
-
-
     * - $(PREFIX)0RateBeamCnst:Rate_RBV
       - longin
       - 0-rate beam constant
@@ -4243,23 +4318,25 @@ Database Records
         | io: input
 
 
-    * - $(PREFIX)0RateBeamCnst:ST_RBV
-      - waveform
-      - 0-rate beam constant
-      - | archive: 1s monitor
-        | io: input
-
-
     * - $(PREFIX)0RateBeamCnst:Transmission_RBV
-      - longin
+      - ai
       - 0-rate beam constant
       - | archive: 1s monitor
-        | field: EGU %
+        | field: HOPR 1
+        | field: LOPR 0
+        | field: PREC 2
         | io: input
 
 
     * - $(PREFIX)0RateBeamCnst:Valid_RBV
       - bi
+      - 0-rate beam constant
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:Veto_RBV
+      - waveform
       - 0-rate beam constant
       - | archive: 1s monitor
         | io: input
@@ -4286,14 +4363,6 @@ Database Records
         | io: input
 
 
-    * - $(PREFIX)CurrentBP:PulseEnergy_RBV
-      - ai
-      - This beam parameter is non-op for now.
-      - | archive: 1s monitor
-        | field: EGU mJ
-        | io: input
-
-
     * - $(PREFIX)CurrentBP:Rate_RBV
       - longin
       - PMPS_GVL.stCurrentBeamParameters.nRate
@@ -4302,24 +4371,26 @@ Database Records
         | io: input
 
 
-    * - $(PREFIX)CurrentBP:ST_RBV
-      - waveform
-      - PMPS_GVL.stCurrentBeamParameters.aStoppers
-      - | archive: 1s monitor
-        | io: input
-
-
     * - $(PREFIX)CurrentBP:Transmission_RBV
-      - longin
+      - ai
       - PMPS_GVL.stCurrentBeamParameters.nTran
       - | archive: 1s monitor
-        | field: EGU %
+        | field: HOPR 1
+        | field: LOPR 0
+        | field: PREC 2
         | io: input
 
 
     * - $(PREFIX)CurrentBP:Valid_RBV
       - bi
       - PMPS_GVL.stCurrentBeamParameters.xValid
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)CurrentBP:Veto_RBV
+      - waveform
+      - PMPS_GVL.stCurrentBeamParameters.aVetoDevices
       - | archive: 1s monitor
         | io: input
 
@@ -4355,14 +4426,6 @@ Database Records
         | io: input
 
 
-    * - $(PREFIX)FullBeamCnst:PulseEnergy_RBV
-      - ai
-      - This beam parameter is non-op for now.
-      - | archive: 1s monitor
-        | field: EGU mJ
-        | io: input
-
-
     * - $(PREFIX)FullBeamCnst:Rate_RBV
       - longin
       - Full beam constant
@@ -4371,23 +4434,25 @@ Database Records
         | io: input
 
 
-    * - $(PREFIX)FullBeamCnst:ST_RBV
-      - waveform
-      - Full beam constant
-      - | archive: 1s monitor
-        | io: input
-
-
     * - $(PREFIX)FullBeamCnst:Transmission_RBV
-      - longin
+      - ai
       - Full beam constant
       - | archive: 1s monitor
-        | field: EGU %
+        | field: HOPR 1
+        | field: LOPR 0
+        | field: PREC 2
         | io: input
 
 
     * - $(PREFIX)FullBeamCnst:Valid_RBV
       - bi
+      - Full beam constant
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)FullBeamCnst:Veto_RBV
+      - waveform
       - Full beam constant
       - | archive: 1s monitor
         | io: input
@@ -4460,14 +4525,6 @@ Database Records
         | io: input
 
 
-    * - $(PREFIX)RequestedBP:PulseEnergy_RBV
-      - ai
-      - This beam parameter is non-op for now.
-      - | archive: 1s monitor
-        | field: EGU mJ
-        | io: input
-
-
     * - $(PREFIX)RequestedBP:Rate_RBV
       - longin
       - PMPS_GVL.stRequestedBeamParameters.nRate
@@ -4476,24 +4533,26 @@ Database Records
         | io: input
 
 
-    * - $(PREFIX)RequestedBP:ST_RBV
-      - waveform
-      - PMPS_GVL.stRequestedBeamParameters.aStoppers
-      - | archive: 1s monitor
-        | io: input
-
-
     * - $(PREFIX)RequestedBP:Transmission_RBV
-      - longin
+      - ai
       - PMPS_GVL.stRequestedBeamParameters.nTran
       - | archive: 1s monitor
-        | field: EGU %
+        | field: HOPR 1
+        | field: LOPR 0
+        | field: PREC 2
         | io: input
 
 
     * - $(PREFIX)RequestedBP:Valid_RBV
       - bi
       - PMPS_GVL.stRequestedBeamParameters.xValid
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)RequestedBP:Veto_RBV
+      - waveform
+      - PMPS_GVL.stRequestedBeamParameters.aVetoDevices
       - | archive: 1s monitor
         | io: input
 
@@ -4513,14 +4572,6 @@ Database Records
         | io: input
 
 
-    * - $(PREFIX)SafeBeamCnst:PulseEnergy_RBV
-      - ai
-      - This beam parameter is non-op for now.
-      - | archive: 1s monitor
-        | field: EGU mJ
-        | io: input
-
-
     * - $(PREFIX)SafeBeamCnst:Rate_RBV
       - longin
       - Safe beam constant
@@ -4529,23 +4580,25 @@ Database Records
         | io: input
 
 
-    * - $(PREFIX)SafeBeamCnst:ST_RBV
-      - waveform
-      - Safe beam constant
-      - | archive: 1s monitor
-        | io: input
-
-
     * - $(PREFIX)SafeBeamCnst:Transmission_RBV
-      - longin
+      - ai
       - Safe beam constant
       - | archive: 1s monitor
-        | field: EGU %
+        | field: HOPR 1
+        | field: LOPR 0
+        | field: PREC 2
         | io: input
 
 
     * - $(PREFIX)SafeBeamCnst:Valid_RBV
       - bi
+      - Safe beam constant
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)SafeBeamCnst:Veto_RBV
+      - waveform
       - Safe beam constant
       - | archive: 1s monitor
         | io: input
@@ -4705,6 +4758,28 @@ Database Records
         | io: input
 
 
+    * - EM1K0:GMD:GCC:10:Auto_On
+      - bo
+      - GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:10:Auto_On_RBV
+      - bi
+      - GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:10:AutoOn_timer_RBV
+      - longin
+      - GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.iAutoOnTimer
+      - | io: input
+
+
     * - EM1K0:GMD:GCC:10:DISC_ACTIVE_RBV
       - bi
       - GVL_GMD.fb_EM1K0_GMD_GCC_10.IG.i_xDisc_Active
@@ -4843,9 +4918,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -4877,6 +4952,28 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - EM1K0:GMD:GCC:20:Auto_On
+      - bo
+      - GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:20:Auto_On_RBV
+      - bi
+      - GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:20:AutoOn_timer_RBV
+      - longin
+      - GVL_GMD.fb_EM1K0_GMD_GCC_20.IG.iAutoOnTimer
+      - | io: input
 
 
     * - EM1K0:GMD:GCC:20:DISC_ACTIVE_RBV
@@ -5017,9 +5114,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -5051,6 +5148,28 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - EM1K0:GMD:GCC:30:Auto_On
+      - bo
+      - GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:30:Auto_On_RBV
+      - bi
+      - GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:30:AutoOn_timer_RBV
+      - longin
+      - GVL_GMD.fb_EM1K0_GMD_GCC_30.IG.iAutoOnTimer
+      - | io: input
 
 
     * - EM1K0:GMD:GCC:30:DISC_ACTIVE_RBV
@@ -5191,9 +5310,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -5225,6 +5344,28 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - EM1K0:GMD:GCC:40:Auto_On
+      - bo
+      - GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:40:Auto_On_RBV
+      - bi
+      - GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:40:AutoOn_timer_RBV
+      - longin
+      - GVL_GMD.fb_EM1K0_GMD_GCC_40.IG.iAutoOnTimer
+      - | io: input
 
 
     * - EM1K0:GMD:GCC:40:DISC_ACTIVE_RBV
@@ -5365,9 +5506,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -5399,6 +5540,28 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - EM1K0:GMD:GCC:50:Auto_On
+      - bo
+      - GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:50:Auto_On_RBV
+      - bi
+      - GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:50:AutoOn_timer_RBV
+      - longin
+      - GVL_GMD.fb_EM1K0_GMD_GCC_50.IG.iAutoOnTimer
+      - | io: input
 
 
     * - EM1K0:GMD:GCC:50:DISC_ACTIVE_RBV
@@ -5539,9 +5702,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -5573,6 +5736,28 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - EM1K0:GMD:GCC:60:Auto_On
+      - bo
+      - GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:60:Auto_On_RBV
+      - bi
+      - GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:60:AutoOn_timer_RBV
+      - longin
+      - GVL_GMD.fb_EM1K0_GMD_GCC_60.IG.iAutoOnTimer
+      - | io: input
 
 
     * - EM1K0:GMD:GCC:60:DISC_ACTIVE_RBV
@@ -5713,9 +5898,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -5747,6 +5932,28 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - EM1K0:GMD:GCC:70:Auto_On
+      - bo
+      - GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:70:Auto_On_RBV
+      - bi
+      - GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCC:70:AutoOn_timer_RBV
+      - longin
+      - GVL_GMD.fb_EM1K0_GMD_GCC_70.IG.iAutoOnTimer
+      - | io: input
 
 
     * - EM1K0:GMD:GCC:70:DISC_ACTIVE_RBV
@@ -5887,9 +6094,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -5921,6 +6128,28 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - EM1K0:GMD:GCM:80:Auto_On
+      - bo
+      - GVL_INJ.GCM_80.PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCM:80:Auto_On_RBV
+      - bi
+      - GVL_INJ.GCM_80.PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCM:80:AutoOn_timer_RBV
+      - longin
+      - GVL_INJ.GCM_80.PG.iAutoOnTimer
+      - | io: input
 
 
     * - EM1K0:GMD:GCM:80:DISC_ACTIVE_RBV
@@ -6061,9 +6290,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -6095,6 +6324,28 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - EM1K0:GMD:GCP:40:Auto_On
+      - bo
+      - GVL_INJ.GCP.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:Auto_On_RBV
+      - bi
+      - GVL_INJ.GCP.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GCP:40:AutoOn_timer_RBV
+      - longin
+      - GVL_INJ.GCP.iAutoOnTimer
+      - | io: input
 
 
     * - EM1K0:GMD:GCP:40:DISC_ACTIVE_RBV
@@ -6235,9 +6486,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -6543,6 +6794,28 @@ Database Records
         | io: input
 
 
+    * - EM1K0:GMD:GPI:10:Auto_On
+      - bo
+      - GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GPI:10:Auto_On_RBV
+      - bi
+      - GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GPI:10:AutoOn_timer_RBV
+      - longin
+      - GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.iAutoOnTimer
+      - | io: input
+
+
     * - EM1K0:GMD:GPI:10:DISC_ACTIVE_RBV
       - bi
       - GVL_GMD.fb_EM1K0_GMD_GPI_10.PG.i_xDisc_Active
@@ -6681,9 +6954,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -6715,6 +6988,28 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - EM1K0:GMD:GPI:40:Auto_On
+      - bo
+      - GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GPI:40:Auto_On_RBV
+      - bi
+      - GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GPI:40:AutoOn_timer_RBV
+      - longin
+      - GVL_GMD.fb_EM1K0_GMD_GPI_40.PG.iAutoOnTimer
+      - | io: input
 
 
     * - EM1K0:GMD:GPI:40:DISC_ACTIVE_RBV
@@ -6855,9 +7150,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
@@ -6889,6 +7184,28 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - EM1K0:GMD:GPI:70:Auto_On
+      - bo
+      - GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GPI:70:Auto_On_RBV
+      - bi
+      - GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.xAutoOn
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - EM1K0:GMD:GPI:70:AutoOn_timer_RBV
+      - longin
+      - GVL_GMD.fb_EM1K0_GMD_GPI_70.PG.iAutoOnTimer
+      - | io: input
 
 
     * - EM1K0:GMD:GPI:70:DISC_ACTIVE_RBV
@@ -7029,9 +7346,9 @@ Database Records
         | field: ONST GaugeDisconnected
         | field: SVST ValidLo
         | field: SXST ValidHi
-        | field: THST Off
+        | field: THST PressInvalid
         | field: TWST OoR
-        | field: ZRST PressInvalid
+        | field: ZRST Off
         | io: input
 
 
