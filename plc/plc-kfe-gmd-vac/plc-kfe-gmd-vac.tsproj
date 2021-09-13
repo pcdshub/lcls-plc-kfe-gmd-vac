@@ -1873,13 +1873,6 @@ External Setpoint Generation:
 							<Type>UINT</Type>
 						</Var>
 						<Var>
-							<Name>GVL_INJ.GCM_80.i_iPRESS_R</Name>
-							<Comment>
-								<![CDATA[ input Pressure // Link to analog Input]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
 							<Name>GVL_INJ.GFM_86.iError</Name>
 							<Comment>
 								<![CDATA[ Link to terminal diagnostics]]>
@@ -1949,27 +1942,6 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL_INJ.RTD.iRaw</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_GPI_10.i_iPRESS_R</Name>
-							<Comment>
-								<![CDATA[ input Pressure // Link to analog Input]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_GPI_40.i_iPRESS_R</Name>
-							<Comment>
-								<![CDATA[ input Pressure // Link to analog Input]]>
-							</Comment>
-							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_GPI_70.i_iPRESS_R</Name>
-							<Comment>
-								<![CDATA[ input Pressure // Link to analog Input]]>
-							</Comment>
 							<Type>INT</Type>
 						</Var>
 						<Var>
@@ -2137,6 +2109,48 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xAlarmOK</Name>
+							<Comment>
+								<![CDATA[ Normally closed Alarm bit]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xIsRun</Name>
+							<Comment>
+								<![CDATA[ Input status]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_INJ.GCM_80.i_iPRESS_R</Name>
+							<Comment>
+								<![CDATA[ input Pressure // Link to analog Input]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_GPI_10.i_iPRESS_R</Name>
+							<Comment>
+								<![CDATA[ input Pressure // Link to analog Input]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_GPI_40.i_iPRESS_R</Name>
+							<Comment>
+								<![CDATA[ input Pressure // Link to analog Input]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_GPI_70.i_iPRESS_R</Name>
+							<Comment>
+								<![CDATA[ input Pressure // Link to analog Input]]>
+							</Comment>
+							<Type>INT</Type>
+						</Var>
+						<Var>
 							<Name>GVL_GMD.fb_EM1K0_GMD_GCC_10.i_iPRESS_R</Name>
 							<Comment>
 								<![CDATA[ Controls and I/Os]]>
@@ -2184,20 +2198,6 @@ External Setpoint Generation:
 								<![CDATA[ Controls and I/Os]]>
 							</Comment>
 							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xAlarmOK</Name>
-							<Comment>
-								<![CDATA[ Normally closed Alarm bit]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.i_xIsRun</Name>
-							<Comment>
-								<![CDATA[ Input status]]>
-							</Comment>
-							<Type>BOOL</Type>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
@@ -2345,6 +2345,41 @@ IO]]>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRunDo</Name>
+							<Comment>
+								<![CDATA[ Output signal]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRemote</Name>
+							<Comment>
+								<![CDATA[ Remote/Local Control]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xResetAlarm</Name>
+							<Comment>
+								<![CDATA[ Remote/Local Control]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_VVC_40.q_xOPN_DO</Name>
+							<Comment>
+								<![CDATA[IO]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_GMD.fb_EM1K0_GMD_VRO_40.q_xOPN_DO</Name>
+							<Comment>
+								<![CDATA[IO]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>GVL_GMD.fb_EM1K0_GMD_GCC_10.q_xHV_DIS</Name>
 							<Comment>
 								<![CDATA[ Disable Gauge High Voltage when True // 'TcLinkTo' (EL2794) ^Output]]>
@@ -2390,41 +2425,6 @@ IO]]>
 							<Name>GVL_GMD.fb_EM1K0_GMD_GCC_70.q_xHV_DIS</Name>
 							<Comment>
 								<![CDATA[ Disable Gauge High Voltage when True // 'TcLinkTo' (EL2794) ^Output]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRunDo</Name>
-							<Comment>
-								<![CDATA[ Output signal]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xRemote</Name>
-							<Comment>
-								<![CDATA[ Remote/Local Control]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_PRT_40.q_xResetAlarm</Name>
-							<Comment>
-								<![CDATA[ Remote/Local Control]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_VVC_40.q_xOPN_DO</Name>
-							<Comment>
-								<![CDATA[IO]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_GMD.fb_EM1K0_GMD_VRO_40.q_xOPN_DO</Name>
-							<Comment>
-								<![CDATA[IO]]>
 							</Comment>
 							<Type>BOOL</Type>
 						</Var>
