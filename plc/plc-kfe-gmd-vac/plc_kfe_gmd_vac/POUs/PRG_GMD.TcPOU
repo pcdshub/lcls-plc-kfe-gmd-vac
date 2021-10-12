@@ -121,6 +121,11 @@ fb_EM1K0_GMD_GCC_50(PG := fb_EM1K0_GMD_GPI_40.PG);
 fb_EM1K0_GMD_GCC_60(PG := fb_EM1K0_GMD_GPI_40.PG);
 fb_EM1K0_GMD_GCC_70(PG := fb_EM1K0_GMD_GPI_40.PG);
 
+
+// Hot Cathode Gauge 
+fb_EM1K0_GMD_GHC_40(PG := fb_EM1K0_GMD_GPI_40.PG);
+
+
 // FB_EbaraEVA
 
 fb_EM1K0_GMD_PRT_40(i_xExtIlkOK := TRUE);
@@ -150,5 +155,14 @@ fb_EM1K0_GMD_VRO_40(i_xExtILK_OK:= (fb_EM1K0_GMD_PRT_40.stPump.eState = pumpRUNN
 
 ]]></ST>
     </Implementation>
+    <LineIds Name="PRG_GMD">
+      <LineId Id="3" Count="111" />
+      <LineId Id="148" Count="1" />
+      <LineId Id="115" Count="0" />
+      <LineId Id="151" Count="1" />
+      <LineId Id="150" Count="0" />
+      <LineId Id="116" Count="26" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
