@@ -398,6 +398,13 @@ GVL_GMD
     {attribute 'TcLinkTo' := 	'.q_xOPN_DO	:=	TIIB[EL2212_03_09]^DOX Control Channel 2^Control^Output'}
     fb_EM1K0_GMD_VRO_40 : FB_VVC;
 
+    // Hot Cathode gauge
+    {attribute 'pytmc' := ' pv: EM1K0:GMD:GHC:40 '}
+    {attribute 'TcLinkTo' := 	'.q_xHV_DIS	:=	TIIB[EL2794_03_01]^Channel 1^Output;
+                                 .i_iPRESS_R :=	TIIB[EL3068_03_02]^AI Standard Channel 1^Value '}
+    fb_EM1K0_GMD_GHC_40 : FB_MKS_937b;
+
+
     END_VAR
 
 
@@ -1773,6 +1780,11 @@ PRG_GMD
     fb_EM1K0_GMD_GCC_50(PG := fb_EM1K0_GMD_GPI_40.PG);
     fb_EM1K0_GMD_GCC_60(PG := fb_EM1K0_GMD_GPI_40.PG);
     fb_EM1K0_GMD_GCC_70(PG := fb_EM1K0_GMD_GPI_40.PG);
+
+
+    // Hot Cathode Gauge 
+    fb_EM1K0_GMD_GHC_40(PG := fb_EM1K0_GMD_GPI_40.PG);
+
 
     // FB_EbaraEVA
 
