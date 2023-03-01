@@ -744,6 +744,7 @@ FB_PressureTransducer
       ACT_IO();
 
     END_FUNCTION_BLOCK
+
     ACTION ACT_IO:
     Sensor.iPRESS_R := i_iPRESS_R;
     END_ACTION
@@ -954,6 +955,7 @@ FB_VGP
     ACT_MONITOR();
 
     END_FUNCTION_BLOCK
+
     ACTION ACT_AXIS:
     //update the axis status
     AXIS();
@@ -1184,6 +1186,7 @@ FB_VGP
 
     This^.q_stVGP.xBusy := (NOT(q_stVGP.eState = READY) AND (HomeState = H_READY));
     END_ACTION
+
     ACTION ACT_HOME:
     CASE HomeState OF
     	H_READY:
@@ -1351,6 +1354,7 @@ FB_VGP
     	q_stVGP.eState := ERROR;
     END_IF
     END_ACTION
+
     ACTION ACT_INIT:
     {attribute no_check}
     IF bInit THEN
@@ -1424,6 +1428,7 @@ FB_VGP
     	
     END_IF;
     END_ACTION
+
     ACTION ACT_LIN_INTERPOLATION:
     {attribute 'no_check'}
     fbCTRL_LIN_INTERPOLATION(
@@ -1457,6 +1462,7 @@ FB_VGP
     	stParams:= stCTRL_LIN_INTERPOLATION_PARAMS_ENC );
     q_stVGP.i_iPosition := LREAL_TO_REAL(fbCTRL_LIN_INTERPOLATION_ENC.fOut);
     END_ACTION
+
     ACTION ACT_MONITOR:
     IF (This^.q_stVGP.xBusy) THEN
     	rPrevEncoderPosition:= This^.q_stVGP.rEnoder_Position;
@@ -1491,6 +1497,121 @@ FB_VGP
     	  ePrevState := q_stVGP.eValveControl;  
       END_IF
     END_ACTION
+
+    METHOD ConfigEncoder : BOOL
+    VAR_INPUT
+    	EncoderMax: REAl; // Maximum encoder reading from fully closed to fully open
+    	invert: Bool; // Invert Encoder Counting Direction
+    END_VAR
+    VAR
+    	fbWriteParameter1: MC_WriteBoolParameter;
+    END_VAR
+    rOpenPosition := EncoderMax;
+
+    // fEncScaleFactor  -  AxisEncoderScalingFactor
+     
+    // bEncIsInverse  -              
+    if (invert) THEN
+    	fbWriteParameter1.ParameterNumber :=  MC_AxisParameter.AxisEncoderDirectionInverse;
+    	fbWriteParameter1.Value := True;
+    END_IF
+
+    // Write Parameters
+    fbWriteParameter1(
+    	Axis:= Axis , 
+    	Execute:= , 
+    	ParameterNumber:= , 
+    	Value:= , 
+    	Done=> , 
+    	Busy=> , 
+    	Error=> , 
+    	ErrorID=> );
+    END_METHOD
+
+    METHOD M_INIT : BOOL
+    VAR_INPUT
+    	arrTable	: ARRAY[1..14,1..2] OF FLOAT;
+    	arrTable_ENC : ARRAY[1..14,1..2] OF FLOAT;
+    END_VAR
+    (* init array with the interpolation points  *)
+    	(* 	fIn					 |		fOut		*)
+    	arrTable[1,1] := 0;			arrTable[1,2] := 0;
+    	arrTable[2,1] := 5;		    arrTable[2,2] := 135;
+    	arrTable[3,1] := 10;		arrTable[3,2] := 245;
+    	arrTable[4,1] :=  20;	    arrTable[4,2] := 405;
+    	arrTable[5,1] :=  30;	    arrTable[5,2] := 535;
+    	arrTable[6,1] := 40;		arrTable[6,2] := 689;
+    	arrTable[7,1] := 50;		arrTable[7,2] := 830;
+    	arrTable[8,1] := 60;	    arrTable[8,2] := 960;
+    	arrTable[9,1] := 70;	    arrTable[9,2] := 1095;
+    	arrTable[10,1] := 80;		arrTable[10,2] := 1225;
+    	arrTable[11,1] := 90;		arrTable[11,2] := 1415;
+    	arrTable[12,1] := 95;		arrTable[12,2] := 1495;
+    	arrTable[13,1] := 98;		arrTable[13,2] := 1559;
+    	arrTable[14,1] := 100;		arrTable[14,2] := 1645;
+    	
+    	
+    	(* init parameter struct *)
+    	stCTRL_LIN_INTERPOLATION_PARAMS.tCtrlCycleTime					:= T#10ms;
+    	stCTRL_LIN_INTERPOLATION_PARAMS.tTaskCycleTime					:= T#10ms;
+    	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_NumberOfRows		:= INT_TO_UINT(14);
+
+    	(* set the addresses *)
+    	stCTRL_LIN_INTERPOLATION_PARAMS.pDataTable_ADR			:= ADR(arrTable);
+    	stCTRL_LIN_INTERPOLATION_PARAMS.nDataTable_SIZEOF		:= SIZEOF(arrTable);
+
+    	(* set the mode to ACTIVE --> normal operation *)
+    	eMode							:= eCTRL_MODE_ACTIVE;
+    	
+    	
+    	(* init array with the interpolation points  *)
+    	(* 	fIn					 |		fOut		*)
+    	arrTable_ENC[1,1] := 0;			arrTable_ENC[1,2] := 0;
+    	arrTable_ENC[2,1] := 135;		    arrTable_ENC[2,2] := 5;
+    	arrTable_ENC[3,1] := 245;		arrTable_ENC[3,2] := 10;
+    	arrTable_ENC[4,1] :=  405;	    arrTable_ENC[4,2] := 20;
+    	arrTable_ENC[5,1] :=  535;	    arrTable_ENC[5,2] := 30;
+    	arrTable_ENC[6,1] := 689;		arrTable_ENC[6,2] := 40;
+    	arrTable_ENC[7,1] := 830;		arrTable_ENC[7,2] := 50;
+    	arrTable_ENC[8,1] := 960;	    arrTable_ENC[8,2] := 60;
+    	arrTable_ENC[9,1] := 1095;	    arrTable_ENC[9,2] := 70;
+    	arrTable_ENC[10,1] := 1225;		arrTable_ENC[10,2] := 80;
+    	arrTable_ENC[11,1] := 1415;		arrTable_ENC[11,2] := 90;
+    	arrTable_ENC[12,1] := 1495;		arrTable_ENC[12,2] := 95;
+    	arrTable_ENC[13,1] := 1559;		arrTable_ENC[13,2] := 98;
+    	arrTable_ENC[14,1] := 1645;		arrTable_ENC[14,2] := 100;
+    	
+    	
+    	(* init parameter struct *)
+    	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.tCtrlCycleTime					:= T#10ms;
+    	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.tTaskCycleTime					:= T#10ms;
+    	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.nDataTable_NumberOfRows		:= INT_TO_UINT(14);
+
+    	(* set the addresses *)
+    	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.pDataTable_ADR			:= ADR(arrTable_ENC);
+    	stCTRL_LIN_INTERPOLATION_PARAMS_ENC.nDataTable_SIZEOF		:= SIZEOF(arrTable_ENC);
+    END_METHOD
+
+    METHOD M_SetGoSw : BOOL
+    VAR_INPUT
+    	bGo:BOOL;
+    END_VAR
+    q_stVGP.pv_xGo_SW:=bGo;
+    END_METHOD
+
+    METHOD M_ValveControl : BOOL
+    VAR_INPUT
+    	state:E_VCN; // Close, Open, Pressure, Manual
+    END_VAR
+    q_stVGP.eValveControl := state;
+    END_METHOD
+
+    METHOD PUBLIC SetEncoderMax : BOOL
+    VAR_INPUT
+    	EncoderMax: REAl;
+    END_VAR
+    rOpenPosition := EncoderMax;
+    END_METHOD
 
 
 Related:

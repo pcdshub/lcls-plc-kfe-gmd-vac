@@ -7,6 +7,7 @@ plc
 
     plc-kfe-gmd-vac_pragmas
     plc-kfe-gmd-vac_nc
+    plc-kfe-gmd-vac_ethercat
     plc-kfe-gmd-vac_boxes
     plc-kfe-gmd-vac_links
 
@@ -18,14 +19,6 @@ plc
     plc-kfe-gmd-vac_plc_kfe_gmd_vac_summary
     plc-kfe-gmd-vac_plc_kfe_gmd_vac_epics
     plc-kfe-gmd-vac_plc_kfe_gmd_vac_source
-
-.. toctree::
-    :maxdepth: 2
-    :caption: plc_kfe_gmd_vac_sim
-
-    plc-kfe-gmd-vac_plc_kfe_gmd_vac_sim_summary
-    plc-kfe-gmd-vac_plc_kfe_gmd_vac_sim_epics
-    plc-kfe-gmd-vac_plc_kfe_gmd_vac_sim_source
 
 
 
