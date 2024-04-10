@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <DUT Name="E_MoveState" Id="{3c0d4f9f-7faf-4139-8fac-b742d44134cd}">
     <Declaration><![CDATA[TYPE E_MoveState :
 (

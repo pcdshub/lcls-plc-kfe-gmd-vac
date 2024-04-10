@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="FB_HighVoltage" Id="{18f48132-2f8b-4bad-b9a5-e87aec49b8a9}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_HighVoltage
 VAR_INPUT
@@ -25,9 +25,5 @@ q_HV_DO := hv.HV_sw AND hv.xIlkOK;
 (*soft io mapping*)
 hv.q_HV_DO := q_HV_DO;]]></ST>
     </Implementation>
-    <LineIds Name="FB_HighVoltage">
-      <LineId Id="51" Count="5" />
-      <LineId Id="20" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

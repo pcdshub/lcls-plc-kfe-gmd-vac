@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="PRG_DIAGNOSTIC" Id="{d6e7a1ee-1aeb-429b-a7e8-4b912c0cf7c2}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_DIAGNOSTIC
 VAR
@@ -38,9 +38,5 @@ plcName := 'Prototype PLC: ';
 plcInfo := CONCAT(plcName, plcLocalTime);
 ]]></ST>
     </Implementation>
-    <LineIds Name="PRG_DIAGNOSTIC">
-      <LineId Id="20" Count="15" />
-      <LineId Id="5" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
