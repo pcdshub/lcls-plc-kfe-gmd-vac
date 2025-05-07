@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <DUT Name="E_GasType" Id="{e6f93326-faf5-4939-952f-051eed70a044}">
     <Declaration><![CDATA[TYPE E_GasType :
 (

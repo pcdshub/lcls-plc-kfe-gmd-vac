@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <DUT Name="ST_PressureSensor" Id="{e2fd2869-5b3d-4f0f-9bdb-39ae63cd7b05}">
     <Declaration><![CDATA[TYPE ST_PressureSensor :
 STRUCT

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="F_HV_ILK" Id="{8bbc480b-4b4b-4818-b615-4f030274ba2f}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION F_HV_ILK : BOOL
 VAR_INPUT
@@ -13,9 +13,5 @@ END_VAR
       <ST><![CDATA[F_HV_ILK := ((IG.xPRESS_OK = TRUE)
 			AND (IG.rPRESS < HV.rPRO_SP));]]></ST>
     </Implementation>
-    <LineIds Name="F_HV_ILK">
-      <LineId Id="15" Count="0" />
-      <LineId Id="7" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

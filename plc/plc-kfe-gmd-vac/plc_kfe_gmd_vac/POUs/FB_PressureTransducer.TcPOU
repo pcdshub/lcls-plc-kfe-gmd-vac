@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="FB_PressureTransducer" Id="{9872138d-1d57-4ec1-bb67-dc57d4aea08b}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_PressureTransducer
 VAR_OUTPUT
@@ -59,33 +59,5 @@ iCurrent := 20*INT_TO_REAL(Sensor.iPRESS_R)/32767;
         <ST><![CDATA[Sensor.iPRESS_R := i_iPRESS_R;]]></ST>
       </Implementation>
     </Action>
-    <LineIds Name="FB_PressureTransducer">
-      <LineId Id="48" Count="0" />
-      <LineId Id="12" Count="0" />
-      <LineId Id="47" Count="0" />
-      <LineId Id="106" Count="0" />
-      <LineId Id="18" Count="0" />
-      <LineId Id="81" Count="0" />
-      <LineId Id="55" Count="0" />
-      <LineId Id="39" Count="2" />
-      <LineId Id="44" Count="0" />
-      <LineId Id="59" Count="2" />
-      <LineId Id="64" Count="1" />
-      <LineId Id="63" Count="0" />
-      <LineId Id="58" Count="0" />
-      <LineId Id="57" Count="0" />
-      <LineId Id="26" Count="0" />
-      <LineId Id="53" Count="0" />
-      <LineId Id="51" Count="0" />
-      <LineId Id="45" Count="1" />
-      <LineId Id="85" Count="1" />
-      <LineId Id="21" Count="0" />
-      <LineId Id="25" Count="0" />
-      <LineId Id="23" Count="1" />
-      <LineId Id="9" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_PressureTransducer.ACT_IO">
-      <LineId Id="1" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

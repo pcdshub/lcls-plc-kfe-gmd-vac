@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="PRG_VAC_INTF" Id="{03dfdbac-33b6-48d6-ae39-4efb35fad270}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_VAC_INTF
 VAR
@@ -12,9 +12,5 @@ END_VAR
 	sVarName := 'GVL_VAC_INTF.n_EM1K0_VAC_counter', // Full name of the UDINT provided to the 'iWatchdog' parameter in the interface functions on the PLC reading from this PLC 
 );]]></ST>
     </Implementation>
-    <LineIds Name="PRG_VAC_INTF">
-      <LineId Id="8" Count="3" />
-      <LineId Id="5" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
