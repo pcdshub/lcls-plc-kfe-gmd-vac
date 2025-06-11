@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="PRG_HV_ILK" Id="{b7f9d5cf-3c12-4ed0-bda8-0127f560a4d0}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_HV_ILK
 VAR
@@ -16,11 +16,5 @@ hv1(i_xExtIlkOK := F_HV_ILK(
 	HV := hv1.hv)
 );]]></ST>
     </Implementation>
-    <LineIds Name="PRG_HV_ILK">
-      <LineId Id="11" Count="2" />
-      <LineId Id="5" Count="0" />
-      <LineId Id="18" Count="2" />
-      <LineId Id="9" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

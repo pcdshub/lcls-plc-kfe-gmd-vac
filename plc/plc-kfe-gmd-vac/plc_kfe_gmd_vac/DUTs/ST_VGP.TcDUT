@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <DUT Name="ST_VGP" Id="{4bbaa8fe-fc94-469a-8575-48b17c1a966d}">
     <Declaration><![CDATA[TYPE ST_VGP :
 STRUCT
